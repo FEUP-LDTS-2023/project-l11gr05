@@ -17,6 +17,22 @@ This project was developed by Bruno Huang (up202207517@fe.up.pt) and Ricardo Yan
 
 > This section is similar to the previous one but should list the features that are not yet implemented. Instead of screenshots you should include GUI mock-ups for the planned features.
 
+- **Menu** - Upon launching the application, a menu will be displayed presenting "START GAME", "LEADERBOARD", "INSTRUCTIONS" and "EXIT". When player selects "START GAME" it's shown difficulty options for it (e.g. "EASY", "MEDIUM", "HARD").
+- **Player movement** - The game character (Joe) is able to move left or right when corresponding arrow key is pressed.
+- **Player control** - A kid will start to move when Joe is near it (a arrow will appear pointing to the kid) and presses 'z' key, when 'x' key is pressed the kid stops moving.
+- **Kid** - Kids are instantiated in a queue at the right sidewalk of the street and they walk at a defined speed when Joe lets them walk.
+- **Car** - Cars are instantiated in a random road lane at the top side of the street and they traverse the road in a unidirectional downward trajectory, the speed of a car increases by level.
+- **Player collision** - When Joe gets hit by a car, he is projected to either left or right side of the car.
+- **Kid collision** - When a kid is hit, it goes with the car.
+- **Lives** - When a kid is hit by a car, player loses one hp. The amount of hp is decided when player chooses difficulty at the start of the game.
+- **Score** - For every kid passing to the left sidewalk of the street player gets 100 points. If Joe gets hit by a car points are taken (quantity to be determined);
+- **Game over** - When hp reaches 0 game ends.
+- **Leaderboard** - Players score and name are stored in a leaderboard file.
+- **Powerups** - Powerups are instantiated randomly, when Joe gets them (walk to top of powerup) its effect is instantly shown (e.g. "Freeze cars", "Kids speedup", "Double points", "Get 1 hp", etc)
+
+
+
+
 ### DESIGN
 
 > This section should be organized in different subsections, each describing a different design problem that you had to solve during the project. Each subsection should be organized in four different parts:
