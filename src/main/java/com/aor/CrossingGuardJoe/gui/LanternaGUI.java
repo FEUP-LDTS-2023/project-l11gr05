@@ -1,5 +1,6 @@
 package com.aor.CrossingGuardJoe.gui;
 
+import com.aor.CrossingGuardJoe.view.KidViewer;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
@@ -15,6 +16,7 @@ import java.io.IOException;
 
 public class LanternaGUI {
     public TextGraphics tg;
+
     public LanternaGUI() throws IOException {
         TerminalSize terminalSize = new TerminalSize(1000, 500);
         Terminal terminal = new DefaultTerminalFactory()
@@ -31,6 +33,10 @@ public class LanternaGUI {
 
         tg.setBackgroundColor(TextColor.Factory.fromString("#7f7976"));
         tg.fill(' ');
+
+
+        //test
+        KidViewer a = new KidViewer(this.tg);
 
         screen.refresh();
     }
