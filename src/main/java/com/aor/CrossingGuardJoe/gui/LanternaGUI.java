@@ -35,7 +35,9 @@ public class LanternaGUI {
         tg.fill(' ');
 
 
-        //test
+        //test to print the KID on terminal
+        KidViewer a = new KidViewer(tg);
+
         screen.refresh();
     }
 }

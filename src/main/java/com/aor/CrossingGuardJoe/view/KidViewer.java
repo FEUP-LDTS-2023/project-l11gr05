@@ -188,4 +188,10 @@ public class KidViewer extends View{
     public void draw() throws IOException {
         drawKidWalk(x, y, graphics);
     }
+
+    public KidViewer(TextGraphics graphics) {
+        this.graphics = graphics;
+        drawKidStand(100, 100, graphics);
+        drawKidWalk(120, 100, graphics);
+    }
 }
