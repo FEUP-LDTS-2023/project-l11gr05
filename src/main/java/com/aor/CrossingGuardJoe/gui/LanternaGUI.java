@@ -40,7 +40,7 @@ public class LanternaGUI {
 
         this.kid = new Kid(100, 100);
         KidView kidView = new KidView(tg, kid);
-        this.kidController = new KidController(kid, kidView);
+        this.kidController = new KidController(kid);
 
 
         tg.setBackgroundColor(TextColor.Factory.fromString("#7f7976"));
@@ -57,6 +57,7 @@ public class LanternaGUI {
                 }
 
                 if (keyStroke.getKeyType() == KeyType.ArrowLeft) {
+                    kidController.moveLeft();
                     screen.clear();
                     kidView.draw();
                     screen.refresh();
