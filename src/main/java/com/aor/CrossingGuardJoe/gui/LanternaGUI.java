@@ -36,8 +36,6 @@ public class LanternaGUI {
 
 
         //test
-        KidViewer a = new KidViewer(this.tg);
-
         screen.refresh();
     }
 }

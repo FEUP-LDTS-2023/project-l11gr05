@@ -6,8 +6,11 @@ import com.googlecode.lanterna.graphics.TextGraphics;
 
 import java.io.IOException;
 
-public class KidViewer {
+public class KidViewer extends View{
+    private TextGraphics graphics;
     private Draw draw;
+    private int x;  //position x
+    private int y;  //position y
     private String[] kidStandImage = new String[]{
         "                                                  ",
         "                                                  ",
@@ -171,9 +174,18 @@ public class KidViewer {
 
     };
 
-    public KidViewer(TextGraphics graphics) {
+    private void drawKidStand(int x, int y, TextGraphics graphics) {
         this.draw = new Draw(graphics);
-        draw.draw(100, 100, kidStandImage);
-        draw.draw(200, 100, kidWalkImage);
+        draw.drawImage(x, y, kidStandImage);
+    }
+
+    private void drawKidWalk(int x, int y, TextGraphics graphics) {
+        this.draw = new Draw(graphics);
+        draw.drawImage(x, y, kidWalkImage);
+    }
+
+    @Override
+    public void draw() throws IOException {
+        drawKidWalk(x, y, graphics);
     }
 }

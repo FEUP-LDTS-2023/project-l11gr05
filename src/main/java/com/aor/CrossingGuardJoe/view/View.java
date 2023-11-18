@@ -2,16 +2,12 @@ package com.aor.CrossingGuardJoe.view;
 
 import com.googlecode.lanterna.graphics.TextGraphics;
 
+import java.io.IOException;
+
 public abstract class View {
-    public TextGraphics viewer;
+    private TextGraphics graphics;
 
-    public TextGraphics getViewer() {
-        return viewer;
-    }
-
-    public void setViewer(TextGraphics viewer) {
-        this.viewer = viewer;
-    }
+    public abstract void draw() throws IOException;
 
 }
 

@@ -5,15 +5,14 @@ import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
 public class Draw {
-    private TextGraphics graphics;
-    private Color color;
+    private final TextGraphics graphics;
 
     public Draw(TextGraphics graphics) {
         this.graphics = graphics;
     }
 
     private void setColor(char character) {
-        this.color = Color.getColor(character);
+        Color color = Color.getColor(character);
         if (color != null) {
             graphics.setBackgroundColor(color.getColorText());
         }
@@ -31,7 +30,7 @@ public class Draw {
         }
     }
 
-    public void draw(int initialX, int initialY, String[] image) {
+    public void drawImage(int initialX, int initialY, String[] image) {
         int yPos = initialY;
         for (String imageLine : image) {
             drawLine(initialX, yPos, imageLine);
