@@ -7,7 +7,13 @@ public class Kid extends Element {
         super(x, y);
     }
 
-    public Position moveLeft() {
-        return new Position(getPosition().getX() - 1, getPosition().getY());
+    public void moveLeft() {
+        Position position = new Position(getPosition().getX() - 3, getPosition().getY());
+        setPosition(position);
+    }
+
+    public void moveRight() {
+        Position position = new Position(getPosition().getX() + 3, getPosition().getY());
+        setPosition(position);
     }
 }

@@ -1,6 +1,8 @@
 package com.aor.CrossingGuardJoe;
 
+import com.aor.CrossingGuardJoe.controller.game.KidController;
 import com.aor.CrossingGuardJoe.gui.LanternaGUI;
+import com.googlecode.lanterna.input.KeyStroke;
 
 import java.io.IOException;
 

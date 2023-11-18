@@ -174,29 +174,35 @@ public class KidView extends View {
             "                                                  "
 
     };
+    private boolean isWalking = false;
 
     private void drawKidStand(Kid kid, TextGraphics graphics) {
         this.draw = new Draw(graphics);
         this.kid = kid;
         draw.drawImage(kid.getPosition().getX(), kid.getPosition().getY(), kidStandImage);
+        isWalking = false;
     }
 
     private void drawKidWalk(Kid kid, TextGraphics graphics) {
         this.draw = new Draw(graphics);
         this.kid = kid;
         draw.drawImage(kid.getPosition().getX(), kid.getPosition().getY(), kidWalkImage);
+        isWalking = true;
     }
 
     @Override
     public void draw() throws IOException {
-        drawKidWalk(kid, graphics);
+        if (isWalking) {
+            drawKidStand(kid, graphics);
+        } else {
+            drawKidWalk(kid, graphics);
+        }
     }
 
-    public KidView(TextGraphics graphics) {
+    public KidView(TextGraphics graphics, Kid kid) {
         this.graphics = graphics;
-        Kid kid = new Kid(100, 100);
+        this.kid = kid;
         drawKidStand(kid, graphics);
-        kid = new Kid(120, 100);
         drawKidWalk(kid, graphics);
     }
 }
