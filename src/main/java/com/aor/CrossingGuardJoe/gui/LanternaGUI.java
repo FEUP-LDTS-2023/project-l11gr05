@@ -1,5 +1,6 @@
 package com.aor.CrossingGuardJoe.gui;
 
+import com.aor.CrossingGuardJoe.view.CarView;
 import com.aor.CrossingGuardJoe.view.JoeViewer;
 import com.aor.CrossingGuardJoe.view.KidViewer;
 import com.googlecode.lanterna.TerminalSize;
@@ -38,6 +39,7 @@ public class LanternaGUI {
         //test to print the KID on terminal
         KidViewer a = new KidViewer(tg);
         JoeViewer b = new JoeViewer(tg);
+        CarView c = new CarView(tg);
 
         screen.refresh();
     }

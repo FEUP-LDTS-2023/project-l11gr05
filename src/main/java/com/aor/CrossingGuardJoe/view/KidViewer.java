@@ -168,7 +168,7 @@ public class KidViewer extends View{
 
     public KidViewer(TextGraphics graphics) {
         this.graphics = graphics;
-        drawKidStand(220, 100+20, graphics);
-        drawKidWalk(240, 100+20, graphics);
+        drawKidStand(120, 100+20, graphics);
+        drawKidWalk(140, 100+20, graphics);
     }
 }

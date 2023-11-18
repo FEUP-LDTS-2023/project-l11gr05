@@ -15,7 +15,10 @@ public enum Color {
     Blue(TextColor.Factory.fromString("#447296"), '('),
     Blue2(TextColor.Factory.fromString("#4D9CFD"), '!'),
     Brown(TextColor.Factory.fromString("#601E00"), '*'),
-    Purple(TextColor.Factory.fromString("#9E0CFF"), '\'');
+    Purple(TextColor.Factory.fromString("#9E0CFF"), '\''),
+    Blue3(TextColor.Factory.fromString("#368CFF"), '~'),
+    RoastedYellow(TextColor.Factory.fromString("#8E6E43"), '@'),
+    Cyan(TextColor.Factory.fromString("#36CDFF"), '=');
 
     private TextColor color;
     private char character;
