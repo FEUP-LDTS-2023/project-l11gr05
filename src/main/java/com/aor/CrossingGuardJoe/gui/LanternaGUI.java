@@ -1,11 +1,14 @@
 package com.aor.CrossingGuardJoe.gui;
 
-import com.aor.CrossingGuardJoe.view.CarView;
-import com.aor.CrossingGuardJoe.view.JoeViewer;
-import com.aor.CrossingGuardJoe.view.KidViewer;
+
+import com.aor.CrossingGuardJoe.controller.game.KidController;
+import com.aor.CrossingGuardJoe.model.game.Kid;
+import com.aor.CrossingGuardJoe.view.game.KidView;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
+import com.googlecode.lanterna.input.KeyStroke;
+import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
@@ -17,6 +20,8 @@ import java.io.IOException;
 
 public class LanternaGUI {
     public TextGraphics tg;
+    private Kid kid;
+    private KidController kidController;
 
     public LanternaGUI() throws IOException {
         TerminalSize terminalSize = new TerminalSize(1000, 500);
@@ -32,15 +37,37 @@ public class LanternaGUI {
         this.tg = screen.newTextGraphics();
         screen.startScreen();
 
+
+        this.kid = new Kid(100, 100);
+        KidView kidView = new KidView(tg, kid);
+        this.kidController = new KidController(kid, kidView);
+
+
+        /*//test to print the KID on terminal
+        KidView a = new KidView(tg);*/
+
         tg.setBackgroundColor(TextColor.Factory.fromString("#7f7976"));
         tg.fill(' ');
 
-
-        //test to print the KID on terminal
-        KidViewer a = new KidViewer(tg);
-        JoeViewer b = new JoeViewer(tg);
-        CarView c = new CarView(tg);
-
         screen.refresh();
+
+        while (true) {
+            KeyStroke keyStroke = screen.pollInput();
+
+            if (keyStroke != null) {
+                if (keyStroke.getKeyType() == KeyType.Escape) {
+                    break; // Exit the game loop on Escape key
+                }
+
+                kidController.processKey(keyStroke);
+                screen.clear();
+                kidView.draw();
+                screen.refresh();
+            }
+        }
+
+        screen.close();
     }
+
+
 }
