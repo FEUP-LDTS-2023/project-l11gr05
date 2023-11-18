@@ -42,9 +42,6 @@ public class LanternaGUI {
         this.kidController = new KidController(kid, kidView);
 
 
-        /*//test to print the KID on terminal
-        KidView a = new KidView(tg);*/
-
         tg.setBackgroundColor(TextColor.Factory.fromString("#7f7976"));
         tg.fill(' ');
         kidView.draw();
@@ -58,10 +55,11 @@ public class LanternaGUI {
                     break; // Exit the game loop on Escape key
                 }
 
-                kidController.processKey(keyStroke);
-                screen.clear();
-                kidView.draw();
-                screen.refresh();
+                if (keyStroke.getKeyType() == KeyType.ArrowLeft) {
+                    screen.clear();
+                    kidView.draw();
+                    screen.refresh();
+                }
             }
         }
 
