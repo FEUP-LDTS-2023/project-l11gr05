@@ -1,12 +1,13 @@
-package com.aor.CrossingGuardJoe.view;
+package com.aor.CrossingGuardJoe.view.game;
 
 import com.aor.CrossingGuardJoe.gui.LanternaGUI;
+import com.aor.CrossingGuardJoe.view.View;
 import com.aor.CrossingGuardJoe.view.drawer.Draw;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
 import java.io.IOException;
 
-public class CarView extends View{
+public class CarView extends View {
     private TextGraphics graphics;
     private Draw draw;
     private int x;  //position x

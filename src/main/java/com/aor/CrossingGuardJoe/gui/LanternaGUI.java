@@ -3,6 +3,8 @@ package com.aor.CrossingGuardJoe.gui;
 
 import com.aor.CrossingGuardJoe.controller.game.KidController;
 import com.aor.CrossingGuardJoe.model.game.Kid;
+import com.aor.CrossingGuardJoe.view.game.CarView;
+import com.aor.CrossingGuardJoe.view.game.JoeView;
 import com.aor.CrossingGuardJoe.view.game.KidView;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
@@ -45,6 +47,10 @@ public class LanternaGUI {
 
         tg.setBackgroundColor(TextColor.Factory.fromString("#7f7976"));
         tg.fill(' ');
+
+        //test to print on terminal
+        JoeView b = new JoeView(tg);
+        CarView c = new CarView(tg);
 
         screen.refresh();
 
