@@ -7,18 +7,13 @@ The drivers show no mercy—they won't stop for anything, putting your quick thi
 Your score? It's all about how many kids you guide across the street.
 Master each level, fine-tune your strategies, and race to claim the top spot on the pulsating LEADERBOARD.
 Ready to push your crossing guard skills to the limit?
-Enter in the game and show 'em who's boss!
+Enter the game and show 'em who's boss!
 
 This project was developed by Bruno Huang (up202207517@fe.up.pt) and Ricardo Yang (up202208465@fe.up.pt) for LDTS 2023⁄24.
 
 ### IMPLEMENTED FEATURES
 
 > This section should contain a list of implemented features and their descriptions. In the end of the section, include two or three screenshots that illustrate the most important features.
-
-**Examples**:
-
-- **Jumping** - The game character will jump when the space bar key is pressed.
-- **Getting hidden coins** - When the game character hits a platform from below (by jumping beneath it) it will smash that segment of the platform and will get any coins that may exist hidden there.
 
 ### PLANNED FEATURES
 
@@ -36,6 +31,7 @@ This project was developed by Bruno Huang (up202207517@fe.up.pt) and Ricardo Yan
 - **Game over** - When hp reaches 0 game ends.
 - **Leaderboard** - Players score and name are stored in a leaderboard file.
 - **Power-ups** - Power-ups are generated at random intervals within the game environment. Upon Joe's acquisition of these power-ups, their effects are immediately manifested (e.g. "Freeze cars", "Kids speedup", "Double points", "Get 1 hp", etc).
+
 
 ### DESIGN
 
