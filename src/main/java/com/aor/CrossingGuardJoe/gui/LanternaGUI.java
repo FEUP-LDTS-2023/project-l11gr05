@@ -1,7 +1,7 @@
 package com.aor.CrossingGuardJoe.gui;
 
+import com.aor.CrossingGuardJoe.view.JoeViewer;
 import com.aor.CrossingGuardJoe.view.KidViewer;
-import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
@@ -37,6 +37,7 @@ public class LanternaGUI {
 
         //test to print the KID on terminal
         KidViewer a = new KidViewer(tg);
+        JoeViewer b = new JoeViewer(tg);
 
         screen.refresh();
     }

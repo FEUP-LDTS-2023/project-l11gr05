@@ -12,12 +12,6 @@ public class KidViewer extends View{
     private int x;  //position x
     private int y;  //position y
     private String[] kidStandImage = new String[]{
-        "                                                  ",
-        "                                                  ",
-        "                                                  ",
-        "                                                  ",
-        "                                                  ",
-        "                                                  ",
         "                    $$$$$                         ",
         "                 $$$$$$$$$                        ",
         "                $$$$$$$$$$$$                      ",
@@ -85,20 +79,9 @@ public class KidViewer extends View{
         "                $&&&&&&&&&&$&&$$                  ",
         "                $&&&&&&&&&&$&&$                   ",
         "                $$$$$$$$$$$$$$$                   ",
-        "                                                  ",
-        "                                                  ",
-        "                                                  ",
-        "                                                  ",
-        "                                                  "
     };
 
     private String[] kidWalkImage = new String[] {
-        "                                                  ",
-        "                                                  ",
-        "                                                  ",
-        "                                                  ",
-        "                                                  ",
-        "                                                  ",
         "                    $$$$$                         ",
         "                 $$$$$$$$$                        ",
         "                $$$$$$$$$$$$                      ",
@@ -164,13 +147,7 @@ public class KidViewer extends View{
         "     $&&&&&&&&$$                    $$&&&&&$      ",
         "     $&&&&&&&&$                     $&&&&&$$      ",
         "      $$$$$$$$$                     $$&&&&$       ",
-        "                                     $$$$$        ",
-        "                                                  ",
-        "                                                  ",
-        "                                                  ",
-        "                                                  ",
-        "                                                  ",
-        "                                                  "
+        "                                     $$$$$        "
 
     };
 
@@ -191,7 +168,7 @@ public class KidViewer extends View{
 
     public KidViewer(TextGraphics graphics) {
         this.graphics = graphics;
-        drawKidStand(100, 100, graphics);
-        drawKidWalk(120, 100, graphics);
+        drawKidStand(220, 100+20, graphics);
+        drawKidWalk(240, 100+20, graphics);
     }
 }
