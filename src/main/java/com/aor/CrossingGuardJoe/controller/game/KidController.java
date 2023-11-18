@@ -18,8 +18,6 @@ public class KidController {
             case ArrowLeft:
                 kid.moveLeft();
                 break;
-            case ArrowRight:
-                kid.moveRight();
         }
     }
 }
