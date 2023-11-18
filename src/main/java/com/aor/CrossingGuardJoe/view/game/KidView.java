@@ -1,6 +1,7 @@
 package com.aor.CrossingGuardJoe.view.game;
 
 import com.aor.CrossingGuardJoe.gui.LanternaGUI;
+import com.aor.CrossingGuardJoe.model.game.Kid;
 import com.aor.CrossingGuardJoe.view.View;
 import com.aor.CrossingGuardJoe.view.drawer.Draw;
 import com.googlecode.lanterna.graphics.TextGraphics;
@@ -10,8 +11,7 @@ import java.io.IOException;
 public class KidView extends View {
     private TextGraphics graphics;
     private Draw draw;
-    private int x;  //position x
-    private int y;  //position y
+    private Kid kid;
     private String[] kidStandImage = new String[]{
             "                                                  ",
             "                                                  ",
@@ -175,24 +175,28 @@ public class KidView extends View {
 
     };
 
-    private void drawKidStand(int x, int y, TextGraphics graphics) {
+    private void drawKidStand(Kid kid, TextGraphics graphics) {
         this.draw = new Draw(graphics);
-        draw.drawImage(x, y, kidStandImage);
+        this.kid = kid;
+        draw.drawImage(kid.getPosition().getX(), kid.getPosition().getY(), kidStandImage);
     }
 
-    private void drawKidWalk(int x, int y, TextGraphics graphics) {
+    private void drawKidWalk(Kid kid, TextGraphics graphics) {
         this.draw = new Draw(graphics);
-        draw.drawImage(x, y, kidWalkImage);
+        this.kid = kid;
+        draw.drawImage(kid.getPosition().getX(), kid.getPosition().getY(), kidWalkImage);
     }
 
     @Override
     public void draw() throws IOException {
-        drawKidWalk(x, y, graphics);
+        drawKidWalk(kid, graphics);
     }
 
     public KidView(TextGraphics graphics) {
         this.graphics = graphics;
-        drawKidStand(100, 100, graphics);
-        drawKidWalk(120, 100, graphics);
+        Kid kid = new Kid(100, 100);
+        drawKidStand(kid, graphics);
+        kid = new Kid(120, 100);
+        drawKidWalk(kid, graphics);
     }
 }
