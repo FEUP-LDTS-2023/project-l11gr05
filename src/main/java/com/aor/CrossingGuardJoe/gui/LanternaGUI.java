@@ -2,6 +2,8 @@ package com.aor.CrossingGuardJoe.gui;
 
 
 import com.aor.CrossingGuardJoe.controller.game.KidController;
+import com.aor.CrossingGuardJoe.model.game.Car;
+import com.aor.CrossingGuardJoe.model.game.Joe;
 import com.aor.CrossingGuardJoe.model.game.Kid;
 import com.aor.CrossingGuardJoe.view.game.CarView;
 import com.aor.CrossingGuardJoe.view.game.JoeView;
@@ -48,9 +50,6 @@ public class LanternaGUI {
         tg.setBackgroundColor(TextColor.Factory.fromString("#7f7976"));
         tg.fill(' ');
 
-        //test to print on terminal
-        JoeView b = new JoeView(tg);
-        CarView c = new CarView(tg);
 
         screen.refresh();
 
