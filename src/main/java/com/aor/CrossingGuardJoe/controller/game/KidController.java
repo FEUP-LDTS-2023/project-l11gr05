@@ -12,8 +12,8 @@ public class KidController {
         this.kid = kid;
     }
 
-    public void moveLeft() {
-        Position position = new Position(kid.getPosition().getX() - 3, kid.getPosition().getY());
+    public void move() {
+        Position position = new Position(kid.getPosition().getX() - 5, kid.getPosition().getY());
         kid.setPosition(position);
     }
 }

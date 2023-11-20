@@ -131,6 +131,6 @@ public class CarView extends View {
 
     public CarView(TextGraphics graphics) {
         this.graphics = graphics;
-        drawCar(300, 100, graphics);
+        drawCar(300, 80, graphics);
     }
 }

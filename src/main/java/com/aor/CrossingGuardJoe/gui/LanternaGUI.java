@@ -1,11 +1,14 @@
 package com.aor.CrossingGuardJoe.gui;
 
 
+import com.aor.CrossingGuardJoe.controller.game.CarController;
 import com.aor.CrossingGuardJoe.controller.game.KidController;
+import com.aor.CrossingGuardJoe.model.game.Car;
 import com.aor.CrossingGuardJoe.model.game.Kid;
 import com.aor.CrossingGuardJoe.view.game.CarView;
 import com.aor.CrossingGuardJoe.view.game.JoeView;
 import com.aor.CrossingGuardJoe.view.game.KidView;
+import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
@@ -23,10 +26,17 @@ import java.io.IOException;
 public class LanternaGUI {
     public TextGraphics tg;
     private Kid kid;
-    private KidController kidController;
+    private Car car;
 
+    private KidController kidController;
+    private CarController carController;
+    private TerminalSize terminalSize;
+
+    public TerminalSize getTerminalSize() {
+        return this.terminalSize;
+    }
     public LanternaGUI() throws IOException {
-        TerminalSize terminalSize = new TerminalSize(1000, 500);
+        this.terminalSize = new TerminalSize(1000, 500);
         Terminal terminal = new DefaultTerminalFactory()
                 .setInitialTerminalSize(terminalSize)
                 .setTerminalEmulatorFontConfiguration(
@@ -40,9 +50,13 @@ public class LanternaGUI {
         screen.startScreen();
 
 
-        this.kid = new Kid(100, 100);
+        /*this.kid = new Kid(400, 400);
         KidView kidView = new KidView(tg, kid);
-        this.kidController = new KidController(kid);
+        this.kidController = new kidController(kid);*/
+
+        this.car = new Car(400, 0);
+        CarView carView = new CarView(tg, car);
+        this.carController = new CarController(car);
 
 
         tg.setBackgroundColor(TextColor.Factory.fromString("#7f7976"));
@@ -63,15 +77,22 @@ public class LanternaGUI {
                 }
 
                 if (keyStroke.getKeyType() == KeyType.ArrowLeft) {
-                    kidController.moveLeft();
-                    screen.clear();
-                    kidView.draw();
-                    screen.refresh();
+                    //kidController.move();
+
+                    ClearScreen();
+                    //kidView.draw();
+
                 }
+                screen.refresh();
             }
         }
 
         screen.close();
+    }
+
+    public void ClearScreen() {
+        tg.setBackgroundColor(TextColor.Factory.fromString("#7f7976"));
+        tg.fillRectangle(new TerminalPosition(0,0), getTerminalSize(), ' ');
     }
 
 
