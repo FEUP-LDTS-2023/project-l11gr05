@@ -177,7 +177,11 @@ public class KidView extends Draw {
         super(graphics);
     }
 
-    private void drawKidStand() {
+    public void setKid(Kid kid) {
+        this.kid = kid;
+    }
+
+    public void drawKidStand() {
         drawImage(kid.getPosition().getX(), kid.getPosition().getY(), kidStandImage);
     }
 

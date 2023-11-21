@@ -1,5 +1,7 @@
 package com.aor.CrossingGuardJoe;
 
+import com.aor.CrossingGuardJoe.model.game.Kid;
+import com.aor.CrossingGuardJoe.view.game.KidView;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
@@ -7,7 +9,9 @@ import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
+import com.googlecode.lanterna.terminal.swing.SwingTerminalFontConfiguration;
 
+import java.awt.*;
 import java.io.IOException;
 
 public class Display implements GUI {
@@ -24,11 +28,22 @@ public class Display implements GUI {
     }
 
     public void init() throws IOException {
-        terminal = new DefaultTerminalFactory().createTerminal();
+
+        terminal = new DefaultTerminalFactory()
+                .setInitialTerminalSize(new TerminalSize(width, height))
+                .setTerminalEmulatorFontConfiguration(
+                        SwingTerminalFontConfiguration.newInstance(new Font("Monospaced", Font.PLAIN, 1)))
+                .createTerminal();
+
         screen = new TerminalScreen(terminal);
         screen.startScreen();
-        textGraphics = screen.newTextGraphics();
         //screen.doResizeIfNecessary(); // Resize screen if necessary
+
+        KidView kidView = new KidView(textGraphics);
+        kidView.setKid(new Kid(0,0));
+        kidView.drawKidStand();
+
+
     }
 
     public void drawGame() {
