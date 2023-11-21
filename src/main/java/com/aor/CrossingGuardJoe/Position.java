@@ -1,4 +1,4 @@
-package com.aor.CrossingGuardJoe.model;
+package com.aor.CrossingGuardJoe;
 
 public class Position {
     private int x;

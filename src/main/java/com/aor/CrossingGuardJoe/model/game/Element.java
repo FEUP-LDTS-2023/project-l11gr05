@@ -1,6 +1,6 @@
 package com.aor.CrossingGuardJoe.model.game;
 
-import com.aor.CrossingGuardJoe.model.Position;
+import com.aor.CrossingGuardJoe.Position;
 
 public class Element {
     private Position position;

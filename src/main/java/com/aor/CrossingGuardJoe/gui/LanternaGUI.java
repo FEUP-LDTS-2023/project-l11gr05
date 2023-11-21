@@ -23,7 +23,7 @@ import com.googlecode.lanterna.terminal.swing.SwingTerminalFontConfiguration;
 import java.awt.*;
 import java.io.IOException;
 
-public class LanternaGUI {
+public class LanternaGUI {/*
     public TextGraphics tg;
     private Kid kid;
     private Car car;
@@ -54,19 +54,19 @@ public class LanternaGUI {
         KidView kidView = new KidView(tg, kid);
         this.kidController = new kidController(kid);*/
 
-        this.car = new Car(400, 0);
-        CarView carView = new CarView(tg, car);
-        this.carController = new CarController(car);
+       // this.car = new Car(400, 0);
+        //CarView carView = new CarView(tg, car);
+      //  this.carController = new CarController(car);
 
 
-        tg.setBackgroundColor(TextColor.Factory.fromString("#7f7976"));
-        tg.fill(' ');
+       // tg.setBackgroundColor(TextColor.Factory.fromString("#7f7976"));
+       // tg.fill(' ');
 
         //test to print on terminal
-        JoeView b = new JoeView(tg);
-        CarView c = new CarView(tg);
+      //  JoeView b = new JoeView(tg);
+      //  CarView c = new CarView(tg);
 
-        screen.refresh();
+      /*  screen.refresh();
 
         while (true) {
             KeyStroke keyStroke = screen.pollInput();
@@ -94,6 +94,6 @@ public class LanternaGUI {
         tg.setBackgroundColor(TextColor.Factory.fromString("#7f7976"));
         tg.fillRectangle(new TerminalPosition(0,0), getTerminalSize(), ' ');
     }
-
+*/
 
 }

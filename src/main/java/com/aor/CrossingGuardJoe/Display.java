@@ -1,51 +1,66 @@
 package com.aor.CrossingGuardJoe;
 
 import com.googlecode.lanterna.TerminalSize;
+import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
-import com.googlecode.lanterna.terminal.swing.SwingTerminalFontConfiguration;
-import com.googlecode.lanterna.terminal.virtual.DefaultVirtualTerminal;
 
-import java.awt.*;
 import java.io.IOException;
 
-public class Display {
-    private TextGraphics graphics;
+public class Display extends GUI{
+    private Terminal terminal;
     private Screen screen;
-    private TerminalSize displaySize;
-    private Font font;
+    private TextGraphics textGraphics;
 
-    public Display(int width, int height) throws IOException {
-        this.displaySize = new TerminalSize(width, height);
+    private int width;
+    private int height;
 
-        createDisplay();
+    public Display(int width, int height) {
+        this.width = width;
+        this.height = height;
     }
 
-    private void createDisplay() throws IOException {
-        Terminal terminal = new DefaultTerminalFactory()
-                .setInitialTerminalSize(getDisplaySize())
-                .setTerminalEmulatorFontConfiguration(
-                        SwingTerminalFontConfiguration.newInstance(getFont()))
-                .createTerminal();
-        this.screen = new TerminalScreen(terminal);
-        screen.setCursorPosition(null);
-        this.graphics = screen.newTextGraphics();
+    public void init() throws IOException {
+        terminal = new DefaultTerminalFactory().createTerminal();
+        screen = new TerminalScreen(terminal);
         screen.startScreen();
+        textGraphics = screen.newTextGraphics();
+        //screen.doResizeIfNecessary(); // Resize screen if necessary
     }
 
-    public TerminalSize getDisplaySize() {
-        return this.displaySize;
+    public void drawGame() {
+        // Your drawing logic here
+        // Example:
+        textGraphics.setForegroundColor(TextColor.ANSI.WHITE);
+        textGraphics.setBackgroundColor(TextColor.ANSI.BLUE);
+        textGraphics.putString(1, 1, "Hello, Crossing Guard Joe!");
     }
 
-    public void setFont(Font font) {
-        this.font = font;
+    public void refresh() throws IOException {
+        screen.refresh();
     }
 
-    public Font getFont() {
-        return this.font;
+    public void close() throws IOException {
+        screen.close();
+        terminal.close();
     }
 
+
+    @Override
+    public void displayKid(Position position) {
+
+    }
+
+    @Override
+    public void displayJoe(Position position) {
+
+    }
+
+    @Override
+    public void displayCar(Position position) {
+
+    }
 }

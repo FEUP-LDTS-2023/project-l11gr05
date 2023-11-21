@@ -1,17 +1,15 @@
 package com.aor.CrossingGuardJoe.view.game;
 
-import com.aor.CrossingGuardJoe.gui.LanternaGUI;
+import com.aor.CrossingGuardJoe.GUI;
+import com.aor.CrossingGuardJoe.model.game.Element;
 import com.aor.CrossingGuardJoe.model.game.Kid;
-import com.aor.CrossingGuardJoe.view.View;
 import com.aor.CrossingGuardJoe.view.drawer.Draw;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
+import javax.swing.text.View;
 import java.io.IOException;
 
-public class KidView extends View {
-    private TextGraphics graphics;
-    private Draw draw;
-    private Kid kid;
+public class KidView implements ElementViewer {
     private String[] kidStandImage = new String[]{
             "                                                  ",
             "                                                  ",
@@ -174,7 +172,6 @@ public class KidView extends View {
             "                                                  "
 
     };
-    private boolean isWalking = false;
 
     private void drawKidStand(Kid kid, TextGraphics graphics) {
         this.draw = new Draw(graphics);
@@ -192,11 +189,18 @@ public class KidView extends View {
 
     @Override
     public void draw() throws IOException {
-        if (isWalking) {
-            drawKidStand(kid, graphics);
-        } else {
-            drawKidWalk(kid, graphics);
+        /*frameCounter++;
+
+        if (frameCounter >= FRAME_DURATION) {
+            frameCounter = 0;
+            isWalking = !isWalking; // Alterna entre parado e movimento a cada FRAME_DURATION
         }
+
+        if (isWalking) {
+            drawKidWalk(kid, graphics);
+        } else {
+            drawKidStand(kid, graphics);
+        }*/
     }
 
     public KidView(TextGraphics graphics, Kid kid) {
@@ -204,5 +208,10 @@ public class KidView extends View {
         this.kid = kid;
         drawKidStand(kid, graphics);
         drawKidWalk(kid, graphics);
+    }
+
+    @Override
+    public void draw(Element element, GUI gui) {
+
     }
 }
