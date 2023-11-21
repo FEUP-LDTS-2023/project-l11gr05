@@ -4,7 +4,7 @@ import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
-public class Draw {
+public abstract class Draw {
     private final TextGraphics graphics;
 
     public Draw(TextGraphics graphics) {

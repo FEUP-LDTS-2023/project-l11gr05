@@ -6,8 +6,10 @@ import com.googlecode.lanterna.graphics.TextGraphics;
 
 import java.io.IOException;
 
-public interface ElementViewer<T extends Element> {
+public abstract class ElementViewer {
+    private TextGraphics graphics;
 
-    void draw(T element, GUI gui);
+    public abstract void draw() throws IOException;
+
 
 }

@@ -10,7 +10,7 @@ import com.googlecode.lanterna.terminal.Terminal;
 
 import java.io.IOException;
 
-public class Display extends GUI{
+public class Display implements GUI {
     private Terminal terminal;
     private Screen screen;
     private TextGraphics textGraphics;

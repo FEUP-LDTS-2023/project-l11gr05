@@ -1,16 +1,16 @@
 package com.aor.CrossingGuardJoe.view.game;
 
-import com.aor.CrossingGuardJoe.GUI;
-import com.aor.CrossingGuardJoe.model.game.Element;
 import com.aor.CrossingGuardJoe.model.game.Kid;
 import com.aor.CrossingGuardJoe.view.drawer.Draw;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
-import javax.swing.text.View;
 import java.io.IOException;
 
-public class KidView implements ElementViewer {
-    private String[] kidStandImage = new String[]{
+public class KidView extends Draw {
+    private Kid kid;
+    private int frameCounter = 0;
+    private final int FRAME_DURATION = 10;
+    private final String[] kidStandImage = new String[]{
             "                                                  ",
             "                                                  ",
             "                                                  ",
@@ -91,7 +91,7 @@ public class KidView implements ElementViewer {
             "                                                  "
     };
 
-    private String[] kidWalkImage = new String[] {
+    private final String[] kidWalkImage = new String[] {
             "                                                  ",
             "                                                  ",
             "                                                  ",
@@ -173,45 +173,28 @@ public class KidView implements ElementViewer {
 
     };
 
-    private void drawKidStand(Kid kid, TextGraphics graphics) {
-        this.draw = new Draw(graphics);
-        this.kid = kid;
-        draw.drawImage(kid.getPosition().getX(), kid.getPosition().getY(), kidStandImage);
-        isWalking = false;
+    public KidView(TextGraphics graphics) {
+        super(graphics);
     }
 
-    private void drawKidWalk(Kid kid, TextGraphics graphics) {
-        this.draw = new Draw(graphics);
-        this.kid = kid;
-        draw.drawImage(kid.getPosition().getX(), kid.getPosition().getY(), kidWalkImage);
-        isWalking = true;
+    private void drawKidStand() {
+        drawImage(kid.getPosition().getX(), kid.getPosition().getY(), kidStandImage);
     }
 
-    @Override
+    private void drawKidWalk() {
+        drawImage(kid.getPosition().getX(), kid.getPosition().getY(), kidWalkImage);
+    }
+
     public void draw() throws IOException {
-        /*frameCounter++;
-
+        frameCounter++;
         if (frameCounter >= FRAME_DURATION) {
             frameCounter = 0;
-            isWalking = !isWalking; // Alterna entre parado e movimento a cada FRAME_DURATION
+            kid.setWalking(!kid.getIsWalking());
         }
-
-        if (isWalking) {
-            drawKidWalk(kid, graphics);
+        if (kid.getIsWalking()) {
+            drawKidWalk();
         } else {
-            drawKidStand(kid, graphics);
-        }*/
-    }
-
-    public KidView(TextGraphics graphics, Kid kid) {
-        this.graphics = graphics;
-        this.kid = kid;
-        drawKidStand(kid, graphics);
-        drawKidWalk(kid, graphics);
-    }
-
-    @Override
-    public void draw(Element element, GUI gui) {
-
+            drawKidStand();
+        }
     }
 }

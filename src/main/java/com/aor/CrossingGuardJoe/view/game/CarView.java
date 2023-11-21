@@ -1,15 +1,16 @@
 package com.aor.CrossingGuardJoe.view.game;
 
+import com.aor.CrossingGuardJoe.model.game.Car;
+import com.aor.CrossingGuardJoe.model.game.Joe;
 import com.aor.CrossingGuardJoe.view.drawer.Draw;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
 import java.io.IOException;
 
-public class CarView extends View {
-    private TextGraphics graphics;
-    private Draw draw;
-    private int x;  //position x
-    private int y;  //position y
+public class CarView extends Draw{
+    private Car car;
+    private int frameCounter = 0;
+    private final int FRAME_DURATION = 10;
     private String[] carImage = new String[]{
             "                                    $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$                                    ",
             "                                    $@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@$                                    ",
@@ -116,19 +117,17 @@ public class CarView extends View {
             "                    $$$$$$$$$$$$$$$$                                                                   $$$$$$$$$$$$$$$$                     ",
             "                      $$$$$$$$$$$$$                                                                      $$$$$$$$$$$$$                      "
     };
-    private void drawCar(int x, int y, TextGraphics graphics) {
-        this.draw = new Draw(graphics);
-        draw.drawImage(x, y, carImage);
+
+    public CarView(TextGraphics graphics) {
+        super(graphics);
     }
 
+    private void drawCar(TextGraphics graphics) {
+        drawImage(car.getPosition().getX(), car.getPosition().getY(), carImage);
+    }
 
-    @Override
     public void draw() throws IOException {
 
     }
 
-    public CarView(TextGraphics graphics) {
-        this.graphics = graphics;
-        drawCar(300, 80, graphics);
-    }
 }
