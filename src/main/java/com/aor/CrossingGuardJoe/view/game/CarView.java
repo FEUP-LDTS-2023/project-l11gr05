@@ -1,13 +1,7 @@
 package com.aor.CrossingGuardJoe.view.game;
 
 import com.aor.CrossingGuardJoe.GUI.GUI;
-import com.aor.CrossingGuardJoe.model.game.Car;
 import com.aor.CrossingGuardJoe.model.game.Element;
-import com.aor.CrossingGuardJoe.view.View;
-import com.aor.CrossingGuardJoe.view.drawer.Draw;
-import com.googlecode.lanterna.graphics.TextGraphics;
-
-import java.io.IOException;
 
 public class CarView extends ElementViewer {
     private String[] carImage = new String[]{

@@ -51,69 +51,10 @@ public class LanternaGUI implements GUI{
         refreshScreen();
     }
 
-    /*
-    public LanternaGUI() throws IOException {
-        this.terminalSize = new TerminalSize(1000, 500);
-        Terminal terminal = new DefaultTerminalFactory()
-                .setInitialTerminalSize(terminalSize)
-                .setTerminalEmulatorFontConfiguration(
-                        SwingTerminalFontConfiguration.newInstance(new Font("Monospaced", Font.PLAIN, 1)))
-                .createTerminal();
-
-        Screen screen = new TerminalScreen(terminal);
-        screen.setCursorPosition(null);
-
-        this.tg = screen.newTextGraphics();
-        screen.startScreen();
-
-
-        /*this.kid = new Kid(400, 400);
-        KidView kidView = new KidView(tg, kid);
-        this.kidController = new kidController(kid);
-        
-        this.car = new Car(400, 0);
-        CarView carView = new CarView(tg, car);
-        this.carController = new CarController(car);
-
-
-        tg.setBackgroundColor(TextColor.Factory.fromString("#7f7976"));
-        tg.fill(' ');
-
-
-        screen.refresh();
-
-        while (true) {
-            KeyStroke keyStroke = screen.pollInput();
-
-            if (keyStroke != null) {
-                if (keyStroke.getKeyType() == KeyType.Escape) {
-                    break; // Exit the game loop on Escape key
-                }
-
-                if (keyStroke.getKeyType() == KeyType.ArrowLeft) {
-                    //kidController.move();
-
-                    ClearScreen();
-                    //kidView.draw();
-
-                }
-                screen.refresh();
-            }
-        }
-
-        screen.close();
-    }
-
-    public void ClearScreen() {
-        tg.setBackgroundColor(TextColor.Factory.fromString("#7f7976"));
-        tg.fillRectangle(new TerminalPosition(0,0), getTerminalSize(), ' ');
-    }*/
-
-
     @Override
     public void clearScreen() {
         this.graphics.setBackgroundColor(TextColor.Factory.fromString("#7f7976"));
-        fillRectangle(new Position(0,0), new Position(getWidth(), getHeight()), ' ');
+        fillRectangle(new Position(0,0), getWidth(), getHeight(), ' ');
     }
 
     @Override

@@ -3,8 +3,6 @@ package com.aor.CrossingGuardJoe.view.game;
 import com.aor.CrossingGuardJoe.GUI.GUI;
 import com.aor.CrossingGuardJoe.model.game.Element;
 
-import java.io.IOException;
-
 public class JoeView extends ElementViewer {
     private String[] joeStandImage = new String[]{
             "                                    $$$$                                        ",

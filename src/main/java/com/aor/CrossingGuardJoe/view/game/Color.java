@@ -47,7 +47,7 @@ public enum Color {
     }
 
     public String getColorText() {
-        return this.color;
+        return this.color.toString();
     }
 
 
