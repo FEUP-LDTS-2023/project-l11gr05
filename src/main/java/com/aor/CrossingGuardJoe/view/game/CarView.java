@@ -1,6 +1,7 @@
 package com.aor.CrossingGuardJoe.view.game;
 
 import com.aor.CrossingGuardJoe.gui.LanternaGUI;
+import com.aor.CrossingGuardJoe.model.game.Car;
 import com.aor.CrossingGuardJoe.view.View;
 import com.aor.CrossingGuardJoe.view.drawer.Draw;
 import com.googlecode.lanterna.graphics.TextGraphics;
@@ -10,8 +11,7 @@ import java.io.IOException;
 public class CarView extends View {
     private TextGraphics graphics;
     private Draw draw;
-    private int x;  //position x
-    private int y;  //position y
+    private Car car;
     private String[] kidStandImage = new String[]{
             "                                    $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$                                    ",
             "                                    $@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@$                                    ",
@@ -118,9 +118,10 @@ public class CarView extends View {
             "                    $$$$$$$$$$$$$$$$                                                                   $$$$$$$$$$$$$$$$                     ",
             "                      $$$$$$$$$$$$$                                                                      $$$$$$$$$$$$$                      "
     };
-    private void drawCar(int x, int y, TextGraphics graphics) {
+    private void drawCar(Car car, TextGraphics graphics) {
         this.draw = new Draw(graphics);
-        draw.drawImage(x, y, kidStandImage);
+        this.car = car;
+        draw.drawImage(car.getPosition().getX(), car.getPosition().getY(), kidStandImage);
     }
 
 
@@ -129,8 +130,9 @@ public class CarView extends View {
 
     }
 
-    public CarView(TextGraphics graphics) {
+    public CarView(Car car, TextGraphics graphics) {
+        this.car = car;
         this.graphics = graphics;
-        drawCar(300, 80, graphics);
+        drawCar(car, graphics);
     }
 }
