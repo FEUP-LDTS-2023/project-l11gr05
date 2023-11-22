@@ -1,6 +1,6 @@
 package com.aor.CrossingGuardJoe;
 
-import com.aor.CrossingGuardJoe.GUITest.LanternaGUI;
+import com.aor.CrossingGuardJoe.GUI.LanternaGUI;
 
 import java.io.IOException;
 

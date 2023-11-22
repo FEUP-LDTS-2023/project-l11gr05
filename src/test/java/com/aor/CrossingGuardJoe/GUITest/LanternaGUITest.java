@@ -1,5 +1,6 @@
 package com.aor.CrossingGuardJoe.GUITest;
 
+import com.aor.CrossingGuardJoe.GUI.LanternaGUI;
 import com.aor.CrossingGuardJoe.Model.Position;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;

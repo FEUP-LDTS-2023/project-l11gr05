@@ -1,6 +1,6 @@
 package com.aor.CrossingGuardJoe.Viewer.Elements;
 
-import com.aor.CrossingGuardJoe.GUITest.GUI;
+import com.aor.CrossingGuardJoe.GUI.GUI;
 import com.aor.CrossingGuardJoe.Viewer.ElementViewer;
 import com.aor.CrossingGuardJoe.Model.game.Element;
 

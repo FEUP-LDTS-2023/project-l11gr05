@@ -1,11 +1,8 @@
 package com.aor.CrossingGuardJoe.Viewer;
 
-import com.aor.CrossingGuardJoe.GUITest.GUI;
+import com.aor.CrossingGuardJoe.GUI.GUI;
 import com.aor.CrossingGuardJoe.Model.Position;
 import com.aor.CrossingGuardJoe.Model.game.Element;
-import com.googlecode.lanterna.TextColor;
-
-import java.awt.*;
 
 public abstract class ElementViewer<T extends Element> {
     private GUI gui;
