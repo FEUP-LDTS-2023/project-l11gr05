@@ -1,7 +1,5 @@
 package com.aor.CrossingGuardJoe.viewer;
 
-import com.googlecode.lanterna.TextColor;
-
 public enum Color {
     BLACK("#000000", '$'),
     WHITE("#FFFFFF", 'W'),

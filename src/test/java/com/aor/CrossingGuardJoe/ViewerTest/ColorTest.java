@@ -1,6 +1,6 @@
 package com.aor.CrossingGuardJoe.ViewerTest;
 
-import com.aor.CrossingGuardJoe.Viewer.Color;
+import com.aor.CrossingGuardJoe.viewer.Color;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
