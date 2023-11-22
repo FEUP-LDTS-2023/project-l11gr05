@@ -1,6 +1,7 @@
-package com.aor.CrossingGuardJoe.GUI;
+package com.aor.CrossingGuardJoe.gui;
 
-import com.aor.CrossingGuardJoe.Model.Position;
+
+import com.aor.CrossingGuardJoe.model.Position;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
@@ -75,5 +76,18 @@ public class LanternaGUI implements GUI{
                 character);
     }
 
+    @Override
+    public void drawJoe(Position position) {
 
+    }
+
+    @Override
+    public void drawKid(Position position) {
+
+    }
+
+    @Override
+    public void drawCar(Position position) {
+
+    }
 }

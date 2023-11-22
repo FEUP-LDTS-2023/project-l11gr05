@@ -1,8 +1,8 @@
-package com.aor.CrossingGuardJoe.Viewer;
+package com.aor.CrossingGuardJoe.viewer;
 
-import com.aor.CrossingGuardJoe.GUI.GUI;
-import com.aor.CrossingGuardJoe.Model.Position;
-import com.aor.CrossingGuardJoe.Model.game.Element;
+import com.aor.CrossingGuardJoe.gui.GUI;
+import com.aor.CrossingGuardJoe.model.Position;
+import com.aor.CrossingGuardJoe.model.game.Element;
 
 public abstract class ElementViewer<T extends Element> {
     private GUI gui;
