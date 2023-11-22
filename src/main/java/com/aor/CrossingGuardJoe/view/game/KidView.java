@@ -1,16 +1,9 @@
 package com.aor.CrossingGuardJoe.view.game;
 
-import com.aor.CrossingGuardJoe.model.game.Kid;
-import com.aor.CrossingGuardJoe.view.View;
-import com.aor.CrossingGuardJoe.view.drawer.Draw;
-import com.googlecode.lanterna.graphics.TextGraphics;
+import com.aor.CrossingGuardJoe.GUI.GUI;
+import com.aor.CrossingGuardJoe.model.game.Element;
 
-import java.io.IOException;
-
-public class KidView extends View {
-    private TextGraphics graphics;
-    private Draw draw;
-    private Kid kid;
+public class KidView extends ElementViewer {
     private String[] kidStandImage = new String[]{
             "                                                  ",
             "                                                  ",
@@ -173,35 +166,8 @@ public class KidView extends View {
             "                                                  "
 
     };
-    private boolean isWalking = false;
-
-    private void drawKidStand(Kid kid, TextGraphics graphics) {
-        this.draw = new Draw(graphics);
-        this.kid = kid;
-        draw.drawImage(kid.getPosition().getX(), kid.getPosition().getY(), kidStandImage);
-        isWalking = false;
-    }
-
-    private void drawKidWalk(Kid kid, TextGraphics graphics) {
-        this.draw = new Draw(graphics);
-        this.kid = kid;
-        draw.drawImage(kid.getPosition().getX(), kid.getPosition().getY(), kidWalkImage);
-        isWalking = true;
-    }
-
     @Override
-    public void draw() throws IOException {
-        if (isWalking) {
-            drawKidStand(kid, graphics);
-        } else {
-            drawKidWalk(kid, graphics);
-        }
-    }
-
-    public KidView(TextGraphics graphics, Kid kid) {
-        this.graphics = graphics;
-        this.kid = kid;
-        drawKidStand(kid, graphics);
-        drawKidWalk(kid, graphics);
+    void draw(Element element, GUI gui) {
+        drawImage(gui, element.getPosition(), kidStandImage);
     }
 }

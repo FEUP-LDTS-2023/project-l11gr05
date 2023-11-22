@@ -10,10 +10,7 @@ import com.googlecode.lanterna.graphics.TextGraphics;
 import java.io.IOException;
 
 public class CarView extends ElementViewer {
-    private TextGraphics graphics;
-    private Draw draw;
-    private Car car;
-    private String[] kidStandImage = new String[]{
+    private String[] carImage = new String[]{
             "                                    $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$                                    ",
             "                                    $@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@$                                    ",
             "                                   $$@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@$$                                   ",
@@ -119,23 +116,9 @@ public class CarView extends ElementViewer {
             "                    $$$$$$$$$$$$$$$$                                                                   $$$$$$$$$$$$$$$$                     ",
             "                      $$$$$$$$$$$$$                                                                      $$$$$$$$$$$$$                      "
     };
-    private void drawCar(Car car, TextGraphics graphics) {
-        this.draw = new Draw(graphics);
-        this.car = car;
-        draw.drawImage(car.getPosition().getX(), car.getPosition().getY(), kidStandImage);
-    }
-
-
-    }
-
-    public CarView(Car car, TextGraphics graphics) {
-        this.car = car;
-        this.graphics = graphics;
-        drawCar(car, graphics);
-    }
 
     @Override
     public void draw(Element element, GUI gui) {
-
+        drawImage(gui, element.getPosition(), carImage);
     }
 }

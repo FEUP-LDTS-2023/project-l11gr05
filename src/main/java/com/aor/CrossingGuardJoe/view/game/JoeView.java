@@ -1,17 +1,12 @@
 package com.aor.CrossingGuardJoe.view.game;
 
-import com.aor.CrossingGuardJoe.model.game.Joe;
-import com.aor.CrossingGuardJoe.view.View;
-import com.aor.CrossingGuardJoe.view.drawer.Draw;
-import com.googlecode.lanterna.graphics.TextGraphics;
+import com.aor.CrossingGuardJoe.GUI.GUI;
+import com.aor.CrossingGuardJoe.model.game.Element;
 
 import java.io.IOException;
 
-public class JoeView extends View {
-    private TextGraphics graphics;
-    private Draw draw;
-    private Joe joe;
-    private String[] JoeStandImage = new String[]{
+public class JoeView extends ElementViewer {
+    private String[] joeStandImage = new String[]{
             "                                    $$$$                                        ",
             "                                   $$<<$                                        ",
             "                                  $$<<<$$$$                                     ",
@@ -101,7 +96,7 @@ public class JoeView extends View {
             "                          $$********$$    $$********$$                          ",
             "                           $$$$$$$$$        $$$$$$$$$                           "
     };
-    private String[] JoeWalkLeftImage = new String[]{
+    private String[] joeWalkLeftImage = new String[]{
             "                                    $$$$                                        ",
             "                                   $$<<$                                        ",
             "                                  $$<<<$$$$                                     ",
@@ -178,7 +173,7 @@ public class JoeView extends View {
             "            $$$$***$$                                                           ",
             "              $$$$$$                                                            "
     };
-    private String[] JoeWalkRightImage = new String[]{
+    private String[] joeWalkRightImage = new String[]{
             "                                        $$$$                                    ",
             "                                        $<<$$                                   ",
             "                                     $$$$<<<$$                                  ",
@@ -257,7 +252,7 @@ public class JoeView extends View {
 
     };
 
-    private String[] JoePassImage = new String[]{
+    private String[] joePassImage = new String[]{
             "                                    $$$$                                        ",
             "                                   $$<<$                                        ",
             "                                  $$<<<$$$$                                     ",
@@ -349,7 +344,7 @@ public class JoeView extends View {
 
     };
 
-    private String[] JoeStopImage = new String[]{
+    private String[] joeStopImage = new String[]{
             "                                                              $$$$$$$$          ",
             "                                                            $$RRRRRRRR$$        ",
             "                                                           $RRRRRRRRRRRR$       ",
@@ -447,49 +442,8 @@ public class JoeView extends View {
 
     };
 
-    private void drawJoeStand(Joe joe, TextGraphics graphics) {
-        this.draw = new Draw(graphics);
-        this.joe = joe;
-        draw.drawImage(joe.getPosition().getX(), joe.getPosition().getY(), JoeStandImage);
-    }
-
-    private void drawJoeWalkLeft(Joe joe, TextGraphics graphics) {
-        this.draw = new Draw(graphics);
-        this.joe = joe;
-        draw.drawImage(joe.getPosition().getX(), joe.getPosition().getY(), JoeWalkLeftImage);
-    }
-
-    private void drawJoeWalkRight(Joe joe, TextGraphics graphics) {
-        this.draw = new Draw(graphics);
-        this.joe = joe;
-        draw.drawImage(joe.getPosition().getX(), joe.getPosition().getY(), JoeWalkRightImage);
-    }
-
-    private void drawJoePass(Joe joe, TextGraphics graphics) {
-        this.draw = new Draw(graphics);
-        this.joe = joe;
-        draw.drawImage(joe.getPosition().getX(), joe.getPosition().getY(), JoePassImage);
-    }
-
-    private void drawJoeStop(Joe joe, TextGraphics graphics) {
-        this.draw = new Draw(graphics);
-        this.joe = joe;
-        draw.drawImage(joe.getPosition().getX(), joe.getPosition().getY(), JoeStopImage);
-    }
-
-
     @Override
-    public void draw() throws IOException {
-
-    }
-
-    public JoeView(Joe joe, TextGraphics graphics) {
-        this.joe = joe;
-        this.graphics = graphics;
-        /*drawJoeStand(170, 100, graphics);
-        drawJoeWalkLeft(200, 100, graphics);
-        drawJoeWalkRight(200, 180, graphics);
-        drawJoePass(230, 100, graphics);
-        drawJoeStop(260, 100-6, graphics); //due to the Joe's stop signal height*/
+    void draw(Element element, GUI gui) {
+        drawImage(gui, element.getPosition(), joePassImage);
     }
 }

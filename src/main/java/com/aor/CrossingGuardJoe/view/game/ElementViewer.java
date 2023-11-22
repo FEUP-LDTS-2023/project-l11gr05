@@ -9,7 +9,8 @@ public abstract class ElementViewer<T extends Element> {
 
     abstract void draw(T element, GUI gui);
 
-    private void drawImage(Position initialPosition, String[] image) {
+    protected void drawImage(GUI gui, Position initialPosition, String[] image) {
+        this.gui = gui;
         int yPos = initialPosition.getY();
         for (String imageLine : image) {
             drawLine(initialPosition.getX(), yPos, imageLine);
