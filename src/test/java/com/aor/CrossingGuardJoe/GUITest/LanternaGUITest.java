@@ -22,9 +22,8 @@ public class LanternaGUITest {
 
     @BeforeEach
     public void setUp() throws IOException {
-        lanternaGUI = new LanternaGUI(80, 24); // Considerando um tamanho padrão de 80x24 para os testes
+        lanternaGUI = new LanternaGUI(80, 24);
 
-        // Mocks necessários para os testes
         textGraphicsMock = Mockito.mock(TextGraphics.class);
         screenMock = Mockito.mock(Screen.class);
 
@@ -37,7 +36,7 @@ public class LanternaGUITest {
         lanternaGUI.clearScreen();
 
         verify(textGraphicsMock).setBackgroundColor(TextColor.Factory.fromString("#7f7976"));
-        verify(textGraphicsMock).fillRectangle(any(), any(), anyChar()); // Use TextCharacter em vez de char
+        verify(textGraphicsMock).fillRectangle(any(), any(), anyChar());
     }
 
     @Test
@@ -52,7 +51,7 @@ public class LanternaGUITest {
         lanternaGUI.setBackgrounColor("#FFFFFF");
 
         verify(textGraphicsMock).setBackgroundColor(TextColor.Factory.fromString("#FFFFFF"));
-        verify(textGraphicsMock).fillRectangle(any(), any(), anyChar()); // Use TextCharacter em vez de char
+        verify(textGraphicsMock).fillRectangle(any(), any(), anyChar());
     }
 
     @Test
