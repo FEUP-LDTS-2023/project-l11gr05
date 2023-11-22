@@ -46,7 +46,7 @@ public enum Color {
         return null;
     }
 
-    public TextColor getColorText() {
+    public String getColorText() {
         return this.color;
     }
 

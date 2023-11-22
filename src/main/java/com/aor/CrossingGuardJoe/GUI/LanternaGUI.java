@@ -1,5 +1,6 @@
-package com.aor.CrossingGuardJoe.gui;
+package com.aor.CrossingGuardJoe.GUI;
 
+import com.aor.CrossingGuardJoe.model.Position;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
@@ -16,7 +17,7 @@ import java.io.IOException;
 public class LanternaGUI implements GUI{
     private TextGraphics graphics;
     private Screen screen;
-    private TerminalSize terminalSize;
+    private Terminal terminal;
     private int width;
     private int height;
     
@@ -35,11 +36,8 @@ public class LanternaGUI implements GUI{
         return this.height;
     }
 
-    public TerminalSize getTerminalSize() {
-        return this.terminalSize;
-    }
     private void createTerminal() throws IOException {
-        this.terminalSize = new TerminalSize(getWidth(), getHeight());
+        TerminalSize terminalSize = new TerminalSize(getWidth(), getHeight());
         Terminal terminal = new DefaultTerminalFactory()
                 .setInitialTerminalSize(terminalSize)
                 .setTerminalEmulatorFontConfiguration(
@@ -49,15 +47,10 @@ public class LanternaGUI implements GUI{
         this.screen.startScreen();
         this.graphics = screen.newTextGraphics();
 
-        setBackgroundColor("#7F7976");
+        setBackgrounColor("#7F7976");
         refreshScreen();
     }
 
-    private void setBackgroundColor(String hexCode) {
-        this.graphics.setBackgroundColor(TextColor.Factory.fromString(hexCode));
-        this.graphics.fillRectangle(new TerminalPosition(0,0), getTerminalSize(), ' ');
-    }
-    
     /*
     public LanternaGUI() throws IOException {
         this.terminalSize = new TerminalSize(1000, 500);
@@ -120,11 +113,26 @@ public class LanternaGUI implements GUI{
     @Override
     public void clearScreen() {
         this.graphics.setBackgroundColor(TextColor.Factory.fromString("#7f7976"));
-        this.graphics.fillRectangle(new TerminalPosition(0,0), getTerminalSize(), ' ');
+        fillRectangle(new Position(0,0), new Position(getWidth(), getHeight()), ' ');
     }
 
     @Override
     public void refreshScreen() throws IOException {
         this.screen.refresh();
     }
+
+    @Override
+    public void setBackgrounColor(String colorHexCode) {
+        this.graphics.setBackgroundColor(TextColor.Factory.fromString(colorHexCode));
+        fillRectangle(new Position(0,0), new Position(getWidth(), getHeight()), ' ');
+    }
+
+    @Override
+    public void fillRectangle(Position initialPosition, Position finalPosition, Character character) {
+        this.graphics.fillRectangle(new TerminalPosition(initialPosition.getX(), initialPosition.getY())
+                , new TerminalSize(finalPosition.getX() - initialPosition.getX(), finalPosition.getY() - initialPosition.getY())
+                , character);
+    }
+
+
 }

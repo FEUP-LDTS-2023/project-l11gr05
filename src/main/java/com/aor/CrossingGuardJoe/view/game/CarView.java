@@ -1,14 +1,15 @@
 package com.aor.CrossingGuardJoe.view.game;
 
-import com.aor.CrossingGuardJoe.gui.LanternaGUI;
+import com.aor.CrossingGuardJoe.GUI.GUI;
 import com.aor.CrossingGuardJoe.model.game.Car;
+import com.aor.CrossingGuardJoe.model.game.Element;
 import com.aor.CrossingGuardJoe.view.View;
 import com.aor.CrossingGuardJoe.view.drawer.Draw;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
 import java.io.IOException;
 
-public class CarView extends View {
+public class CarView extends ElementViewer {
     private TextGraphics graphics;
     private Draw draw;
     private Car car;
@@ -125,14 +126,16 @@ public class CarView extends View {
     }
 
 
-    @Override
-    public void draw() throws IOException {
-
     }
 
     public CarView(Car car, TextGraphics graphics) {
         this.car = car;
         this.graphics = graphics;
         drawCar(car, graphics);
+    }
+
+    @Override
+    public void draw(Element element, GUI gui) {
+
     }
 }

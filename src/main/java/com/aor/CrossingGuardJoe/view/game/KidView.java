@@ -1,6 +1,5 @@
 package com.aor.CrossingGuardJoe.view.game;
 
-import com.aor.CrossingGuardJoe.gui.LanternaGUI;
 import com.aor.CrossingGuardJoe.model.game.Kid;
 import com.aor.CrossingGuardJoe.view.View;
 import com.aor.CrossingGuardJoe.view.drawer.Draw;
