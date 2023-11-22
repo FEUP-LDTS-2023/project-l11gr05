@@ -1,4 +1,4 @@
-package com.aor.CrossingGuardJoe.GUI;
+package com.aor.CrossingGuardJoe.GUITest;
 
 import com.aor.CrossingGuardJoe.Model.Position;
 import com.googlecode.lanterna.TerminalPosition;
@@ -25,8 +25,15 @@ public class LanternaGUI implements GUI{
         this.width = width;
         this.height = height;
         createTerminal();
-        
     }
+
+    public TextGraphics getGraphics() {
+        return this.graphics;
+    }
+
+    public Screen getScreen() { return this.screen; }
+
+    public Terminal getTerminal() { return this.terminal; }
     
     public int getWidth() {
         return this.width;
@@ -34,6 +41,18 @@ public class LanternaGUI implements GUI{
     
     public int getHeight() {
         return this.height;
+    }
+
+    public void setGraphics(TextGraphics graphics) {
+        this.graphics = graphics;
+    }
+
+    public void setScreen(Screen screen) {
+        this.screen = screen;
+    }
+
+    public void setTerminal(Terminal terminal) {
+        this.terminal = terminal;
     }
 
     private void createTerminal() throws IOException {

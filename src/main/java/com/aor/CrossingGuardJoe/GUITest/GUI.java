@@ -1,4 +1,4 @@
-package com.aor.CrossingGuardJoe.GUI;
+package com.aor.CrossingGuardJoe.GUITest;
 
 import com.aor.CrossingGuardJoe.Model.Position;
 

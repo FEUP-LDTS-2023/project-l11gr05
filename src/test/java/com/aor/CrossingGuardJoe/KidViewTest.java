@@ -1,4 +1,4 @@
-package com.aor.CrossingGuardJoe.view;
+package com.aor.CrossingGuardJoe;
 
 
 import static org.mockito.ArgumentMatchers.eq;
