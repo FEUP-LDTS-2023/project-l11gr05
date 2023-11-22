@@ -1,13 +1,13 @@
-package com.aor.CrossingGuardJoe.view.game;
+package com.aor.CrossingGuardJoe.Viewer;
 
 import com.aor.CrossingGuardJoe.GUI.GUI;
-import com.aor.CrossingGuardJoe.model.Position;
-import com.aor.CrossingGuardJoe.model.game.Element;
+import com.aor.CrossingGuardJoe.Model.Position;
+import com.aor.CrossingGuardJoe.Model.game.Element;
 
 public abstract class ElementViewer<T extends Element> {
     private GUI gui;
 
-    abstract void draw(T element, GUI gui);
+    protected abstract void draw(T element, GUI gui);
 
     protected void drawImage(GUI gui, Position initialPosition, String[] image) {
         this.gui = gui;

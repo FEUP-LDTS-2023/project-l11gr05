@@ -1,9 +1,7 @@
-package com.aor.CrossingGuardJoe.controller.game;
+package com.aor.CrossingGuardJoe.controller.Elements;
 
-import com.aor.CrossingGuardJoe.model.Position;
-import com.aor.CrossingGuardJoe.model.game.Kid;
-import com.aor.CrossingGuardJoe.view.game.KidView;
-import com.googlecode.lanterna.input.KeyStroke;
+import com.aor.CrossingGuardJoe.Model.Position;
+import com.aor.CrossingGuardJoe.Model.game.Kid;
 
 public class KidController {
     private Kid kid;

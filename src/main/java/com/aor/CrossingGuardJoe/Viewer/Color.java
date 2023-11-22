@@ -1,4 +1,4 @@
-package com.aor.CrossingGuardJoe.view.game;
+package com.aor.CrossingGuardJoe.Viewer;
 
 import com.googlecode.lanterna.TextColor;
 

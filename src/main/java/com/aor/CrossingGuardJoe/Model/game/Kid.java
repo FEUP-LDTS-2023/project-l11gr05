@@ -1,6 +1,4 @@
-package com.aor.CrossingGuardJoe.model.game;
-
-import com.aor.CrossingGuardJoe.model.Position;
+package com.aor.CrossingGuardJoe.Model.game;
 
 public class Kid extends Element {
     public Kid(int x, int y) {

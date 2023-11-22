@@ -1,6 +1,6 @@
 package com.aor.CrossingGuardJoe.GUI;
 
-import com.aor.CrossingGuardJoe.model.Position;
+import com.aor.CrossingGuardJoe.Model.Position;
 
 import java.io.IOException;
 

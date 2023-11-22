@@ -1,4 +1,4 @@
-package com.aor.CrossingGuardJoe.model.game;
+package com.aor.CrossingGuardJoe.Model.game;
 
 public class Joe extends Element{
     public Joe(int x, int y) {
