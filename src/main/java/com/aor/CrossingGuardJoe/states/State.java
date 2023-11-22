@@ -1,4 +1,4 @@
-package com.aor.CrossingGuardJoe.States;
+package com.aor.CrossingGuardJoe.states;
 
 import com.aor.CrossingGuardJoe.controller.Controller;
 

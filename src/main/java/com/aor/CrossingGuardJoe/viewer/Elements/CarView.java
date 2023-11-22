@@ -1,8 +1,8 @@
-package com.aor.CrossingGuardJoe.Viewer.Elements;
+package com.aor.CrossingGuardJoe.viewer.Elements;
 
-import com.aor.CrossingGuardJoe.GUI.GUI;
-import com.aor.CrossingGuardJoe.Viewer.ElementViewer;
-import com.aor.CrossingGuardJoe.Model.game.Element;
+import com.aor.CrossingGuardJoe.gui.GUI;
+import com.aor.CrossingGuardJoe.viewer.ElementViewer;
+import com.aor.CrossingGuardJoe.model.game.Element;
 
 public class CarView extends ElementViewer {
     private String[] carImage = new String[]{

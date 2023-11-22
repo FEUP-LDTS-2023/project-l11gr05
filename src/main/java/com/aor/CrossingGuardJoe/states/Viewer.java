@@ -1,4 +1,4 @@
-package com.aor.CrossingGuardJoe.States;
+package com.aor.CrossingGuardJoe.states;
 
 public class Viewer<T> {
     private T model;

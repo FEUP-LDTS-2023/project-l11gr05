@@ -1,7 +1,7 @@
 package com.aor.CrossingGuardJoe.controller.Elements;
 
-import com.aor.CrossingGuardJoe.Model.Position;
-import com.aor.CrossingGuardJoe.Model.game.Car;
+import com.aor.CrossingGuardJoe.model.Position;
+import com.aor.CrossingGuardJoe.model.game.Car;
 
 public class CarController {
     private Car car;
