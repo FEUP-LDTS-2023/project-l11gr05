@@ -124,14 +124,14 @@ public class LanternaGUI implements GUI{
     @Override
     public void setBackgrounColor(String colorHexCode) {
         this.graphics.setBackgroundColor(TextColor.Factory.fromString(colorHexCode));
-        fillRectangle(new Position(0,0), new Position(getWidth(), getHeight()), ' ');
+        fillRectangle(new Position(0,0), getWidth(), getHeight(), ' ');
     }
 
     @Override
-    public void fillRectangle(Position initialPosition, Position finalPosition, Character character) {
-        this.graphics.fillRectangle(new TerminalPosition(initialPosition.getX(), initialPosition.getY())
-                , new TerminalSize(finalPosition.getX() - initialPosition.getX(), finalPosition.getY() - initialPosition.getY())
-                , character);
+    public void fillRectangle(Position initialPosition, int rectangleWidth, int rectangleHeight, Character character) {
+        this.graphics.fillRectangle(new TerminalPosition(initialPosition.getX(), initialPosition.getY()),
+                new TerminalSize(rectangleWidth, rectangleHeight),
+                character);
     }
 
 

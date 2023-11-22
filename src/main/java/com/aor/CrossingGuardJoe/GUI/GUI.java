@@ -9,5 +9,5 @@ public interface GUI {
     void clearScreen();
     void refreshScreen() throws IOException;
     void setBackgrounColor(String colorHexCode);
-    void fillRectangle(Position initialPosition, Position finalPosition, Character character);
+    void fillRectangle(Position initialPosition, int rectangleWidth, int rectangleHeight, Character character);
 }
