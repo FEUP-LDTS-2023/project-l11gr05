@@ -1,11 +1,21 @@
 package com.aor.CrossingGuardJoe;
 
 import com.aor.CrossingGuardJoe.gui.LanternaGUI;
+import com.aor.CrossingGuardJoe.states.State;
 
 import java.io.IOException;
 
 public class Game {
-    public static void main(String[] args) throws IOException {
-        LanternaGUI game = new LanternaGUI(1000, 500);
+    private LanternaGUI gui;
+    private State state;
+
+    public Game() throws IOException {
+        gui = new LanternaGUI(1000, 500);
+        //missing state
+        run();
+    }
+
+    private void run() {
+
     }
 }

@@ -15,4 +15,9 @@ public interface GUI {
     void drawKid(Position position);
 
     void drawCar(Position position);
+
+    ACTION getNextAction() throws IOException;
+    enum ACTION {
+        LEFT, RIGHT, PASS, STOP, SELECT, NONE, QUIT;
+    }
 }

@@ -1,9 +1,13 @@
 package com.aor.CrossingGuardJoe.controller;
 
+import com.aor.CrossingGuardJoe.Game;
+import com.aor.CrossingGuardJoe.gui.GUI;
+
 import java.io.IOException;
 
 public abstract class Controller<T> {
-    private T model;
+    private final T model;
+
     public Controller(T model) {
         this.model = model;
     }
@@ -12,5 +16,5 @@ public abstract class Controller<T> {
         return this.model;
     }
 
-    //public abstract void execute(Game game, GUI.KEYACTION keyaction, long time) throws IOException;
+    public abstract void nextAction(Game game, GUI.ACTION action, long time) throws IOException;
 }
