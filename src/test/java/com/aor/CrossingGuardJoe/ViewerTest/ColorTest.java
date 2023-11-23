@@ -28,8 +28,8 @@ public class ColorTest {
     @Test
     void testAllColors() {
         for (Color color : Color.values()) {
-            Color colorgGet = Color.getColor(color.getCharacter());
-            Assertions.assertEquals(color, colorgGet);
+            Color colorGet = Color.getColor(color.getCharacter());
+            Assertions.assertEquals(color, colorGet);
         }
     }
 

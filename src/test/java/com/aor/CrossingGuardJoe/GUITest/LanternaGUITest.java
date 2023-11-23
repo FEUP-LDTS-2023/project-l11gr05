@@ -49,7 +49,7 @@ public class LanternaGUITest {
 
     @Test
     public void testSetBackgroundColor() {
-        lanternaGUI.setBackgrounColor("#FFFFFF");
+        lanternaGUI.setBackgroundColor("#FFFFFF");
 
         verify(textGraphicsMock).setBackgroundColor(TextColor.Factory.fromString("#FFFFFF"));
         verify(textGraphicsMock).fillRectangle(any(), any(), anyChar());
