@@ -1,4 +1,4 @@
-package com.aor.CrossingGuardJoe.model.game;
+package com.aor.CrossingGuardJoe.model.game.elements;
 
 import com.aor.CrossingGuardJoe.model.Position;
 

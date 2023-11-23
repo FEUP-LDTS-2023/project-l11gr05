@@ -1,4 +1,4 @@
-package com.aor.CrossingGuardJoe.model.game;
+package com.aor.CrossingGuardJoe.model.game.elements;
 
 public class Kid extends Element {
     private boolean walk;

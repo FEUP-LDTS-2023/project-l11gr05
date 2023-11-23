@@ -7,7 +7,7 @@ import com.aor.CrossingGuardJoe.viewer.Viewer;
 import com.aor.CrossingGuardJoe.viewer.game.GameViewer;
 
 public class GameState extends State<Road>{
-    public GameState(Road road) { super(road);}
+    public GameState(Road road) { super(road); }
 
     @Override
     public Controller getController() {

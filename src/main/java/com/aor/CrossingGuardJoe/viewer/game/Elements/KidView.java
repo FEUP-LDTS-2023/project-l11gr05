@@ -1,10 +1,9 @@
 package com.aor.CrossingGuardJoe.viewer.game.Elements;
 
 import com.aor.CrossingGuardJoe.gui.GUI;
-import com.aor.CrossingGuardJoe.viewer.ElementViewer;
-import com.aor.CrossingGuardJoe.model.game.Element;
+import com.aor.CrossingGuardJoe.model.game.elements.Kid;
 
-public class KidView extends ElementViewer {
+public class KidView extends ElementViewer<Kid> {
     private String[] kidStandImage = new String[]{
             "                                                  ",
             "                                                  ",
@@ -168,7 +167,7 @@ public class KidView extends ElementViewer {
 
     };
     @Override
-    public void draw(Element element, GUI gui) {
-        drawImage(gui, element.getPosition(), kidStandImage);
+    public void draw(Kid kid, GUI gui) {
+        drawImage(gui, kid.getPosition(), kidStandImage);
     }
 }

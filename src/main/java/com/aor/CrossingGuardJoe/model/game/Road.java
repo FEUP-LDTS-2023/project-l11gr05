@@ -1,5 +1,9 @@
 package com.aor.CrossingGuardJoe.model.game;
 
+import com.aor.CrossingGuardJoe.model.game.elements.Car;
+import com.aor.CrossingGuardJoe.model.game.elements.Joe;
+import com.aor.CrossingGuardJoe.model.game.elements.Kid;
+
 import java.util.List;
 
 public class Road {

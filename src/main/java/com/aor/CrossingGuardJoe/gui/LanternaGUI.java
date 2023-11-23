@@ -2,6 +2,7 @@ package com.aor.CrossingGuardJoe.gui;
 
 
 import com.aor.CrossingGuardJoe.model.Position;
+import com.aor.CrossingGuardJoe.viewer.Color;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
@@ -98,18 +99,27 @@ public class LanternaGUI implements GUI{
     }
 
     @Override
-    public void drawJoe(Position position) {
-
+    public void drawImage(Position position, String[] image) {
+        int yPos = position.getY();
+        for (String imageLine : image) {
+            drawLine(position.getX(), yPos, imageLine);
+            yPos++;
+        }
+    }
+    private void setColor(char character) {
+        com.aor.CrossingGuardJoe.viewer.Color color = Color.getColor(character);
+        if (color != null) {
+            setBackgrounColor(color.getColorHexCode());
+        }
     }
 
-    @Override
-    public void drawKid(Position position) {
-
-    }
-
-    @Override
-    public void drawCar(Position position) {
-
+    private void drawLine(int x, int y, String imageLine) {
+        int xPos = x;
+        for (char character : imageLine.toCharArray()) {
+            setColor(character);
+            fillRectangle(new Position(x + xPos, y), 1, 1, ' ');
+            xPos++;
+        }
     }
 
     public ACTION getNextAction() throws IOException {

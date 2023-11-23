@@ -9,12 +9,8 @@ public interface GUI {
     void refreshScreen() throws IOException;
     void setBackgrounColor(String colorHexCode);
     void fillRectangle(Position initialPosition, int rectangleWidth, int rectangleHeight, Character character);
+    void drawImage(Position position, String[] image);
 
-    void drawJoe(Position position);
-
-    void drawKid(Position position);
-
-    void drawCar(Position position);
 
     ACTION getNextAction() throws IOException;
     enum ACTION {

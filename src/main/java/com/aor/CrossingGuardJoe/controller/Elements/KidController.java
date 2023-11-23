@@ -2,8 +2,6 @@ package com.aor.CrossingGuardJoe.controller.Elements;
 
 import com.aor.CrossingGuardJoe.Game;
 import com.aor.CrossingGuardJoe.gui.GUI;
-import com.aor.CrossingGuardJoe.model.Position;
-import com.aor.CrossingGuardJoe.model.game.Kid;
 import com.aor.CrossingGuardJoe.model.game.Road;
 
 import java.io.IOException;

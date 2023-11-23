@@ -1,10 +1,9 @@
 package com.aor.CrossingGuardJoe.viewer.game.Elements;
 
 import com.aor.CrossingGuardJoe.gui.GUI;
-import com.aor.CrossingGuardJoe.viewer.ElementViewer;
-import com.aor.CrossingGuardJoe.model.game.Element;
+import com.aor.CrossingGuardJoe.model.game.elements.Element;
 
-public class CarView extends ElementViewer {
+public abstract class CarView extends ElementViewer {
     private String[] carImage = new String[]{
             "                                    $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$                                    ",
             "                                    $@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@$                                    ",
