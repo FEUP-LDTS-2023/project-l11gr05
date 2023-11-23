@@ -1,6 +1,7 @@
 package com.aor.CrossingGuardJoe.states;
 
 import com.aor.CrossingGuardJoe.controller.Controller;
+import com.aor.CrossingGuardJoe.viewer.Viewer;
 
 public abstract class State<T> {
     private final T model;
@@ -14,6 +15,7 @@ public abstract class State<T> {
     }
 
     public abstract Controller<T> getController();
+
     public abstract Viewer<T> getViewer();
 
     public T getModel() {

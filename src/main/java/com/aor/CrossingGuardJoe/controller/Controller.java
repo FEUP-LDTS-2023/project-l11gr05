@@ -3,7 +3,8 @@ package com.aor.CrossingGuardJoe.controller;
 import java.io.IOException;
 
 public abstract class Controller<T> {
-    private T model;
+    private final T model;
+
     public Controller(T model) {
         this.model = model;
     }

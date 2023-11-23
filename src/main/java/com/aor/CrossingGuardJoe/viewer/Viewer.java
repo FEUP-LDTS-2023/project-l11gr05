@@ -1,7 +1,7 @@
-package com.aor.CrossingGuardJoe.states;
+package com.aor.CrossingGuardJoe.viewer;
 
-public class Viewer<T> {
-    private T model;
+public abstract class Viewer<T> {
+    private final T model;
 
     public Viewer(T model) {
         this.model = model;
