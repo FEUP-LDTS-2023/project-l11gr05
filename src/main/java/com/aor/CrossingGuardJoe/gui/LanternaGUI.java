@@ -2,6 +2,7 @@ package com.aor.CrossingGuardJoe.gui;
 
 
 import com.aor.CrossingGuardJoe.model.Position;
+import com.aor.CrossingGuardJoe.viewer.Color;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
@@ -112,6 +113,7 @@ public class LanternaGUI implements GUI{
 
     }
 
+
     public ACTION getNextAction() throws IOException {
         KeyStroke keyStroke = screen.pollInput();
         if (keyStroke == null) return ACTION.NONE;
@@ -128,4 +130,5 @@ public class LanternaGUI implements GUI{
 
         return ACTION.NONE;
     }
+
 }

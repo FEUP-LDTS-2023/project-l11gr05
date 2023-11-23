@@ -1,7 +1,6 @@
 package com.aor.CrossingGuardJoe.viewer.Elements;
 
 import com.aor.CrossingGuardJoe.gui.GUI;
-import com.aor.CrossingGuardJoe.viewer.ElementViewer;
 import com.aor.CrossingGuardJoe.model.game.Element;
 
 public class KidView extends ElementViewer {

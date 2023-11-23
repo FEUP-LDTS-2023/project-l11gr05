@@ -13,6 +13,7 @@ public class Road {
     public Road(int width, int height) {
         this.width = width;
         this.height = height;
+        this.joe = new Joe(100, 100);
     }
 
     public Joe getJoe() { return joe; }
