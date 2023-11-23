@@ -11,9 +11,10 @@ public interface GUI {
     void fillRectangle(Position initialPosition, int rectangleWidth, int rectangleHeight, Character character);
     void drawImage(Position position, String[] image);
 
+    void drawText(Position position, String text, String color);
 
     ACTION getNextAction() throws IOException;
     enum ACTION {
-        LEFT, RIGHT, PASS, STOP, SELECT, NONE, QUIT;
+        UP, DOWN, LEFT, RIGHT, PASS, STOP, SELECT, NONE, QUIT;
     }
 }

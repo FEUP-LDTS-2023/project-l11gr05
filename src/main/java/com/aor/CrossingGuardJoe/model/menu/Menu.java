@@ -19,7 +19,15 @@ public class Menu {
         option = (option - 1 + options.size()) % options.size();
     }
 
-    private boolean selectedOption(int index) {
+    public String getOption(int i) {
+        return options.get(i);
+    }
+
+    public int getNumberOptions() {
+        return options.size();
+    }
+
+    public boolean selectedOption(int index) {
         return option == index;
     }
 

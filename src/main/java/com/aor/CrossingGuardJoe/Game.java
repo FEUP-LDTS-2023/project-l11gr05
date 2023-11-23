@@ -16,7 +16,8 @@ public class Game {
 
     public Game() throws IOException {
         gui = new LanternaGUI(1000, 500);
-        state = new GameState(new LoaderRoadBuilder().createRoad());
+        state = new MenuState(new Menu());
+        //state = new GameState(new LoaderRoadBuilder().createRoad());
         //missing state
         run();
     }

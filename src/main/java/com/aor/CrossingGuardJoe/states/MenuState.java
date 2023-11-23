@@ -1,8 +1,10 @@
 package com.aor.CrossingGuardJoe.states;
 
 import com.aor.CrossingGuardJoe.controller.Controller;
+import com.aor.CrossingGuardJoe.controller.MenuController;
 import com.aor.CrossingGuardJoe.model.menu.Menu;
 import com.aor.CrossingGuardJoe.viewer.Viewer;
+import com.aor.CrossingGuardJoe.viewer.menu.MenuViewer;
 
 public class MenuState extends State<Menu>{
     public MenuState(Menu model) {
@@ -11,11 +13,11 @@ public class MenuState extends State<Menu>{
 
     @Override
     public Controller<Menu> getController() {
-        return null;
+        return new MenuController(getModel());
     }
 
     @Override
     public Viewer<Menu> getViewer() {
-        return null;
+        return new MenuViewer(getModel());
     }
 }
