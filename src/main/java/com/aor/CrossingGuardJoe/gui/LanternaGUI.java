@@ -70,7 +70,7 @@ public class LanternaGUI implements GUI{
         this.screen.startScreen();
         this.graphics = screen.newTextGraphics();
 
-        setBackgrounColor("#7F7976");
+        setBackgroundColor("#7F7976");
         refreshScreen();
     }
 
@@ -86,7 +86,7 @@ public class LanternaGUI implements GUI{
     }
 
     @Override
-    public void setBackgrounColor(String colorHexCode) {
+    public void setBackgroundColor(String colorHexCode) {
         this.graphics.setBackgroundColor(TextColor.Factory.fromString(colorHexCode));
         fillRectangle(new Position(0,0), getWidth(), getHeight(), ' ');
     }
@@ -117,7 +117,7 @@ public class LanternaGUI implements GUI{
     private void setColor(char character) {
         com.aor.CrossingGuardJoe.viewer.Color color = Color.getColor(character);
         if (color != null) {
-            setBackgrounColor(color.getColorHexCode());
+            setBackgroundColor(color.getColorHexCode());
         }
     }
 

@@ -22,7 +22,7 @@ public abstract class ElementViewer<T extends Element> {
     private void setColor(char character) {
         Color color = Color.getColor(character);
         if (color != null) {
-            this.gui.setBackgrounColor(color.getColorHexCode());
+            this.gui.setBackgroundColor(color.getColorHexCode());
         }
     }
 
