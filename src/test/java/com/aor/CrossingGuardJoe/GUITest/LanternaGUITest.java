@@ -2,6 +2,7 @@ package com.aor.CrossingGuardJoe.GUITest;
 
 import com.aor.CrossingGuardJoe.gui.LanternaGUI;
 import com.aor.CrossingGuardJoe.model.Position;
+import com.aor.CrossingGuardJoe.viewer.Color;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
@@ -73,44 +74,40 @@ public class LanternaGUITest {
 
     @Test
     public void testDrawImage() {
-        LanternaGUI gui = mock(LanternaGUI.class);
-
         Position position = new Position(5, 5);
-        String[] image = {
-                "###",
-                "###",
-                "###"
-        };
+        String[] testImage = {  "#####",
+                                "#####",
+                                "#####"  };
 
-        gui.drawImage(position, image);
+        lanternaGUI.drawImage(position, testImage);
 
-        verify(gui, times(1)).drawLine(5, 5, "###");
-        verify(gui, times(1)).drawLine(5, 6, "###");
-        verify(gui, times(1)).drawLine(5, 7, "###");
+        // Verify if drawLine was called for each line in the image
+        verify(lanternaGUI, times(testImage.length)).drawLine(eq(position.getX()), anyInt(), anyString());
     }
 
     @Test
     public void testDrawLine() {
-        LanternaGUI gui = mock(LanternaGUI.class);
-
-        int x = 3;
+        int x = 2;
         int y = 3;
-        String imageLine = "###";
+        String testLine = "####";
 
-        gui.drawLine(x, y, imageLine);
+        lanternaGUI.drawLine(x, y, testLine);
 
-        verify(gui, times(1)).setColor('#');
-        verify(gui.getGraphics(), times(3)).fillRectangle(any(), any(), eq(' '));
+        // Verify if fillRectangle was called for each character in the line
+        verify(lanternaGUI, times(testLine.length())).fillRectangle(any(), anyInt(), anyInt(), anyChar());
     }
 
     @Test
     public void testSetColor() {
-        LanternaGUI gui = mock(LanternaGUI.class);
+        char testCharacter = 'W';
+        Color mockedColor = mock(Color.class);
+        when(Color.getColor(testCharacter)).thenReturn(mockedColor);
+        when(mockedColor.getColorHexCode()).thenReturn("#FFFFFF");
 
-        char character = '#';
-        gui.setColor(character);
+        lanternaGUI.setColor(testCharacter);
 
-        verify(gui, times(1)).setBackgroundColor("#FFFFFF"); // Assuming #FFFFFF for '#' color
+        // Verify if setBackgroundColor was called with the color's hex code
+        verify(textGraphicsMock).setBackgroundColor(TextColor.Factory.fromString("#FFFFFF"));
     }
 
 }

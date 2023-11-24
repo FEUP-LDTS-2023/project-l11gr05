@@ -116,10 +116,6 @@ public class LanternaGUI implements GUI{
     }
 
     public void setColor(char character) {
-        /*com.aor.CrossingGuardJoe.viewer.Color color = Color.getColor(character);
-        if (color != null) {
-            setBackgroundColor(color.getColorHexCode());
-        }*/
         this.color = Color.getColor(character);
         if (color != null) {
             graphics.setBackgroundColor(TextColor.Factory.fromString(color.getColorHexCode()));
@@ -131,9 +127,7 @@ public class LanternaGUI implements GUI{
         for (char character : imageLine.toCharArray()) {
             if (character != ' ') {
                 setColor(character);
-                //fillRectangle(new Position(x + xPos, y), 1, 1, ' ');
-                graphics.fillRectangle(new TerminalPosition(x + xPos, y),
-                        new TerminalSize(1,1), ' ');
+                fillRectangle(new Position(x + xPos, y), 1, 1, ' ');
             }
             xPos++;
         }
