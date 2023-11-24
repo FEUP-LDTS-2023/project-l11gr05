@@ -477,7 +477,6 @@ public class JoeView extends ElementViewer<Joe> {
                     gui.drawImage(joe.getPosition(), joeWalkRightImage);
                     joe.setPosition(new Position(joe.getPosition().getX() + 3, joe.getPosition().getY()));
                 }
-                joe.isNotWalking();
             }
         }
         else if (joe.getIsRaisingStopSign()) {
@@ -489,5 +488,6 @@ public class JoeView extends ElementViewer<Joe> {
         else {
             gui.drawImage(joe.getPosition(), joeStandImage);
         }
+        joe.isNotWalking();
     }
 }
