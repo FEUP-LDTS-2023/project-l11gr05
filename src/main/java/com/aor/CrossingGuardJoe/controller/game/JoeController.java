@@ -15,14 +15,13 @@ public class JoeController extends GameController {
 
     public void moveJoeLeft() {
         JoeAction(new Position(
-                getModel().getJoe().getPosition().getX() - 5, getModel().getJoe().getPosition().getY()),
+                        getModel().getJoe().getPosition().getX() - 3, getModel().getJoe().getPosition().getY()),
                 'l');
-
     }
 
     public void moveJoeRight() {
         JoeAction(new Position(
-                        getModel().getJoe().getPosition().getX() + 5, getModel().getJoe().getPosition().getY()),
+                        getModel().getJoe().getPosition().getX() + 3, getModel().getJoe().getPosition().getY()),
                 'r');
     }
 
@@ -34,10 +33,6 @@ public class JoeController extends GameController {
         JoeAction(getModel().getJoe().getPosition(), 's');
     }
 
-    /*private Position walkToLeftInertia() {
-        return new Position(getModel().getJoe().getPosition().getX() - 5, getModel().getJoe().getPosition().getY());
-    }*/
-
     public void JoeAction(Position position, char passOrStop) {
         if (passOrStop == 'p') {
             getModel().getJoe().passSign();
@@ -48,13 +43,12 @@ public class JoeController extends GameController {
         if (passOrStop == 'l') {
             getModel().getJoe().isWalkingToLeft();
             getModel().getJoe().setPosition(position);
-            //getModel().getJoe().isNotWalking();
-            //getModel().getJoe().setPosition(walkToLeftInertia());
         }
         if (passOrStop == 'r') {
             getModel().getJoe().isWalkingToRight();
             getModel().getJoe().setPosition(position);
         }
+        getModel().getJoe().setFirstHalfOfMovement(true);
     }
     @Override
     public void nextAction(Game game, GUI.ACTION action, long time) throws IOException {
