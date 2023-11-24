@@ -442,6 +442,21 @@ public class JoeView extends ElementViewer<Joe> {
 
     @Override
     public void draw(Joe joe, GUI gui) {
-        gui.drawImage(joe.getPosition(), joePassImage);
+        if (joe.getIsWalkingState()) {
+            if (joe.getIsWalkingToLeft()) {
+                gui.drawImage(joe.getPosition(), joeWalkLeftImage);
+            } else {
+                gui.drawImage(joe.getPosition(), joeWalkRightImage);
+            }
+        }
+        else if (joe.getIsRaisingStopSign()) {
+            gui.drawImage(joe.getPosition(), joeStopImage);
+        }
+        else if (joe.getIsPassSign()) {
+            gui.drawImage(joe.getPosition(), joePassImage);
+        }
+        else {
+            gui.drawImage(joe.getPosition(), joeStandImage);
+        }
     }
 }

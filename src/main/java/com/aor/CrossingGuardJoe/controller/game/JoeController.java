@@ -16,11 +16,12 @@ public class JoeController extends GameController {
     }
 
     public void moveJoeLeft() {
-        JoeAction(new Position(getActualJoePositionX - 1, getActualJoePositionY), 'n');
+        JoeAction(new Position(getActualJoePositionX - 1, getActualJoePositionY), 'l');
+
     }
 
     public void moveJoeRight() {
-        JoeAction(new Position(getActualJoePositionX + 1, getActualJoePositionY), 'n');
+        JoeAction(new Position(getActualJoePositionX + 1, getActualJoePositionY), 'r');
     }
 
     public void joePassSign() {
@@ -35,12 +36,15 @@ public class JoeController extends GameController {
         if (passOrStop == 'p') {
             getModel().getJoe().passSign();
         }
-
         if (passOrStop == 's') {
             getModel().getJoe().isRaisingStopSign();
         }
-        if (passOrStop == 'n'){
-            getModel().getJoe().isWalking();
+        if (passOrStop == 'l') {
+            getModel().getJoe().isWalkingToLeft();
+            getModel().getJoe().setPosition(position);
+        }
+        if (passOrStop == 'r') {
+            getModel().getJoe().isWalkingToRight();
             getModel().getJoe().setPosition(position);
         }
     }
