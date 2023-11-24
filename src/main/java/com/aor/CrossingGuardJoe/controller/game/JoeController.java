@@ -15,13 +15,13 @@ public class JoeController extends GameController {
 
     public void moveJoeLeft() {
         JoeAction(new Position(
-                        getModel().getJoe().getPosition().getX() - 3, getModel().getJoe().getPosition().getY()),
+                        getModel().getJoe().getPosition().getX() - 6, getModel().getJoe().getPosition().getY()),
                 'l');
     }
 
     public void moveJoeRight() {
         JoeAction(new Position(
-                        getModel().getJoe().getPosition().getX() + 3, getModel().getJoe().getPosition().getY()),
+                        getModel().getJoe().getPosition().getX() + 6, getModel().getJoe().getPosition().getY()),
                 'r');
     }
 

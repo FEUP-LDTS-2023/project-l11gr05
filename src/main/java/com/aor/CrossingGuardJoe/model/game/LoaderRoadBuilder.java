@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class LoaderRoadBuilder extends RoadBuilder{
-
+public class LoaderRoadBuilder {
+/*
     @Override
     protected int getWidth() {
         return 0;
@@ -43,7 +43,7 @@ public class LoaderRoadBuilder extends RoadBuilder{
 
 
         return cars;
-    }
+    }*/
 
 
 }

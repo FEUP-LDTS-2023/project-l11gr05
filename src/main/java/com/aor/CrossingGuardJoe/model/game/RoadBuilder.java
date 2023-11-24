@@ -4,11 +4,14 @@ import com.aor.CrossingGuardJoe.model.game.Road;
 import com.aor.CrossingGuardJoe.model.game.elements.Car;
 import com.aor.CrossingGuardJoe.model.game.elements.Joe;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
-public abstract class RoadBuilder {
+public class RoadBuilder {
+    private final Random rand = new Random();
     public Road createRoad() {
-        Road road = new Road(getWidth(), getHeight());
+        Road road = new Road(1000, 500);
 
         road.setJoe(createJoe());
         //road.setKids(createKids());
@@ -17,12 +20,20 @@ public abstract class RoadBuilder {
         return road;
     }
 
-    protected abstract int getWidth();
+    private Joe createJoe() {
+        return new Joe(400, 300);
+    }
 
-    protected abstract int getHeight();
+    private List<Car> createCars() {
+        List<Car> cars = new ArrayList<>();
 
-    protected abstract Joe createJoe();
-
-    protected abstract List<Car> createCars();
+        for (int i = 0; i < 5; i++) {
+            int randomY = -rand.nextInt(500);
+            int randomInterval = rand.nextInt(5000) + 5000;
+            Car car = new Car(200, randomY);
+            cars.add(car);
+        }
+        return cars;
+    }
     //missing all others elements creater
 }
