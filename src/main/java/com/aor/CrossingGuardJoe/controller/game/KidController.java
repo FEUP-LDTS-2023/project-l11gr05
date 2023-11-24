@@ -6,14 +6,14 @@ import com.aor.CrossingGuardJoe.model.game.Road;
 
 import java.io.IOException;
 
-public class KidController extends GameController {
+public class KidController extends GameController{
+
     public KidController(Road road) {
         super(road);
     }
 
-    public void move() {
-        /*Position position = new Position(kid.getPosition().getX() - 5, kid.getPosition().getY());
-        kid.setPosition(position);*/
+    public void kidWalk() {
+
     }
 
     @Override

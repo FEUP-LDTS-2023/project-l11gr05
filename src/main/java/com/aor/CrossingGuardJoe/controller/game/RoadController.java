@@ -1,15 +1,16 @@
 package com.aor.CrossingGuardJoe.controller.game;
 
 import com.aor.CrossingGuardJoe.Game;
+import com.aor.CrossingGuardJoe.controller.Controller;
 import com.aor.CrossingGuardJoe.gui.GUI;
 import com.aor.CrossingGuardJoe.model.game.Road;
 
 import java.io.IOException;
 
-public class RoadController extends GameController{
-    private final JoeController joeController;
-    private final KidController kidController;
-    private final CarController carController;
+public class RoadController extends Controller {
+    private final com.aor.CrossingGuardJoe.controller.game.JoeController joeController;
+    private final com.aor.CrossingGuardJoe.controller.game.KidController kidController;
+    private final com.aor.CrossingGuardJoe.controller.game.CarController carController;
 
     public RoadController(Road road) {
         super(road);
