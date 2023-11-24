@@ -18,6 +18,6 @@ public class LoaderRoadBuilder extends RoadBuilder{
 
     @Override
     protected Joe createJoe() {
-        return new Joe(100,100);
+        return new Joe(500,500);
     }
 }

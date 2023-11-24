@@ -4,6 +4,7 @@ import com.aor.CrossingGuardJoe.Game;
 import com.aor.CrossingGuardJoe.controller.Controller;
 import com.aor.CrossingGuardJoe.gui.GUI;
 import com.aor.CrossingGuardJoe.viewer.Viewer;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 
@@ -26,9 +27,9 @@ public abstract class State<T> {
         return this.model;
     }
 
-    public void action(Game game, GUI gui, long time) throws IOException {
-        GUI.ACTION action = gui.getNextAction();
-        controller.nextAction(game, action, time);
+    public void step(Game game, GUI gui, long time) throws IOException {
+        GUI.ACTION keyaction = gui.getNextAction();
+        controller.nextAction(game, keyaction, time);
         viewer.draw(gui);
     }
 }

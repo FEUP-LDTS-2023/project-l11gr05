@@ -113,6 +113,6 @@ public abstract class CarView extends ElementViewer {
 
     @Override
     public void draw(Element element, GUI gui) {
-        drawImage(gui, element.getPosition(), carImage);
+        gui.drawImage(element.getPosition(), carImage);
     }
 }

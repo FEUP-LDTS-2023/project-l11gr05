@@ -17,5 +17,6 @@ public class MenuViewer extends Viewer<Menu> {
                     new Position(50, 70 + i),
                     getModel().getOption(i),
                     getModel().selectedOption(i) ? "#FFFFFF" : "#FF5451");
+
     }
 }

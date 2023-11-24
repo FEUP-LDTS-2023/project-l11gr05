@@ -24,6 +24,7 @@ public class LanternaGUI implements GUI{
     private Terminal terminal;
     private int width;
     private int height;
+    private Color color;
     
     public LanternaGUI(int width, int height) throws IOException {
         this.width = width;
@@ -114,18 +115,26 @@ public class LanternaGUI implements GUI{
         tg.putString(position.getX(), position.getY(), text);
     }
 
-    private void setColor(char character) {
-        com.aor.CrossingGuardJoe.viewer.Color color = Color.getColor(character);
+    public void setColor(char character) {
+        /*com.aor.CrossingGuardJoe.viewer.Color color = Color.getColor(character);
         if (color != null) {
             setBackgroundColor(color.getColorHexCode());
+        }*/
+        this.color = Color.getColor(character);
+        if (color != null) {
+            graphics.setBackgroundColor(TextColor.Factory.fromString(color.getColorHexCode()));
         }
     }
 
-    private void drawLine(int x, int y, String imageLine) {
+    public void drawLine(int x, int y, String imageLine) {
         int xPos = x;
         for (char character : imageLine.toCharArray()) {
-            setColor(character);
-            fillRectangle(new Position(x + xPos, y), 1, 1, ' ');
+            if (character != ' ') {
+                setColor(character);
+                //fillRectangle(new Position(x + xPos, y), 1, 1, ' ');
+                graphics.fillRectangle(new TerminalPosition(x + xPos, y),
+                        new TerminalSize(1,1), ' ');
+            }
             xPos++;
         }
     }

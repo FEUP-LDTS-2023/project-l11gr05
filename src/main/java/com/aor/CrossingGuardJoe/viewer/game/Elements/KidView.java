@@ -168,6 +168,6 @@ public class KidView extends ElementViewer<Kid> {
     };
     @Override
     public void draw(Kid kid, GUI gui) {
-        drawImage(gui, kid.getPosition(), kidStandImage);
+        gui.drawImage(kid.getPosition(), kidStandImage);
     }
 }

@@ -7,7 +7,7 @@ public abstract class RoadBuilder {
     public Road createRoad() {
         Road road = new Road(getWidth(), getHeight());
 
-        road.setJoe(createJoe());
+        road.setJoe(new Joe(100,100));
         //road.setKids(createKids());
         //road.setCars(createCars());
 

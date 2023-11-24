@@ -71,4 +71,46 @@ public class LanternaGUITest {
         );
     }
 
+    @Test
+    public void testDrawImage() {
+        LanternaGUI gui = mock(LanternaGUI.class);
+
+        Position position = new Position(5, 5);
+        String[] image = {
+                "###",
+                "###",
+                "###"
+        };
+
+        gui.drawImage(position, image);
+
+        verify(gui, times(1)).drawLine(5, 5, "###");
+        verify(gui, times(1)).drawLine(5, 6, "###");
+        verify(gui, times(1)).drawLine(5, 7, "###");
+    }
+
+    @Test
+    public void testDrawLine() {
+        LanternaGUI gui = mock(LanternaGUI.class);
+
+        int x = 3;
+        int y = 3;
+        String imageLine = "###";
+
+        gui.drawLine(x, y, imageLine);
+
+        verify(gui, times(1)).setColor('#');
+        verify(gui.getGraphics(), times(3)).fillRectangle(any(), any(), eq(' '));
+    }
+
+    @Test
+    public void testSetColor() {
+        LanternaGUI gui = mock(LanternaGUI.class);
+
+        char character = '#';
+        gui.setColor(character);
+
+        verify(gui, times(1)).setBackgroundColor("#FFFFFF"); // Assuming #FFFFFF for '#' color
+    }
+
 }

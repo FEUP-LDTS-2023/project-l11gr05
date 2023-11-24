@@ -14,7 +14,7 @@ public class MenuController extends Controller<Menu> {
 
     @Override
     public void nextAction(Game game, GUI.ACTION action, long time) throws IOException {
-        switch (action) {
+        /*switch (action) {
             case UP:
                 getModel().previousOption();
                 break;
@@ -23,6 +23,7 @@ public class MenuController extends Controller<Menu> {
             case SELECT:
                 if (getModel().StartGame())
                     game.setState(new GameState(new LoaderRoadBuilder().createRoad()));
-        }
+        }*/
+        game.setState(new GameState(new LoaderRoadBuilder().createRoad()));
     }
 }

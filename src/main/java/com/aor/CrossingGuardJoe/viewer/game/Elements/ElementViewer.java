@@ -6,11 +6,11 @@ import com.aor.CrossingGuardJoe.model.game.elements.Element;
 import com.aor.CrossingGuardJoe.viewer.Color;
 
 public abstract class ElementViewer<T extends Element> {
-    private GUI gui;
+    //private GUI gui;
 
     public abstract void draw(T element, GUI gui);
 
-    protected void drawImage(GUI gui, Position initialPosition, String[] image) {
+    /*protected void drawImage(GUI gui, Position initialPosition, String[] image) {
         this.gui = gui;
         int yPos = initialPosition.getY();
         for (String imageLine : image) {
@@ -34,5 +34,5 @@ public abstract class ElementViewer<T extends Element> {
                     1, 1, ' ');
             xPos++;
         }
-    }
+    }*/
 }
