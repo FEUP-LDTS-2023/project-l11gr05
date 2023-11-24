@@ -8,20 +8,22 @@ import com.aor.CrossingGuardJoe.model.game.Road;
 import java.io.IOException;
 
 public class JoeController extends GameController {
-    private int getActualJoePositionX = getModel().getJoe().getPosition().getX();
-    private int getActualJoePositionY = getModel().getJoe().getPosition().getX();
 
     public JoeController(Road road) {
         super(road);
     }
 
     public void moveJoeLeft() {
-        JoeAction(new Position(getActualJoePositionX - 1, getActualJoePositionY), 'l');
+        JoeAction(new Position(
+                getModel().getJoe().getPosition().getX() - 10, getModel().getJoe().getPosition().getY()),
+                'l');
 
     }
 
     public void moveJoeRight() {
-        JoeAction(new Position(getActualJoePositionX + 1, getActualJoePositionY), 'r');
+        JoeAction(new Position(
+                        getModel().getJoe().getPosition().getX() + 10, getModel().getJoe().getPosition().getY()),
+                'r');
     }
 
     public void joePassSign() {

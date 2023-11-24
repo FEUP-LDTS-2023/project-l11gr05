@@ -1,6 +1,7 @@
 package com.aor.CrossingGuardJoe.viewer.game.Elements;
 
 import com.aor.CrossingGuardJoe.gui.GUI;
+import com.aor.CrossingGuardJoe.model.Position;
 import com.aor.CrossingGuardJoe.model.game.elements.Joe;
 
 public class JoeView extends ElementViewer<Joe> {
@@ -444,10 +445,13 @@ public class JoeView extends ElementViewer<Joe> {
     public void draw(Joe joe, GUI gui) {
         if (joe.getIsWalkingState()) {
             if (joe.getIsWalkingToLeft()) {
-                gui.drawImage(joe.getPosition(), joeWalkLeftImage);
+                gui.drawImage(new Position(joe.getPosition().getX() + 5, joe.getPosition().getY()), joeWalkLeftImage);
             } else {
-                gui.drawImage(joe.getPosition(), joeWalkRightImage);
+                //gui.drawImage(joe.getPosition(), joeWalkRightImage);
+                gui.drawImage(new Position(joe.getPosition().getX() - 5, joe.getPosition().getY()), joeWalkRightImage);
             }
+
+            gui.drawImage(joe.getPosition(), joeStandImage);
         }
         else if (joe.getIsRaisingStopSign()) {
             gui.drawImage(joe.getPosition(), joeStopImage);
