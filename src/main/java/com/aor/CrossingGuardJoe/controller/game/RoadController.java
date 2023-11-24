@@ -7,7 +7,7 @@ import com.aor.CrossingGuardJoe.model.game.Road;
 
 import java.io.IOException;
 
-public class RoadController extends Controller {
+public class RoadController extends GameController {
     private final com.aor.CrossingGuardJoe.controller.game.JoeController joeController;
     private final com.aor.CrossingGuardJoe.controller.game.KidController kidController;
     private final com.aor.CrossingGuardJoe.controller.game.CarController carController;
@@ -23,5 +23,6 @@ public class RoadController extends Controller {
     @Override
     public void nextAction(Game game, GUI.ACTION action, long time) throws IOException {
         joeController.nextAction(game, action, time);
+        carController.nextAction(game, action, time);
     }
 }
