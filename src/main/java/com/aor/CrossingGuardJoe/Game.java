@@ -44,8 +44,4 @@ public class Game {
             }
         }
     }
-
-    private void tick(long time) throws IOException {
-        state.step(this, gui, time);
-    }
 }

@@ -6,6 +6,9 @@ public class Joe extends Element{
     private boolean raisingStopSign = false;
     private boolean passSign = false;
 
+    //to make the joe's walking animation: change image frame between joe walking and joe standing
+    private int walkFrame = 0;
+
     public Joe(int x, int y) {
         super(x, y);
     }
@@ -15,6 +18,8 @@ public class Joe extends Element{
         isWalkingToLeft = true;
         raisingStopSign = false;
         passSign = false;
+
+        walkFrame = (walkFrame + 1) % 2;
     }
 
     public void isWalkingToRight() {
@@ -22,6 +27,8 @@ public class Joe extends Element{
         isWalkingToLeft = false;
         raisingStopSign = false;
         passSign = false;
+
+        walkFrame = (walkFrame + 1) % 2;
     }
 
     public void isNotWalking() {
@@ -34,12 +41,16 @@ public class Joe extends Element{
         raisingStopSign = true;
         walking = false;
         passSign = false;
+
+        walkFrame = 0;
     }
 
     public void passSign() {
         passSign = true;
         walking = false;
         raisingStopSign = false;
+
+        walkFrame = 0;
     }
 
     public boolean getIsWalkingState() {
@@ -58,4 +69,7 @@ public class Joe extends Element{
         return this.passSign;
     }
 
+    public int getWalkFrame() {
+        return this.walkFrame;
+    }
 }

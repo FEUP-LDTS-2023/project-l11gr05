@@ -34,9 +34,9 @@ public class JoeController extends GameController {
         JoeAction(getModel().getJoe().getPosition(), 's');
     }
 
-    private Position walkToLeftInertia() {
+    /*private Position walkToLeftInertia() {
         return new Position(getModel().getJoe().getPosition().getX() - 5, getModel().getJoe().getPosition().getY());
-    }
+    }*/
 
     public void JoeAction(Position position, char passOrStop) {
         if (passOrStop == 'p') {
