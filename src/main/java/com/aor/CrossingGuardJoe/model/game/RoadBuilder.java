@@ -4,6 +4,8 @@ import com.aor.CrossingGuardJoe.model.game.Road;
 import com.aor.CrossingGuardJoe.model.game.elements.Car;
 import com.aor.CrossingGuardJoe.model.game.elements.Joe;
 
+import java.util.List;
+
 public abstract class RoadBuilder {
     public Road createRoad() {
         Road road = new Road(getWidth(), getHeight());
@@ -21,6 +23,6 @@ public abstract class RoadBuilder {
 
     protected abstract Joe createJoe();
 
-    protected abstract Car createCars();
+    protected abstract List<Car> createCars();
     //missing all others elements creater
 }

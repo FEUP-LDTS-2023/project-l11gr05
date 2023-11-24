@@ -24,8 +24,9 @@ public class CarController extends GameController{
     @Override
     public void nextAction(Game game, GUI.ACTION action, long time) throws IOException {
         if (time - lastUpdateTime > CAR_SPEED) {
-            Car car = getModel().getCars();
-            moveCar(car, car.getPosition());
+            for (Car car : getModel().getCars()) {
+                moveCar(car, car.getPosition());
+            }
             lastUpdateTime = time;
         }
     }

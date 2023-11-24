@@ -18,7 +18,7 @@ public class GameViewer extends Viewer<Road> {
     @Override
     public void drawElements(GUI gui) {
         drawElement(gui, getModel().getJoe(), new JoeView());
-        drawElement(gui, getModel().getCars(), new CarView());
+        drawElements(gui, getModel().getCars(), new CarView());
 
         //missing the others elements
     }
