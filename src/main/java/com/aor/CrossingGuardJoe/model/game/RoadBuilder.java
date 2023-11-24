@@ -1,15 +1,16 @@
 package com.aor.CrossingGuardJoe.model.game;
 
 import com.aor.CrossingGuardJoe.model.game.Road;
+import com.aor.CrossingGuardJoe.model.game.elements.Car;
 import com.aor.CrossingGuardJoe.model.game.elements.Joe;
 
 public abstract class RoadBuilder {
     public Road createRoad() {
         Road road = new Road(getWidth(), getHeight());
 
-        road.setJoe(new Joe(100,100));
+        road.setJoe(createJoe());
         //road.setKids(createKids());
-        //road.setCars(createCars());
+        road.setCars(createCars());
 
         return road;
     }
@@ -20,5 +21,6 @@ public abstract class RoadBuilder {
 
     protected abstract Joe createJoe();
 
+    protected abstract Car createCars();
     //missing all others elements creater
 }

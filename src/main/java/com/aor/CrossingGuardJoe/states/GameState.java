@@ -1,5 +1,6 @@
 package com.aor.CrossingGuardJoe.states;
 
+import com.aor.CrossingGuardJoe.Game;
 import com.aor.CrossingGuardJoe.controller.Controller;
 import com.aor.CrossingGuardJoe.controller.game.RoadController;
 import com.aor.CrossingGuardJoe.model.game.Road;
@@ -10,12 +11,12 @@ public class GameState extends State<Road>{
     public GameState(Road road) { super(road); }
 
     @Override
-    public Controller getController() {
+    public Controller<Road> getController() {
         return new RoadController(getModel());
     }
 
     @Override
-    public Viewer getViewer() {
+    public Viewer<Road> getViewer() {
         return new GameViewer(getModel());
     }
 }

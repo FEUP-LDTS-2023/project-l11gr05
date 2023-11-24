@@ -1,9 +1,10 @@
 package com.aor.CrossingGuardJoe.viewer.game.Elements;
 
 import com.aor.CrossingGuardJoe.gui.GUI;
+import com.aor.CrossingGuardJoe.model.game.elements.Car;
 import com.aor.CrossingGuardJoe.model.game.elements.Element;
 
-public abstract class CarView extends ElementViewer {
+public class CarView extends ElementViewer<Car> {
     private String[] carImage = new String[]{
             "                                    $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$                                    ",
             "                                    $@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@$                                    ",
@@ -112,7 +113,7 @@ public abstract class CarView extends ElementViewer {
     };
 
     @Override
-    public void draw(Element element, GUI gui) {
-        gui.drawImage(element.getPosition(), carImage);
+    public void draw(Car car, GUI gui) {
+        gui.drawImage(car.getPosition(), carImage);
     }
 }
