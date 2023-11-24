@@ -6,6 +6,12 @@ import com.aor.CrossingGuardJoe.model.game.elements.Joe;
 
 public class JoeView extends ElementViewer<Joe> {
     private String[] joeStandImage = new String[]{
+            "                                                                                ",
+            "                                                                                ",
+            "                                                                                ",
+            "                                                                                ",
+            "                                                                                ",
+            "                                                                                ",
             "                                    $$$$                                        ",
             "                                   $$<<$                                        ",
             "                                  $$<<<$$$$                                     ",
@@ -96,6 +102,12 @@ public class JoeView extends ElementViewer<Joe> {
             "                           $$$$$$$$$        $$$$$$$$$                           "
     };
     private String[] joeWalkLeftImage = new String[]{
+            "                                                                                ",
+            "                                                                                ",
+            "                                                                                ",
+            "                                                                                ",
+            "                                                                                ",
+            "                                                                                ",
             "                                    $$$$                                        ",
             "                                   $$<<$                                        ",
             "                                  $$<<<$$$$                                     ",
@@ -173,6 +185,12 @@ public class JoeView extends ElementViewer<Joe> {
             "              $$$$$$                                                            "
     };
     private String[] joeWalkRightImage = new String[]{
+            "                                                                                ",
+            "                                                                                ",
+            "                                                                                ",
+            "                                                                                ",
+            "                                                                                ",
+            "                                                                                ",
             "                                        $$$$                                    ",
             "                                        $<<$$                                   ",
             "                                     $$$$<<<$$                                  ",
@@ -230,7 +248,7 @@ public class JoeView extends ElementViewer<Joe> {
             "        $$$$$                $$!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!$$                ",
             "       $$***$$                $!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!$               ",
             "      $$*****$                $!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!$$              ",
-            "    $$&******$               $$!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!$              ",
+            "    $$$******$               $$!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!$              ",
             "   $$*******$$$             $$!!!!!!!!!!$$$$$$$$$$$$$$$$$!!!!!!!!$$             ",
             "   $*******$$!$$           $$!!!!!!!!!$$$               $$!!!!!!!!$             ",
             "   $*****$$$!!!$$$       $$$!!!!!!!!!$$                  $$!!!!!!!$$            ",
@@ -252,6 +270,12 @@ public class JoeView extends ElementViewer<Joe> {
     };
 
     private String[] joePassImage = new String[]{
+            "                                                                                ",
+            "                                                                                ",
+            "                                                                                ",
+            "                                                                                ",
+            "                                                                                ",
+            "                                                                                ",
             "                                    $$$$                                        ",
             "                                   $$<<$                                        ",
             "                                  $$<<<$$$$                                     ",
@@ -445,13 +469,10 @@ public class JoeView extends ElementViewer<Joe> {
     public void draw(Joe joe, GUI gui) {
         if (joe.getIsWalkingState()) {
             if (joe.getIsWalkingToLeft()) {
-                gui.drawImage(new Position(joe.getPosition().getX() + 5, joe.getPosition().getY()), joeWalkLeftImage);
+                gui.drawImage(joe.getPosition(), joeWalkLeftImage);
             } else {
-                //gui.drawImage(joe.getPosition(), joeWalkRightImage);
-                gui.drawImage(new Position(joe.getPosition().getX() - 5, joe.getPosition().getY()), joeWalkRightImage);
+                gui.drawImage(joe.getPosition(), joeWalkRightImage);
             }
-
-            gui.drawImage(joe.getPosition(), joeStandImage);
         }
         else if (joe.getIsRaisingStopSign()) {
             gui.drawImage(joe.getPosition(), joeStopImage);
