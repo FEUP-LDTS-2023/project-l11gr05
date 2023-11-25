@@ -8,6 +8,7 @@ import com.aor.CrossingGuardJoe.model.game.Road;
 import java.io.IOException;
 
 public class JoeController extends GameController {
+    private GUI.ACTION lastAction = GUI.ACTION.NONE;
 
     public JoeController(Road road) {
         super(road);
@@ -52,10 +53,16 @@ public class JoeController extends GameController {
     }
     @Override
     public void nextAction(Game game, GUI.ACTION action, long time) throws IOException {
-        if (action == GUI.ACTION.LEFT) moveJoeLeft();
-        if (action == GUI.ACTION.RIGHT) moveJoeRight();
-
-        if (action == GUI.ACTION.UP) joeStopSign();
-        if (action == GUI.ACTION.DOWN) joePassSign();
+        if (action == GUI.ACTION.LEFT && lastAction == GUI.ACTION.RIGHT || action == GUI.ACTION.RIGHT && lastAction == GUI.ACTION.LEFT) {
+            lastAction = GUI.ACTION.NONE;
+        }
+        else if (!action.equals(lastAction) && action != GUI.ACTION.NONE) {
+            lastAction = action;
+        }
+        if (lastAction == GUI.ACTION.LEFT) moveJoeLeft();
+        if (lastAction == GUI.ACTION.RIGHT) moveJoeRight();
+        if (lastAction == GUI.ACTION.UP) joeStopSign();
+        if (lastAction == GUI.ACTION.DOWN) joePassSign();
+        if (lastAction == GUI.ACTION.NONE) getModel().getJoe().isNotWalking();
     }
 }

@@ -28,7 +28,7 @@ public class Game {
     private void run() throws IOException {
         //i think manipulating that values can improve the lag problem
         int FPS = 10;
-        int frameTime = 100 / FPS;
+        int frameTime = 1000 / FPS;
 
         while (this.state != null) {
             long startTime = System.currentTimeMillis();
