@@ -22,7 +22,7 @@ public class RoadBuilder {
     }
 
     private Joe createJoe() {
-        return new Joe(400, 300);
+        return new Joe(397, 297);
     }
 
     private List<Car> createCars() {
@@ -32,7 +32,7 @@ public class RoadBuilder {
         int randomY = -rand.nextInt(500);
         int intervalOffset = 200;
         for (int i = 0; i < 5; i++) {
-            Car car = new Car(200, randomY);
+            Car car = new Car(173, randomY);
             cars.add(car);
 
             randomY -= (rand.nextInt(500) + intervalOffset);
