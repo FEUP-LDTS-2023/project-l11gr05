@@ -53,9 +53,16 @@ public class JoeController extends GameController {
     }
     @Override
     public void nextAction(Game game, GUI.ACTION action, long time) throws IOException {
+        //this one, joe will stop walking if the key direction is different
         if (action == GUI.ACTION.LEFT && lastAction == GUI.ACTION.RIGHT || action == GUI.ACTION.RIGHT && lastAction == GUI.ACTION.LEFT) {
             lastAction = GUI.ACTION.NONE;
         }
+
+        //this one, joe will stop walking of any key input
+        /*if ((action == GUI.ACTION.LEFT || action == GUI.ACTION.RIGHT) && (lastAction == GUI.ACTION.LEFT || lastAction == GUI.ACTION.RIGHT)) {
+            lastAction = GUI.ACTION.NONE;
+        }*/
+
         else if (!action.equals(lastAction) && action != GUI.ACTION.NONE) {
             lastAction = action;
         }

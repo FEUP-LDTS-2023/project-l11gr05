@@ -16,7 +16,9 @@ public enum Color {
     PURPLE("#9E0CFF", '\''),
     BLUE3("#368CFF", '~'),
     ROASTED_YELLOW("#8E6E43", '@'),
-    CYAN("#36CDFF", '=');
+    CYAN("#36CDFF", '='),
+    LIGHT_GREY("#C0BBB1", '«'),
+    DARK_GREY("#3D3638", '»');
 
     private String colorHexCode;
     private char character;

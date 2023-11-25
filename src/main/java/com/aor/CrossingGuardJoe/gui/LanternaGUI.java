@@ -78,7 +78,7 @@ public class LanternaGUI implements GUI {
     @Override
     public void clearScreen() {
         this.graphics.setBackgroundColor(TextColor.Factory.fromString("#7F7976"));
-        fillRectangle(new Position(0,0), getWidth(), getHeight(), ' ');
+        fillRectangle(new Position(0,0), getWidth(), getHeight());
     }
 
     @Override
@@ -89,14 +89,14 @@ public class LanternaGUI implements GUI {
     @Override
     public void setBackgroundColor(String colorHexCode) {
         this.graphics.setBackgroundColor(TextColor.Factory.fromString(colorHexCode));
-        fillRectangle(new Position(0,0), getWidth(), getHeight(), ' ');
+        fillRectangle(new Position(0,0), getWidth(), getHeight());
     }
 
     @Override
-    public void fillRectangle(Position initialPosition, int rectangleWidth, int rectangleHeight, Character character) {
+    public void fillRectangle(Position initialPosition, int rectangleWidth, int rectangleHeight) {
         this.graphics.fillRectangle(new TerminalPosition(initialPosition.getX(), initialPosition.getY()),
                 new TerminalSize(rectangleWidth, rectangleHeight),
-                character);
+                ' ');
     }
 
     @Override
@@ -115,6 +115,29 @@ public class LanternaGUI implements GUI {
         tg.putString(position.getX(), position.getY(), text);
     }
 
+    @Override
+    public void drawRoadLines() {
+        setColor('«');
+        fillRectangle(new Position(0, 0),150, 500);
+        fillRectangle(new Position(850, 0), 150, 500);
+
+        int iniX = 167;
+        for (int i = 0; i < 834 - iniX - 15; i += 24) {
+            fillRectangle(new Position(iniX + i, 368), 16, 50);
+        }
+
+        fillRectangle(new Position(326, 0), 4, 340);
+        fillRectangle(new Position(500, 0), 4, 340);
+        fillRectangle(new Position(674, 0), 4, 340);
+
+
+        setColor('»');
+        fillRectangle(new Position(150, 0), 2, 500);
+        fillRectangle(new Position(154, 0), 2, 500);
+        fillRectangle(new Position(848, 0), 2, 500);
+        fillRectangle(new Position(844, 0), 2, 500);
+    }
+
     public void setColor(char character) {
         this.color = Color.getColor(character);
         if (color != null) {
@@ -127,7 +150,7 @@ public class LanternaGUI implements GUI {
         for (char character : imageLine.toCharArray()) {
             if (character != ' ') {
                 setColor(character);
-                fillRectangle(new Position(x + xPos, y), 1, 1, ' ');
+                fillRectangle(new Position(x + xPos, y), 1, 1);
             }
             xPos++;
         }
@@ -158,5 +181,6 @@ public class LanternaGUI implements GUI {
 
         return ACTION.NONE;
     }
+
 
 }

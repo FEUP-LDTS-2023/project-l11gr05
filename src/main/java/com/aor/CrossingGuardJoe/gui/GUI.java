@@ -8,10 +8,12 @@ public interface GUI {
     void clearScreen();
     void refreshScreen() throws IOException;
     void setBackgroundColor(String colorHexCode);
-    void fillRectangle(Position initialPosition, int rectangleWidth, int rectangleHeight, Character character);
+    void fillRectangle(Position initialPosition, int rectangleWidth, int rectangleHeight);
     void drawImage(Position position, String[] image);
 
     void drawText(Position position, String text, String color);
+
+    void drawRoadLines();
 
     ACTION getNextAction() throws IOException;
 
