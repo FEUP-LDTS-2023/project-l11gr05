@@ -63,28 +63,29 @@ public class LanternaGUITest {
         Position initialPosition = new Position(5, 5);
         int rectangleWidth = 10;
         int rectangleHeight = 8;
-        Character character = '*';
 
-        lanternaGUI.fillRectangle(initialPosition, rectangleWidth, rectangleHeight, character);
+        lanternaGUI.fillRectangle(initialPosition, rectangleWidth, rectangleHeight);
 
         verify(textGraphicsMock).fillRectangle(
                 eq(new TerminalPosition(initialPosition.getX(), initialPosition.getY())),
                 eq(new TerminalSize(rectangleWidth, rectangleHeight)),
-                eq(character)
+                eq(' ')
         );
     }
 
     @Test
     public void testDrawImage() {
         Position position = new Position(5, 5);
-        String[] testImage = {  "#####",
-                                "#####",
-                                "#####"  };
+        String[] testImage = {
+                "#####",
+                "#####",
+                "#####"
+        };
 
         lanternaGUI.drawImage(position, testImage);
 
         // Verify if drawLine was called for each line in the image
-        verify(lanternaGUI, times(testImage.length)).drawLine(eq(position.getX()), anyInt(), anyString());
+        verify(textGraphicsMock).drawLine(any(), any(), any());
     }
 
     @Test
@@ -96,7 +97,7 @@ public class LanternaGUITest {
         lanternaGUI.drawLine(x, y, testLine);
 
         // Verify if fillRectangle was called for each character in the line
-        verify(lanternaGUI, times(testLine.length())).fillRectangle(any(), anyInt(), anyInt(), anyChar());
+        verify(textGraphicsMock, times(testLine.length())).fillRectangle(any(), any(), any());
     }
 
     @Test

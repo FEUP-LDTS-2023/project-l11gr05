@@ -125,14 +125,14 @@ public class LanternaGUI implements GUI {
         graphics.setBackgroundColor(TextColor.Factory.fromString(hexaCode));
     }
 
-    private void setColor(char character) {
+    public void setColor(char character) {
         Color color = Color.getColor(character);
         if (color != null) {
             graphics.setBackgroundColor(TextColor.Factory.fromString(color.getColorHexCode()));
         }
     }
 
-    private void drawLine(int x, int y, String imageLine) {
+    public void drawLine(int x, int y, String imageLine) {
         int xPos = x;
         for (char character : imageLine.toCharArray()) {
             if (character != ' ') {
