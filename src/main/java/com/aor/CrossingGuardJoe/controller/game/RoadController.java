@@ -23,6 +23,7 @@ public class RoadController extends GameController {
     @Override
     public void nextAction(Game game, GUI.ACTION action, long time) throws IOException {
         joeController.nextAction(game, action, time);
+        kidController.nextAction(game, action, time);
         carController.nextAction(game, action, time);
     }
 }

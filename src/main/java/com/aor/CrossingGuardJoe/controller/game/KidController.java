@@ -3,6 +3,7 @@ package com.aor.CrossingGuardJoe.controller.game;
 import com.aor.CrossingGuardJoe.Game;
 import com.aor.CrossingGuardJoe.gui.GUI;
 import com.aor.CrossingGuardJoe.model.game.Road;
+import com.aor.CrossingGuardJoe.model.game.elements.Joe;
 
 import java.io.IOException;
 

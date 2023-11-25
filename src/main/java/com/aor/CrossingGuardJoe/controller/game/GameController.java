@@ -9,5 +9,4 @@ public abstract class GameController extends Controller<Road> {
     public GameController(Road road) {
         super(road);
     }
-
 }

@@ -3,6 +3,7 @@ package com.aor.CrossingGuardJoe.model.game;
 import com.aor.CrossingGuardJoe.model.game.Road;
 import com.aor.CrossingGuardJoe.model.game.elements.Car;
 import com.aor.CrossingGuardJoe.model.game.elements.Joe;
+import com.aor.CrossingGuardJoe.model.game.elements.Kid;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +15,7 @@ public class RoadBuilder {
         Road road = new Road(1000, 500);
 
         road.setJoe(createJoe());
-        //road.setKids(createKids());
+        road.setKids(createKids());
         road.setCars(createCars());
 
         return road;
@@ -38,5 +39,13 @@ public class RoadBuilder {
         }
         return cars;
     }
-    //missing all others elements creater
+
+    private List<Kid> createKids() {
+        List<Kid> kids = new ArrayList<>();
+        for (int i = 0; i < 1; i++) {
+            Kid kid = new Kid(440, 330);
+            kids.add(kid);
+        }
+        return kids;
+    }
 }
