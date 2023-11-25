@@ -32,7 +32,7 @@ public class Game {
 
     private void run() throws IOException {
         //i think manipulating that values can improve the lag problem
-        int FPS = 10;
+        int FPS = 20;
         int frameTime = 100 / FPS;
 
         while (this.state != null) {
@@ -49,7 +49,7 @@ public class Game {
         }
     }
 
-    public void end() {
-        //add method to close screen
+    public void end() throws IOException {
+        gui.closeScreen();
     }
 }

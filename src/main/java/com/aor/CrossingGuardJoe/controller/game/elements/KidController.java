@@ -1,6 +1,7 @@
-package com.aor.CrossingGuardJoe.controller.game;
+package com.aor.CrossingGuardJoe.controller.game.elements;
 
 import com.aor.CrossingGuardJoe.Game;
+import com.aor.CrossingGuardJoe.controller.game.GameController;
 import com.aor.CrossingGuardJoe.gui.GUI;
 import com.aor.CrossingGuardJoe.model.Position;
 import com.aor.CrossingGuardJoe.model.game.Road;
@@ -13,7 +14,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class KidController extends GameController{
+public class KidController extends GameController {
 
     private static final double KID_SPEED = 0.005;
     private long lastUpdateTime;
@@ -49,7 +50,7 @@ public class KidController extends GameController{
 
         boolean joeInRange = false;
         for (Kid kid : kids) {
-            if (isInRange(getModel().getJoe(), kid)) {
+            if (isInRangeJoeKid(getModel().getJoe(), kid)) {
                 joeInRange = true;
                 kid.setSelected();
             } else {
@@ -91,13 +92,13 @@ public class KidController extends GameController{
         }
     }
 
-    public void checkCollisions(Game game) {
+    public void checkCollisions(Game game) throws IOException {
         List<Car> cars = getModel().getCars();
         List<Kid> kids = getModel().getKids();
 
         for (Car car : cars) {
             for (Kid kid : kids) {
-                if (isInRange(car, kid)) {
+                if (isInRangeCarKid(car, kid)) {
                     kid.isHit();
                     System.out.println("Game Over - Car collided with a kid!");
                     game.end();

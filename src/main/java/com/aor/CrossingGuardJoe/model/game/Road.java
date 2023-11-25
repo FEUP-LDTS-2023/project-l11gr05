@@ -7,17 +7,11 @@ import com.aor.CrossingGuardJoe.model.game.elements.Kid;
 import java.util.List;
 
 public class Road {
-    private final int width;
-    private final int height;
-
     private Joe joe;
     private List<Kid> kids;
     private List<Car> cars;
 
-    public Road(int width, int height) {
-        this.width = width;
-        this.height = height;
-    }
+    public Road() {}
 
     public Joe getJoe() { return joe; }
     public List<Kid> getKids() { return kids; }

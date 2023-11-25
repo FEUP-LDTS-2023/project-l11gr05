@@ -12,7 +12,7 @@ import java.util.Random;
 public class RoadBuilder {
     private final Random rand = new Random();
     public Road createRoad() {
-        Road road = new Road(1000, 500);
+        Road road = new Road();
 
         road.setJoe(createJoe());
         road.setKids(createKids());

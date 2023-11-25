@@ -87,6 +87,11 @@ public class LanternaGUI implements GUI {
     }
 
     @Override
+    public void closeScreen() throws IOException {
+        this.screen.close();
+    }
+
+    @Override
     public void setBackgroundColor(String colorHexCode) {
         this.graphics.setBackgroundColor(TextColor.Factory.fromString(colorHexCode));
         fillRectangle(new Position(0,0), width, height);

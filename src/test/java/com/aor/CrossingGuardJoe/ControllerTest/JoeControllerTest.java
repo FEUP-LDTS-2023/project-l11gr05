@@ -3,7 +3,7 @@ package com.aor.CrossingGuardJoe.ControllerTest;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
-import com.aor.CrossingGuardJoe.controller.game.JoeController;
+import com.aor.CrossingGuardJoe.controller.game.elements.JoeController;
 import com.aor.CrossingGuardJoe.model.Position;
 import com.aor.CrossingGuardJoe.model.game.Road;
 import org.junit.jupiter.api.BeforeEach;
