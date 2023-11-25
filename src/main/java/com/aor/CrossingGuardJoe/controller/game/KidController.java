@@ -4,6 +4,7 @@ import com.aor.CrossingGuardJoe.Game;
 import com.aor.CrossingGuardJoe.gui.GUI;
 import com.aor.CrossingGuardJoe.model.Position;
 import com.aor.CrossingGuardJoe.model.game.Road;
+import com.aor.CrossingGuardJoe.model.game.elements.Car;
 import com.aor.CrossingGuardJoe.model.game.elements.Element;
 import com.aor.CrossingGuardJoe.model.game.elements.Joe;
 import com.aor.CrossingGuardJoe.model.game.elements.Kid;
@@ -24,7 +25,7 @@ public class KidController extends GameController{
     }
 
     public void moveKid(Kid kid) {
-        KidAction(kid, new Position(kid.getPosition().getX() - 3, kid.getPosition().getY()), 'p');
+        KidAction(kid, new Position(kid.getPosition().getX() - 10, kid.getPosition().getY()), 'p');
     }
 
     public void stopKid(Kid kid) {
@@ -69,6 +70,8 @@ public class KidController extends GameController{
             walkInitiated = false;
             stopCurrentKid(kids);
         }
+
+        checkCollisions(game);
     }
 
     private void moveCurrentKid(List<Kid> kids) {
@@ -85,6 +88,22 @@ public class KidController extends GameController{
             stopKid(kids.get(currentKidIndex));
         } else {
             currentKidIndex = 0;
+        }
+    }
+
+    public void checkCollisions(Game game) {
+        List<Car> cars = getModel().getCars();
+        List<Kid> kids = getModel().getKids();
+
+        for (Car car : cars) {
+            for (Kid kid : kids) {
+                if (isInRange(car, kid)) {
+                    kid.isHit();
+                    System.out.println("Game Over - Car collided with a kid!");
+                    game.end();
+                    return;
+                }
+            }
         }
     }
 }

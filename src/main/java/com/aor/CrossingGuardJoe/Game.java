@@ -43,4 +43,8 @@ public class Game {
             }
         }
     }
+
+    public void end() {
+        //add method to close screen
+    }
 }
