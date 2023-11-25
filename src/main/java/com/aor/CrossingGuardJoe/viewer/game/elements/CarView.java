@@ -1,4 +1,4 @@
-package com.aor.CrossingGuardJoe.viewer.game;
+package com.aor.CrossingGuardJoe.viewer.game.elements;
 
 import com.aor.CrossingGuardJoe.gui.GUI;
 import com.aor.CrossingGuardJoe.model.game.elements.Car;

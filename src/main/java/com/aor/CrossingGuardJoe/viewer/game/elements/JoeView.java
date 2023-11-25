@@ -1,8 +1,9 @@
-package com.aor.CrossingGuardJoe.viewer.game;
+package com.aor.CrossingGuardJoe.viewer.game.elements;
 
 import com.aor.CrossingGuardJoe.gui.GUI;
 import com.aor.CrossingGuardJoe.model.Position;
 import com.aor.CrossingGuardJoe.model.game.elements.Joe;
+import com.aor.CrossingGuardJoe.viewer.game.elements.ElementViewer;
 
 public class JoeView extends ElementViewer<Joe> {
     private String[] joeStandImage = new String[]{

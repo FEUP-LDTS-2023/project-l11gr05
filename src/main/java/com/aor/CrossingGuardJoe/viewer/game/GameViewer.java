@@ -5,6 +5,10 @@ import com.aor.CrossingGuardJoe.model.Position;
 import com.aor.CrossingGuardJoe.model.game.elements.Element;
 import com.aor.CrossingGuardJoe.model.game.Road;
 import com.aor.CrossingGuardJoe.viewer.Viewer;
+import com.aor.CrossingGuardJoe.viewer.game.elements.CarView;
+import com.aor.CrossingGuardJoe.viewer.game.elements.ElementViewer;
+import com.aor.CrossingGuardJoe.viewer.game.elements.JoeView;
+import com.aor.CrossingGuardJoe.viewer.game.elements.KidView;
 
 import java.util.List;
 
