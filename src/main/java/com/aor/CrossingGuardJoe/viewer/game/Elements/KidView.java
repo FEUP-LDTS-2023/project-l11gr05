@@ -166,8 +166,14 @@ public class KidView extends ElementViewer<Kid> {
             "                                                  "
 
     };
+
     @Override
     public void draw(Kid kid, GUI gui) {
-        gui.drawImage(kid.getPosition(), kidStandImage);
+        if (kid.getIsWalkingState() && kid.isFirstHalfOfMovement()) {
+            gui.drawImage(kid.getPosition(), kidWalkImage);
+        } else {
+            gui.drawImage(kid.getPosition(), kidStandImage);
+        }
+        kid.isNotWalking();
     }
 }

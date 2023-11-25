@@ -20,7 +20,7 @@ public class GameViewer extends Viewer<Road> {
     public void drawElements(GUI gui) {
         drawElements(gui, getModel().getCars(), new CarView());
         drawElement(gui, getModel().getJoe(), new JoeView());
-        drawElements(gui, getModel().getKids(), new KidView());
+        drawElement(gui, getModel().getKids(), new KidView());
     }
 
     private <T extends Element> void drawElements(GUI gui, List<T> elements, ElementViewer<T> viewer) {

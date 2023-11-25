@@ -40,12 +40,13 @@ public class RoadBuilder {
         return cars;
     }
 
-    private List<Kid> createKids() {
-        List<Kid> kids = new ArrayList<>();
+    private Kid createKids() {
+        return new Kid(440, 330);
+        /*List<Kid> kids = new ArrayList<>();
         for (int i = 0; i < 1; i++) {
             Kid kid = new Kid(440, 330);
             kids.add(kid);
         }
-        return kids;
+        return kids;*/
     }
 }
