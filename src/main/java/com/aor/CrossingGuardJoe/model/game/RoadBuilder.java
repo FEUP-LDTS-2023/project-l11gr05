@@ -31,7 +31,7 @@ public class RoadBuilder {
 
         int randomY = -rand.nextInt(500);
         int intervalOffset = 200;
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 10; i++) {
             Car car = new Car(173, randomY);
             cars.add(car);
 
@@ -40,13 +40,15 @@ public class RoadBuilder {
         return cars;
     }
 
-    private Kid createKids() {
-        return new Kid(440, 330);
-        /*List<Kid> kids = new ArrayList<>();
-        for (int i = 0; i < 1; i++) {
-            Kid kid = new Kid(440, 330);
+    private List<Kid> createKids() {
+        List<Kid> kids = new ArrayList<>();
+        int x = 440;
+
+        for (int i = 0; i < 3; i++) {
+            Kid kid = new Kid(x, 330);
             kids.add(kid);
+            x += 10;
         }
-        return kids;*/
+        return kids;
     }
 }
