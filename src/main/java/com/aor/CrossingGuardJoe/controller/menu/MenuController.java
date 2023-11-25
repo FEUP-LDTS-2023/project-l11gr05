@@ -1,6 +1,7 @@
-package com.aor.CrossingGuardJoe.controller;
+package com.aor.CrossingGuardJoe.controller.menu;
 
 import com.aor.CrossingGuardJoe.Game;
+import com.aor.CrossingGuardJoe.controller.Controller;
 import com.aor.CrossingGuardJoe.gui.GUI;
 import com.aor.CrossingGuardJoe.model.game.RoadBuilder;
 import com.aor.CrossingGuardJoe.model.menu.Menu;

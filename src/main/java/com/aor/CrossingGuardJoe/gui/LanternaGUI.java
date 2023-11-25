@@ -14,7 +14,6 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
-import com.googlecode.lanterna.terminal.swing.SwingTerminalFontConfiguration;
 
 import java.awt.*;
 import java.io.File;
@@ -34,14 +33,6 @@ public class LanternaGUI implements GUI {
         createTerminal();
     }
 
-    public int getWidth() {
-        return this.width;
-    }
-    
-    public int getHeight() {
-        return this.height;
-    }
-
     public void setGraphics(TextGraphics graphics) {
         this.graphics = graphics;
     }
@@ -53,7 +44,7 @@ public class LanternaGUI implements GUI {
     private void createTerminal() throws IOException, URISyntaxException, FontFormatException {
         AWTTerminalFontConfiguration fontConfig = loadSquareFont();
 
-        TerminalSize terminalSize = new TerminalSize(getWidth(), getHeight());
+        TerminalSize terminalSize = new TerminalSize(width, height);
         DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory()
                 .setInitialTerminalSize(terminalSize);
         terminalFactory.setForceAWTOverSwing(true);
@@ -87,7 +78,7 @@ public class LanternaGUI implements GUI {
     @Override
     public void clearScreen() {
         this.graphics.setBackgroundColor(TextColor.Factory.fromString("#7F7976"));
-        fillRectangle(new Position(0,0), getWidth(), getHeight());
+        fillRectangle(new Position(0,0), width, height);
     }
 
     @Override
@@ -98,7 +89,7 @@ public class LanternaGUI implements GUI {
     @Override
     public void setBackgroundColor(String colorHexCode) {
         this.graphics.setBackgroundColor(TextColor.Factory.fromString(colorHexCode));
-        fillRectangle(new Position(0,0), getWidth(), getHeight());
+        fillRectangle(new Position(0,0), width, height);
     }
 
     @Override
@@ -125,18 +116,18 @@ public class LanternaGUI implements GUI {
     }
 
     @Override
-    public void setColor(String hexaCode) {
+    public void setColorHexaCode(String hexaCode) {
         graphics.setBackgroundColor(TextColor.Factory.fromString(hexaCode));
     }
 
-    public void setColor(char character) {
+    private void setColor(char character) {
         Color color = Color.getColor(character);
         if (color != null) {
             graphics.setBackgroundColor(TextColor.Factory.fromString(color.getColorHexCode()));
         }
     }
 
-    public void drawLine(int x, int y, String imageLine) {
+    private void drawLine(int x, int y, String imageLine) {
         int xPos = x;
         for (char character : imageLine.toCharArray()) {
             if (character != ' ') {

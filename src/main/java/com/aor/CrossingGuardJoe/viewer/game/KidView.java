@@ -1,4 +1,4 @@
-package com.aor.CrossingGuardJoe.viewer.game.Elements;
+package com.aor.CrossingGuardJoe.viewer.game;
 
 import com.aor.CrossingGuardJoe.gui.GUI;
 import com.aor.CrossingGuardJoe.model.Position;

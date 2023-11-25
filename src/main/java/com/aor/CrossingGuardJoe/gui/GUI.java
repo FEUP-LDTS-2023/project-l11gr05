@@ -11,7 +11,7 @@ public interface GUI {
     void fillRectangle(Position initialPosition, int rectangleWidth, int rectangleHeight);
     void drawImage(Position position, String[] image);
     void drawText(Position position, String text, String color);
-    void setColor(String hexaCode);
+    void setColorHexaCode(String hexaCode);
 
     ACTION getNextAction() throws IOException;
 
