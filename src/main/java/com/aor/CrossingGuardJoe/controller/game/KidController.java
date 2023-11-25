@@ -9,6 +9,8 @@ import com.aor.CrossingGuardJoe.model.game.elements.Joe;
 import com.aor.CrossingGuardJoe.model.game.elements.Kid;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class KidController extends GameController{
 
@@ -21,44 +23,68 @@ public class KidController extends GameController{
         lastUpdateTime = System.currentTimeMillis();
     }
 
-    public void moveKid() {
-        Kid kid = getModel().getKids();
-        KidAction(new Position(kid.getPosition().getX() - 3, kid.getPosition().getY()), 'p');
+    public void moveKid(Kid kid) {
+        KidAction(kid, new Position(kid.getPosition().getX() - 3, kid.getPosition().getY()), 'p');
     }
 
-    public void stopKid() {
-        Kid kid = getModel().getKids();
-        KidAction(kid.getPosition(), 's');
+    public void stopKid(Kid kid) {
+        KidAction(kid, kid.getPosition(), 's');
     }
 
-    public void KidAction(Position position, char passOrStop) {
+    public void KidAction(Kid kid, Position position, char passOrStop) {
         if (passOrStop == 'p') {
-            getModel().getKids().isWalking();
-            getModel().getKids().setPosition(position);
+            kid.isWalking();
+            kid.setPosition(position);
         } else if (passOrStop == 's') {
-            getModel().getKids().isNotWalking();
+            kid.isNotWalking();
         }
     }
+
+    private int currentKidIndex = 0;
 
     @Override
     public void nextAction(Game game, GUI.ACTION action, long time) throws IOException {
-        if (isInRange(getModel().getJoe(), getModel().getKids())) {
-            getModel().getKids().setSelected();
+        List<Kid> kids = getModel().getKids();
+
+        boolean joeInRange = false;
+        for (Kid kid : kids) {
+            if (isInRange(getModel().getJoe(), kid)) {
+                joeInRange = true;
+                kid.setSelected();
+            } else {
+                kid.setNotSelected();
+            }
         }
-        else {
-            getModel().getKids().setNotSelected();
-        }
-        if (action == GUI.ACTION.DOWN && !walkInitiated &&
-        isInRange(getModel().getJoe(), getModel().getKids())) {
+
+        if (action == GUI.ACTION.DOWN && !walkInitiated && joeInRange) {
             walkInitiated = true;
         }
+
         if (walkInitiated && time - lastUpdateTime > KID_SPEED) {
-            moveKid();
+            moveCurrentKid(kids);
             lastUpdateTime = time;
         }
-        if (action == GUI.ACTION.UP && isInRange(getModel().getJoe(), getModel().getKids())) {
+
+        if (action == GUI.ACTION.UP && joeInRange) {
             walkInitiated = false;
-            stopKid();
+            stopCurrentKid(kids);
+        }
+    }
+
+    private void moveCurrentKid(List<Kid> kids) {
+        if (currentKidIndex < kids.size()) {
+            moveKid(kids.get(currentKidIndex));
+            currentKidIndex++;
+        } else {
+            currentKidIndex = 0;
+        }
+    }
+
+    private void stopCurrentKid(List<Kid> kids) {
+        if (currentKidIndex < kids.size()) {
+            stopKid(kids.get(currentKidIndex));
+        } else {
+            currentKidIndex = 0;
         }
     }
 }
