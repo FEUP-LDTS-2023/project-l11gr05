@@ -10,6 +10,7 @@ public enum Color {
     ORANGE("#F0922D", '+'),
     YELLOW("#FFDC1C", ')'),
     YELLOW2("#F6D756", '<'),
+    GREEN("#BAF11C", 'G'),
     BLUE("#447296", '('),
     BLUE2("#4D9CFD", '!'),
     BROWN("#601E00", '*'),

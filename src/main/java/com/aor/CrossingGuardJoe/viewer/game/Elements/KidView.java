@@ -1,6 +1,7 @@
 package com.aor.CrossingGuardJoe.viewer.game.Elements;
 
 import com.aor.CrossingGuardJoe.gui.GUI;
+import com.aor.CrossingGuardJoe.model.Position;
 import com.aor.CrossingGuardJoe.model.game.elements.Kid;
 
 public class KidView extends ElementViewer<Kid> {
@@ -167,12 +168,33 @@ public class KidView extends ElementViewer<Kid> {
 
     };
 
+    private String[] selectionArrow = {
+            "$$$$$$$$$$$$$$$$",
+            "$$GGGGGGGGGGGG$$",
+            " $GGGGGGGGGGGG$ ",
+            " $$GGGGGGGGGG$$ ",
+            "  $$GGGGGGGG$$  ",
+            "   $GGGGGGGG$   ",
+            "   $$GGGGGG$$   ",
+            "    $GGGGGG$    ",
+            "    $$GGGG$$    ",
+            "     $GGGG$     ",
+            "     $$GG$$     ",
+            "      $GG$      ",
+            "      $$$$      ",
+            "       $$       ",
+            "       $$       ",
+    };
+
     @Override
     public void draw(Kid kid, GUI gui) {
         if (kid.getIsWalkingState()) {
             gui.drawImage(kid.getPosition(), kidWalkImage);
         } else {
             gui.drawImage(kid.getPosition(), kidStandImage);
+        }
+        if (kid.isSelected()) {
+            gui.drawImage(new Position(kid.getPosition().getX() + 7, kid.getPosition().getY() - 20), selectionArrow);
         }
         kid.isNotWalking();
     }

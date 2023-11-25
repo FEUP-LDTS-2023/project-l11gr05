@@ -42,6 +42,12 @@ public class KidController extends GameController{
 
     @Override
     public void nextAction(Game game, GUI.ACTION action, long time) throws IOException {
+        if (isInRange(getModel().getJoe(), getModel().getKids())) {
+            getModel().getKids().setSelected();
+        }
+        else {
+            getModel().getKids().setNotSelected();
+        }
         if (action == GUI.ACTION.DOWN && !walkInitiated &&
         isInRange(getModel().getJoe(), getModel().getKids())) {
             walkInitiated = true;
