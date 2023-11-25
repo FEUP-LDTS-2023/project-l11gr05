@@ -1,6 +1,7 @@
 package com.aor.CrossingGuardJoe.viewer;
 
 public enum Color {
+    BACKGROUND("#7F7976", 'A'),
     BLACK("#000000", '$'),
     WHITE("#FFFFFF", 'W'),
     SKIN("#FFEBB2", '%'),

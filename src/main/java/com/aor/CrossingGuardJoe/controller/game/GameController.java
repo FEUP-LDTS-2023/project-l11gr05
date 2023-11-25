@@ -12,6 +12,6 @@ public abstract class GameController extends Controller<Road> {
     }
     public boolean isInRange(Element element1, Element element2) {
         return element1.getPosition().getX() <= element2.getPosition().getX() + 8 &&
-                element1.getPosition().getX() >= element2.getPosition().getX() - 20;
+                element1.getPosition().getX() >= element2.getPosition().getX() - 28;
     }
 }
