@@ -37,7 +37,6 @@ public class KidController extends GameController{
         } else if (passOrStop == 's') {
             getModel().getKids().isNotWalking();
         }
-        getModel().getKids().setFirstHalfOfMovement(true);
     }
 
     @Override
