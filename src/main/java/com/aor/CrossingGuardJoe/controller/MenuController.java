@@ -2,8 +2,6 @@ package com.aor.CrossingGuardJoe.controller;
 
 import com.aor.CrossingGuardJoe.Game;
 import com.aor.CrossingGuardJoe.gui.GUI;
-import com.aor.CrossingGuardJoe.model.game.LoaderRoadBuilder;
-import com.aor.CrossingGuardJoe.model.game.Road;
 import com.aor.CrossingGuardJoe.model.game.RoadBuilder;
 import com.aor.CrossingGuardJoe.model.menu.Menu;
 import com.aor.CrossingGuardJoe.states.GameState;
