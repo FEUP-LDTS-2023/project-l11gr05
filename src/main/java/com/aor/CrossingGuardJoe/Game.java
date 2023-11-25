@@ -1,7 +1,6 @@
 package com.aor.CrossingGuardJoe;
 
 import com.aor.CrossingGuardJoe.gui.LanternaGUI;
-import com.aor.CrossingGuardJoe.model.game.LoaderRoadBuilder;
 import com.aor.CrossingGuardJoe.model.game.Road;
 import com.aor.CrossingGuardJoe.model.menu.Menu;
 import com.aor.CrossingGuardJoe.states.GameState;
