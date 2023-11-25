@@ -21,10 +21,8 @@ import java.io.IOException;
 public class LanternaGUI implements GUI {
     private TextGraphics graphics;
     private Screen screen;
-    private Terminal terminal;
-    private int width;
-    private int height;
-    private Color color;
+    private final int width;
+    private final int height;
 
     public LanternaGUI(int width, int height) throws IOException {
         this.width = width;
@@ -32,14 +30,6 @@ public class LanternaGUI implements GUI {
         createTerminal();
     }
 
-    public TextGraphics getGraphics() {
-        return this.graphics;
-    }
-
-    public Screen getScreen() { return this.screen; }
-
-    public Terminal getTerminal() { return this.terminal; }
-    
     public int getWidth() {
         return this.width;
     }
@@ -54,10 +44,6 @@ public class LanternaGUI implements GUI {
 
     public void setScreen(Screen screen) {
         this.screen = screen;
-    }
-
-    public void setTerminal(Terminal terminal) {
-        this.terminal = terminal;
     }
 
     private void createTerminal() throws IOException {
@@ -116,33 +102,12 @@ public class LanternaGUI implements GUI {
     }
 
     @Override
-    public void drawRoadLines() {
-        setColor('«');
-        fillRectangle(new Position(0, 0),150, 500);
-        fillRectangle(new Position(850, 0), 150, 500);
-
-        int iniX = 167;
-        for (int i = 0; i < 834 - iniX - 15; i += 24) {
-            fillRectangle(new Position(iniX + i, 368), 16, 50);
-        }
-
-        fillRectangle(new Position(326, 0), 4, 340);
-        fillRectangle(new Position(500, 0), 4, 340);
-        fillRectangle(new Position(674, 0), 4, 340);
-
-
-        setColor('»');
-        fillRectangle(new Position(150, 0), 2, 500);
-        fillRectangle(new Position(154, 0), 2, 500);
-        fillRectangle(new Position(848, 0), 2, 500);
-        fillRectangle(new Position(844, 0), 2, 500);
-
-        drawImage(new Position(426, 258), signalImage);
-        drawImage(new Position(55, 258), signalImage);
+    public void setColor(String hexaCode) {
+        graphics.setBackgroundColor(TextColor.Factory.fromString(hexaCode));
     }
 
     public void setColor(char character) {
-        this.color = Color.getColor(character);
+        Color color = Color.getColor(character);
         if (color != null) {
             graphics.setBackgroundColor(TextColor.Factory.fromString(color.getColorHexCode()));
         }
@@ -184,107 +149,5 @@ public class LanternaGUI implements GUI {
 
         return ACTION.NONE;
     }
-
-    private final String[] signalImage = {
-            "                 $$$$$                 ",
-            "                $$$$$$$                ",
-            "               $$<<<<<$$               ",
-            "              $$<<<<<<<$$              ",
-            "             $$<<<<<<<<<$$             ",
-            "            $$<<<<<<<<<<<$$            ",
-            "           $$<<<<<<<<<<<<<$$           ",
-            "          $$<<<<<<<<<<<<<<<$$          ",
-            "         $$<<<<<$$$$<<<<<<<<$$         ",
-            "        $$<<<<<<$$$$<<<<<<<<<$$        ",
-            "       $$<<<<<<<$$$$<<<<<<<<<<$$       ",
-            "      $$<<<<<<<<$$$$<<<<<<<<<<<$$      ",
-            "     $$<<<<<<<<<<<$$$$$<<<<<<<<<$$     ",
-            "    $$<<<<<<<<<<<<$$$$$<<<<<<<<<<$$    ",
-            "   $$<<<<<<<<<<<<<$$$<<$$<<<<<<<<<$$   ",
-            "  $$<<<<<<<<<<$$$$$$$<<$$<<<<<<<<<<$$  ",
-            " $$<<<<<<<<<<<$$$$$$$<<$$<<<<<<<<<<<$$ ",
-            "$$<<<<<<<<<<<<<<<<$$$<<<<<<<<<<<<<<<<$$",
-            "$$<<<<<<<<<<<<<<<<$$$<<<<<<<<<<<<<<<<$$",
-            "$$<<<<<<<<<<<<<<<<$$$<<<<<<<<<<<<<<<<$$",
-            "$$<<<<<<<<<<<<<<<<$$$<<<<<<<<<<<<<<<<$$",
-            " $$<<<<<<<<<<<<<$$<<$$<<<<<<<<<<<<<<$$ ",
-            "  $$<<<<<<<<<<<<$$<<$$<<<<<<<<<<<<<$$  ",
-            "   $$<<<<<<<<<$$<<<<<<$<<<<<<<<<<<$$   ",
-            "    $$<<<<<<<<$$<<<<<<<$$<<<<<<<<$$    ",
-            "     $$<<<<<<<$$<<<<<<<$$<<<<<<<$$     ",
-            "      $$<<<<<$$$<<<<<$$$$<<<<<<$$      ",
-            "       $$<<<<$$$<<<<<$$$$<<<<<$$       ",
-            "        $$<<<<<<<<<<<<<<<<<<<$$        ",
-            "         $$<<<<<<<<<<<<<<<<<$$         ",
-            "          $$<<<<<<<<<<<<<<<$$          ",
-            "           $$<<<<<<<<<<<<<$$           ",
-            "            $$<<<<<<<<<<<$$            ",
-            "             $$<<<<<<<<<$$             ",
-            "              $$<<<<<<<$$              ",
-            "               $$<<<<<$$               ",
-            "                $$$$$$$                ",
-            "                $$$$$$$                ",
-            "                $AAAAA$                ",
-            "                $AAAAA$                ",
-            "                $AAAAA$                ",
-            "         $$$$$$$$$$$$$$$$$$$$$         ",
-            "         $»»»»»»»»»»»»»»»»»»»$         ",
-            "         $»»»»»»»»»»»»»»»»»»»$         ",
-            "         $»»»»»»»»»»»»»»»»»»»$         ",
-            "         $»»»»»»»»»»»»»»»»»»»$         ",
-            "         $»»»»»»»»»»»»»»»»»»»$         ",
-            "         $»»»»»»»»»»»»»»»»»»»$         ",
-            "         $»»»»»»»»»»»»»»»»»»»$         ",
-            "         $»»»»»»»»»»»»»»»»»»»$         ",
-            "         $»»»»»»»»»»»»»»»»»»»$         ",
-            "         $»»»»»»»»»»»»»»»»»»»$         ",
-            "         $»»»»»»»»»»»»»»»»»»»$         ",
-            "         $»»»»»»»»»»»»»»»»»»»$         ",
-            "         $$$$$$$$$$$$$$$$$$$$$         ",
-            "                $AAAAA$                ",
-            "                $AAAAA$                ",
-            "                $AAAAA$                ",
-            "                $AAAAA$                ",
-            "                $AAAAA$                ",
-            "                $AAAAA$                ",
-            "                $AAAAA$                ",
-            "                $AAAAA$                ",
-            "                $AAAAA$                ",
-            "                $AAAAA$                ",
-            "                $AAAAA$                ",
-            "                $AAAAA$                ",
-            "                $AAAAA$                ",
-            "                $AAAAA$                ",
-            "                $AAAAA$                ",
-            "                $AAAAA$                ",
-            "                $AAAAA$                ",
-            "                $AAAAA$                ",
-            "                $AAAAA$                ",
-            "                $AAAAA$                ",
-            "                $AAAAA$                ",
-            "                $AAAAA$                ",
-            "                $AAAAA$                ",
-            "                $AAAAA$                ",
-            "                $AAAAA$                ",
-            "                $AAAAA$                ",
-            "                $AAAAA$                ",
-            "                $AAAAA$                ",
-            "                $AAAAA$                ",
-            "                $AAAAA$                ",
-            "                $AAAAA$                ",
-            "                $AAAAA$                ",
-            "                $AAAAA$                ",
-            "                $AAAAA$                ",
-            "                $AAAAA$                ",
-            "                $AAAAA$                ",
-            "                $AAAAA$                ",
-            "                $AAAAA$                ",
-            "                $AAAAA$                ",
-            "                $AAAAA$                ",
-            "                $AAAAA$                ",
-            "                $$$$$$$                ",
-            "                 $$$$$                 ",
-
-    };
 
 }

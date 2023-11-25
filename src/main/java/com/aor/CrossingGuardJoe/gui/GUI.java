@@ -10,10 +10,8 @@ public interface GUI {
     void setBackgroundColor(String colorHexCode);
     void fillRectangle(Position initialPosition, int rectangleWidth, int rectangleHeight);
     void drawImage(Position position, String[] image);
-
     void drawText(Position position, String text, String color);
-
-    void drawRoadLines();
+    void setColor(String hexaCode);
 
     ACTION getNextAction() throws IOException;
 
