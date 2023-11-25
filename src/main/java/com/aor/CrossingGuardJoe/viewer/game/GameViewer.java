@@ -7,6 +7,7 @@ import com.aor.CrossingGuardJoe.viewer.Viewer;
 import com.aor.CrossingGuardJoe.viewer.game.Elements.CarView;
 import com.aor.CrossingGuardJoe.viewer.game.Elements.JoeView;
 import com.aor.CrossingGuardJoe.viewer.game.Elements.ElementViewer;
+import com.aor.CrossingGuardJoe.viewer.game.Elements.KidView;
 
 import java.util.List;
 
@@ -17,10 +18,9 @@ public class GameViewer extends Viewer<Road> {
 
     @Override
     public void drawElements(GUI gui) {
-        drawElement(gui, getModel().getJoe(), new JoeView());
         drawElements(gui, getModel().getCars(), new CarView());
-
-        //missing the others elements
+        drawElement(gui, getModel().getJoe(), new JoeView());
+        drawElement(gui, getModel().getKids(), new KidView());
     }
 
     private <T extends Element> void drawElements(GUI gui, List<T> elements, ElementViewer<T> viewer) {
