@@ -467,7 +467,7 @@ public class JoeView extends ElementViewer<Joe> {
 
     @Override
     public void draw(Joe joe, GUI gui) {
-        System.out.println("Drawing Joe, isWalkingState: " + joe.getIsWalkingState());
+        //System.out.println("Drawing Joe, isWalkingState: " + joe.getIsWalkingState());
         if (joe.getIsWalkingState()) {
             if (joe.isFirstHalfOfMovement()) {
                 if (joe.getIsWalkingToLeft()) {

@@ -26,12 +26,15 @@ public class RoadBuilder {
 
     private List<Car> createCars() {
         List<Car> cars = new ArrayList<>();
+        Random rand = new Random();
 
+        int randomY = -rand.nextInt(500);
+        int intervalOffset = 200;
         for (int i = 0; i < 5; i++) {
-            int randomY = -rand.nextInt(500);
-            int randomInterval = rand.nextInt(5000) + 5000;
             Car car = new Car(200, randomY);
             cars.add(car);
+
+            randomY -= (rand.nextInt(500) + intervalOffset);
         }
         return cars;
     }
