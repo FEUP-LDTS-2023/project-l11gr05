@@ -22,7 +22,7 @@ public class RoadBuilder {
     }
 
     private Joe createJoe() {
-        return new Joe(397, 297);
+        return new Joe(390, 297);
     }
 
     private List<Car> createCars() {

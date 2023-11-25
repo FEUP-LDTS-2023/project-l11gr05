@@ -15,15 +15,28 @@ public class JoeController extends GameController {
     }
 
     public void moveJoeLeft() {
-        JoeAction(new Position(
-                        getModel().getJoe().getPosition().getX() - 6, getModel().getJoe().getPosition().getY()),
-                'l');
+        Position newPosition = new Position(getModel().getJoe().getPosition().getX() - 6,
+                                getModel().getJoe().getPosition().getY());
+
+        if (canGoThrow(newPosition)) {
+            JoeAction(newPosition, 'l');
+        }
+        else {
+            setLastActionNone();
+            joeNotWalking();
+        }
     }
 
     public void moveJoeRight() {
-        JoeAction(new Position(
-                        getModel().getJoe().getPosition().getX() + 6, getModel().getJoe().getPosition().getY()),
-                'r');
+        Position newPosition = new Position(getModel().getJoe().getPosition().getX() + 6,
+                                getModel().getJoe().getPosition().getY());
+        if (canGoThrow(newPosition)) {
+            JoeAction(newPosition, 'r');
+        }
+        else {
+            setLastActionNone();
+            joeNotWalking();
+        }
     }
 
     public void joePassSign() {
@@ -51,11 +64,23 @@ public class JoeController extends GameController {
         }
         getModel().getJoe().setFirstHalfOfMovement(true);
     }
+
+    public void joeNotWalking() {
+        getModel().getJoe().isNotWalking();
+    }
+
+    private boolean canGoThrow(Position position) {
+        return (position.getX() >= 50 && position.getX() <= 420);
+    }
+
+    private void setLastActionNone() {
+        this.lastAction = GUI.ACTION.NONE;
+    }
     @Override
     public void nextAction(Game game, GUI.ACTION action, long time) throws IOException {
         //this one, joe will stop walking if the key direction is different
         if (action == GUI.ACTION.LEFT && lastAction == GUI.ACTION.RIGHT || action == GUI.ACTION.RIGHT && lastAction == GUI.ACTION.LEFT) {
-            lastAction = GUI.ACTION.NONE;
+            setLastActionNone();
         }
 
         //this one, joe will stop walking of any key input
@@ -66,10 +91,11 @@ public class JoeController extends GameController {
         else if (!action.equals(lastAction) && action != GUI.ACTION.NONE) {
             lastAction = action;
         }
+
         if (lastAction == GUI.ACTION.LEFT) moveJoeLeft();
         if (lastAction == GUI.ACTION.RIGHT) moveJoeRight();
         if (lastAction == GUI.ACTION.UP) joeStopSign();
         if (lastAction == GUI.ACTION.DOWN) joePassSign();
-        if (lastAction == GUI.ACTION.NONE) getModel().getJoe().isNotWalking();
+        if (lastAction == GUI.ACTION.NONE) joeNotWalking();
     }
 }
