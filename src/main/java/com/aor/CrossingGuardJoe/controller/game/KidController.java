@@ -40,25 +40,51 @@ public class KidController extends GameController{
         }
     }
 
+    private int currentKidIndex = 0;
+
     @Override
     public void nextAction(Game game, GUI.ACTION action, long time) throws IOException {
-        if (isInRange(getModel().getJoe(), getModel().getKids())) {
-            getModel().getKids().setSelected();
+        List<Kid> kids = getModel().getKids();
+
+        boolean joeInRange = false;
+        for (Kid kid : kids) {
+            if (isInRange(getModel().getJoe(), kid)) {
+                joeInRange = true;
+                kid.setSelected();
+            } else {
+                kid.setNotSelected();
+            }
         }
-        else {
-            getModel().getKids().setNotSelected();
-        }
-        if (action == GUI.ACTION.DOWN && !walkInitiated &&
-        isInRange(getModel().getJoe(), getModel().getKids())) {
+
+        if (action == GUI.ACTION.DOWN && !walkInitiated && joeInRange) {
             walkInitiated = true;
         }
+
         if (walkInitiated && time - lastUpdateTime > KID_SPEED) {
-            moveKid();
+            moveCurrentKid(kids);
             lastUpdateTime = time;
         }
-        if (action == GUI.ACTION.UP && isInRange(getModel().getJoe(), getModel().getKids())) {
+
+        if (action == GUI.ACTION.UP && joeInRange) {
             walkInitiated = false;
-            stopKid();
+            stopCurrentKid(kids);
+        }
+    }
+
+    private void moveCurrentKid(List<Kid> kids) {
+        if (currentKidIndex < kids.size()) {
+            moveKid(kids.get(currentKidIndex));
+            currentKidIndex++;
+        } else {
+            currentKidIndex = 0;
+        }
+    }
+
+    private void stopCurrentKid(List<Kid> kids) {
+        if (currentKidIndex < kids.size()) {
+            stopKid(kids.get(currentKidIndex));
+        } else {
+            currentKidIndex = 0;
         }
     }
 }
