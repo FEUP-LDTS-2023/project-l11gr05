@@ -13,10 +13,14 @@ import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
+import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
 import com.googlecode.lanterna.terminal.swing.SwingTerminalFontConfiguration;
 
 import java.awt.*;
+import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
 
 public class LanternaGUI implements GUI {
     private TextGraphics graphics;
@@ -24,7 +28,7 @@ public class LanternaGUI implements GUI {
     private final int width;
     private final int height;
 
-    public LanternaGUI(int width, int height) throws IOException {
+    public LanternaGUI(int width, int height) throws IOException, URISyntaxException, FontFormatException {
         this.width = width;
         this.height = height;
         createTerminal();
@@ -46,19 +50,38 @@ public class LanternaGUI implements GUI {
         this.screen = screen;
     }
 
-    private void createTerminal() throws IOException {
+    private void createTerminal() throws IOException, URISyntaxException, FontFormatException {
+        AWTTerminalFontConfiguration fontConfig = loadSquareFont();
+
         TerminalSize terminalSize = new TerminalSize(getWidth(), getHeight());
-        Terminal terminal = new DefaultTerminalFactory()
-                .setInitialTerminalSize(terminalSize)
-                .setTerminalEmulatorFontConfiguration(
-                        SwingTerminalFontConfiguration.newInstance(new Font("Monospaced", Font.PLAIN, 1)))
-                .createTerminal();
-        this.screen = new TerminalScreen(terminal);
+        DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory()
+                .setInitialTerminalSize(terminalSize);
+        terminalFactory.setForceAWTOverSwing(true);
+        terminalFactory.setTerminalEmulatorTitle("Crossing Guard Joe");
+        terminalFactory.setTerminalEmulatorFontConfiguration(fontConfig);
+        Terminal terminal = terminalFactory.createTerminal();
+
+        screen = new TerminalScreen(terminal);
+        screen.setCursorPosition(null);
+        screen.startScreen();
+        screen.doResizeIfNecessary();
         this.screen.startScreen();
         this.graphics = screen.newTextGraphics();
-
         setBackgroundColor("#7F7976");
         refreshScreen();
+    }
+
+    private AWTTerminalFontConfiguration loadSquareFont() throws URISyntaxException, FontFormatException, IOException {
+        URL resource = getClass().getClassLoader().getResource("fonts/VCR_OSD_MONO_1.001.ttf");
+        File fontFile = new File(resource.toURI());
+        Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
+
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        ge.registerFont(font);
+
+        Font loadedFont = font.deriveFont(Font.PLAIN, 2);
+        AWTTerminalFontConfiguration fontConfig = AWTTerminalFontConfiguration.newInstance(loadedFont);
+        return fontConfig;
     }
 
     @Override
