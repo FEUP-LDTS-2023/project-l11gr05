@@ -9,6 +9,8 @@ import com.aor.CrossingGuardJoe.model.game.elements.Joe;
 import com.aor.CrossingGuardJoe.model.game.elements.Kid;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class KidController extends GameController{
 
@@ -21,22 +23,20 @@ public class KidController extends GameController{
         lastUpdateTime = System.currentTimeMillis();
     }
 
-    public void moveKid() {
-        Kid kid = getModel().getKids();
-        KidAction(new Position(kid.getPosition().getX() - 3, kid.getPosition().getY()), 'p');
+    public void moveKid(Kid kid) {
+        KidAction(kid, new Position(kid.getPosition().getX() - 3, kid.getPosition().getY()), 'p');
     }
 
-    public void stopKid() {
-        Kid kid = getModel().getKids();
-        KidAction(kid.getPosition(), 's');
+    public void stopKid(Kid kid) {
+        KidAction(kid, kid.getPosition(), 's');
     }
 
-    public void KidAction(Position position, char passOrStop) {
+    public void KidAction(Kid kid, Position position, char passOrStop) {
         if (passOrStop == 'p') {
-            getModel().getKids().isWalking();
-            getModel().getKids().setPosition(position);
+            kid.isWalking();
+            kid.setPosition(position);
         } else if (passOrStop == 's') {
-            getModel().getKids().isNotWalking();
+            kid.isNotWalking();
         }
     }
 
