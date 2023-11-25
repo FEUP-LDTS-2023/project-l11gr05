@@ -1,4 +1,4 @@
-package com.aor.CrossingGuardJoe.viewer.game.Elements;
+package com.aor.CrossingGuardJoe.viewer.game;
 
 public interface RoadView {
     void drawRoad();
