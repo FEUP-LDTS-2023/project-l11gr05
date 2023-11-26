@@ -73,6 +73,7 @@ public class KidController extends GameController {
         }
 
         checkCollisions(game);
+        checkWin(game); // temporary
     }
 
     private void moveCurrentKid(List<Kid> kids) {
@@ -99,11 +100,22 @@ public class KidController extends GameController {
         for (Car car : cars) {
             for (Kid kid : kids) {
                 if (isInRangeCarKid(car, kid)) {
-                   kid.isHit();
+                    kid.isHit();
                     System.out.println("Game Over - Car collided with a kid!");
                     game.end();
-                    return;
                 }
+            }
+        }
+    }
+
+    //temporary function
+    public void checkWin(Game game) throws IOException {
+        List<Kid> kids = getModel().getKids();
+
+        for (Kid kid : kids) {
+            if (!kid.getIsHit() && kid.getPosition().getX() <= 0) {
+                System.out.println("You win!");
+                game.end();
             }
         }
     }

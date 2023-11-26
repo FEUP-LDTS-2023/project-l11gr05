@@ -52,5 +52,6 @@ public class Game {
 
     public void end() throws IOException {
         gui.closeScreen();
+        System.exit(0);
     }
 }
