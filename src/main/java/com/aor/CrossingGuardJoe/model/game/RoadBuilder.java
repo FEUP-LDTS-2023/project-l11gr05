@@ -44,7 +44,7 @@ public class RoadBuilder {
         List<Kid> kids = new ArrayList<>();
         int x = 440;
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 1; i++) {
             Kid kid = new Kid(x, 330);
             kids.add(kid);
             x += 15;
