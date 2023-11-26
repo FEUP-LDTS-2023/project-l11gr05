@@ -13,22 +13,26 @@ This project was developed by Bruno Huang (up202207517@fe.up.pt) and Ricardo Yan
 
 - **Player movement** - The game character (Joe) is able to move left or right when corresponding arrow key is pressed.
 - **Player control** - A kid will start to move when Joe is near it (an arrow will appear pointing to the kid) and presses 'arrowUp' key, when 'arrowDown' key is pressed the kid stops moving.
-- **Kid** - Kids are instantiated in a queue at the right sidewalk of the street, and they walk at a defined speed when Joe lets them walk.
-
-### PARTIALLY IMPLEMENTED
-
-- **Game over** - When hp reaches 0 game ends.
 - **Car** - Cars are instantiated in a random road lane at the top side of the street, and they traverse the road in a unidirectional downward trajectory, the speed of a car increases by level.
-- **Kid collision** - When a kid is hit, it goes with the car.
+- **Kid** - Kids are instantiated in a queue at the right sidewalk of the street, and they walk at a defined speed when Joe lets them walk.
+- **Game over** - When hp reaches 0 game ends.
+
+![](images/gameImage1.png)
+![](images/gameImage2.png)
+![](images/gameImage3.png)
 
 ### PLANNED FEATURES
 
 - **Menu** - Upon launching the application, a menu will be displayed presenting "START GAME", "LEADERBOARD", "INSTRUCTIONS" and "EXIT". When player selects "START GAME" it's shown difficulty options for it (e.g. "EASY", "MEDIUM", "HARD").
 - **Player collision** - When Joe gets hit by a car, he is projected to either left or right side of the car.
+- **Kid collision** - When a kid is hit, it goes with the car.
 - **Lives** - When a kid is hit by a car, player loses one hp. The amount of hp is decided when player chooses difficulty at the start of the game.
 - **Score** - For every kid passing to the left sidewalk of the street player gets 100 points. If Joe gets hit by a car points are taken (quantity to be determined);
 - **Leaderboard** - Players score and name are stored in a leaderboard file.
 - **Power-ups** - Power-ups are generated at random intervals within the game environment. Upon Joe's acquisition of these power-ups, their effects are immediately manifested (e.g. "Freeze cars", "Kids speedup", "Double points", "Get 1 hp", etc).
+
+![Menu MockUp](images/menuMockup.png)
+![Some planned features](images/somePlansExample.png)
 
 ### DESIGN
 
@@ -52,11 +56,14 @@ We have applied the **MVC** pattern. To enhance readability and improve programm
 **Implementation**
 
 We organized the code into three distinct sections:
+
 Model: Manages data related to image properties and movements.
+
 View: Handles the drawing of images on the screen.
+
 Controller: Manages user input and orchestrates the interaction between the Model and View for smooth image rendering and movement.
 
-![](docs/CrossingGuardJoeUML.png)
+![UML](images/CrossingGuardJoeUML.png)
 
 These classes can be found in the following files:
 
@@ -79,6 +86,8 @@ The use of the MVC architectural pattern in the current design allows the follow
 > 3. Menu isn't shown as we expected to, so we need to find another way to draw the menu.  
 > 4. We think we still need to implement a "collide checker" to write the code for car collision with either Joe or kids.  
 > 5. Some parts of the code aren't in correct place.
+
+![Point 2](images/codeSmellKidSelection.png)
 
 ### TESTING
 
