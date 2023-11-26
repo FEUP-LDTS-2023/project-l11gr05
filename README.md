@@ -13,3 +13,4 @@ This project was developed by Bruno Huang (up202207517@fe.up.pt) and Ricardo Yan
 ![](docs/images/gameImage1.png)
 ![](docs/images/gameImage2.png)
 ![](docs/images/gameImage3.png)
+![](docs/images/gameImage4.png)
