@@ -15,30 +15,26 @@ public class JoeController extends GameController {
         super(road);
     }
 
-    public void moveJoeLeft() {
-        Position newPosition = new Position(getModel().getJoe().getPosition().getX() - 6,
-                                getModel().getJoe().getPosition().getY());
+    private void moveJoe(int x, char direction) {
+        Position newPosition = new Position(getModel().getJoe().getPosition().getX() + x,
+                getModel().getJoe().getPosition().getY());
 
-        if (canGoThrow(newPosition)) {
-            JoeAction(newPosition, 'l');
-        }
-        else {
+        if (canGoThrough(newPosition)) {
+            JoeAction(newPosition, direction);
+        } else {
             setLastActionNone();
             joeNotWalking();
         }
+    }
+
+    public void moveJoeLeft() {
+        moveJoe(-6, 'l');
     }
 
     public void moveJoeRight() {
-        Position newPosition = new Position(getModel().getJoe().getPosition().getX() + 6,
-                                getModel().getJoe().getPosition().getY());
-        if (canGoThrow(newPosition)) {
-            JoeAction(newPosition, 'r');
-        }
-        else {
-            setLastActionNone();
-            joeNotWalking();
-        }
+        moveJoe(6, 'r');
     }
+
 
     public void joePassSign() {
         JoeAction(getModel().getJoe().getPosition(), 'p');
@@ -49,19 +45,21 @@ public class JoeController extends GameController {
     }
 
     public void JoeAction(Position position, char passOrStop) {
-        if (passOrStop == 'p') {
-            getModel().getJoe().passSign();
-        }
-        if (passOrStop == 's') {
-            getModel().getJoe().isRaisingStopSign();
-        }
-        if (passOrStop == 'l') {
-            getModel().getJoe().isWalkingToLeft();
-            getModel().getJoe().setPosition(position);
-        }
-        if (passOrStop == 'r') {
-            getModel().getJoe().isWalkingToRight();
-            getModel().getJoe().setPosition(position);
+        switch (passOrStop) {
+            case 'p':
+                getModel().getJoe().passSign();
+                break;
+            case 's':
+                getModel().getJoe().isRaisingStopSign();
+                break;
+            case 'l':
+                getModel().getJoe().isWalkingToLeft();
+                getModel().getJoe().setPosition(position);
+                break;
+            case 'r':
+                getModel().getJoe().isWalkingToRight();
+                getModel().getJoe().setPosition(position);
+                break;
         }
         getModel().getJoe().setFirstHalfOfMovement(true);
     }
@@ -70,13 +68,14 @@ public class JoeController extends GameController {
         getModel().getJoe().isNotWalking();
     }
 
-    private boolean canGoThrow(Position position) {
+    private boolean canGoThrough(Position position) {
         return (position.getX() >= 50 && position.getX() <= 420);
     }
 
     private void setLastActionNone() {
         this.lastAction = GUI.ACTION.NONE;
     }
+
     @Override
     public void nextAction(Game game, GUI.ACTION action, long time) throws IOException {
         //this one, joe will stop walking if the key direction is different

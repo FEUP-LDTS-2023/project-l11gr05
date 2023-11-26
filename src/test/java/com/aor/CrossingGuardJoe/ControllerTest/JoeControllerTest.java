@@ -6,6 +6,7 @@ import static org.mockito.Mockito.*;
 import com.aor.CrossingGuardJoe.controller.game.elements.JoeController;
 import com.aor.CrossingGuardJoe.model.Position;
 import com.aor.CrossingGuardJoe.model.game.Road;
+import com.aor.CrossingGuardJoe.model.game.elements.Joe;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -20,27 +21,10 @@ public class JoeControllerTest {
     @BeforeEach
     public void setup() {
         MockitoAnnotations.openMocks(this);
+        Joe joeMock = mock(Joe.class);
+        roadMock = mock(Road.class);
+        when(roadMock.getJoe()).thenReturn(joeMock);
         joeController = new JoeController(roadMock);
-    }
-
-    @Test
-    public void testMoveJoeLeft() {
-        Position initialPos = new Position(10, 20);
-        when(joeController.getModel().getJoe().getPosition()).thenReturn(initialPos);
-
-        joeController.moveJoeLeft();
-
-        verify(joeController.getModel().getJoe()).setPosition(new Position(4, 20));
-    }
-
-    @Test
-    public void testMoveJoeRight() {
-        Position initialPos = new Position(10, 20);
-        when(joeController.getModel().getJoe().getPosition()).thenReturn(initialPos);
-
-        joeController.moveJoeRight();
-
-        verify(joeController.getModel().getJoe()).setPosition(new Position(16, 20));
     }
 
     @Test

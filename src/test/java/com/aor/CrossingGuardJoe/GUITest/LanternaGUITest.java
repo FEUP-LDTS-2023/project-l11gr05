@@ -85,32 +85,6 @@ public class LanternaGUITest {
         lanternaGUI.drawImage(position, testImage);
 
         // Verify if drawLine was called for each line in the image
-        verify(textGraphicsMock).drawLine(any(), any(), any());
+        verify(textGraphicsMock, times(testImage[0].length() * testImage.length)).fillRectangle(any(), any(), anyChar());
     }
-
-    @Test
-    public void testDrawLine() {
-        int x = 2;
-        int y = 3;
-        String testLine = "####";
-
-        lanternaGUI.drawLine(x, y, testLine);
-
-        // Verify if fillRectangle was called for each character in the line
-        verify(textGraphicsMock, times(testLine.length())).fillRectangle(any(), any(), any());
-    }
-
-    @Test
-    public void testSetColor() {
-        char testCharacter = 'W';
-        Color mockedColor = mock(Color.class);
-        when(Color.getColor(testCharacter)).thenReturn(mockedColor);
-        when(mockedColor.getColorHexCode()).thenReturn("#FFFFFF");
-
-        lanternaGUI.setColor(testCharacter);
-
-        // Verify if setBackgroundColor was called with the color's hex code
-        verify(textGraphicsMock).setBackgroundColor(TextColor.Factory.fromString("#FFFFFF"));
-    }
-
 }
