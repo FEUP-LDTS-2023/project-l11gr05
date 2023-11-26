@@ -9,6 +9,9 @@
 
 This project was developed by Bruno Huang (up202207517@fe.up.pt) and Ricardo Yang (up202208465@fe.up.pt) for LDTS 2023⁄24.
 
+## Beta Test
+![](docs/Crossing%20Guard%20Joe%20Gameplay.gif)
+
 ## Screenshots 
 ![](docs/images/gameImage1.png)
 ![](docs/images/gameImage2.png)

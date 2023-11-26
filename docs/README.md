@@ -21,6 +21,7 @@ This project was developed by Bruno Huang (up202207517@fe.up.pt) and Ricardo Yan
 ![](images/gameImage2.png)
 ![](images/gameImage3.png)
 ![](images/gameImage4.png)
+![](Crossing%20Guard%20Joe%20Gameplay.gif)
 
 ### PLANNED FEATURES
 
