@@ -1,17 +1,12 @@
-package com.aor.CrossingGuardJoe.viewer.game.Elements;
+package com.aor.CrossingGuardJoe.viewer.game.elements;
 
 import com.aor.CrossingGuardJoe.gui.GUI;
 import com.aor.CrossingGuardJoe.model.Position;
 import com.aor.CrossingGuardJoe.model.game.elements.Kid;
+import com.aor.CrossingGuardJoe.viewer.game.elements.ElementViewer;
 
 public class KidView extends ElementViewer<Kid> {
     private String[] kidStandImage = new String[]{
-            "                                                  ",
-            "                                                  ",
-            "                                                  ",
-            "                                                  ",
-            "                                                  ",
-            "                                                  ",
             "                    $$$$$                         ",
             "                 $$$$$$$$$                        ",
             "                $$$$$$$$$$$$                      ",
@@ -79,20 +74,9 @@ public class KidView extends ElementViewer<Kid> {
             "                $&&&&&&&&&&$&&$$                  ",
             "                $&&&&&&&&&&$&&$                   ",
             "                $$$$$$$$$$$$$$$                   ",
-            "                                                  ",
-            "                                                  ",
-            "                                                  ",
-            "                                                  ",
-            "                                                  "
     };
 
     private String[] kidWalkImage = new String[] {
-            "                                                  ",
-            "                                                  ",
-            "                                                  ",
-            "                                                  ",
-            "                                                  ",
-            "                                                  ",
             "                    $$$$$                         ",
             "                 $$$$$$$$$                        ",
             "                $$$$$$$$$$$$                      ",
@@ -159,12 +143,7 @@ public class KidView extends ElementViewer<Kid> {
             "     $&&&&&&&&$                     $&&&&&$$      ",
             "      $$$$$$$$$                     $$&&&&$       ",
             "                                     $$$$$        ",
-            "                                                  ",
-            "                                                  ",
-            "                                                  ",
-            "                                                  ",
-            "                                                  ",
-            "                                                  "
+
 
     };
 

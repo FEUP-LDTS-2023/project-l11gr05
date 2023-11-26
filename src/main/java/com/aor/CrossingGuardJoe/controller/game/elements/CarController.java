@@ -1,6 +1,7 @@
-package com.aor.CrossingGuardJoe.controller.game;
+package com.aor.CrossingGuardJoe.controller.game.elements;
 
 import com.aor.CrossingGuardJoe.Game;
+import com.aor.CrossingGuardJoe.controller.game.GameController;
 import com.aor.CrossingGuardJoe.gui.GUI;
 import com.aor.CrossingGuardJoe.model.Position;
 import com.aor.CrossingGuardJoe.model.game.Road;
@@ -8,7 +9,7 @@ import com.aor.CrossingGuardJoe.model.game.elements.Car;
 
 import java.io.IOException;
 
-public class CarController extends GameController{
+public class CarController extends GameController {
     private static final double CAR_SPEED = 0.001;
     private long lastUpdateTime;
 

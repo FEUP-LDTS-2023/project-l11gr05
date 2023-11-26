@@ -7,18 +7,23 @@ import com.aor.CrossingGuardJoe.states.GameState;
 import com.aor.CrossingGuardJoe.states.MenuState;
 import com.aor.CrossingGuardJoe.states.State;
 
+import java.awt.*;
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 public class Game {
     private LanternaGUI gui;
     private State state;
 
-    public Game() throws IOException {
+    public Game() throws IOException, URISyntaxException, FontFormatException {
         gui = new LanternaGUI(1000, 500);
         state = new MenuState(new Menu());
         //state = new GameState(new LoaderRoadBuilder().createRoad());
         //missing state
-        run();
+    }
+
+    public static void main(String[] args) throws IOException, FontFormatException, URISyntaxException {
+        new Game().run();
     }
 
     public void setState(State state) {
@@ -27,7 +32,7 @@ public class Game {
 
     private void run() throws IOException {
         //i think manipulating that values can improve the lag problem
-        int FPS = 10;
+        int FPS = 20;
         int frameTime = 100 / FPS;
 
         while (this.state != null) {
@@ -44,7 +49,8 @@ public class Game {
         }
     }
 
-    public void end() {
-        //add method to close screen
+
+    public void end() throws IOException {
+        gui.closeScreen();
     }
 }
