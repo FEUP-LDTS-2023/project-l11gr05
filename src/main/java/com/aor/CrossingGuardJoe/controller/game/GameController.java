@@ -18,8 +18,9 @@ public abstract class GameController extends Controller<Road> {
     }
 
     public boolean isInRangeCarKid(Car car, Kid kid) {
-        return car.getPosition().getX() <= kid.getPosition().getX() + 40 &&
-                car.getPosition().getX() >= kid.getPosition().getX() - 10 &&
+        //1st x is leftside 2nd x is rightside
+        return car.getPosition().getX() <= kid.getPosition().getX() + 10 &&
+                car.getPosition().getX() >= kid.getPosition().getX() - 40 &&
                 car.getPosition().getY() <= kid.getPosition().getY() + 100 &&
                 car.getPosition().getY() >= kid.getPosition().getY() - 65;
     }

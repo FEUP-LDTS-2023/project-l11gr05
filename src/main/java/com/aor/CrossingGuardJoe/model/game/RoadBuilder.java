@@ -29,12 +29,17 @@ public class RoadBuilder {
         List<Car> cars = new ArrayList<>();
         Random rand = new Random();
 
-        int randomY = -rand.nextInt(500);
-        int intervalOffset = 200;
-        for (int i = 0; i < 10; i++) {
-            Car car = new Car(173, randomY);
-            cars.add(car);
+        int[] xValues = { 85, 172, 259, 346 };
+        int randomIndex = rand.nextInt(xValues.length);
+        int randomX = xValues[randomIndex];
 
+        int randomY = -rand.nextInt(500);
+        int intervalOffset = 250;
+
+        for (int i = 0; i < 10; i++) {
+            Car car = new Car(randomX, randomY);
+            cars.add(car);
+            randomX = xValues[rand.nextInt(xValues.length)];
             randomY -= (rand.nextInt(500) + intervalOffset);
         }
         return cars;
