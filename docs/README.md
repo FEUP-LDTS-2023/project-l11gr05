@@ -20,6 +20,7 @@ This project was developed by Bruno Huang (up202207517@fe.up.pt) and Ricardo Yan
 ![](images/gameImage1.png)
 ![](images/gameImage2.png)
 ![](images/gameImage3.png)
+![](images/gameImage4.png)
 
 ### PLANNED FEATURES
 
