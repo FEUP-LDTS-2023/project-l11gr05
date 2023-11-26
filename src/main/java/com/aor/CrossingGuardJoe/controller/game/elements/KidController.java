@@ -26,7 +26,7 @@ public class KidController extends GameController {
     }
 
     public void moveKid(Kid kid) {
-        KidAction(kid, new Position(kid.getPosition().getX() - 10, kid.getPosition().getY()), 'p');
+        KidAction(kid, new Position(kid.getPosition().getX() - 5, kid.getPosition().getY()), 'p');
     }
 
     public void stopKid(Kid kid) {
