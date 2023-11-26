@@ -4,15 +4,8 @@ import com.aor.CrossingGuardJoe.controller.game.elements.CarController;
 import com.aor.CrossingGuardJoe.model.Position;
 import com.aor.CrossingGuardJoe.model.game.Road;
 import com.aor.CrossingGuardJoe.model.game.elements.Car;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.ArgumentCaptor;
-import org.mockito.ArgumentMatchers;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.*;
 
 public class CarControllerTest {
     @Test
