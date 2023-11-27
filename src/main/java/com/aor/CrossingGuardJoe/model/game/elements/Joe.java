@@ -19,7 +19,7 @@ public class Joe extends Element{
         raisingStopSign = false;
         passSign = false;
 
-        firstHalfOfMovement = true;
+        //firstHalfOfMovement = true;
     }
 
     public void isWalkingToRight() {
@@ -28,25 +28,31 @@ public class Joe extends Element{
         raisingStopSign = false;
         passSign = false;
 
-        firstHalfOfMovement = true;
+        //firstHalfOfMovement = true;
     }
 
     public void isNotWalking() {
         walking = false;
         raisingStopSign = false;
         passSign = false;
+
+        firstHalfOfMovement = true;
     }
 
     public void isRaisingStopSign() {
         raisingStopSign = true;
         walking = false;
         passSign = false;
+
+        firstHalfOfMovement = true;
     }
 
     public void passSign() {
         passSign = true;
         walking = false;
         raisingStopSign = false;
+
+        firstHalfOfMovement = true;
     }
 
     public boolean getIsWalkingState() {

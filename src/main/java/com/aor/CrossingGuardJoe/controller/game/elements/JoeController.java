@@ -55,13 +55,16 @@ public class JoeController extends GameController {
             case 'l':
                 getModel().getJoe().isWalkingToLeft();
                 getModel().getJoe().setPosition(position);
+                //getModel().getJoe().setFirstHalfOfMovement(!getModel().getJoe().isFirstHalfOfMovement());
+                //System.out.println("joe's second half animation");
                 break;
             case 'r':
                 getModel().getJoe().isWalkingToRight();
                 getModel().getJoe().setPosition(position);
+                //getModel().getJoe().setFirstHalfOfMovement(!getModel().getJoe().isFirstHalfOfMovement());
+                //System.out.println("joe's second half animation");
                 break;
         }
-        getModel().getJoe().setFirstHalfOfMovement(true);
     }
 
     public void joeNotWalking() {

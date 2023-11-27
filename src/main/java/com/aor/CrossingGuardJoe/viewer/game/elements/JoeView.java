@@ -473,12 +473,21 @@ public class JoeView extends ElementViewer<Joe> {
             if (joe.isFirstHalfOfMovement()) {
                 if (joe.getIsWalkingToLeft()) {
                     gui.drawImage(joe.getPosition(), joeWalkLeftImage);
-                    joe.setPosition(new Position(joe.getPosition().getX() - 3, joe.getPosition().getY()));
+                    //joe.setPosition(new Position(joe.getPosition().getX() - 3, joe.getPosition().getY()));
                 } else {
                     gui.drawImage(joe.getPosition(), joeWalkRightImage);
-                    joe.setPosition(new Position(joe.getPosition().getX() + 3, joe.getPosition().getY()));
+                    //joe.setPosition(new Position(joe.getPosition().getX() + 3, joe.getPosition().getY()));
                 }
+                System.out.println("joe animation is first half :" + joe.isFirstHalfOfMovement());
+                //joe.setFirstHalfOfMovement(false);
             }
+            else {
+                //joe.setFirstHalfOfMovement(true);
+                gui.drawImage(joe.getPosition(), joeStandImage);
+                //joe.setFirstHalfOfMovement(true);
+                System.out.println("joe animation is first half :" + joe.isFirstHalfOfMovement());
+            }
+            joe.setFirstHalfOfMovement(!joe.isFirstHalfOfMovement());
         }
         else if (joe.getIsRaisingStopSign()) {
             gui.drawImage(joe.getPosition(), joeStopImage);
@@ -489,6 +498,6 @@ public class JoeView extends ElementViewer<Joe> {
         else {
             gui.drawImage(joe.getPosition(), joeStandImage);
         }
-        joe.isNotWalking();
+        //joe.isNotWalking();
     }
 }
