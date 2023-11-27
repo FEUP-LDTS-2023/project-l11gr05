@@ -3,10 +3,9 @@ package com.aor.CrossingGuardJoe.viewer.game.elements;
 import com.aor.CrossingGuardJoe.gui.GUI;
 import com.aor.CrossingGuardJoe.model.Position;
 import com.aor.CrossingGuardJoe.model.game.elements.Kid;
-import com.aor.CrossingGuardJoe.viewer.game.elements.ElementViewer;
 
 public class KidView extends ElementViewer<Kid> {
-    private String[] kidStandImage = new String[]{
+    private final String[] kidStandImage = new String[]{
             "                    $$$$$                         ",
             "                 $$$$$$$$$                        ",
             "                $$$$$$$$$$$$                      ",
@@ -76,7 +75,7 @@ public class KidView extends ElementViewer<Kid> {
             "                $$$$$$$$$$$$$$$                   ",
     };
 
-    private String[] kidWalkImage = new String[] {
+    private final String[] kidWalkImage = new String[] {
             "                    $$$$$                         ",
             "                 $$$$$$$$$                        ",
             "                $$$$$$$$$$$$                      ",
@@ -147,7 +146,7 @@ public class KidView extends ElementViewer<Kid> {
 
     };
 
-    private String[] selectionArrow = {
+    private final String[] selectionArrow = {
             "$$$$$$$$$$$$$$$$",
             "$$GGGGGGGGGGGG$$",
             " $GGGGGGGGGGGG$ ",

@@ -36,7 +36,7 @@ public class RoadBuilder {
         int randomY = -rand.nextInt(500);
         int intervalOffset = 250;
 
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 10; i++) {
             Car car = new Car(randomX, randomY);
             cars.add(car);
             randomX = xValues[rand.nextInt(xValues.length)];
