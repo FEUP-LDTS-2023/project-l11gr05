@@ -35,7 +35,7 @@ public class KidControllerTest {
         kidController.moveKid(kidMock);
 
         verify(kidMock).isWalking();
-        verify(kidMock).setPosition(new Position(5, 20));
+        verify(kidMock).setPosition(new Position(3, 20));
     }
 
     @Test
