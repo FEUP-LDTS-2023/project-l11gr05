@@ -19,6 +19,8 @@ public class KidController extends GameController {
     private static final double KID_SPEED = 0.005;
     private long lastUpdateTime;
     private boolean walkInitiated = false;
+    private int currentKidIndex = 0;
+
 
     public KidController(Road road) {
         super(road);
@@ -41,8 +43,6 @@ public class KidController extends GameController {
             kid.isNotWalking();
         }
     }
-
-    private int currentKidIndex = 0;
 
     @Override
     public void nextAction(Game game, GUI.ACTION action, long time) throws IOException {
