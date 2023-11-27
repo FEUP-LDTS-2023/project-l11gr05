@@ -22,8 +22,8 @@ public enum Color {
     LIGHT_GREY("#C0BBB1", '«'),
     DARK_GREY("#3D3638", '»');
 
-    private String colorHexCode;
-    private char character;
+    private final String colorHexCode;
+    private final char character;
 
     Color(String colorHexCode, char character) {
         this.colorHexCode = colorHexCode;

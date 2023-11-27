@@ -61,7 +61,6 @@ public class JoeController extends GameController {
                 getModel().getJoe().setPosition(position);
                 break;
         }
-        getModel().getJoe().setFirstHalfOfMovement(true);
     }
 
     public void joeNotWalking() {

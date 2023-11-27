@@ -473,12 +473,14 @@ public class JoeView extends ElementViewer<Joe> {
             if (joe.isFirstHalfOfMovement()) {
                 if (joe.getIsWalkingToLeft()) {
                     gui.drawImage(joe.getPosition(), joeWalkLeftImage);
-                    joe.setPosition(new Position(joe.getPosition().getX() - 3, joe.getPosition().getY()));
                 } else {
                     gui.drawImage(joe.getPosition(), joeWalkRightImage);
-                    joe.setPosition(new Position(joe.getPosition().getX() + 3, joe.getPosition().getY()));
                 }
             }
+            else {
+                gui.drawImage(joe.getPosition(), joeStandImage);
+            }
+            joe.setFirstHalfOfMovement(!joe.isFirstHalfOfMovement());
         }
         else if (joe.getIsRaisingStopSign()) {
             gui.drawImage(joe.getPosition(), joeStopImage);
@@ -489,6 +491,5 @@ public class JoeView extends ElementViewer<Joe> {
         else {
             gui.drawImage(joe.getPosition(), joeStandImage);
         }
-        joe.isNotWalking();
     }
 }
