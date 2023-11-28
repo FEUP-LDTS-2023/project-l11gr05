@@ -7,8 +7,6 @@ import com.CrossingGuardJoe.model.game.Road;
 import com.CrossingGuardJoe.model.game.elements.Car;
 import com.CrossingGuardJoe.Game;
 
-import java.io.IOException;
-
 public class CarController extends GameController {
     private static final double CAR_SPEED = 0.001;
     private long lastUpdateTime;
@@ -23,7 +21,7 @@ public class CarController extends GameController {
     }
 
     @Override
-    public void nextAction(Game game, GUI.ACTION action, long time) throws IOException {
+    public void nextAction(Game game, GUI.ACTION action, long time) {
         if (time - lastUpdateTime > CAR_SPEED) {
             for (Car car : getModel().getCars()) {
                 moveCar(car, car.getPosition());
