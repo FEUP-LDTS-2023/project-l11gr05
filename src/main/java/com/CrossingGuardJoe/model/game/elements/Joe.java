@@ -1,16 +1,28 @@
 package com.CrossingGuardJoe.model.game.elements;
 
+import com.CrossingGuardJoe.model.game.elements.JoeCommand.CommandJoe;
+
 public class Joe extends Element{
+    private CommandJoe currentCommand;
     private boolean walking = false;
-    private boolean isWalkingToLeft = true;  //only valid if 'walking' is true;
+    private boolean isWalkingToLeft = true;
     private boolean raisingStopSign = false;
     private boolean passSign = false;
-
-    //to make the joe's walking animation: change image frame between joe walking and joe standing
     private boolean firstHalfOfMovement = true;
 
     public Joe(int x, int y) {
         super(x, y);
+    }
+
+    public void setAndExecuteCommand(CommandJoe command) {
+        this.currentCommand = command;
+        executeCommand();
+    }
+
+    private void executeCommand() {
+        if (currentCommand != null) {
+            currentCommand.execute();
+        }
     }
 
     public void isWalkingToLeft() {
@@ -18,40 +30,40 @@ public class Joe extends Element{
         isWalkingToLeft = true;
         raisingStopSign = false;
         passSign = false;
-
-        //firstHalfOfMovement = true;
     }
 
-    public void isWalkingToRight() {
+    public void startWalkingToLeft() {
+        walking = true;
+        isWalkingToLeft = true;
+        raisingStopSign = false;
+        passSign = false;
+    }
+
+    public void startWalkingToRight() {
         walking = true;
         isWalkingToLeft = false;
         raisingStopSign = false;
         passSign = false;
-
-        //firstHalfOfMovement = true;
     }
 
-    public void isNotWalking() {
+    public void stopWalking() {
         walking = false;
         raisingStopSign = false;
         passSign = false;
-
         firstHalfOfMovement = true;
     }
 
-    public void isRaisingStopSign() {
+    public void startRaisingStopSign() {
         raisingStopSign = true;
         walking = false;
         passSign = false;
-
         firstHalfOfMovement = true;
     }
 
-    public void passSign() {
+    public void startRaisingPassSign() {
         passSign = true;
         walking = false;
         raisingStopSign = false;
-
         firstHalfOfMovement = true;
     }
 
@@ -78,4 +90,5 @@ public class Joe extends Element{
     public void setFirstHalfOfMovement(boolean firstHalfOfMovement) {
         this.firstHalfOfMovement = firstHalfOfMovement;
     }
+
 }
