@@ -5,7 +5,7 @@ import com.aor.CrossingGuardJoe.controller.game.GameController;
 import com.aor.CrossingGuardJoe.gui.GUI;
 import com.aor.CrossingGuardJoe.model.Position;
 import com.aor.CrossingGuardJoe.model.game.Road;
-import com.aor.CrossingGuardJoe.model.game.elements.*;
+import com.aor.CrossingGuardJoe.model.game.elements.JoeCommand.*;
 
 import java.io.IOException;
 

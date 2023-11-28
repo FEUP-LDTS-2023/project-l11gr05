@@ -1,10 +1,9 @@
-package com.aor.CrossingGuardJoe.model.game.elements;
+package com.aor.CrossingGuardJoe.model.game.elements.JoeCommand;
 
-import java.util.StringTokenizer;
+import com.aor.CrossingGuardJoe.model.game.elements.Joe;
 
 public class JoeWalkToLeftCommand implements CommandJoe{
     private final Joe joe;
-    private final String name = "WalkLeft";
 
     public JoeWalkToLeftCommand(Joe joe) {
         this.joe = joe;
@@ -14,8 +13,4 @@ public class JoeWalkToLeftCommand implements CommandJoe{
         joe.startWalkingToLeft();
     }
 
-    @Override
-    public String getCommandName() {
-        return name;
-    }
 }
