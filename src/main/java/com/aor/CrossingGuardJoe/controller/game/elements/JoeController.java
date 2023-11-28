@@ -5,11 +5,13 @@ import com.aor.CrossingGuardJoe.controller.game.GameController;
 import com.aor.CrossingGuardJoe.gui.GUI;
 import com.aor.CrossingGuardJoe.model.Position;
 import com.aor.CrossingGuardJoe.model.game.Road;
+import com.aor.CrossingGuardJoe.model.game.elements.*;
 
 import java.io.IOException;
 
 public class JoeController extends GameController {
     private GUI.ACTION lastAction = GUI.ACTION.NONE;
+    private CommandJoe command;
 
     public JoeController(Road road) {
         super(road);
@@ -47,24 +49,27 @@ public class JoeController extends GameController {
     public void JoeAction(Position position, char passOrStop) {
         switch (passOrStop) {
             case 'p':
-                getModel().getJoe().passSign();
+                this.command = new JoeRaisingPassSign(getModel().getJoe());
                 break;
             case 's':
-                getModel().getJoe().isRaisingStopSign();
+                this.command = new JoeRaisingStopSign(getModel().getJoe());
                 break;
             case 'l':
-                getModel().getJoe().isWalkingToLeft();
                 getModel().getJoe().setPosition(position);
+                this.command = new JoeWalkToLeftCommand(getModel().getJoe());
                 break;
             case 'r':
-                getModel().getJoe().isWalkingToRight();
                 getModel().getJoe().setPosition(position);
+                this.command = new JoeWalkToRightCommand(getModel().getJoe());
                 break;
         }
+
+        getModel().getJoe().setAndExecuteCommand(command);
     }
 
     public void joeNotWalking() {
-        getModel().getJoe().isNotWalking();
+        this.command = new JoeStopWalkCommand(getModel().getJoe());
+        getModel().getJoe().setAndExecuteCommand(command);
     }
 
     private boolean canGoThrough(Position position) {

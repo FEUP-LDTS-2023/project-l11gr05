@@ -12,11 +12,12 @@ public class Joe extends Element{
         super(x, y);
     }
 
-    public void setCommand(CommandJoe command) {
+    public void setAndExecuteCommand(CommandJoe command) {
         this.currentCommand = command;
+        executeCommand();
     }
 
-    public void executeCommand() {
+    private void executeCommand() {
         if (currentCommand != null) {
             currentCommand.execute();
         }
