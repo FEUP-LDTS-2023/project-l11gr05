@@ -1,12 +1,10 @@
 package com.aor.CrossingGuardJoe.viewer.game.elements;
 
 import com.aor.CrossingGuardJoe.gui.GUI;
-import com.aor.CrossingGuardJoe.model.Position;
 import com.aor.CrossingGuardJoe.model.game.elements.Joe;
-import com.aor.CrossingGuardJoe.viewer.game.elements.ElementViewer;
 
 public class JoeView extends ElementViewer<Joe> {
-    private String[] joeStandImage = new String[]{
+    private final String[] joeStandImage = new String[]{
             "                                                                                ",
             "                                                                                ",
             "                                                                                ",
@@ -102,6 +100,7 @@ public class JoeView extends ElementViewer<Joe> {
             "                          $$********$$    $$********$$                          ",
             "                           $$$$$$$$$        $$$$$$$$$                           "
     };
+
     private final String[] joeWalkLeftImage = new String[]{
             "                                                                                ",
             "                                                                                ",
@@ -185,7 +184,8 @@ public class JoeView extends ElementViewer<Joe> {
             "            $$$$***$$                                                           ",
             "              $$$$$$                                                            "
     };
-    private String[] joeWalkSecondHalfImage = new String[]{
+
+    private final String[] joeWalkSecondHalfImage = new String[]{
             "                                                                                ",
             "                                                                                ",
             "                                                                                ",
@@ -281,7 +281,8 @@ public class JoeView extends ElementViewer<Joe> {
             "                          $$********$$    $$********$$                          ",
             "                           $$$$$$$$$        $$$$$$$$$                           "
     };
-    private String[] joeWalkRightImage = new String[]{
+
+    private final String[] joeWalkRightImage = new String[]{
             "                                                                                ",
             "                                                                                ",
             "                                                                                ",
@@ -366,7 +367,7 @@ public class JoeView extends ElementViewer<Joe> {
 
     };
 
-    private String[] joePassImage = new String[]{
+    private final String[] joePassImage = new String[]{
             "                                                                                ",
             "                                                                                ",
             "                                                                                ",
@@ -461,10 +462,9 @@ public class JoeView extends ElementViewer<Joe> {
             "                          $**********$$  $***********$                          ",
             "                          $$********$$    $$********$$                          ",
             "                           $$$$$$$$$        $$$$$$$$$                           "
-
     };
 
-    private String[] joeStopImage = new String[]{
+    private final String[] joeStopImage = new String[]{
             "                                                              $$$$$$$$          ",
             "                                                            $$RRRRRRRR$$        ",
             "                                                           $RRRRRRRRRRRR$       ",
@@ -559,12 +559,10 @@ public class JoeView extends ElementViewer<Joe> {
             "                          $**********$$  $***********$                          ",
             "                          $$********$$    $$********$$                          ",
             "                           $$$$$$$$$        $$$$$$$$$                           "
-
     };
 
     @Override
     public void draw(Joe joe, GUI gui) {
-        //System.out.println("Drawing Joe, isWalkingState: " + joe.getIsWalkingState());
         if (joe.getIsWalkingState()) {
             if (joe.isFirstHalfOfMovement()) {
                 if (joe.getIsWalkingToLeft()) {
