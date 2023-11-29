@@ -27,15 +27,15 @@ public class Menu {
         return options.size();
     }
 
-    public boolean selectedOption(int index) {
+    public boolean isSelectedOption(int index) {
         return option == index;
     }
 
-    public boolean StartGame() { return selectedOption(0); }
+    public boolean isSelectedStartGame() { return isSelectedOption(0); }
 
-    public boolean Leaderboard() { return selectedOption(1); }
+    public boolean isSelectedLeaderboard() { return isSelectedOption(1); }
 
-    public boolean Instructions() { return selectedOption(2); }
+    public boolean isSelectedInstructions() { return isSelectedOption(2); }
 
-    public boolean Exit() { return selectedOption(3); }
+    public boolean isSelectedExit() { return isSelectedOption(3); }
 }

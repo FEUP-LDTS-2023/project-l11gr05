@@ -14,16 +14,16 @@ public class MenuController extends Controller<Menu> {
 
     @Override
     public void nextAction(Game game, GUI.ACTION action, long time) throws IOException {
-        /*switch (action) {
+        switch (action) {
             case UP:
                 getModel().previousOption();
                 break;
             case DOWN:
                 getModel().nextOption();
             case SELECT:
-                if (getModel().StartGame())
-                    game.setState(new GameState(new LoaderRoadBuilder().createRoad()));
-        }*/
-        game.setState(new GameState(new RoadBuilder().createRoad()));
+                if (getModel().isSelectedExit()) game.setState(null);
+                if (getModel().isSelectedStartGame()) game.setState(new GameState(new RoadBuilder().createRoad()));
+        }
+
     }
 }
