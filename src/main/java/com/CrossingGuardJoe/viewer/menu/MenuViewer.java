@@ -3,6 +3,7 @@ package com.CrossingGuardJoe.viewer.menu;
 import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.menu.Menu;
+import com.CrossingGuardJoe.viewer.Text;
 import com.CrossingGuardJoe.viewer.Viewer;
 
 public class MenuViewer extends Viewer<Menu> {
@@ -139,10 +140,10 @@ public class MenuViewer extends Viewer<Menu> {
         for (int i = 0; i < getModel().getNumberOptions(); i++) {
             switch (i) {
                 case (0):
-                    gui.drawImage(new Position(210, 220), StartGameOptionImage);
-                    gui.drawImage(new Position(210, 260), StartGameOptionImage);
-                    gui.drawImage(new Position(210, 300), StartGameOptionImage);
-                    gui.drawImage(new Position(210, 340), StartGameOptionImage);
+                    gui.drawImage(new Position(210, 220), new Text().getTextImage("ABC HELLO"));
+                    gui.drawImage(new Position(210, 260), new Text().getTextImage("B"));
+                    gui.drawImage(new Position(210, 300), new Text().getTextImage("C"));
+                    gui.drawImage(new Position(210, 340), new Text().getTextImage("D"));
                     break;
             }
             getModel().getOption(i);
