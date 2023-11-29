@@ -113,15 +113,17 @@ public class LanternaGUI implements GUI {
     }
 
     @Override
-    public void drawText(Position position, String text, String color) {
-        TextGraphics tg = screen.newTextGraphics();
-        tg.setForegroundColor(TextColor.Factory.fromString(color));
-        tg.putString(position.getX(), position.getY(), text);
+    public void setColorHexaCode(String hexaCode) {
+        graphics.setBackgroundColor(TextColor.Factory.fromString(hexaCode));
     }
 
     @Override
-    public void setColorHexaCode(String hexaCode) {
-        graphics.setBackgroundColor(TextColor.Factory.fromString(hexaCode));
+    public void drawImageCustomColor(Position position, String[] image, String colorHexCode) {
+        int yPos = position.getY();
+        for (String imageLine : image) {
+            drawLineCustomColor(position.getX(), yPos, imageLine, colorHexCode);
+            yPos++;
+        }
     }
 
     public void setColor(char character) {
@@ -136,6 +138,17 @@ public class LanternaGUI implements GUI {
         for (char character : imageLine.toCharArray()) {
             if (character != ' ') {
                 setColor(character);
+                fillRectangle(new Position(x + xPos, y), 1, 1);
+            }
+            xPos++;
+        }
+    }
+
+    public void drawLineCustomColor(int x, int y, String imageLine, String colorHexCode) {
+        int xPos = x;
+        for (char character : imageLine.toCharArray()) {
+            if (character != ' ') {
+                setColorHexaCode(colorHexCode);
                 fillRectangle(new Position(x + xPos, y), 1, 1);
             }
             xPos++;

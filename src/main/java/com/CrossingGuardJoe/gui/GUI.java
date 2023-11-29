@@ -12,7 +12,7 @@ public interface GUI {
     void fillRectangle(Position initialPosition, int rectangleWidth, int rectangleHeight);
     void drawImage(Position position, String[] image);
     void setColorHexaCode(String hexaCode);
-    void drawImageCustomColor(Position position, String[] image, String ColorHexCode);
+    void drawImageCustomColor(Position position, String[] image, String colorHexCode);
 
 
     ACTION getNextAction() throws IOException;

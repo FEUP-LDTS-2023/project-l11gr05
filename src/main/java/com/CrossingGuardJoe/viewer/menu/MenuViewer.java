@@ -140,7 +140,9 @@ public class MenuViewer extends Viewer<Menu> {
         for (int i = 0; i < getModel().getNumberOptions(); i++) {
             switch (i) {
                 case (0):
-                    gui.drawImage(new Position(210, 220), new Text().getTextImage("ABC HELLO"));
+                    gui.drawImageCustomColor(new Position(210, 220), new Text().getTextImage("START GAME"), "#FFFFFF");
+                    gui.drawImage(new Position(211, 222), new Text().getTextImage("START GAME"));
+
                     gui.drawImage(new Position(210, 260), new Text().getTextImage("B"));
                     gui.drawImage(new Position(210, 300), new Text().getTextImage("C"));
                     gui.drawImage(new Position(210, 340), new Text().getTextImage("D"));
