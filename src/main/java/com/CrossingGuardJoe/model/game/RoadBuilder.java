@@ -73,7 +73,7 @@ public class RoadBuilder {
         List<Kid> kids = new ArrayList<>();
         int x = 1000;
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 2; i++) {
             Kid kid = new Kid(x, 330);
             kids.add(kid);
             x += 10;

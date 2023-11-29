@@ -72,7 +72,7 @@ public class JoeController extends GameController {
     }
 
     private boolean canGoThrough(Position position) {
-        return (position.getX() >= 50 && position.getX() <= 420);
+        return (position.getX() >= 50 && position.getX() <= 414);
     }
 
     private void setLastActionNone() {

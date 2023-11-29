@@ -1,5 +1,6 @@
 package com.CrossingGuardJoe.controller.game.elements;
 
+import com.CrossingGuardJoe.controller.game.AuxCheckRange;
 import com.CrossingGuardJoe.controller.game.GameController;
 import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.Position;
@@ -55,16 +56,21 @@ public class KidController extends GameController {
         moveKidsToBegin(kids);
 
         boolean joeInRange = false;
+        Kid selectedKid = null;
+
         for (Kid kid : kids) {
-            if (isInRangeJoeKid(getModel().getJoe(), kid)) {
+            if (AuxCheckRange.isInRangeJoeKid(getModel().getJoe(), kid)) {
                 joeInRange = true;
-                kid.setSelected();
-            } else {
-                kid.setNotSelected();
+                selectedKid = kid;
             }
+            kid.setNotSelected();
         }
 
-        if (action == GUI.ACTION.DOWN && !walkInitiated && joeInRange) {
+        if (joeInRange) {
+            selectedKid.setSelected();
+        }
+
+        if (action == GUI.ACTION.DOWN && !walkInitiated && joeInRange && selectedKid != null) {
             walkInitiated = true;
         }
 
@@ -105,7 +111,7 @@ public class KidController extends GameController {
 
         for (Car car : cars) {
             for (Kid kid : kids) {
-                if (isInRangeCarKid(car, kid)) {
+                if (AuxCheckRange.isInRangeCarKid(car, kid)) {
                     kid.isHit();
                     System.out.println("Game Over - Car collided with a kid!");
                     game.end();
