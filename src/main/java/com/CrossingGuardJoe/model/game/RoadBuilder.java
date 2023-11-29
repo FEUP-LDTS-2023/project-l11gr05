@@ -25,19 +25,6 @@ public class RoadBuilder {
         return new Joe(390, 297);
     }
 
-    private boolean isCarOverlapping(int newY, int existingY, int minDistance) {
-        return Math.abs(newY - existingY) < minDistance;
-    }
-
-    private boolean isAnyCarOverlapping(int newY, List<Car> cars, int minDistance) {
-        for (Car existingCar : cars) {
-            if (isCarOverlapping(newY, existingCar.getPosition().getY(), minDistance)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     private List<Car> createCars() {
         List<Car> cars = new ArrayList<>();
 
@@ -46,7 +33,7 @@ public class RoadBuilder {
         for (int i = 0; i < 3; i++) {
             do {
                 randomY = -rand.nextInt(500) - rand.nextInt(500);
-            } while (isAnyCarOverlapping(randomY, cars, 200));
+            } while (AuxCarCheck.isAnyCarOverlapping(randomY, cars, 200));
 
             Car car = new Car(xValues[rand.nextInt(xValues.length)], randomY);
             cars.add(car);
@@ -63,7 +50,7 @@ public class RoadBuilder {
 
                             do {
                                 newRandomY = -rand.nextInt(500) - rand.nextInt(500);
-                            } while (isAnyCarOverlapping(newRandomY, cars, 200));
+                            } while (AuxCarCheck.isAnyCarOverlapping(newRandomY, cars, 200));
 
                             car.getPosition().setY(newRandomY);
                             car.getPosition().setX(xValues[rand.nextInt(xValues.length)]);
@@ -86,10 +73,10 @@ public class RoadBuilder {
         List<Kid> kids = new ArrayList<>();
         int x = 440;
 
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 5; i++) {
             Kid kid = new Kid(x, 330);
             kids.add(kid);
-            x += 15;
+            x += 10;
         }
         return kids;
     }
