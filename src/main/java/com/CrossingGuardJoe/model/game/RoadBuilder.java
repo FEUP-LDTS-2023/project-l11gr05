@@ -1,5 +1,6 @@
 package com.CrossingGuardJoe.model.game;
 
+import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.game.elements.Car;
 import com.CrossingGuardJoe.model.game.elements.Joe;
 import com.CrossingGuardJoe.model.game.elements.Kid;
@@ -26,23 +27,41 @@ public class RoadBuilder {
 
     private List<Car> createCars() {
         List<Car> cars = new ArrayList<>();
-        Random rand = new Random();
 
-        int[] xValues = { 85, 172, 259, 346 };
-        int randomIndex = rand.nextInt(xValues.length);
-        int randomX = xValues[randomIndex];
+        int[] xValues = {85, 172, 259, 346};
 
         int randomY = -rand.nextInt(500);
-        int intervalOffset = 250;
-
-        for (int i = 0; i < 10; i++) {
-            Car car = new Car(randomX, randomY);
+        for (int i = 0; i < 3; i++) {
+            Car car = new Car(xValues[rand.nextInt(xValues.length)], randomY);
+            randomY -= rand.nextInt(500) + 150;
             cars.add(car);
-            randomX = xValues[rand.nextInt(xValues.length)];
-            randomY -= (rand.nextInt(500) + intervalOffset);
         }
+
+        new Thread(() -> {
+            Random rand = new Random();
+
+            while (true) {
+                synchronized (cars) {
+                    for (Car car : cars) {
+                        if (car.getPosition().getY() > 500) {
+                            car.getPosition().setY(-rand.nextInt(500));
+                            car.getPosition().setX(xValues[rand.nextInt(xValues.length)]);
+                        }
+                    }
+                }
+
+                try {
+                    Thread.sleep(rand.nextInt(1000) + 500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+
         return cars;
     }
+
+
 
     private List<Kid> createKids() {
         List<Kid> kids = new ArrayList<>();
