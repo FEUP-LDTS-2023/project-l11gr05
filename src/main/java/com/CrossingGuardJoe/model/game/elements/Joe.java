@@ -1,9 +1,7 @@
 package com.CrossingGuardJoe.model.game.elements;
 
-import com.CrossingGuardJoe.model.game.elements.JoeCommand.CommandJoe;
-
 public class Joe extends Element{
-    private CommandJoe currentCommand;
+    private Command currentCommand;
     private boolean walking = false;
     private boolean isWalkingToLeft = true;
     private boolean raisingStopSign = false;
@@ -14,7 +12,7 @@ public class Joe extends Element{
         super(x, y);
     }
 
-    public void setAndExecuteCommand(CommandJoe command) {
+    public void setAndExecuteCommand(Command command) {
         this.currentCommand = command;
         executeCommand();
     }

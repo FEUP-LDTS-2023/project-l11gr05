@@ -5,11 +5,12 @@ import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.game.Road;
 import com.CrossingGuardJoe.Game;
+import com.CrossingGuardJoe.model.game.elements.Command;
 import com.CrossingGuardJoe.model.game.elements.JoeCommand.*;
 
 public class JoeController extends GameController {
     private GUI.ACTION lastAction = GUI.ACTION.NONE;
-    private CommandJoe command;
+    private Command command;
 
     public JoeController(Road road) {
         super(road);

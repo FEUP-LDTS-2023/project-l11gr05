@@ -113,14 +113,19 @@ public class MenuViewer extends Viewer<Menu> {
             "                     $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$                  $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$                  $$$$$$$$$$$$$$                  $$$$$$$$$$$$$$            $$$$$$$$$$$$$$           $$$$$$$$$$$$$$$$$$$$$            $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$                             $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$                         $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$                   $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
     };
 
+    private final
+
     @Override
     protected void drawElements(GUI gui) {
-        gui.drawImage(new Position(130, 100), logoImage);
-        /*gui.drawText(new Position(100, 100), "Menu", "#FF5451");
+        gui.drawImage(new Position(130, 50), logoImage);
+
         for (int i = 0; i < getModel().getNumberOptions(); i++)
-            gui.drawText(
-                    new Position(50, 70 + i),
-                    getModel().getOption(i),
-                    getModel().selectedOption(i) ? "#FFFFFF" : "#FF5451");*/
+            switch (i) {
+                case (0):
+                    gui.drawImage(new Position(150, 200), new String = new String[]{"akjfasjgfjhasdgfjhadsgf"});
+                    break;
+            }
+            getModel().getOption(i);
+        }
     }
 }
