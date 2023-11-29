@@ -28,6 +28,14 @@ public class KidController extends GameController {
         KidAction(kid, new Position(kid.getPosition().getX() - 7, kid.getPosition().getY()), 'p');
     }
 
+    public void moveKidsToBegin(List<Kid> kids) {
+        while (kids.get(0).getPosition().getX() > 430) {
+            for (Kid kid : kids) {
+                moveKid(kid);
+            }
+        }
+    }
+
     public void stopKid(Kid kid) {
         KidAction(kid, kid.getPosition(), 's');
     }
@@ -44,6 +52,7 @@ public class KidController extends GameController {
     @Override
     public void nextAction(Game game, GUI.ACTION action, long time) throws IOException {
         List<Kid> kids = getModel().getKids();
+        moveKidsToBegin(kids);
 
         boolean joeInRange = false;
         for (Kid kid : kids) {
