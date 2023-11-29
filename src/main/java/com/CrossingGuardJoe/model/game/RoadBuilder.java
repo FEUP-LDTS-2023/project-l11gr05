@@ -25,15 +25,34 @@ public class RoadBuilder {
         return new Joe(390, 297);
     }
 
+    private boolean isCarOverlapping(int newY, int existingY, int minDistance) {
+        return Math.abs(newY - existingY) < minDistance;
+    }
+
+    private boolean isAnyCarOverlapping(int newY, List<Car> cars, int minDistance) {
+        for (Car existingCar : cars) {
+            if (isCarOverlapping(newY, existingCar.getPosition().getY(), minDistance)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     private List<Car> createCars() {
         List<Car> cars = new ArrayList<>();
 
         int[] xValues = {85, 172, 259, 346};
 
-        int randomY = -rand.nextInt(500);
         for (int i = 0; i < 3; i++) {
+            int randomY = -rand.nextInt(500) - rand.nextInt(500);
+
+            for (Car existingCar : cars) {
+                while (isCarOverlapping(randomY, existingCar.getPosition().getY(), 200)) {
+                    randomY = -rand.nextInt(500) - rand.nextInt(500);
+                }
+            }
+
             Car car = new Car(xValues[rand.nextInt(xValues.length)], randomY);
-            randomY -= rand.nextInt(500) + 150;
             cars.add(car);
         }
 
@@ -44,14 +63,20 @@ public class RoadBuilder {
                 synchronized (cars) {
                     for (Car car : cars) {
                         if (car.getPosition().getY() > 500) {
-                            car.getPosition().setY(-rand.nextInt(500));
+                            int newRandomY;
+
+                            do {
+                                newRandomY = -rand.nextInt(500) - rand.nextInt(500);
+                            } while (isAnyCarOverlapping(newRandomY, cars, 200));
+
+                            car.getPosition().setY(newRandomY);
                             car.getPosition().setX(xValues[rand.nextInt(xValues.length)]);
                         }
                     }
                 }
 
                 try {
-                    Thread.sleep(rand.nextInt(1000) + 500);
+                    Thread.sleep(100);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -60,8 +85,6 @@ public class RoadBuilder {
 
         return cars;
     }
-
-
 
     private List<Kid> createKids() {
         List<Kid> kids = new ArrayList<>();
