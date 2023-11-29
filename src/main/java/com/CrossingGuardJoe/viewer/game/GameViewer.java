@@ -3,6 +3,7 @@ package com.CrossingGuardJoe.viewer.game;
 import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.game.Road;
+import com.CrossingGuardJoe.model.game.elements.Car;
 import com.CrossingGuardJoe.viewer.Viewer;
 import com.CrossingGuardJoe.model.game.elements.Element;
 import com.CrossingGuardJoe.viewer.game.elements.CarView;
@@ -10,6 +11,7 @@ import com.CrossingGuardJoe.viewer.game.elements.ElementViewer;
 import com.CrossingGuardJoe.viewer.game.elements.JoeView;
 import com.CrossingGuardJoe.viewer.game.elements.KidView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GameViewer extends Viewer<Road> implements RoadView{
@@ -22,7 +24,13 @@ public class GameViewer extends Viewer<Road> implements RoadView{
     public void drawElements(GUI gui) {
         this.gui = gui;
         drawRoad();
-        drawElements(gui, getModel().getCars(), new CarView());
+
+        List<Car> carsCopy;
+        synchronized (getModel().getCars()) {
+            carsCopy = new ArrayList<>(getModel().getCars());
+        }
+        drawElements(gui, carsCopy, new CarView());
+
         drawElement(gui, getModel().getJoe(), new JoeView());
         drawElements(gui, getModel().getKids(), new KidView());
     }
