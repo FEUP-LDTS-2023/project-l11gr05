@@ -114,23 +114,24 @@ public class MenuViewer extends Viewer<Menu> {
             "                     $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$                  $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$                  $$$$$$$$$$$$$$                  $$$$$$$$$$$$$$            $$$$$$$$$$$$$$           $$$$$$$$$$$$$$$$$$$$$            $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$                             $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$                         $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$                   $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
     };
 
-    private final String[] StartGameOptionImage = {
-            "$$$$WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW$$$$$$$$$$$",
-            "$$$WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW$$$$$$$$$$$",
-            "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
-            "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
-            "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
-            "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
-            "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
-            "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
-            "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
-            "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
-            "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
-            "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
-            "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
-            "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
-            "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
-            "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+    private final String[] selectionArrowImage = {
+            "$$",
+            "$$$$",
+            "$GG$",
+            "$GGG$",
+            "$GGGGG$$$",
+            "$GGGGGGG$$$",
+            "$GGGGGGGGG$$$",
+            "$GGGGGGGGGGG$$$",
+            "$GGGGGGGGGGG$$$",
+            "$GGGGGGGGG$$$",
+            "$GGGGGGG$$$",
+            "$GGGGG$$$",
+            "$GGG$",
+            "$GG$",
+            "$$$$",
+            "$$",
+
     };
 
     @Override
@@ -138,17 +139,22 @@ public class MenuViewer extends Viewer<Menu> {
         gui.drawImage(new Position(130, 50), logoImage);
 
         for (int i = 0; i < getModel().getNumberOptions(); i++) {
-            switch (i) {
-                case (0):
-                    gui.drawImageCustomColor(new Position(210, 220), new Text().getTextImage("START GAME"), "#FFFFFF");
-                    gui.drawImage(new Position(211, 222), new Text().getTextImage("START GAME"));
-
-                    gui.drawImage(new Position(210, 260), new Text().getTextImage("B"));
-                    gui.drawImage(new Position(210, 300), new Text().getTextImage("C"));
-                    gui.drawImage(new Position(210, 340), new Text().getTextImage("D"));
-                    break;
+            String optionText = getModel().getOption(i).getText();
+            switch (optionText) {
+                case "START GAME":
+                    gui.drawImage(getModel().getOption(i).getPosition(), getModel().getOption(i).getImage());
+                    gui.drawImage(new Position(
+                                    getModel().getOption(i).getPosition().getX() - 15,
+                                       getModel().getOption(i).getPosition().getY()),
+                                       selectionArrowImage);
+                case "LEADERBOARD":
+                    gui.drawImage(getModel().getOption(i).getPosition(), getModel().getOption(i).getImage());
+                    gui.drawImage(new Position(
+                                    getModel().getOption(i).getPosition().getX() - 15,
+                                    getModel().getOption(i).getPosition().getY()),
+                            selectionArrowImage);
             }
-            getModel().getOption(i);
+            //getModel().getOption(i);
         }
     }
 }
