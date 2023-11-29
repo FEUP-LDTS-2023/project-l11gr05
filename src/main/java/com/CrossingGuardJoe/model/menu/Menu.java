@@ -47,4 +47,8 @@ public class Menu {
     public boolean isSelectedInstructions() { return isSelectedOption(2); }
 
     public boolean isSelectedExit() { return isSelectedOption(3); }
+
+    public int getOptionSelected() {
+        return optionSelected;
+    }
 }

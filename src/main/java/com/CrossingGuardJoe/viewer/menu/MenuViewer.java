@@ -138,23 +138,15 @@ public class MenuViewer extends Viewer<Menu> {
     protected void drawElements(GUI gui) {
         gui.drawImage(new Position(130, 50), logoImage);
 
-        for (int i = 0; i < getModel().getNumberOptions(); i++) {
-            String optionText = getModel().getOption(i).getText();
-            switch (optionText) {
-                case "START GAME":
-                    gui.drawImage(getModel().getOption(i).getPosition(), getModel().getOption(i).getImage());
-                    gui.drawImage(new Position(
-                                    getModel().getOption(i).getPosition().getX() - 15,
-                                       getModel().getOption(i).getPosition().getY()),
-                                       selectionArrowImage);
-                case "LEADERBOARD":
-                    gui.drawImage(getModel().getOption(i).getPosition(), getModel().getOption(i).getImage());
-                    gui.drawImage(new Position(
-                                    getModel().getOption(i).getPosition().getX() - 15,
-                                    getModel().getOption(i).getPosition().getY()),
-                            selectionArrowImage);
-            }
-            //getModel().getOption(i);
-        }
+        gui.drawImage(getModel().getOption(0).getPosition(), getModel().getOption(0).getImage());
+        gui.drawImage(getModel().getOption(1).getPosition(), getModel().getOption(1).getImage());
+        gui.drawImage(getModel().getOption(2).getPosition(), getModel().getOption(2).getImage());
+        gui.drawImage(getModel().getOption(3).getPosition(), getModel().getOption(3).getImage());
+
+            gui.drawImage(new Position(
+                            getModel().getOption(getModel().getOptionSelected()).getPosition().getX() - 15,
+                            getModel().getOption(getModel().getOptionSelected()).getPosition().getY()),
+                    selectionArrowImage);
+
     }
 }

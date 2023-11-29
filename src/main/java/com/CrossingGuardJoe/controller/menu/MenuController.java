@@ -21,8 +21,17 @@ public class MenuController extends Controller<Menu> {
             case DOWN:
                 getModel().nextOption();
             case SELECT:
-                if (getModel().isSelectedExit()) game.setState(null);
                 if (getModel().isSelectedStartGame()) game.setState(new GameState(new RoadBuilder().createRoad()));
+                /*if (getModel().isSelectedLeaderboard()) {
+                    System.out.println("not implemented Leaderboard yet");
+                    game.setState(null);
+                }
+                if (getModel().isSelectedInstructions()) {
+                    game.setState(null);
+                    System.out.println("not implemented Instructions yet");
+                }
+                if (getModel().isSelectedExit()) game.setState(null);*/
+
         }
 
     }
