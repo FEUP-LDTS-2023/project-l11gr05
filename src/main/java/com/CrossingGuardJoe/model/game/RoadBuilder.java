@@ -42,15 +42,11 @@ public class RoadBuilder {
         List<Car> cars = new ArrayList<>();
 
         int[] xValues = {85, 172, 259, 346};
-
+        int randomY;
         for (int i = 0; i < 3; i++) {
-            int randomY = -rand.nextInt(500) - rand.nextInt(500);
-
-            for (Car existingCar : cars) {
-                while (isCarOverlapping(randomY, existingCar.getPosition().getY(), 200)) {
-                    randomY = -rand.nextInt(500) - rand.nextInt(500);
-                }
-            }
+            do {
+                randomY = -rand.nextInt(500) - rand.nextInt(500);
+            } while (isAnyCarOverlapping(randomY, cars, 200));
 
             Car car = new Car(xValues[rand.nextInt(xValues.length)], randomY);
             cars.add(car);
