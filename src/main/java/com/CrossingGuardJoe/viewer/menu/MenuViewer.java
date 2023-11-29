@@ -122,7 +122,7 @@ public class MenuViewer extends Viewer<Menu> {
         for (int i = 0; i < getModel().getNumberOptions(); i++)
             switch (i) {
                 case (0):
-                    gui.drawImage(new Position(150, 200), new String = new String[]{"akjfasjgfjhasdgfjhadsgf"});
+                    gui.drawImage(new Position(150, 200), StartGameOptionImage);
                     break;
             }
             getModel().getOption(i);
