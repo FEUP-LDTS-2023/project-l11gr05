@@ -18,6 +18,6 @@ public interface GUI {
     ACTION getNextAction() throws IOException;
 
     enum ACTION {
-        UP, DOWN, LEFT, RIGHT, SELECT, NONE, QUIT
+        UP, DOWN, LEFT, RIGHT, SELECT, NONE, QUIT, ESC
     }
 }

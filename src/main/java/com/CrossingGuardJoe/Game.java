@@ -28,6 +28,19 @@ public class Game {
         this.stateStack.push(state);
     }
 
+    public void popState() {
+        if (!stateStack.isEmpty()) {
+            stateStack.pop();
+        }
+    }
+
+    public State getCurrentState() {
+        if (!stateStack.isEmpty()){
+            return stateStack.peek();
+        }
+        return null;
+    }
+
     private void run() throws IOException {
         //i think manipulating that values can improve the lag problem
         int FPS = 40;
@@ -53,10 +66,4 @@ public class Game {
         System.exit(0);
     }
 
-    public State getCurrentState() {
-        if (!stateStack.isEmpty()){
-            return stateStack.peek();
-        }
-        return null;
-    }
 }

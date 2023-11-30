@@ -28,6 +28,9 @@ public class CustomizeMenuController extends Controller<CustomizeMenu> {
             case DOWN:
                 getModel().navigateDown();
                 break;
+            case ESC:
+                game.popState();
+                break;
             case SELECT:
                 // Perform action based on the selected option
                 if (getModel().isSelectedJoe()) {}
