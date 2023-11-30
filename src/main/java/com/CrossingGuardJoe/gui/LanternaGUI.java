@@ -139,7 +139,8 @@ public class LanternaGUI implements GUI {
         int xPos = x;
         for (char character : imageLine.toCharArray()) {
             if (character != ' ') {
-                setColor(character);
+                char colorCharacter = getMappedCharacter(character);
+                setColor(colorCharacter);
                 fillRectangle(new Position(x + xPos, y), 1, 1);
             }
             xPos++;
