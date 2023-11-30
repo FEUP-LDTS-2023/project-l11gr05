@@ -17,7 +17,6 @@ public class CustomizeMenu {
 
         // Level 0
         List<Option> level0 = Arrays.asList(
-                new Option(new Position(100, 220), new Text().getTextImage("CUSTOMIZE YOUR CHARACTER")),
                 new Option(new Position(200, 260), new Text().getTextImage("JOE")),
                 new Option(new Position(200, 300), new Text().getTextImage("KIDS")),
                 new Option(new Position(200, 340), new Text().getTextImage("CARS")),
@@ -56,6 +55,26 @@ public class CustomizeMenu {
 
     public Option getCurrentOption() {
         return menuLevels.get(currentLevel).get(optionSelected);
+    }
+
+    public boolean isSelectedJoe() {
+        return isSelectedOption(0, 0);
+    }
+
+    public boolean isSelectedKids() {
+        return isSelectedOption(0, 1);
+    }
+
+    public boolean isSelectedCars() {
+        return isSelectedOption(0, 2);
+    }
+
+    public boolean isSelectedBack() {
+        return isSelectedOption(0, 3);
+    }
+
+    private boolean isSelectedOption(int levelIndex, int optionIndex) {
+        return currentLevel == levelIndex && optionSelected == optionIndex;
     }
 
 }
