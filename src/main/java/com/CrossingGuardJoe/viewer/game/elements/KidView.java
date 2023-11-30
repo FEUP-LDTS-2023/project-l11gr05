@@ -7,6 +7,7 @@ import com.CrossingGuardJoe.viewer.images.ArrowImages;
 import com.CrossingGuardJoe.viewer.images.KidImages;
 
 public class KidView extends ElementViewer<Kid> {
+
     @Override
     public void draw(Kid kid, GUI gui) {
         if (kid.getIsWalkingState()) {
