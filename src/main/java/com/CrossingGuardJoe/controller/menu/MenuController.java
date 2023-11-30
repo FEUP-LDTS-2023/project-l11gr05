@@ -26,7 +26,7 @@ public class MenuController extends Controller<Menu> {
                 if (getModel().isSelectedInstructions()) {
                     System.out.println("not implemented Instructions yet");
                 }
-                if (getModel().isSelectedCustom()) {
+                if (getModel().isSelectedCustomize()) {
                     System.out.println("not implemented Custom yet");
                 }
                 if (getModel().isSelectedExit()) game.setState(null);

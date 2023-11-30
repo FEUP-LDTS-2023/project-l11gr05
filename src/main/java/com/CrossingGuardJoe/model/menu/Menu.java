@@ -44,7 +44,7 @@ public class Menu {
 
     public boolean isSelectedInstructions() { return isSelectedOption(1); }
 
-    public boolean isSelectedCustom() { return isSelectedOption(2); }
+    public boolean isSelectedCustomize() { return isSelectedOption(2); }
 
 
     public boolean isSelectedExit() { return isSelectedOption(3); }
