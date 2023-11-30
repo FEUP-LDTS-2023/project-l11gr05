@@ -5,7 +5,6 @@ import com.CrossingGuardJoe.model.game.elements.Joe;
 import com.CrossingGuardJoe.viewer.images.JoeImages;
 
 public class JoeView extends ElementViewer<Joe> {
-
     @Override
     public void draw(Joe joe, GUI gui) {
         if (joe.getIsWalkingState()) {
