@@ -3,6 +3,7 @@ package com.CrossingGuardJoe.gui;
 
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.viewer.Color;
+import com.CrossingGuardJoe.viewer.ColorCustomize;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
@@ -26,6 +27,7 @@ public class LanternaGUI implements GUI {
     private Screen screen;
     private final int width;
     private final int height;
+    private final ColorCustomize colorCustomize = ColorCustomize.getInstance();
 
     public LanternaGUI(int width, int height) throws IOException, URISyntaxException, FontFormatException {
         this.width = width;
@@ -153,6 +155,14 @@ public class LanternaGUI implements GUI {
             }
             xPos++;
         }
+    }
+
+    public void addColorMapping(char fromCharacter, char toCharacter) {
+        colorCustomize.addMapping(fromCharacter, toCharacter);
+    }
+
+    public char getMappedCharacter(char character) {
+        return colorCustomize.getMappedCharacter(character);
     }
 
     public ACTION getNextAction() throws IOException {

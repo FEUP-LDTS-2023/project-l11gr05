@@ -4,11 +4,8 @@ import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.menu.Menu;
 import com.CrossingGuardJoe.model.menu.Option;
-import com.CrossingGuardJoe.viewer.Text;
 import com.CrossingGuardJoe.viewer.Viewer;
 import com.CrossingGuardJoe.viewer.images.ArrowImages;
-import com.CrossingGuardJoe.viewer.images.JoeImages;
-import com.CrossingGuardJoe.viewer.images.KidImages;
 import com.CrossingGuardJoe.viewer.images.LogoImages;
 
 public class MenuViewer extends Viewer<Menu> {
