@@ -22,8 +22,8 @@ public class ArrowImages {
     public static final String[] ARROW_RIGHT = {
             "$$",
             "$$$$",
-            "$GG$",
-            "$GGG$",
+            "$GG$$",
+            "$GGG$$$",
             "$GGGGG$$$",
             "$GGGGGGG$$$",
             "$GGGGGGGGG$$$",
@@ -32,8 +32,8 @@ public class ArrowImages {
             "$GGGGGGGGG$$$",
             "$GGGGGGG$$$",
             "$GGGGG$$$",
-            "$GGG$",
-            "$GG$",
+            "$GGG$$$",
+            "$GG$$",
             "$$$$",
             "$$",
 

@@ -15,8 +15,8 @@ public class Menu {
         this.options = Arrays.asList(
                 new Option(new Position(203, 220), new Text().getTextImage("START GAME")),
                 new Option(new Position(195, 260), new Text().getTextImage("INSTRUCTIONS")),
-                new Option(new Position(218, 300), new Text().getTextImage("CUSTOM")),
-                new Option(new Position(227, 340), new Text().getTextImage("EXIT"))
+                new Option(new Position(207, 300), new Text().getTextImage("CUSTOMIZE")),
+                new Option(new Position(226, 340), new Text().getTextImage("EXIT"))
         );
     }
 
