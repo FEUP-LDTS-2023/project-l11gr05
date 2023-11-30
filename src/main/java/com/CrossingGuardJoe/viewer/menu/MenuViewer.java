@@ -3,6 +3,7 @@ package com.CrossingGuardJoe.viewer.menu;
 import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.menu.Menu;
+import com.CrossingGuardJoe.model.menu.Option;
 import com.CrossingGuardJoe.viewer.Text;
 import com.CrossingGuardJoe.viewer.Viewer;
 
@@ -139,7 +140,19 @@ public class MenuViewer extends Viewer<Menu> {
         gui.drawImage(new Position(130, 50), logoImage);
 
         for (int i = 0; i < getModel().getNumberOptions(); i++) {
-            gui.drawImage(getModel().getOption(i).getPosition(), getModel().getOption(i).getImage());
+            Option optionSelected = getModel().getOption(i);
+
+            //option image shadow
+            gui.drawImage(optionSelected.getPosition(), optionSelected.getImage());
+            gui.drawImageCustomColor(new Position(
+                            optionSelected.getPosition().getX() - 1, optionSelected.getPosition().getY() - 2),
+                    optionSelected.getImage(), "#000000");
+
+            //option image text
+            gui.drawImageCustomColor(new Position(
+                    optionSelected.getPosition().getX() - 2, optionSelected.getPosition().getY() - 2),
+                    optionSelected.getImage(), "#FFFFFF");
+
             if (getModel().isSelectedOption(i)) {
                 gui.drawImage(new Position(
                                 getModel().getOption(getModel().getOptionSelected()).getPosition().getX() - 15,

@@ -14,9 +14,9 @@ public class Menu {
 
         this.options = Arrays.asList(
                 new Option(new Position(203, 220), new Text().getTextImage("START GAME")),
-                new Option(new Position(199, 260), new Text().getTextImage("LEADERBOARD")),
-                new Option(new Position(195, 300), new Text().getTextImage("INSTRUCTIONS")),
-                new Option(new Position(225, 340), new Text().getTextImage("EXIT"))
+                new Option(new Position(195, 260), new Text().getTextImage("INSTRUCTIONS")),
+                new Option(new Position(218, 300), new Text().getTextImage("CUSTOM")),
+                new Option(new Position(227, 340), new Text().getTextImage("EXIT"))
         );
     }
 
@@ -32,10 +32,6 @@ public class Menu {
         return options.get(i);
     }
 
-    public boolean isSelected(int i) {
-        return optionSelected == i;
-    }
-
     public int getNumberOptions() {
         return options.size();
     }
@@ -46,9 +42,10 @@ public class Menu {
 
     public boolean isSelectedStartGame() { return isSelectedOption(0); }
 
-    public boolean isSelectedLeaderboard() { return isSelectedOption(1); }
+    public boolean isSelectedInstructions() { return isSelectedOption(1); }
 
-    public boolean isSelectedInstructions() { return isSelectedOption(2); }
+    public boolean isSelectedCustom() { return isSelectedOption(2); }
+
 
     public boolean isSelectedExit() { return isSelectedOption(3); }
 

@@ -45,6 +45,7 @@ public class Game {
             } catch (InterruptedException e) {
             }
         }
+        gui.clearScreen();
     }
 
 
