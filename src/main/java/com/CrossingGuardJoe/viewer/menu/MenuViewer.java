@@ -7,6 +7,8 @@ import com.CrossingGuardJoe.model.menu.Option;
 import com.CrossingGuardJoe.viewer.Text;
 import com.CrossingGuardJoe.viewer.Viewer;
 import com.CrossingGuardJoe.viewer.images.ArrowImages;
+import com.CrossingGuardJoe.viewer.images.JoeImages;
+import com.CrossingGuardJoe.viewer.images.KidImages;
 import com.CrossingGuardJoe.viewer.images.LogoImages;
 
 public class MenuViewer extends Viewer<Menu> {
@@ -19,13 +21,13 @@ public class MenuViewer extends Viewer<Menu> {
         for (int i = 0; i < getModel().getNumberOptions(); i++) {
             Option optionSelected = getModel().getOption(i);
 
-            //option image shadow
+            //options shadow
             gui.drawImage(optionSelected.getPosition(), optionSelected.getImage());
             gui.drawImageCustomColor(new Position(
                             optionSelected.getPosition().getX() - 1, optionSelected.getPosition().getY() - 2),
                     optionSelected.getImage(), "#000000");
 
-            //option image text
+            //options text
             gui.drawImageCustomColor(new Position(
                     optionSelected.getPosition().getX() - 2, optionSelected.getPosition().getY() - 2),
                     optionSelected.getImage(), "#FFFFFF");
