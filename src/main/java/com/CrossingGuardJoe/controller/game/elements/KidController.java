@@ -6,19 +6,25 @@ import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.game.Road;
 import com.CrossingGuardJoe.model.game.elements.Car;
+import com.CrossingGuardJoe.model.game.elements.Joe;
 import com.CrossingGuardJoe.model.game.elements.Kid;
 import com.CrossingGuardJoe.Game;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+
+import static com.CrossingGuardJoe.controller.game.AuxCheckRange.isInRangeCarKid;
+import static com.CrossingGuardJoe.controller.game.AuxCheckRange.isInRangeJoeKid;
 
 public class KidController extends GameController {
 
     private static final double KID_SPEED = 0.005;
     private long lastUpdateTime;
     private boolean walkInitiated = false;
-    private int currentKidIndex = 0;
-
+    private Kid selectedKid;
+    private List<Kid> outKids = new ArrayList<>();
+    private Joe joe = getModel().getJoe();
 
     public KidController(Road road) {
         super(road);
@@ -26,7 +32,7 @@ public class KidController extends GameController {
     }
 
     public void moveKid(Kid kid) {
-        KidAction(kid, new Position(kid.getPosition().getX() - 7, kid.getPosition().getY()), 'p');
+        KidAction(kid, new Position(kid.getPosition().getX() - 3, kid.getPosition().getY()), 'p');
     }
 
     public void moveKidsToBegin(List<Kid> kids) {
@@ -56,21 +62,21 @@ public class KidController extends GameController {
         //moveKidsToBegin(kids);
 
         boolean joeInRange = false;
-        Kid selectedKid = null;
 
         for (Kid kid : kids) {
-            if (AuxCheckRange.isInRangeJoeKid(getModel().getJoe(), kid)) {
+            if (isInRangeJoeKid(getModel().getJoe(), kid)) {
                 joeInRange = true;
                 selectedKid = kid;
             }
             kid.setNotSelected();
         }
 
+
         if (joeInRange) {
             selectedKid.setSelected();
         }
 
-        if (action == GUI.ACTION.DOWN && !walkInitiated && joeInRange && selectedKid != null) {
+        if (action == GUI.ACTION.DOWN && !walkInitiated && joeInRange && getModel().getJoe().getIsPassSign()) {
             walkInitiated = true;
         }
 
@@ -94,8 +100,8 @@ public class KidController extends GameController {
 
         for (Car car : cars) {
             for (Kid kid : kids) {
-                if (AuxCheckRange.isInRangeCarKid(car, kid)) {
-                    kid.isHit();
+                if (isInRangeCarKid(car, kid)) {
+                    //kid.isHit();
                     //System.out.println("Game Over - Car collided with a kid!");
                     //game.end();
                 }
