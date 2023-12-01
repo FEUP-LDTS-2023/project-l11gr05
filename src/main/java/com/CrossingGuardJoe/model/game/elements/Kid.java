@@ -43,7 +43,10 @@ public class Kid extends Element {
         this.selected = false;
     }
 
-    public void isHit() { hit = true; }
+    public void isHit() {
+        hit = true;
+        selected = false;
+    }
 
     public boolean getIsHit() { return hit;}
 }

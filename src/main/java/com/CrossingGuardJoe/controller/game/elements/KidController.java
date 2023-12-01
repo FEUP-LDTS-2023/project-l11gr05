@@ -12,6 +12,7 @@ import com.CrossingGuardJoe.Game;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import static com.CrossingGuardJoe.controller.game.AuxCheckRange.isInRangeCarKid;
@@ -21,7 +22,7 @@ public class KidController extends GameController {
 
     private static final double KID_SPEED = 0.005;
     private long lastUpdateTime;
-    private boolean walkInitiated = false;
+    private boolean walking = false;
     private Kid selectedKid;
     private List<Kid> outKids = new ArrayList<>();
     private Joe joe = getModel().getJoe();
@@ -41,6 +42,13 @@ public class KidController extends GameController {
                 moveKid(kid);
             }
         }
+    }
+
+    public void moveKidAfterHit(Car car, Kid kid, int hitX, Iterator<Kid> kidIterator) {
+        if (kid.getPosition().getY() > 500) {
+            kidIterator.remove();
+        }
+        kid.setPosition(new Position(hitX, car.getPosition().getY() + 55));
     }
 
     public void stopKid(Kid kid) {
@@ -76,17 +84,17 @@ public class KidController extends GameController {
             selectedKid.setSelected();
         }
 
-        if (action == GUI.ACTION.DOWN && !walkInitiated && joeInRange && getModel().getJoe().getIsPassSign()) {
-            walkInitiated = true;
+        if (action == GUI.ACTION.DOWN && !walking && joeInRange && getModel().getJoe().getIsPassSign()) {
+            walking = true;
         }
 
-        if (walkInitiated && time - lastUpdateTime > KID_SPEED) {
+        if (walking && time - lastUpdateTime > KID_SPEED) {
             moveKid(selectedKid);
             lastUpdateTime = time;
         }
 
         if (action == GUI.ACTION.UP && joeInRange) {
-            walkInitiated = false;
+            walking = false;
             stopKid(selectedKid);
         }
 
@@ -98,10 +106,15 @@ public class KidController extends GameController {
         List<Car> cars = getModel().getCars();
         List<Kid> kids = getModel().getKids();
 
-        for (Car car : cars) {
-            for (Kid kid : kids) {
+        Iterator<Kid> kidIterator = kids.iterator();
+        while (kidIterator.hasNext()) {
+            Kid kid = kidIterator.next();
+            for (Car car : cars) {
                 if (isInRangeCarKid(car, kid)) {
-                    //kid.isHit();
+                    int hitX = kid.getPosition().getX();
+                    kid.isHit();
+                    walking = false;
+                    moveKidAfterHit(car, kid, hitX, kidIterator);
                     //System.out.println("Game Over - Car collided with a kid!");
                     //game.end();
                 }
