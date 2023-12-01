@@ -3,10 +3,14 @@ package com.CrossingGuardJoe.viewer.game.elements;
 import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.game.elements.Joe;
 import com.CrossingGuardJoe.viewer.images.JoeImages;
+import com.CrossingGuardJoe.viewer.images.KidImages;
 
 public class JoeView extends ElementViewer<Joe> {
     @Override
     public void draw(Joe joe, GUI gui) {
+        if (joe.getIsHit()) {
+            gui.drawImage(joe.getPosition(), JoeImages.JOE_HITLEFT);
+        }
         if (joe.getIsWalkingState()) {
             if (joe.isFirstHalfOfMovement()) {
                 if (joe.getIsWalkingToLeft()) {
