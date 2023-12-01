@@ -1,6 +1,7 @@
 package com.CrossingGuardJoe.model.menu;
 
 import com.CrossingGuardJoe.model.Position;
+import com.CrossingGuardJoe.viewer.Shape;
 import com.CrossingGuardJoe.viewer.Text;
 import com.CrossingGuardJoe.viewer.images.CarImage;
 import com.CrossingGuardJoe.viewer.images.JoeImages;
@@ -12,12 +13,15 @@ import java.util.List;
 
 public class CustomizeMenu {
     private final List<List<Option>> menuLevels;
+    private final List<Option> definedColors;
     private int currentLevel;
     private int optionSelected;
     private char selectedColorChar;
 
     public CustomizeMenu() {
         this.menuLevels = new ArrayList<>();
+        this.currentLevel = 0;
+        this.optionSelected = 1;
 
         List<Option> Joe = Arrays.asList(
                 new Option(new Position(100, 100), JoeImages.JOE_STAND),
@@ -44,8 +48,10 @@ public class CustomizeMenu {
         menuLevels.add(Kids);
         menuLevels.add(Cars);
 
-        this.currentLevel = 0;
-        this.optionSelected = 0;
+        this.definedColors = Arrays.asList(
+                new Option(new Position(87, 230), Shape.RectangleFilledGenerator(16, 16, '<', 1, '$'))
+        );
+
     }
 
     public List<List<Option>> getMenuLevels() {
@@ -66,7 +72,7 @@ public class CustomizeMenu {
 
     public void navigateUp() {
         // Move up within the current level (list of options)
-        optionSelected = Math.max(optionSelected - 1, 0);
+        optionSelected = Math.max(optionSelected - 1, 1);
     }
 
     public void navigateDown() {
@@ -148,6 +154,10 @@ public class CustomizeMenu {
         if (isSelectedKidsShoes()) selectedColorChar = '&';
         if (isSelectedCarsBody()) selectedColorChar = '@';
         return this.selectedColorChar;
+    }
+
+    public List<Option> getDefinedColors() {
+        return this.definedColors;
     }
 
 }
