@@ -18,6 +18,7 @@ public class CustomizeMenuViewer extends Viewer<CustomizeMenu> {
     @Override
     protected void drawElements(GUI gui) {
         gui.drawImage(new Position(5, 5), new Text().getTextImage("ESC"));
+        gui.drawImageCustomColor(new Position(4, 4), new Text().getTextImage("ESC"), "#FFFFFF");
 
         // options draw
         for (int i = 0; i < getModel().getMenuLevels().size(); i++) {
