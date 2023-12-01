@@ -3,6 +3,7 @@ package com.CrossingGuardJoe.gui;
 
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.viewer.Color;
+import com.CrossingGuardJoe.viewer.ColorCustomize;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
@@ -26,6 +27,7 @@ public class LanternaGUI implements GUI {
     private Screen screen;
     private final int width;
     private final int height;
+    private final ColorCustomize colorCustomize = ColorCustomize.getInstance();
 
     public LanternaGUI(int width, int height) throws IOException, URISyntaxException, FontFormatException {
         this.width = width;
@@ -137,7 +139,8 @@ public class LanternaGUI implements GUI {
         int xPos = x;
         for (char character : imageLine.toCharArray()) {
             if (character != ' ') {
-                setColor(character);
+                char colorCharacter = getMappedCharacter(character);
+                setColor(colorCharacter);
                 fillRectangle(new Position(x + xPos, y), 1, 1);
             }
             xPos++;
@@ -153,6 +156,15 @@ public class LanternaGUI implements GUI {
             }
             xPos++;
         }
+    }
+
+    @Override
+    public void addColorMapping(char oldCharacter, char newCharacter) {
+        colorCustomize.addMapping(oldCharacter, newCharacter);
+    }
+
+    public char getMappedCharacter(char character) {
+        return colorCustomize.getMappedCharacter(character);
     }
 
     public ACTION getNextAction() throws IOException {
@@ -171,6 +183,8 @@ public class LanternaGUI implements GUI {
                     return ACTION.DOWN;
                 case Enter:
                     return ACTION.SELECT;
+                case Escape:
+                    return ACTION.ESC;
                 case EOF:
                     return ACTION.QUIT;
                 default:

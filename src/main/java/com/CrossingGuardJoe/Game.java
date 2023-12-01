@@ -8,16 +8,16 @@ import com.CrossingGuardJoe.states.State;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.Stack;
 
 public class Game {
     private LanternaGUI gui;
-    private State state;
+    private Stack<State> stateStack;
 
     public Game() throws IOException, URISyntaxException, FontFormatException {
         gui = new LanternaGUI(1000, 500);
-        state = new MenuState(new Menu());
-        //state = new GameState(new LoaderRoadBuilder().createRoad());
-        //missing state
+        stateStack = new Stack<>();
+        stateStack.push(new MenuState(new Menu()));
     }
 
     public static void main(String[] args) throws IOException, FontFormatException, URISyntaxException {
@@ -25,7 +25,20 @@ public class Game {
     }
 
     public void setState(State state) {
-        this.state = state;
+        this.stateStack.push(state);
+    }
+
+    public void popState() {
+        if (!stateStack.isEmpty()) {
+            stateStack.pop();
+        }
+    }
+
+    public State getCurrentState() {
+        if (!stateStack.isEmpty()){
+            return stateStack.peek();
+        }
+        return null;
     }
 
     private void run() throws IOException {
@@ -33,9 +46,9 @@ public class Game {
         int FPS = 40;
         int frameTime = 100 / FPS;
 
-        while (this.state != null) {
+        while (getCurrentState() != null) {
             long startTime = System.currentTimeMillis();
-            state.step(this, gui, startTime);
+            getCurrentState().step(this, gui, startTime);
 
             long elapsedTime = System.currentTimeMillis() - startTime;
             long sleepTime = frameTime - elapsedTime;
@@ -45,12 +58,12 @@ public class Game {
             } catch (InterruptedException e) {
             }
         }
-        gui.clearScreen();
+        gui.closeScreen();
     }
-
 
     public void end() throws IOException {
         gui.closeScreen();
         System.exit(0);
     }
+
 }

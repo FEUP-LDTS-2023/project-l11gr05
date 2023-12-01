@@ -4,11 +4,8 @@ import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.menu.Menu;
 import com.CrossingGuardJoe.model.menu.Option;
-import com.CrossingGuardJoe.viewer.Text;
 import com.CrossingGuardJoe.viewer.Viewer;
 import com.CrossingGuardJoe.viewer.images.ArrowImages;
-import com.CrossingGuardJoe.viewer.images.JoeImages;
-import com.CrossingGuardJoe.viewer.images.KidImages;
 import com.CrossingGuardJoe.viewer.images.LogoImages;
 
 public class MenuViewer extends Viewer<Menu> {
@@ -23,14 +20,10 @@ public class MenuViewer extends Viewer<Menu> {
 
             //options shadow
             gui.drawImage(optionSelected.getPosition(), optionSelected.getImage());
-            gui.drawImageCustomColor(new Position(
-                            optionSelected.getPosition().getX() - 1, optionSelected.getPosition().getY() - 2),
-                    optionSelected.getImage(), "#000000");
+            drawOptionTextShadow(gui, optionSelected.getPosition(), optionSelected.getImage(), -1, "#000000");
 
             //options text
-            gui.drawImageCustomColor(new Position(
-                    optionSelected.getPosition().getX() - 2, optionSelected.getPosition().getY() - 2),
-                    optionSelected.getImage(), "#FFFFFF");
+            drawOptionTextShadow(gui, optionSelected.getPosition(), optionSelected.getImage(), -2, "#FFFFFF");
 
             if (getModel().isSelectedOption(i)) {
                 gui.drawImage(new Position(
@@ -39,6 +32,11 @@ public class MenuViewer extends Viewer<Menu> {
                         ArrowImages.ARROW_RIGHT);
             }
         }
+    }
 
+    private void drawOptionTextShadow(GUI gui, Position position, String[] image, int bias, String colorHexCode) {
+        gui.drawImageCustomColor(new Position(
+                        position.getX() + bias, position.getY() + bias),
+                image, colorHexCode);
     }
 }
