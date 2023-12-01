@@ -39,8 +39,14 @@ public class CustomizeMenuViewer extends Viewer<CustomizeMenu> {
 
                 // select the column
                 if (getModel().isSelectedElement(i)) {
-                    if (getModel().isSelectedCarsCustomize()) {
+                    if (getModel().isSelectedJoeCustomize()) {
+                        gui.drawImage(new Position(40, 70), Shape.RectangleFilledGenerator(SELECTION_BOX_WIDTH, SELECTION_BOX_HEIGHT, ' ', 2, 'G'));
+                    }
+                    else if (getModel().isSelectedKidsCustomize()) {
                         gui.drawImage(new Position(195, 70), Shape.RectangleFilledGenerator(SELECTION_BOX_WIDTH, SELECTION_BOX_HEIGHT, ' ', 2, 'G'));
+                    }
+                    else if (getModel().isSelectedCarsCustomize()) {
+                        gui.drawImage(new Position(350, 70), Shape.RectangleFilledGenerator(SELECTION_BOX_WIDTH, SELECTION_BOX_HEIGHT, ' ', 2, 'G'));
                     }
                 }
 
@@ -50,7 +56,7 @@ public class CustomizeMenuViewer extends Viewer<CustomizeMenu> {
                 gui.drawImage(optionPosition, option.getImage());
 
                 if (j > 0) {
-                    drawOptionTextShadow(gui, option.getPosition(), option.getImage(), -2, "#FFFFFF");
+                    drawOptionTextShadow(gui, option.getPosition(), option.getImage(), -1, "#FFFFFF");
                 }
 
                 //select every specific option
