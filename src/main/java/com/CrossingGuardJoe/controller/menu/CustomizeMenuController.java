@@ -32,14 +32,41 @@ public class CustomizeMenuController extends Controller<CustomizeMenu> {
                 game.popState();
                 break;
             case SELECT:
-                // Perform action based on the selected option
-                if (getModel().isSelectedJoe()) {}
-                if (getModel().isSelectedKids()) {}
-                if (getModel().isSelectedCars()) {}
-                if (getModel().isSelectedBack()) {}
+                if (getModel().isSelectedJoeCustomize()) {
+                    // Perform action for Joe customization
+                    performJoeCustomization();
+                }
+                if (getModel().isSelectedCarsCustomize()) {
+                    // Perform action for Cars customization
+                    performCarsCustomization();
+                }
+                if (getModel().isSelectedKidsCustomize()) {
+                    // Perform action for Kids customization
+                    performKidsCustomization();
+                }
+                break;
 
 
         }
+    }
+
+    // Customization methods for each selected option
+    private void performJoeCustomization() {
+        // Your logic for Joe customization
+        // Example:
+        System.out.println("Joe selected for customization");
+    }
+
+    private void performCarsCustomization() {
+        // Your logic for Cars customization
+        // Example:
+        System.out.println("Cars selected for customization");
+    }
+
+    private void performKidsCustomization() {
+        // Your logic for Kids customization
+        // Example:
+        System.out.println("Kids selected for customization");
     }
 
 }
