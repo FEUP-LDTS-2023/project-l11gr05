@@ -8,12 +8,12 @@ import com.CrossingGuardJoe.viewer.Viewer;
 import com.CrossingGuardJoe.viewer.images.ArrowImages;
 import com.CrossingGuardJoe.viewer.images.LogoImages;
 
-public class MenuViewer extends Viewer<Menu> {
+public class MenuViewer extends Viewer<Menu> implements InformationDrawer {
     public MenuViewer(Menu menu) { super(menu); }
 
     @Override
     protected void drawElements(GUI gui) {
-        gui.drawImage(new Position(130, 50), LogoImages.LOGO_GAME);
+        drawTitle(gui);
 
         for (int i = 0; i < getModel().getNumberOptions(); i++) {
             Option optionSelected = getModel().getOption(i);
@@ -39,4 +39,12 @@ public class MenuViewer extends Viewer<Menu> {
                         position.getX() + bias, position.getY() + bias),
                 image, colorHexCode);
     }
+
+    @Override
+    public void drawTitle(GUI gui) {
+        gui.drawImage(new Position(130, 50), LogoImages.LOGO_GAME);
+    }
+
+    @Override
+    public void drawInformation(GUI gui) {}
 }

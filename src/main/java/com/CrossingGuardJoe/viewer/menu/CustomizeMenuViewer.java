@@ -12,7 +12,7 @@ import com.CrossingGuardJoe.viewer.images.ArrowImages;
 
 import java.util.List;
 
-public class CustomizeMenuViewer extends Viewer<CustomizeMenu> {
+public class CustomizeMenuViewer extends Viewer<CustomizeMenu> implements InformationDrawer {
     private final int SELECTION_BOX_WIDTH = 235;
     private final int SELECTION_BOX_HEIGHT = 300;
     public CustomizeMenuViewer(CustomizeMenu model) {
@@ -22,7 +22,7 @@ public class CustomizeMenuViewer extends Viewer<CustomizeMenu> {
     @Override
     protected void drawElements(GUI gui) {
         drawTitle(gui);
-        drawInstructions(gui);
+        drawInformation(gui);
         drawSelectionBox(gui);
 
         for (int i = 0; i < getModel().getMenuLevels().size(); i++) {
@@ -81,12 +81,14 @@ public class CustomizeMenuViewer extends Viewer<CustomizeMenu> {
 
     }
 
-    private void drawTitle(GUI gui) {
+    @Override
+    public void drawTitle(GUI gui) {
         gui.drawImage(new Position(181, 29), new Text().getTextImage("CUSTOMIZE YOUR GAME"));
         gui.drawImageCustomColor(new Position(180, 28), new Text().getTextImage("CUSTOMIZE YOUR GAME"), "#FFFFFF");
     }
 
-    private void drawInstructions(GUI gui) {
+    @Override
+    public void drawInformation(GUI gui) {
         gui.drawImage(new Position(5, 5), new Text().getTextImage("ESC"));
         gui.drawImageCustomColor(new Position(4, 4), new Text().getTextImage("ESC"), "#FFFFFF");
     }
