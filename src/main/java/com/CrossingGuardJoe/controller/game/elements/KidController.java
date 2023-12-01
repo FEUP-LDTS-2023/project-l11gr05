@@ -53,7 +53,7 @@ public class KidController extends GameController {
     @Override
     public void nextAction(Game game, GUI.ACTION action, long time) throws IOException {
         List<Kid> kids = getModel().getKids();
-        moveKidsToBegin(kids);
+        //moveKidsToBegin(kids);
 
         boolean joeInRange = false;
         Kid selectedKid = null;
@@ -75,7 +75,7 @@ public class KidController extends GameController {
         }
 
         if (walkInitiated && time - lastUpdateTime > KID_SPEED) {
-            moveCurrentKid(kids);
+            moveKid(selectedKid);
             lastUpdateTime = time;
         }
 
@@ -113,8 +113,8 @@ public class KidController extends GameController {
             for (Kid kid : kids) {
                 if (AuxCheckRange.isInRangeCarKid(car, kid)) {
                     kid.isHit();
-                    System.out.println("Game Over - Car collided with a kid!");
-                    game.end();
+                    //System.out.println("Game Over - Car collided with a kid!");
+                    //game.end();
                 }
             }
         }

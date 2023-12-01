@@ -1,9 +1,10 @@
 package com.CrossingGuardJoe.model.game.elements;
 
 public class Kid extends Element {
-    private boolean walking;
+    private boolean walking = false;
     private boolean hit = false;
     private boolean selected = false;
+    private boolean firstHalfOfMovement = true;
 
     public Kid(int x, int y) {
         super(x, y);
@@ -15,10 +16,19 @@ public class Kid extends Element {
 
     public void isNotWalking() {
         walking = false;
+        firstHalfOfMovement = true;
     }
 
     public boolean getIsWalkingState() {
         return this.walking;
+    }
+
+    public boolean isFirstHalfOfMovement() {
+        return this.firstHalfOfMovement;
+    }
+
+    public void setFirstHalfOfMovement(boolean firstHalfOfMovement) {
+        this.firstHalfOfMovement = firstHalfOfMovement;
     }
 
     public boolean isSelected() {
