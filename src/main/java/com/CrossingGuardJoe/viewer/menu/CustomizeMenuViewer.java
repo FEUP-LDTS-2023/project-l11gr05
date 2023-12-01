@@ -7,6 +7,8 @@ import com.CrossingGuardJoe.model.menu.Option;
 import com.CrossingGuardJoe.viewer.Viewer;
 import com.CrossingGuardJoe.viewer.images.ArrowImages;
 
+import java.util.List;
+
 public class CustomizeMenuViewer extends Viewer<CustomizeMenu> {
     public CustomizeMenuViewer(CustomizeMenu model) {
         super(model);
@@ -14,6 +16,26 @@ public class CustomizeMenuViewer extends Viewer<CustomizeMenu> {
 
     @Override
     protected void drawElements(GUI gui) {
+        for (int i = 0; i < getModel().getMenuLevels().size(); i++) {
+            List<Option> levelOptions = getModel().getMenuLevels().get(i);
+            for (int j = 0; j < levelOptions.size(); j++) {
+                Option option = levelOptions.get(j);
+                // Draw each option according to its state (selected or not)
+                Position position = option.getPosition();
+                String[] image = option.getImage();
 
+                gui.drawImage(position, image);
+
+                if (getModel().isSelectedElement(i)) {
+                    gui.drawImage(new Position(levelOptions.get(0).getPosition().getX() - 15,
+                            levelOptions.get(0).getPosition().getY()), ArrowImages.ARROW_RIGHT);
+                }
+
+                if (getModel().isSelectedOption(i, j)) {
+                    // Draw the arrow or any indicator for the selected option
+                    gui.drawImage(new Position(position.getX() - 15, position.getY()), ArrowImages.ARROW_RIGHT);
+                }
+            }
+        }
     }
 }

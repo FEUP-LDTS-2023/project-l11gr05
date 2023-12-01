@@ -16,24 +16,24 @@ public class CustomizeMenu {
         this.menuLevels = new ArrayList<>();
 
         List<Option> Joe = Arrays.asList(
-                new Option(new Position(200, 260), new Text().getTextImage("JOE")),
-                new Option(new Position(240, 260), new Text().getTextImage("Cap")),
-                new Option(new Position(280, 260), new Text().getTextImage("Clothes")),
-                new Option(new Position(320, 260), new Text().getTextImage("Vest")),
-                new Option(new Position(360, 260), new Text().getTextImage("Shoes"))
+                new Option(new Position(100, 200), new Text().getTextImage("JOE")),
+                new Option(new Position(100, 230), new Text().getTextImage("Cap")),
+                new Option(new Position(100, 260), new Text().getTextImage("Clothes")),
+                new Option(new Position(100, 290), new Text().getTextImage("Vest")),
+                new Option(new Position(100, 320), new Text().getTextImage("Shoes"))
         );
 
         List<Option> Kids = Arrays.asList(
-                new Option(new Position(200, 300), new Text().getTextImage("KIDS")),
-                new Option(new Position(240, 300), new Text().getTextImage("Shirt")),
-                new Option(new Position(280, 300), new Text().getTextImage("Pants")),
-                new Option(new Position(320, 300), new Text().getTextImage("Backpack")),
-                new Option(new Position(360, 300), new Text().getTextImage("Shoes"))
+                new Option(new Position(200, 200), new Text().getTextImage("KIDS")),
+                new Option(new Position(200, 230), new Text().getTextImage("Shirt")),
+                new Option(new Position(200, 260), new Text().getTextImage("Pants")),
+                new Option(new Position(200, 290), new Text().getTextImage("Backpack")),
+                new Option(new Position(200, 320), new Text().getTextImage("Shoes"))
         );
 
         List<Option> Cars = Arrays.asList(
-                new Option(new Position(200, 340), new Text().getTextImage("CARS")),
-                new Option(new Position(240, 340), new Text().getTextImage("Body"))
+                new Option(new Position(300, 200), new Text().getTextImage("CARS")),
+                new Option(new Position(300, 230), new Text().getTextImage("Body"))
         );
 
         menuLevels.add(Joe);
@@ -42,6 +42,10 @@ public class CustomizeMenu {
 
         this.currentLevel = 0;
         this.optionSelected = 0;
+    }
+
+    public List<List<Option>> getMenuLevels() {
+        return this.menuLevels;
     }
 
     public void navigateLeft() {
@@ -121,9 +125,14 @@ public class CustomizeMenu {
         return isSelectedOption(2, 1); // Assuming Body is the second option in Cars submenu
     }
 
-
-    private boolean isSelectedOption(int levelIndex, int optionIndex) {
-        return currentLevel == levelIndex && optionSelected == optionIndex;
+    public boolean isSelectedOption(int levelIndex, int optionIndex) {
+        return isSelectedElement(levelIndex) && optionSelected == optionIndex;
     }
+
+    public boolean isSelectedElement(int levelIndex) {
+        return currentLevel == levelIndex;
+    }
+
+
 
 }
