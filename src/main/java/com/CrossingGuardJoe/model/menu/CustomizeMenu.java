@@ -1,6 +1,7 @@
 package com.CrossingGuardJoe.model.menu;
 
 import com.CrossingGuardJoe.model.Position;
+import com.CrossingGuardJoe.viewer.Color;
 import com.CrossingGuardJoe.viewer.Shape;
 import com.CrossingGuardJoe.viewer.Text;
 import com.CrossingGuardJoe.viewer.images.CarImage;
@@ -14,12 +15,16 @@ import java.util.List;
 public class CustomizeMenu {
     private final List<List<Option>> menuLevels;
     private final List<Option> definedColors;
+    private final List<Color> colorPallet;
     private int currentLevel;
     private int optionSelected;
     private char selectedColorChar;
+    boolean colorPalletSelected = false;
+
 
     public CustomizeMenu() {
         this.menuLevels = new ArrayList<>();
+        this.colorPallet = new ArrayList<>();
         this.currentLevel = 0;
         this.optionSelected = 1;
 
@@ -72,6 +77,8 @@ public class CustomizeMenu {
                 new Option(new Position(menuLevels.get(2).get(1).getPosition().getX() - 13, menuLevels.get(2).get(1).getPosition().getY()),
                         Shape.RectangleFilledGenerator(16, 16, '@', 1, '$'))
         );
+
+        this.colorPallet.addAll(Arrays.asList(Color.values()));
 
     }
 
@@ -181,4 +188,15 @@ public class CustomizeMenu {
         return this.definedColors;
     }
 
+    public List<Color> getColorPallet() {
+        return colorPallet;
+    }
+
+    public boolean isColorPalletSelected() {
+        return colorPalletSelected;
+    }
+
+    public void setColorPalletSelected(boolean b) {
+        this.colorPalletSelected = b;
+    }
 }

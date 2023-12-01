@@ -12,32 +12,28 @@ import com.CrossingGuardJoe.viewer.images.ArrowImages;
 import java.util.List;
 
 public class CustomizeMenuViewer extends Viewer<CustomizeMenu> {
+    private final int SELECTION_BOX_WIDTH = 235;
+    private final int SELECTION_BOX_HEIGHT = 300;
     public CustomizeMenuViewer(CustomizeMenu model) {
         super(model);
     }
 
     @Override
     protected void drawElements(GUI gui) {
-        //title
-        gui.drawImage(new Position(180, 15), new Text().getTextImage("CUSTOMIZE YOUR GAME"));
-        gui.drawImageCustomColor(new Position(179, 14), new Text().getTextImage("CUSTOMIZE YOUR GAME"), "#FFFFFF");
+        drawTitle(gui);
+        drawInstructions(gui);
+        drawSelectionBox(gui);
 
-        //ESC instruction
-        gui.drawImage(new Position(5, 5), new Text().getTextImage("ESC"));
-        gui.drawImageCustomColor(new Position(4, 4), new Text().getTextImage("ESC"), "#FFFFFF");
-
-        int SELECTION_BOX_WIDTH = 235;
-        int SELECTION_BOX_HEIGHT = 300;
-        gui.drawImage(new Position(40, 70), Shape.RectangleFilledGenerator(SELECTION_BOX_WIDTH, SELECTION_BOX_HEIGHT, '«', 2, '$'));
-        gui.drawImage(new Position(195, 70), Shape.RectangleFilledGenerator(SELECTION_BOX_WIDTH, SELECTION_BOX_HEIGHT, '«', 2, '$'));
-        gui.drawImage(new Position(350, 70), Shape.RectangleFilledGenerator(SELECTION_BOX_WIDTH, SELECTION_BOX_HEIGHT, '«', 2, '$'));
-
-        // options draw
         for (int i = 0; i < getModel().getMenuLevels().size(); i++) {
+
             List<Option> levelOptions = getModel().getMenuLevels().get(i);
+
             for (int j = 0; j < levelOptions.size(); j++) {
 
-                // select the column
+                Option option = levelOptions.get(j);
+                Position optionPosition = option.getPosition();
+
+                // Column selected box drawer (green)
                 if (getModel().isSelectedElement(i)) {
                     if (getModel().isSelectedJoeCustomize()) {
                         gui.drawImage(new Position(40, 70), Shape.RectangleFilledGenerator(SELECTION_BOX_WIDTH, SELECTION_BOX_HEIGHT, ' ', 2, 'G'));
@@ -50,16 +46,15 @@ public class CustomizeMenuViewer extends Viewer<CustomizeMenu> {
                     }
                 }
 
-                Option option = levelOptions.get(j);
-                Position optionPosition = option.getPosition();
-
+                // Draw the options text shadows (black)
                 gui.drawImage(optionPosition, option.getImage());
 
+                // Draw the options text (white)
                 if (j > 0) {
                     drawOptionTextShadow(gui, option.getPosition(), option.getImage(), -1, "#FFFFFF");
                 }
 
-                //select every specific option
+                // Draw the selection arrow (green)
                 if (getModel().isSelectedOption(i, j)) {
                     gui.drawImage(new Position(optionPosition.getX() - 30, optionPosition.getY()), ArrowImages.ARROW_RIGHT);
                 }
@@ -70,6 +65,22 @@ public class CustomizeMenuViewer extends Viewer<CustomizeMenu> {
         for (Option colorSquare : getModel().getDefinedColors()) {
             gui.drawImage(colorSquare.getPosition(), colorSquare.getImage());
         }
+    }
+
+    private void drawTitle(GUI gui) {
+        gui.drawImage(new Position(180, 15), new Text().getTextImage("CUSTOMIZE YOUR GAME"));
+        gui.drawImageCustomColor(new Position(179, 14), new Text().getTextImage("CUSTOMIZE YOUR GAME"), "#FFFFFF");
+    }
+
+    private void drawInstructions(GUI gui) {
+        gui.drawImage(new Position(5, 5), new Text().getTextImage("ESC"));
+        gui.drawImageCustomColor(new Position(4, 4), new Text().getTextImage("ESC"), "#FFFFFF");
+    }
+
+    private void drawSelectionBox(GUI gui) {
+        gui.drawImage(new Position(40, 70), Shape.RectangleFilledGenerator(SELECTION_BOX_WIDTH, SELECTION_BOX_HEIGHT, '«', 2, '$'));
+        gui.drawImage(new Position(195, 70), Shape.RectangleFilledGenerator(SELECTION_BOX_WIDTH, SELECTION_BOX_HEIGHT, '«', 2, '$'));
+        gui.drawImage(new Position(350, 70), Shape.RectangleFilledGenerator(SELECTION_BOX_WIDTH, SELECTION_BOX_HEIGHT, '«', 2, '$'));
     }
 
     private void drawOptionTextShadow(GUI gui, Position position, String[] image, int bias, String colorHexCode) {
