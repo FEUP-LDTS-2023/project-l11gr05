@@ -2,6 +2,9 @@ package com.CrossingGuardJoe.model.menu;
 
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.viewer.Text;
+import com.CrossingGuardJoe.viewer.images.CarImage;
+import com.CrossingGuardJoe.viewer.images.JoeImages;
+import com.CrossingGuardJoe.viewer.images.KidImages;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,7 +19,7 @@ public class CustomizeMenu {
         this.menuLevels = new ArrayList<>();
 
         List<Option> Joe = Arrays.asList(
-                new Option(new Position(100, 200), new Text().getTextImage("JOE")),
+                new Option(new Position(100, 100), JoeImages.JOE_STAND),
                 new Option(new Position(100, 230), new Text().getTextImage("Cap")),
                 new Option(new Position(100, 260), new Text().getTextImage("Clothes")),
                 new Option(new Position(100, 290), new Text().getTextImage("Vest")),
@@ -24,7 +27,7 @@ public class CustomizeMenu {
         );
 
         List<Option> Kids = Arrays.asList(
-                new Option(new Position(200, 200), new Text().getTextImage("KIDS")),
+                new Option(new Position(200, 100), KidImages.KID_STAND),
                 new Option(new Position(200, 230), new Text().getTextImage("Shirt")),
                 new Option(new Position(200, 260), new Text().getTextImage("Pants")),
                 new Option(new Position(200, 290), new Text().getTextImage("Backpack")),
@@ -32,7 +35,7 @@ public class CustomizeMenu {
         );
 
         List<Option> Cars = Arrays.asList(
-                new Option(new Position(300, 200), new Text().getTextImage("CARS")),
+                new Option(new Position(300, 100), CarImage.CAR),
                 new Option(new Position(300, 230), new Text().getTextImage("Body"))
         );
 
