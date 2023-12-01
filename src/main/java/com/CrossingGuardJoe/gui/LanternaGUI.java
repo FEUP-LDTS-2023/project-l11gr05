@@ -158,8 +158,9 @@ public class LanternaGUI implements GUI {
         }
     }
 
-    public void addColorMapping(char fromCharacter, char toCharacter) {
-        colorCustomize.addMapping(fromCharacter, toCharacter);
+    @Override
+    public void addColorMapping(char oldCharacter, char newCharacter) {
+        colorCustomize.addMapping(oldCharacter, newCharacter);
     }
 
     public char getMappedCharacter(char character) {

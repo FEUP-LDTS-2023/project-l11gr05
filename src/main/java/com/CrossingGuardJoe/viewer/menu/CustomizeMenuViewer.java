@@ -64,6 +64,21 @@ public class CustomizeMenuViewer extends Viewer<CustomizeMenu> {
 
         drawElementsColorSquare(gui);
         drawColorsPalette(gui);
+
+        if (getModel().isColorPaletteSelected()) {
+            for (int i = 0; i < getModel().getColorPalette().size(); i++) {
+                if (getModel(). isColorSelected(i)) {
+                    gui.drawImage(new Position(15 * i + 55, 405), ArrowImages.ARROW_DOWN);
+                }
+            }
+        }
+
+        char oldColor = getModel().getOldColor();
+        char newColor = getModel().getNewColor();
+        if (oldColor != '\uFFFF') {
+            gui.addColorMapping(oldColor, newColor);
+        }
+
     }
 
     private void drawTitle(GUI gui) {
@@ -95,10 +110,16 @@ public class CustomizeMenuViewer extends Viewer<CustomizeMenu> {
     }
 
     private void drawColorsPalette(GUI gui) {
-        int initialX = 60;
+        int initialXBoard = 52;
+        int iniitialXFill = 105;
+
         for (Color color : getModel().getColorPalette()) {
-            gui.drawImage(new Position(initialX, 423), Shape.RectangleFilledGenerator(25, 30, color.getCharacter(), 1, '$'));
-            initialX += 15;
+            gui.setColorHexaCode(color.getColorHexCode());
+            gui.fillRectangle(new Position(iniitialXFill, 426), 25, 30);
+            gui.drawImage(new Position(initialXBoard, 426), Shape.RectangleFilledGenerator(25, 30, ' ', 1, '$'));
+
+            initialXBoard += 15;
+            iniitialXFill += 30;
         }
     }
 

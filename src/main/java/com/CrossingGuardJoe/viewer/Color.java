@@ -16,6 +16,7 @@ public enum Color {
     ROASTED_YELLOW("#8E6E43", '@'),
     YELLOW2("#F6D756", '<'),
     YELLOW("#FFDC1C", ')'),
+    YELLOW3("#FFDB00", 'q'),
     GREEN("#BAF11C", 'G'),
     GREEN3("#66B032", 'u'),
     GREEN2("#6C9772", 'g'),

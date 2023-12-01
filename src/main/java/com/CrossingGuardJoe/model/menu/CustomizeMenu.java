@@ -20,6 +20,9 @@ public class CustomizeMenu {
     private int optionSelected;
     private char selectedColorChar;
     boolean colorPaletteSelected = false;
+    private int selectedColorIndex;
+    private char oldColor;
+    private char newColor;
 
 
     public CustomizeMenu() {
@@ -27,6 +30,7 @@ public class CustomizeMenu {
         this.colorPalette = new ArrayList<>();
         this.currentLevel = 0;
         this.optionSelected = 1;
+        this.selectedColorIndex = 0;
 
         int JOE_X = 80;
         int OPTIONS_Y = 230;
@@ -199,4 +203,39 @@ public class CustomizeMenu {
     public void setColorPaletteSelected(boolean b) {
         this.colorPaletteSelected = b;
     }
+
+    public void navigateColorPaletteLeft() {
+        selectedColorIndex = (selectedColorIndex - 1 + colorPalette.size()) % colorPalette.size();
+    }
+
+    public void navigateColorPaletteRight() {
+        selectedColorIndex = (selectedColorIndex + 1) % colorPalette.size();
+    }
+
+    public Color getSelectedColor() {
+        return colorPalette.get(selectedColorIndex);
+    }
+
+    public boolean isColorSelected(int index) {
+        return this.selectedColorIndex == index;
+    }
+
+    public int getSelectedColorIndex() {
+        return selectedColorIndex;
+    }
+
+    public void setColorChange(char oldColor, char newColor) {
+        this.oldColor = oldColor;
+        this.newColor = newColor;
+        selectedColorIndex = 0;
+    }
+
+    public char getOldColor() {
+        return this.oldColor;
+    }
+
+    public char getNewColor() {
+        return this.newColor;
+    }
+
 }

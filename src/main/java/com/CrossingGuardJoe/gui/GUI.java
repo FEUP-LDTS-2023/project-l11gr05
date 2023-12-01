@@ -13,6 +13,7 @@ public interface GUI {
     void drawImage(Position position, String[] image);
     void setColorHexaCode(String hexaCode);
     void drawImageCustomColor(Position position, String[] image, String colorHexCode);
+    void addColorMapping(char oldCharacter, char newCharacter);
 
 
     ACTION getNextAction() throws IOException;
