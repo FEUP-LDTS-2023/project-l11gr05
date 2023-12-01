@@ -81,28 +81,11 @@ public class KidController extends GameController {
 
         if (action == GUI.ACTION.UP && joeInRange) {
             walkInitiated = false;
-            stopCurrentKid(kids);
+            stopKid(selectedKid);
         }
 
         checkCollisions(game);
         checkWin(game); // temporary
-    }
-
-    private void moveCurrentKid(List<Kid> kids) {
-        if (currentKidIndex < kids.size()) {
-            moveKid(kids.get(currentKidIndex));
-            currentKidIndex++;
-        } else {
-            currentKidIndex = 0;
-        }
-    }
-
-    private void stopCurrentKid(List<Kid> kids) {
-        if (currentKidIndex < kids.size()) {
-            stopKid(kids.get(currentKidIndex));
-        } else {
-            currentKidIndex = 0;
-        }
     }
 
     public void checkCollisions(Game game) throws IOException {
