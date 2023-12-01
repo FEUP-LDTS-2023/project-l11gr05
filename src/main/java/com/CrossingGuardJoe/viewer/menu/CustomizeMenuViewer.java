@@ -82,8 +82,8 @@ public class CustomizeMenuViewer extends Viewer<CustomizeMenu> {
     }
 
     private void drawTitle(GUI gui) {
-        gui.drawImage(new Position(180, 15), new Text().getTextImage("CUSTOMIZE YOUR GAME"));
-        gui.drawImageCustomColor(new Position(179, 14), new Text().getTextImage("CUSTOMIZE YOUR GAME"), "#FFFFFF");
+        gui.drawImage(new Position(181, 29), new Text().getTextImage("CUSTOMIZE YOUR GAME"));
+        gui.drawImageCustomColor(new Position(180, 28), new Text().getTextImage("CUSTOMIZE YOUR GAME"), "#FFFFFF");
     }
 
     private void drawInstructions(GUI gui) {
