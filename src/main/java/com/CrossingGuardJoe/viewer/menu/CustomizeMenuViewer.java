@@ -4,6 +4,7 @@ import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.menu.CustomizeMenu;
 import com.CrossingGuardJoe.model.menu.Option;
+import com.CrossingGuardJoe.viewer.Color;
 import com.CrossingGuardJoe.viewer.Shape;
 import com.CrossingGuardJoe.viewer.Text;
 import com.CrossingGuardJoe.viewer.Viewer;
@@ -61,10 +62,8 @@ public class CustomizeMenuViewer extends Viewer<CustomizeMenu> {
             }
         }
 
-        // elements color square
-        for (Option colorSquare : getModel().getDefinedColors()) {
-            gui.drawImage(colorSquare.getPosition(), colorSquare.getImage());
-        }
+        drawElementsColorSquare(gui);
+        drawColorsPalette(gui);
     }
 
     private void drawTitle(GUI gui) {
@@ -87,6 +86,20 @@ public class CustomizeMenuViewer extends Viewer<CustomizeMenu> {
         gui.drawImageCustomColor(new Position(
                         position.getX() + bias, position.getY() + bias),
                 image, colorHexCode);
+    }
+
+    private void drawElementsColorSquare(GUI gui) {
+        for (Option colorSquare : getModel().getDefinedColors()) {
+            gui.drawImage(colorSquare.getPosition(), colorSquare.getImage());
+        }
+    }
+
+    private void drawColorsPalette(GUI gui) {
+        int initialX = 60;
+        for (Color color : getModel().getColorPalette()) {
+            gui.drawImage(new Position(initialX, 423), Shape.RectangleFilledGenerator(25, 30, color.getCharacter(), 1, '$'));
+            initialX += 15;
+        }
     }
 
 }

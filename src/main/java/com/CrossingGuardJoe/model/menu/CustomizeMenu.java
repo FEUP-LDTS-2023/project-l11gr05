@@ -15,16 +15,16 @@ import java.util.List;
 public class CustomizeMenu {
     private final List<List<Option>> menuLevels;
     private final List<Option> definedColors;
-    private final List<Color> colorPallet;
+    private final List<Color> colorPalette;
     private int currentLevel;
     private int optionSelected;
     private char selectedColorChar;
-    boolean colorPalletSelected = false;
+    boolean colorPaletteSelected = false;
 
 
     public CustomizeMenu() {
         this.menuLevels = new ArrayList<>();
-        this.colorPallet = new ArrayList<>();
+        this.colorPalette = new ArrayList<>();
         this.currentLevel = 0;
         this.optionSelected = 1;
 
@@ -78,7 +78,7 @@ public class CustomizeMenu {
                         Shape.RectangleFilledGenerator(16, 16, '@', 1, '$'))
         );
 
-        this.colorPallet.addAll(Arrays.asList(Color.values()));
+        this.colorPalette.addAll(Arrays.asList(Color.values()));
 
     }
 
@@ -188,15 +188,15 @@ public class CustomizeMenu {
         return this.definedColors;
     }
 
-    public List<Color> getColorPallet() {
-        return colorPallet;
+    public List<Color> getColorPalette() {
+        return colorPalette;
     }
 
-    public boolean isColorPalletSelected() {
-        return colorPalletSelected;
+    public boolean isColorPaletteSelected() {
+        return colorPaletteSelected;
     }
 
-    public void setColorPalletSelected(boolean b) {
-        this.colorPalletSelected = b;
+    public void setColorPaletteSelected(boolean b) {
+        this.colorPaletteSelected = b;
     }
 }
