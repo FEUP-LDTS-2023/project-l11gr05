@@ -20,14 +20,10 @@ public class MenuViewer extends Viewer<Menu> {
 
             //options shadow
             gui.drawImage(optionSelected.getPosition(), optionSelected.getImage());
-            gui.drawImageCustomColor(new Position(
-                            optionSelected.getPosition().getX() - 1, optionSelected.getPosition().getY() - 2),
-                    optionSelected.getImage(), "#000000");
+            drawOptionTextShadow(gui, optionSelected.getPosition(), optionSelected.getImage(), -1, "#000000");
 
             //options text
-            gui.drawImageCustomColor(new Position(
-                    optionSelected.getPosition().getX() - 2, optionSelected.getPosition().getY() - 2),
-                    optionSelected.getImage(), "#FFFFFF");
+            drawOptionTextShadow(gui, optionSelected.getPosition(), optionSelected.getImage(), -2, "#FFFFFF");
 
             if (getModel().isSelectedOption(i)) {
                 gui.drawImage(new Position(
@@ -36,6 +32,11 @@ public class MenuViewer extends Viewer<Menu> {
                         ArrowImages.ARROW_RIGHT);
             }
         }
+    }
 
+    private void drawOptionTextShadow(GUI gui, Position position, String[] image, int bias, String colorHexCode) {
+        gui.drawImageCustomColor(new Position(
+                        position.getX() + bias, position.getY() + bias),
+                image, colorHexCode);
     }
 }

@@ -4,6 +4,7 @@ import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.menu.CustomizeMenu;
 import com.CrossingGuardJoe.model.menu.Option;
+import com.CrossingGuardJoe.viewer.Text;
 import com.CrossingGuardJoe.viewer.Viewer;
 import com.CrossingGuardJoe.viewer.images.ArrowImages;
 
@@ -16,6 +17,8 @@ public class CustomizeMenuViewer extends Viewer<CustomizeMenu> {
 
     @Override
     protected void drawElements(GUI gui) {
+        gui.drawImage(new Position(5, 5), new Text().getTextImage("ESC"));
+
         // options draw
         for (int i = 0; i < getModel().getMenuLevels().size(); i++) {
             List<Option> levelOptions = getModel().getMenuLevels().get(i);
@@ -24,6 +27,9 @@ public class CustomizeMenuViewer extends Viewer<CustomizeMenu> {
                 Position optionPosition = option.getPosition();
 
                 gui.drawImage(optionPosition, option.getImage());
+                if (j > 0) {
+                    drawOptionTextShadow(gui, option.getPosition(), option.getImage(), -1, "#FFFFFF");
+                }
 
                 // select the column
                 if (getModel().isSelectedElement(i)) {
@@ -33,7 +39,7 @@ public class CustomizeMenuViewer extends Viewer<CustomizeMenu> {
 
                 //select every specific option
                 if (getModel().isSelectedOption(i, j)) {
-                    gui.drawImage(new Position(optionPosition.getX() - 15, optionPosition.getY()), ArrowImages.ARROW_RIGHT);
+                    gui.drawImage(new Position(optionPosition.getX() - 30, optionPosition.getY()), ArrowImages.ARROW_RIGHT);
                 }
             }
         }
@@ -43,4 +49,11 @@ public class CustomizeMenuViewer extends Viewer<CustomizeMenu> {
             gui.drawImage(colorSquare.getPosition(), colorSquare.getImage());
         }
     }
+
+    private void drawOptionTextShadow(GUI gui, Position position, String[] image, int bias, String colorHexCode) {
+        gui.drawImageCustomColor(new Position(
+                        position.getX() + bias, position.getY() + bias),
+                image, colorHexCode);
+    }
+
 }
