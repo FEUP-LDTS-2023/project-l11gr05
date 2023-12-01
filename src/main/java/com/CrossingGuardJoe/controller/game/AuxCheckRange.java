@@ -18,4 +18,12 @@ public class AuxCheckRange {
                 car.getPosition().getY() <= kid.getPosition().getY() + 15 &&
                 car.getPosition().getY() >= kid.getPosition().getY() - 65;
     }
+
+    public static boolean isInRangeCarJoe(Car car, Joe joe) {
+        //1st x is leftside 2nd x is rightside
+        return car.getPosition().getX() <= joe.getPosition().getX() + 10 &&
+                car.getPosition().getX() >= joe.getPosition().getX() - 52 &&
+                car.getPosition().getY() <= joe.getPosition().getY() + 15 &&
+                car.getPosition().getY() >= joe.getPosition().getY() - 65;
+    }
 }

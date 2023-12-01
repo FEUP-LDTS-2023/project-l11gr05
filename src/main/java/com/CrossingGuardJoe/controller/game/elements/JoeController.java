@@ -5,8 +5,14 @@ import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.game.Road;
 import com.CrossingGuardJoe.Game;
+import com.CrossingGuardJoe.model.game.elements.Car;
 import com.CrossingGuardJoe.model.game.elements.Command;
+import com.CrossingGuardJoe.model.game.elements.Joe;
 import com.CrossingGuardJoe.model.game.elements.JoeCommand.*;
+
+import java.util.List;
+
+import static com.CrossingGuardJoe.controller.game.AuxCheckRange.isInRangeCarJoe;
 
 public class JoeController extends GameController {
     private GUI.ACTION lastAction = GUI.ACTION.NONE;
@@ -36,6 +42,10 @@ public class JoeController extends GameController {
         moveJoe(6, 'r');
     }
 
+    public void moveJoeAfterHit() {
+        //getModel().getJoe().setPosition(new Position(getModel().getJoe().getPosition().getX() + 6, getModel().getJoe().getPosition().getY()));
+        //setLastActionNone();
+    }
 
     public void joePassSign() {
         JoeAction(getModel().getJoe().getPosition(), 'p');
@@ -95,5 +105,19 @@ public class JoeController extends GameController {
         if (lastAction == GUI.ACTION.UP) joeStopSign();
         if (lastAction == GUI.ACTION.DOWN) joePassSign();
         if (lastAction == GUI.ACTION.NONE) joeNotWalking();
+
+        checkCollisions();
+    }
+
+    public void checkCollisions(){
+        List<Car> cars = getModel().getCars();
+        Joe joe = getModel().getJoe();
+
+        for (Car car : cars) {
+            if (isInRangeCarJoe(car, joe)) {
+                //joe.isHit();
+                moveJoeAfterHit();
+            }
+        }
     }
 }
