@@ -14,6 +14,7 @@ public class CustomizeMenu {
     private final List<List<Option>> menuLevels;
     private int currentLevel;
     private int optionSelected;
+    private char selectedColorChar;
 
     public CustomizeMenu() {
         this.menuLevels = new ArrayList<>();
@@ -82,19 +83,19 @@ public class CustomizeMenu {
         return currentLevel == 0;
     }
 
-    public boolean isSelectedCap() {
+    public boolean isSelectedJoeCap() {
         return isSelectedOption(0, 1); // Assuming Cap is the second option in Joe submenu
     }
 
-    public boolean isSelectedClothes() {
+    public boolean isSelectedJoeClothes() {
         return isSelectedOption(0, 2); // Assuming Clothes is the third option in Joe submenu
     }
 
-    public boolean isSelectedVest() {
+    public boolean isSelectedJoeVest() {
         return isSelectedOption(0, 3); // Assuming Vest is the fourth option in Joe submenu
     }
 
-    public boolean isSelectedShoes() {
+    public boolean isSelectedJoeShoes() {
         return isSelectedOption(0, 4); // Assuming Shoes is the fifth option in Joe submenu
     }
 
@@ -103,15 +104,15 @@ public class CustomizeMenu {
         return currentLevel == 1;
     }
 
-    public boolean isSelectedShirt() {
+    public boolean isSelectedKidsShirt() {
         return isSelectedOption(1, 1); // Assuming Shirt is the second option in Kids submenu
     }
 
-    public boolean isSelectedPants() {
+    public boolean isSelectedKidsPants() {
         return isSelectedOption(1, 2); // Assuming Pants is the third option in Kids submenu
     }
 
-    public boolean isSelectedBackpack() {
+    public boolean isSelectedKidsBackpack() {
         return isSelectedOption(1, 3); // Assuming Backpack is the fourth option in Kids submenu
     }
 
@@ -124,7 +125,7 @@ public class CustomizeMenu {
         return currentLevel == 2;
     }
 
-    public boolean isSelectedBody() {
+    public boolean isSelectedCarsBody() {
         return isSelectedOption(2, 1); // Assuming Body is the second option in Cars submenu
     }
 
@@ -136,6 +137,17 @@ public class CustomizeMenu {
         return currentLevel == levelIndex;
     }
 
-
+    public char getSelectedColorChar() {
+        if (isSelectedJoeCap()) selectedColorChar = '<';
+        if (isSelectedJoeClothes()) selectedColorChar = '!';
+        if (isSelectedJoeVest()) selectedColorChar = '+';
+        if (isSelectedJoeShoes()) selectedColorChar = '*';
+        if (isSelectedKidsShirt()) selectedColorChar = '\'';
+        if (isSelectedKidsBackpack()) selectedColorChar = ')';
+        if (isSelectedKidsPants()) selectedColorChar = '(';
+        if (isSelectedKidsShoes()) selectedColorChar = '&';
+        if (isSelectedCarsBody()) selectedColorChar = '@';
+        return this.selectedColorChar;
+    }
 
 }
