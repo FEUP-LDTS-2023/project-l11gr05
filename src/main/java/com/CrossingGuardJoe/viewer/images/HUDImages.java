@@ -1,5 +1,7 @@
 package com.CrossingGuardJoe.viewer.images;
 
+import com.googlecode.lanterna.gui2.SameTextGUIThread;
+
 public class HUDImages {
     public static String[] HEART = {
             "    $$$$    $$$$    ",
@@ -20,6 +22,36 @@ public class HUDImages {
             "      $$RRRR$$      ",
             "        $$$$        ",
             "        $$$$        ",
+    };
+
+    public static String[] MINI_KID = {
+            "      GGGGGGG       ",
+            "      GGGGGGG       ",
+            "      GGGGGGG       ",
+            "      GGGGGGG       ",
+            "      GGGGGGG       ",
+            "      GGGGGGG       ",
+            "GGG   GGGGGGG       ",
+            "GGG   GGGGGGG       ",
+            "GGG   GGGGGGG       ",
+            "GGG   GGGGGGG       ",
+            "GGGGGGGGGGGGGGGGGGGG",
+            "GGGGGGGGGGGGGGGGGGGG",
+            "GGGGGGGGGGGGGGGGGGGG",
+            "GGGGGGGGGGGGGGGGGGGG",
+            "      GGGGGGG   GGGG",
+            "      GGGGGGG   GGGG",
+            "   GGGGGGGGGG   GGGG",
+            "   GGGGGGGGGG       ",
+            "   GGGGGGGGGG       ",
+            "   GGGGGGGGGGGGGGGGG",
+            "   GGGG  GGGGGGGGGGG",
+            "   GGGG  GGGGGGGGGGG",
+            "GGGGGGG  GGGGGGGGGGG",
+            "GGGGGGG         GGGG",
+            "GGGGGGG         GGGG",
+            "GGGGGGG         GGGG",
+            "GGGGGGG         GGGG"
     };
 
     public static String[] GAME_HUD = {
