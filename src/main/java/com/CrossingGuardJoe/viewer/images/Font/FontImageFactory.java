@@ -1,6 +1,4 @@
-package com.CrossingGuardJoe.viewer;
-
-import com.CrossingGuardJoe.viewer.images.FontImages;
+package com.CrossingGuardJoe.viewer.images.Font;
 
 public class FontImageFactory {
     public FontImageFactory() {}

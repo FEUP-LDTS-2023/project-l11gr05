@@ -1,4 +1,4 @@
-package com.CrossingGuardJoe.viewer.images;
+package com.CrossingGuardJoe.viewer.images.defined;
 
 public class KidImages {
     public static final String[] KID_STAND = new String[]{

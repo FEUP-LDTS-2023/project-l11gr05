@@ -1,4 +1,4 @@
-package com.CrossingGuardJoe.viewer.images;
+package com.CrossingGuardJoe.viewer.images.defined;
 
 public class ArrowImages {
     public static final String[] ARROW_DOWN = {

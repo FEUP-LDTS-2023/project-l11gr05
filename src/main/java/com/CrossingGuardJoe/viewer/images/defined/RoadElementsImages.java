@@ -1,4 +1,4 @@
-package com.CrossingGuardJoe.viewer.images;
+package com.CrossingGuardJoe.viewer.images.defined;
 
 public class RoadElementsImages {
     public static final String[] SIGNAL = {

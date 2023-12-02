@@ -2,11 +2,11 @@ package com.CrossingGuardJoe.model.menu;
 
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.viewer.Color;
-import com.CrossingGuardJoe.viewer.FontImageFactory;
-import com.CrossingGuardJoe.viewer.Shape;
-import com.CrossingGuardJoe.viewer.images.CarImage;
-import com.CrossingGuardJoe.viewer.images.JoeImages;
-import com.CrossingGuardJoe.viewer.images.KidImages;
+import com.CrossingGuardJoe.viewer.images.Font.FontImageFactory;
+import com.CrossingGuardJoe.viewer.images.generator.Shape;
+import com.CrossingGuardJoe.viewer.images.defined.CarImage;
+import com.CrossingGuardJoe.viewer.images.defined.JoeImages;
+import com.CrossingGuardJoe.viewer.images.defined.KidImages;
 
 import java.util.ArrayList;
 import java.util.Arrays;

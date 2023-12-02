@@ -4,7 +4,7 @@ package com.CrossingGuardJoe.gui;
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.viewer.Color;
 import com.CrossingGuardJoe.viewer.ColorCustomize;
-import com.CrossingGuardJoe.viewer.FontImageFactory;
+import com.CrossingGuardJoe.viewer.images.Font.FontImageFactory;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;

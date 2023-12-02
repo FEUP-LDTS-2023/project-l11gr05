@@ -5,7 +5,8 @@ import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.menu.CustomizeMenu;
 import com.CrossingGuardJoe.model.menu.Option;
 import com.CrossingGuardJoe.viewer.*;
-import com.CrossingGuardJoe.viewer.images.ArrowImages;
+import com.CrossingGuardJoe.viewer.images.defined.ArrowImages;
+import com.CrossingGuardJoe.viewer.images.generator.Shape;
 
 import java.util.List;
 

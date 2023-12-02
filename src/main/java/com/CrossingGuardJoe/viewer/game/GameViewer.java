@@ -4,15 +4,14 @@ import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.game.Road;
 import com.CrossingGuardJoe.model.game.elements.Car;
-import com.CrossingGuardJoe.viewer.FontImageFactory;
 import com.CrossingGuardJoe.viewer.Viewer;
 import com.CrossingGuardJoe.model.game.elements.Element;
 import com.CrossingGuardJoe.viewer.game.elements.CarView;
 import com.CrossingGuardJoe.viewer.game.elements.ElementViewer;
 import com.CrossingGuardJoe.viewer.game.elements.JoeView;
 import com.CrossingGuardJoe.viewer.game.elements.KidView;
-import com.CrossingGuardJoe.viewer.images.HUDImages;
-import com.CrossingGuardJoe.viewer.images.RoadElementsImages;
+import com.CrossingGuardJoe.viewer.images.defined.HUDImages;
+import com.CrossingGuardJoe.viewer.images.defined.RoadElementsImages;
 
 import java.util.ArrayList;
 import java.util.List;

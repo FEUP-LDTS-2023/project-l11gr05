@@ -3,8 +3,8 @@ package com.CrossingGuardJoe.viewer.game.elements;
 import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.game.elements.Kid;
-import com.CrossingGuardJoe.viewer.images.ArrowImages;
-import com.CrossingGuardJoe.viewer.images.KidImages;
+import com.CrossingGuardJoe.viewer.images.defined.ArrowImages;
+import com.CrossingGuardJoe.viewer.images.defined.KidImages;
 
 public class KidView extends ElementViewer<Kid> {
 
