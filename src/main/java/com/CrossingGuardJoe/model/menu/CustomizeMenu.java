@@ -16,14 +16,12 @@ import java.util.List;
 public class CustomizeMenu {
     private final List<List<Option>> menuLevels;
     private final List<Option> definedColors;
-    //private final List<Color> colorPalette;
     private final ColorPalette colorPalette;
     private Command currentCommand;
     private int currentLevel;
     private int optionSelected;
     private char selectedColorChar;
     boolean colorPaletteSelected = false;
-    private int selectedColorIndex;
     private char oldColor;
     private char newColor;
 
@@ -33,7 +31,6 @@ public class CustomizeMenu {
         this.colorPalette = new ColorPalette();
         this.currentLevel = 0;
         this.optionSelected = 1;
-        this.selectedColorIndex = 0;
 
         int JOE_X = 80;
         int OPTIONS_Y = 230;
@@ -114,10 +111,6 @@ public class CustomizeMenu {
 
     public void navigateDown() {
         optionSelected = Math.min(optionSelected + 1, menuLevels.get(currentLevel).size() - 1);
-    }
-
-    public Option getCurrentOption() {
-        return menuLevels.get(currentLevel).get(optionSelected);
     }
 
     // Joe submenu options
