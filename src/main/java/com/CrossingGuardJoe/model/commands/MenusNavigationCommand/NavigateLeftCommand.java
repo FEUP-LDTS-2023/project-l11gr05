@@ -1,4 +1,4 @@
-package com.CrossingGuardJoe.model.commands.MenusCommand;
+package com.CrossingGuardJoe.model.commands.MenusNavigationCommand;
 
 import com.CrossingGuardJoe.model.commands.Command;
 import com.CrossingGuardJoe.model.menu.ColorPalette;

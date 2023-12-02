@@ -4,10 +4,10 @@ import com.CrossingGuardJoe.Game;
 import com.CrossingGuardJoe.controller.Controller;
 import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.commands.Command;
-import com.CrossingGuardJoe.model.commands.MenusCommand.NavigateDownCommand;
-import com.CrossingGuardJoe.model.commands.MenusCommand.NavigateLeftCommand;
-import com.CrossingGuardJoe.model.commands.MenusCommand.NavigateRightCommand;
-import com.CrossingGuardJoe.model.commands.MenusCommand.NavigateUpCommand;
+import com.CrossingGuardJoe.model.commands.MenusNavigationCommand.NavigateDownCommand;
+import com.CrossingGuardJoe.model.commands.MenusNavigationCommand.NavigateLeftCommand;
+import com.CrossingGuardJoe.model.commands.MenusNavigationCommand.NavigateRightCommand;
+import com.CrossingGuardJoe.model.commands.MenusNavigationCommand.NavigateUpCommand;
 import com.CrossingGuardJoe.model.menu.CustomizeMenu;
 
 import java.io.IOException;

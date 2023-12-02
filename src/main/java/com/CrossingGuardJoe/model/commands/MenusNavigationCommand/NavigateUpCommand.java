@@ -1,22 +1,22 @@
-package com.CrossingGuardJoe.model.commands.MenusCommand;
+package com.CrossingGuardJoe.model.commands.MenusNavigationCommand;
 
 import com.CrossingGuardJoe.model.commands.Command;
 import com.CrossingGuardJoe.model.menu.CustomizeMenu;
 import com.CrossingGuardJoe.model.menu.Menu;
 
-public class NavigateDownCommand implements Command {
+public class NavigateUpCommand implements Command {
     private final Object menu;
 
-    public NavigateDownCommand(Object menu) {
+    public NavigateUpCommand(Object menu) {
         this.menu = menu;
     }
 
     @Override
     public void execute() {
         if (menu instanceof Menu actualMenu) {
-            actualMenu.nextOption();
+            actualMenu.previousOption();
         } else if (menu instanceof CustomizeMenu customizeMenu) {
-            customizeMenu.navigateDown();
+            customizeMenu.navigateUp();
         } else {
             throw new IllegalArgumentException("Invalid menu type");
         }
