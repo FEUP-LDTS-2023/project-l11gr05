@@ -48,10 +48,12 @@ public class JoeController extends GameController {
     }
 
     public void moveJoeLeftHit() {
+        setLastActionNone();
         getModel().getJoe().setPosition(new Position(getModel().getJoe().getPosition().getX() - 10, getModel().getJoe().getPosition().getY()));
     }
 
     public void moveJoeRightHit() {
+        setLastActionNone();
         getModel().getJoe().setPosition(new Position(getModel().getJoe().getPosition().getX() + 10, getModel().getJoe().getPosition().getY()));
     }
 
@@ -99,10 +101,6 @@ public class JoeController extends GameController {
 
     @Override
     public void nextAction(Game game, GUI.ACTION action, long time) {
-        checkCooldownEnd(time);
-        if (isHitCooldownActive) {
-            return;
-        }
         //this one, joe will stop walking if the key direction is different
         if (action == GUI.ACTION.LEFT && lastAction == GUI.ACTION.RIGHT || action == GUI.ACTION.RIGHT && lastAction == GUI.ACTION.LEFT) {
             setLastActionNone();
@@ -118,10 +116,10 @@ public class JoeController extends GameController {
         if (lastAction == GUI.ACTION.DOWN) joePassSign();
         if (lastAction == GUI.ACTION.NONE) joeNotWalking();
 
-        checkCollisions(time);
+        checkCollisions();
     }
 
-    public void checkCollisions(long time){
+    public void checkCollisions(){
         List<Car> cars = getModel().getCars();
         Joe joe = getModel().getJoe();
 
@@ -129,26 +127,10 @@ public class JoeController extends GameController {
             if (isInRangeLeftCarJoe(car, joe)) {
                 joe.isHitLeft();
                 moveJoeLeftHit();
-                startCooldown(time);
             } else if (isInRangeRightCarJoe(car, joe)) {
                 joe.isHitRight();
                 moveJoeRightHit();
-                startCooldown(time);
             }
-        }
-    }
-
-    private void startCooldown(long time) {
-        isHitCooldownActive = true;
-        hitCooldownEndTime = time + COOLDOWN_DURATION;
-        System.out.println("stop");
-    }
-
-    private void checkCooldownEnd(long time) {
-        if (isHitCooldownActive && time > hitCooldownEndTime && !getModel().getJoe().getIsHit()) {
-            //getModel().getJoe().stopWalking();
-            System.out.println("resume");
-            isHitCooldownActive = false;
         }
     }
 }
