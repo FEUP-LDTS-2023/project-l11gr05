@@ -9,9 +9,14 @@ public class JoeView extends ElementViewer<Joe> {
     @Override
     public void draw(Joe joe, GUI gui) {
         if (joe.getIsHit()) {
-            gui.drawImage(joe.getPosition(), JoeImages.JOE_HITLEFT);
+            if (joe.getHitLeft()) {
+                gui.drawImage(joe.getPosition(), JoeImages.JOE_HITLEFT);
+            } else {
+                gui.drawImage(joe.getPosition(), JoeImages.JOE_HITRIGHT);
+            }
+            joe.isNotHit();
         }
-        if (joe.getIsWalkingState()) {
+        else if (joe.getIsWalkingState()) {
             if (joe.isFirstHalfOfMovement()) {
                 if (joe.getIsWalkingToLeft()) {
                     gui.drawImage(joe.getPosition(), JoeImages.JOE_WALKLEFT);
