@@ -35,26 +35,26 @@ public class CustomizeMenu {
         int JOE_X = 80;
         int OPTIONS_Y = 230;
         List<Option> Joe = Arrays.asList(
-                new Option(new Position(JOE_X - 2, 95), JoeImages.JOE_STAND),
-                new Option(new Position(JOE_X, OPTIONS_Y), new FontImageFactory().getImageRepresentation("Cap")),
-                new Option(new Position(JOE_X, OPTIONS_Y + 30), new FontImageFactory().getImageRepresentation("Clothes")),
-                new Option(new Position(JOE_X, OPTIONS_Y + 60), new FontImageFactory().getImageRepresentation("Vest")),
-                new Option(new Position(JOE_X, OPTIONS_Y + 90), new FontImageFactory().getImageRepresentation("Shoes"))
+                new Option("", new Position(JOE_X - 2, 95), JoeImages.JOE_STAND),
+                new Option("Cap", new Position(JOE_X, OPTIONS_Y), new FontImageFactory().getImageRepresentation("Cap")),
+                new Option("Clothes", new Position(JOE_X, OPTIONS_Y + 30), new FontImageFactory().getImageRepresentation("Clothes")),
+                new Option("Vest", new Position(JOE_X, OPTIONS_Y + 60), new FontImageFactory().getImageRepresentation("Vest")),
+                new Option("Shoes", new Position(JOE_X, OPTIONS_Y + 90), new FontImageFactory().getImageRepresentation("Shoes"))
         );
 
         int KIDS_X = 235;
         List<Option> Kids = Arrays.asList(
-                new Option(new Position(KIDS_X + 5, 115), KidImages.KID_STAND),
-                new Option(new Position(KIDS_X, OPTIONS_Y), new FontImageFactory().getImageRepresentation("Shirt")),
-                new Option(new Position(KIDS_X, OPTIONS_Y + 30), new FontImageFactory().getImageRepresentation("Pants")),
-                new Option(new Position(KIDS_X, OPTIONS_Y + 60), new FontImageFactory().getImageRepresentation("Backpack")),
-                new Option(new Position(KIDS_X, OPTIONS_Y + 90), new FontImageFactory().getImageRepresentation("Shoes"))
+                new Option("", new Position(KIDS_X + 5, 115), KidImages.KID_STAND),
+                new Option("Shirt", new Position(KIDS_X, OPTIONS_Y), new FontImageFactory().getImageRepresentation("Shirt")),
+                new Option("Pants", new Position(KIDS_X, OPTIONS_Y + 30), new FontImageFactory().getImageRepresentation("Pants")),
+                new Option("BackPack", new Position(KIDS_X, OPTIONS_Y + 60), new FontImageFactory().getImageRepresentation("Backpack")),
+                new Option("Shoes", new Position(KIDS_X, OPTIONS_Y + 90), new FontImageFactory().getImageRepresentation("Shoes"))
         );
 
         int CARS_X = 403;
         List<Option> Cars = Arrays.asList(
-                new Option(new Position(CARS_X - 27, 100), CarImage.CAR),
-                new Option(new Position(CARS_X, OPTIONS_Y + 30), new FontImageFactory().getImageRepresentation("CAR"))
+                new Option("", new Position(CARS_X - 27, 100), CarImage.CAR),
+                new Option("Car", new Position(CARS_X, OPTIONS_Y + 30), new FontImageFactory().getImageRepresentation("CAR"))
         );
 
         menuLevels.add(Joe);
@@ -62,23 +62,23 @@ public class CustomizeMenu {
         menuLevels.add(Cars);
 
         this.definedColors = Arrays.asList(
-                new Option(new Position(menuLevels.get(0).get(1).getPosition().getX() - 13, menuLevels.get(0).get(1).getPosition().getY()),
+                new Option("", new Position(menuLevels.get(0).get(1).getPosition().getX() - 13, menuLevels.get(0).get(1).getPosition().getY()),
                         Shape.RectangleFilledGenerator(16, 16, '<', 1, '$')),
-                new Option(new Position(menuLevels.get(0).get(2).getPosition().getX() - 13, menuLevels.get(0).get(2).getPosition().getY()),
+                new Option("", new Position(menuLevels.get(0).get(2).getPosition().getX() - 13, menuLevels.get(0).get(2).getPosition().getY()),
                         Shape.RectangleFilledGenerator(16, 16, '!', 1, '$')),
-                new Option(new Position(menuLevels.get(0).get(3).getPosition().getX() - 13, menuLevels.get(0).get(3).getPosition().getY()),
+                new Option("", new Position(menuLevels.get(0).get(3).getPosition().getX() - 13, menuLevels.get(0).get(3).getPosition().getY()),
                         Shape.RectangleFilledGenerator(16, 16, '+', 1, '$')),
-                new Option(new Position(menuLevels.get(0).get(4).getPosition().getX() - 13, menuLevels.get(0).get(4).getPosition().getY()),
+                new Option("", new Position(menuLevels.get(0).get(4).getPosition().getX() - 13, menuLevels.get(0).get(4).getPosition().getY()),
                         Shape.RectangleFilledGenerator(16, 16, '*', 1, '$')),
-                new Option(new Position(menuLevels.get(1).get(1).getPosition().getX() - 13, menuLevels.get(1).get(1).getPosition().getY()),
+                new Option("", new Position(menuLevels.get(1).get(1).getPosition().getX() - 13, menuLevels.get(1).get(1).getPosition().getY()),
                         Shape.RectangleFilledGenerator(16, 16, '\'', 1, '$')),
-                new Option(new Position(menuLevels.get(1).get(2).getPosition().getX() - 13, menuLevels.get(1).get(2).getPosition().getY()),
+                new Option("", new Position(menuLevels.get(1).get(2).getPosition().getX() - 13, menuLevels.get(1).get(2).getPosition().getY()),
                         Shape.RectangleFilledGenerator(16, 16, '(', 1, '$')),
-                new Option(new Position(menuLevels.get(1).get(3).getPosition().getX() - 13, menuLevels.get(1).get(3).getPosition().getY()),
+                new Option("", new Position(menuLevels.get(1).get(3).getPosition().getX() - 13, menuLevels.get(1).get(3).getPosition().getY()),
                         Shape.RectangleFilledGenerator(16, 16, ')', 1, '$')),
-                new Option(new Position(menuLevels.get(1).get(4).getPosition().getX() - 13, menuLevels.get(1).get(4).getPosition().getY()),
+                new Option("", new Position(menuLevels.get(1).get(4).getPosition().getX() - 13, menuLevels.get(1).get(4).getPosition().getY()),
                         Shape.RectangleFilledGenerator(16, 16, '&', 1, '$')),
-                new Option(new Position(menuLevels.get(2).get(1).getPosition().getX() - 13, menuLevels.get(2).get(1).getPosition().getY()),
+                new Option("", new Position(menuLevels.get(2).get(1).getPosition().getX() - 13, menuLevels.get(2).get(1).getPosition().getY()),
                         Shape.RectangleFilledGenerator(16, 16, '@', 1, '$'))
         );
 

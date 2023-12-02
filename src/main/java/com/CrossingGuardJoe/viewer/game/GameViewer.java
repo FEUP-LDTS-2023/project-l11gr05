@@ -89,20 +89,11 @@ public class GameViewer extends Viewer<Road> implements RoadView{
     }
 
     private void drawHUD(GUI gui) {
-        /*gui.drawImage(new Position(1, 1), new Text().getTextImage("SCORE "));
-        gui.drawImage(new Position(50, 1), new Text().getNumberImage(getModel().getJoe().getScore()));
-
-        int heartIniX = 400;
-        for (int i = 0; i < getModel().getJoe().getHearts(); i++) {
-            gui.drawImage(new Position(heartIniX, 1), HUDImages.HEART);
-            heartIniX += 10;
-        }*/
-
-
         gui.drawImage(new Position(0, 0), HUDImages.GAME_HUD);
 
-        gui.drawImage(new Position(165, 10), new FontImageFactory().getImageRepresentation(getModel().getJoe().getScore()));
-        gui.drawImageCustomColor(new Position(164, 9), new FontImageFactory().getImageRepresentation(getModel().getJoe().getScore()), "#FFFFFF");
+        gui.drawNumber(new Position(165, 10), getModel().getJoe().getScore(), "#000000");
+        gui.drawNumber(new Position(164, 9), getModel().getJoe().getScore(), "#FFFFFF");
+
         int heartIniX = 246;
         for (int i = 0; i < getModel().getJoe().getHearts(); i++) {
             gui.drawImage(new Position(heartIniX, 4), HUDImages.MINI_KID);

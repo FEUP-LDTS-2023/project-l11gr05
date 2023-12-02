@@ -44,12 +44,13 @@ public class CustomizeMenuViewer extends Viewer<CustomizeMenu> implements Inform
                     }
                 }
 
-                // Draw the options text shadows (black)
+                // Draw the options images (Joe, Kid and Car) and the text shadows (black)
                 gui.drawImage(optionPosition, option.getImage());
 
                 // Draw the options text (white)
                 if (j > 0) {
-                    drawOptionTextShadow(gui, option.getPosition(), option.getImage(), -1, "#FFFFFF");
+                    gui.drawText(new Position(optionPosition.getX() - 1, optionPosition.getY() - 1),
+                            option.getName(), "#FFFFFF");
                 }
 
                 // Draw the selection arrow (green)
@@ -80,26 +81,20 @@ public class CustomizeMenuViewer extends Viewer<CustomizeMenu> implements Inform
 
     @Override
     public void drawTitle(GUI gui) {
-        gui.drawImage(new Position(181, 29), new FontImageFactory().getImageRepresentation("CUSTOMIZE YOUR GAME"));
-        gui.drawImageCustomColor(new Position(180, 28), new FontImageFactory().getImageRepresentation("CUSTOMIZE YOUR GAME"), "#FFFFFF");
+        gui.drawText(new Position(181, 29),"CUSTOMIZE YOUR GAME", "#000000");
+        gui.drawText(new Position(180, 28), "CUSTOMIZE YOUR GAME", "#FFFFFF");
     }
 
     @Override
     public void drawInformation(GUI gui) {
-        gui.drawImage(new Position(5, 5), new FontImageFactory().getImageRepresentation("ESC"));
-        gui.drawImageCustomColor(new Position(4, 4), new FontImageFactory().getImageRepresentation("ESC"), "#FFFFFF");
+        gui.drawText(new Position(5, 5), "ESC", "#000000");
+        gui.drawText(new Position(4, 4), "ESC", "#FFFFFF");
     }
 
     private void drawSelectionBox(GUI gui) {
         gui.drawImage(new Position(40, 70), Shape.RectangleFilledGenerator(SELECTION_BOX_WIDTH, SELECTION_BOX_HEIGHT, 'K', 2, '$'));
         gui.drawImage(new Position(195, 70), Shape.RectangleFilledGenerator(SELECTION_BOX_WIDTH, SELECTION_BOX_HEIGHT, 'K', 2, '$'));
         gui.drawImage(new Position(350, 70), Shape.RectangleFilledGenerator(SELECTION_BOX_WIDTH, SELECTION_BOX_HEIGHT, 'K', 2, '$'));
-    }
-
-    private void drawOptionTextShadow(GUI gui, Position position, String[] image, int bias, String colorHexCode) {
-        gui.drawImageCustomColor(new Position(
-                        position.getX() + bias, position.getY() + bias),
-                image, colorHexCode);
     }
 
     private void drawElementsColorSquare(GUI gui) {
