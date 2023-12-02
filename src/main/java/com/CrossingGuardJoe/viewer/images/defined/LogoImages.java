@@ -1,4 +1,4 @@
-package com.CrossingGuardJoe.viewer.images;
+package com.CrossingGuardJoe.viewer.images.defined;
 
 public class LogoImages {
     public static final String[] LOGO_GAME = {

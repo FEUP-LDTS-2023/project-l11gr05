@@ -4,6 +4,7 @@ package com.CrossingGuardJoe.gui;
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.viewer.Color;
 import com.CrossingGuardJoe.viewer.ColorCustomize;
+import com.CrossingGuardJoe.viewer.images.Font.FontImageFactory;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
@@ -115,12 +116,28 @@ public class LanternaGUI implements GUI {
     }
 
     @Override
-    public void setColorHexaCode(String hexaCode) {
-        graphics.setBackgroundColor(TextColor.Factory.fromString(hexaCode));
+    public void drawText(Position position, String text, String colorHexCode) {
+        String[] textImage = new FontImageFactory().getImageRepresentation(text);
+        drawImageCustomColor(position, textImage, colorHexCode);
     }
 
     @Override
-    public void drawImageCustomColor(Position position, String[] image, String colorHexCode) {
+    public void drawNumber(Position position, int number, String colorHexCode) {
+        String[] numberImage = new FontImageFactory().getImageRepresentation(number);
+        drawImageCustomColor(position, numberImage, colorHexCode);
+    }
+
+    @Override
+    public void setColorHexaCode(String hexCode) {
+        graphics.setBackgroundColor(TextColor.Factory.fromString(hexCode));
+    }
+
+    @Override
+    public void addColorMapping(char oldCharacter, char newCharacter) {
+        colorCustomize.addMapping(oldCharacter, newCharacter);
+    }
+
+    private void drawImageCustomColor(Position position, String[] image, String colorHexCode) {
         int yPos = position.getY();
         for (String imageLine : image) {
             drawLineCustomColor(position.getX(), yPos, imageLine, colorHexCode);
@@ -156,11 +173,6 @@ public class LanternaGUI implements GUI {
             }
             xPos++;
         }
-    }
-
-    @Override
-    public void addColorMapping(char oldCharacter, char newCharacter) {
-        colorCustomize.addMapping(oldCharacter, newCharacter);
     }
 
     public char getMappedCharacter(char character) {

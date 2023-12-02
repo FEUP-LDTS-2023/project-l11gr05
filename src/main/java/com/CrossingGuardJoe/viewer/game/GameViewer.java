@@ -4,15 +4,14 @@ import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.game.Road;
 import com.CrossingGuardJoe.model.game.elements.Car;
-import com.CrossingGuardJoe.viewer.Text;
 import com.CrossingGuardJoe.viewer.Viewer;
 import com.CrossingGuardJoe.model.game.elements.Element;
 import com.CrossingGuardJoe.viewer.game.elements.CarView;
 import com.CrossingGuardJoe.viewer.game.elements.ElementViewer;
 import com.CrossingGuardJoe.viewer.game.elements.JoeView;
 import com.CrossingGuardJoe.viewer.game.elements.KidView;
-import com.CrossingGuardJoe.viewer.images.HUDImages;
-import com.CrossingGuardJoe.viewer.images.RoadElementsImages;
+import com.CrossingGuardJoe.viewer.images.defined.HUDImages;
+import com.CrossingGuardJoe.viewer.images.defined.RoadElementsImages;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -93,8 +92,8 @@ public class GameViewer extends Viewer<Road> implements RoadView{
     private void drawHUD(GUI gui) {
         gui.drawImage(new Position(0, 0), HUDImages.GAME_HUD);
 
-        gui.drawImage(new Position(165, 10), new Text().getNumberImage(getModel().getJoe().getScore()));
-        gui.drawImageCustomColor(new Position(164, 9), new Text().getNumberImage(getModel().getJoe().getScore()), "#FFFFFF");
+        gui.drawNumber(new Position(165, 10), getModel().getJoe().getScore(), "#000000");
+        gui.drawNumber(new Position(164, 9), getModel().getJoe().getScore(), "#FFFFFF");
 
         int heartIniX = 246;
         for (int i = 0; i < getModel().getJoe().getHearts(); i++) {

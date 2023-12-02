@@ -1,7 +1,7 @@
 package com.CrossingGuardJoe.model.menu;
 
 import com.CrossingGuardJoe.model.Position;
-import com.CrossingGuardJoe.viewer.Text;
+import com.CrossingGuardJoe.viewer.images.Font.FontImageFactory;
 
 import java.util.Arrays;
 import java.util.List;
@@ -13,10 +13,10 @@ public class Menu {
     public Menu() {
 
         this.options = Arrays.asList(
-                new Option(new Position(203, 220), new Text().getTextImage("START GAME")),
-                new Option(new Position(195, 260), new Text().getTextImage("INSTRUCTIONS")),
-                new Option(new Position(207, 300), new Text().getTextImage("CUSTOMIZE")),
-                new Option(new Position(226, 340), new Text().getTextImage("EXIT"))
+                new Option("Start Game", new Position(203, 220), new FontImageFactory().getImageRepresentation("START GAME")),
+                new Option("Instructions", new Position(195, 260), new FontImageFactory().getImageRepresentation("INSTRUCTIONS")),
+                new Option("Customize", new Position(207, 300), new FontImageFactory().getImageRepresentation("CUSTOMIZE")),
+                new Option("Exit", new Position(226, 340), new FontImageFactory().getImageRepresentation("EXIT"))
         );
     }
 

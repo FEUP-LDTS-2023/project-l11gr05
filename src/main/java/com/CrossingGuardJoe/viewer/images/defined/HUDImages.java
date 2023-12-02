@@ -1,4 +1,4 @@
-package com.CrossingGuardJoe.viewer.images;
+package com.CrossingGuardJoe.viewer.images.defined;
 
 import com.googlecode.lanterna.gui2.SameTextGUIThread;
 

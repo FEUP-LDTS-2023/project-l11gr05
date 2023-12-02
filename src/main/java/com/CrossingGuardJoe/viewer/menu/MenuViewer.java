@@ -5,8 +5,8 @@ import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.menu.Menu;
 import com.CrossingGuardJoe.model.menu.Option;
 import com.CrossingGuardJoe.viewer.Viewer;
-import com.CrossingGuardJoe.viewer.images.ArrowImages;
-import com.CrossingGuardJoe.viewer.images.LogoImages;
+import com.CrossingGuardJoe.viewer.images.defined.ArrowImages;
+import com.CrossingGuardJoe.viewer.images.defined.LogoImages;
 
 public class MenuViewer extends Viewer<Menu> implements InformationDrawer {
     public MenuViewer(Menu menu) { super(menu); }
@@ -16,28 +16,22 @@ public class MenuViewer extends Viewer<Menu> implements InformationDrawer {
         drawTitle(gui);
 
         for (int i = 0; i < getModel().getNumberOptions(); i++) {
-            Option optionSelected = getModel().getOption(i);
+            Option option = getModel().getOption(i);
+            Position optionPosition = option.getPosition();
 
             //options shadow
-            gui.drawImage(optionSelected.getPosition(), optionSelected.getImage());
-            drawOptionTextShadow(gui, optionSelected.getPosition(), optionSelected.getImage(), -1, "#000000");
+            gui.drawText(optionPosition, option.getName(), "#000000");
+            gui.drawText(new Position(optionPosition.getX() - 1, optionPosition.getY() - 1),
+                    option.getName(), "#000000");
 
             //options text
-            drawOptionTextShadow(gui, optionSelected.getPosition(), optionSelected.getImage(), -2, "#FFFFFF");
+            gui.drawText(new Position(optionPosition.getX() - 2, optionPosition.getY() - 2),
+                    option.getName(), "#FFFFFF");
 
             if (getModel().isSelectedOption(i)) {
-                gui.drawImage(new Position(
-                                getModel().getOption(getModel().getOptionSelected()).getPosition().getX() - 15,
-                                getModel().getOption(getModel().getOptionSelected()).getPosition().getY()),
-                        ArrowImages.ARROW_RIGHT);
+                gui.drawImage(new Position(optionPosition.getX() - 15, optionPosition.getY()), ArrowImages.ARROW_RIGHT);
             }
         }
-    }
-
-    private void drawOptionTextShadow(GUI gui, Position position, String[] image, int bias, String colorHexCode) {
-        gui.drawImageCustomColor(new Position(
-                        position.getX() + bias, position.getY() + bias),
-                image, colorHexCode);
     }
 
     @Override

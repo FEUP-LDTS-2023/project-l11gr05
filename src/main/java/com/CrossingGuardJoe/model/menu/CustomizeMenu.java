@@ -2,11 +2,11 @@ package com.CrossingGuardJoe.model.menu;
 
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.viewer.Color;
-import com.CrossingGuardJoe.viewer.Shape;
-import com.CrossingGuardJoe.viewer.Text;
-import com.CrossingGuardJoe.viewer.images.CarImage;
-import com.CrossingGuardJoe.viewer.images.JoeImages;
-import com.CrossingGuardJoe.viewer.images.KidImages;
+import com.CrossingGuardJoe.viewer.images.Font.FontImageFactory;
+import com.CrossingGuardJoe.viewer.images.generator.Shape;
+import com.CrossingGuardJoe.viewer.images.defined.CarImage;
+import com.CrossingGuardJoe.viewer.images.defined.JoeImages;
+import com.CrossingGuardJoe.viewer.images.defined.KidImages;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -35,26 +35,26 @@ public class CustomizeMenu {
         int JOE_X = 80;
         int OPTIONS_Y = 230;
         List<Option> Joe = Arrays.asList(
-                new Option(new Position(JOE_X - 2, 95), JoeImages.JOE_STAND),
-                new Option(new Position(JOE_X, OPTIONS_Y), new Text().getTextImage("Cap")),
-                new Option(new Position(JOE_X, OPTIONS_Y + 30), new Text().getTextImage("Clothes")),
-                new Option(new Position(JOE_X, OPTIONS_Y + 60), new Text().getTextImage("Vest")),
-                new Option(new Position(JOE_X, OPTIONS_Y + 90), new Text().getTextImage("Shoes"))
+                new Option("", new Position(JOE_X - 2, 95), JoeImages.JOE_STAND),
+                new Option("Cap", new Position(JOE_X, OPTIONS_Y), new FontImageFactory().getImageRepresentation("Cap")),
+                new Option("Clothes", new Position(JOE_X, OPTIONS_Y + 30), new FontImageFactory().getImageRepresentation("Clothes")),
+                new Option("Vest", new Position(JOE_X, OPTIONS_Y + 60), new FontImageFactory().getImageRepresentation("Vest")),
+                new Option("Shoes", new Position(JOE_X, OPTIONS_Y + 90), new FontImageFactory().getImageRepresentation("Shoes"))
         );
 
         int KIDS_X = 235;
         List<Option> Kids = Arrays.asList(
-                new Option(new Position(KIDS_X + 5, 115), KidImages.KID_STAND),
-                new Option(new Position(KIDS_X, OPTIONS_Y), new Text().getTextImage("Shirt")),
-                new Option(new Position(KIDS_X, OPTIONS_Y + 30), new Text().getTextImage("Pants")),
-                new Option(new Position(KIDS_X, OPTIONS_Y + 60), new Text().getTextImage("Backpack")),
-                new Option(new Position(KIDS_X, OPTIONS_Y + 90), new Text().getTextImage("Shoes"))
+                new Option("", new Position(KIDS_X + 5, 115), KidImages.KID_STAND),
+                new Option("Shirt", new Position(KIDS_X, OPTIONS_Y), new FontImageFactory().getImageRepresentation("Shirt")),
+                new Option("Pants", new Position(KIDS_X, OPTIONS_Y + 30), new FontImageFactory().getImageRepresentation("Pants")),
+                new Option("BackPack", new Position(KIDS_X, OPTIONS_Y + 60), new FontImageFactory().getImageRepresentation("Backpack")),
+                new Option("Shoes", new Position(KIDS_X, OPTIONS_Y + 90), new FontImageFactory().getImageRepresentation("Shoes"))
         );
 
         int CARS_X = 403;
         List<Option> Cars = Arrays.asList(
-                new Option(new Position(CARS_X - 27, 100), CarImage.CAR),
-                new Option(new Position(CARS_X, OPTIONS_Y + 30), new Text().getTextImage("CAR"))
+                new Option("", new Position(CARS_X - 27, 100), CarImage.CAR),
+                new Option("Car", new Position(CARS_X, OPTIONS_Y + 30), new FontImageFactory().getImageRepresentation("CAR"))
         );
 
         menuLevels.add(Joe);
@@ -62,23 +62,23 @@ public class CustomizeMenu {
         menuLevels.add(Cars);
 
         this.definedColors = Arrays.asList(
-                new Option(new Position(menuLevels.get(0).get(1).getPosition().getX() - 13, menuLevels.get(0).get(1).getPosition().getY()),
+                new Option("", new Position(menuLevels.get(0).get(1).getPosition().getX() - 13, menuLevels.get(0).get(1).getPosition().getY()),
                         Shape.RectangleFilledGenerator(16, 16, '<', 1, '$')),
-                new Option(new Position(menuLevels.get(0).get(2).getPosition().getX() - 13, menuLevels.get(0).get(2).getPosition().getY()),
+                new Option("", new Position(menuLevels.get(0).get(2).getPosition().getX() - 13, menuLevels.get(0).get(2).getPosition().getY()),
                         Shape.RectangleFilledGenerator(16, 16, '!', 1, '$')),
-                new Option(new Position(menuLevels.get(0).get(3).getPosition().getX() - 13, menuLevels.get(0).get(3).getPosition().getY()),
+                new Option("", new Position(menuLevels.get(0).get(3).getPosition().getX() - 13, menuLevels.get(0).get(3).getPosition().getY()),
                         Shape.RectangleFilledGenerator(16, 16, '+', 1, '$')),
-                new Option(new Position(menuLevels.get(0).get(4).getPosition().getX() - 13, menuLevels.get(0).get(4).getPosition().getY()),
+                new Option("", new Position(menuLevels.get(0).get(4).getPosition().getX() - 13, menuLevels.get(0).get(4).getPosition().getY()),
                         Shape.RectangleFilledGenerator(16, 16, '*', 1, '$')),
-                new Option(new Position(menuLevels.get(1).get(1).getPosition().getX() - 13, menuLevels.get(1).get(1).getPosition().getY()),
+                new Option("", new Position(menuLevels.get(1).get(1).getPosition().getX() - 13, menuLevels.get(1).get(1).getPosition().getY()),
                         Shape.RectangleFilledGenerator(16, 16, '\'', 1, '$')),
-                new Option(new Position(menuLevels.get(1).get(2).getPosition().getX() - 13, menuLevels.get(1).get(2).getPosition().getY()),
+                new Option("", new Position(menuLevels.get(1).get(2).getPosition().getX() - 13, menuLevels.get(1).get(2).getPosition().getY()),
                         Shape.RectangleFilledGenerator(16, 16, '(', 1, '$')),
-                new Option(new Position(menuLevels.get(1).get(3).getPosition().getX() - 13, menuLevels.get(1).get(3).getPosition().getY()),
+                new Option("", new Position(menuLevels.get(1).get(3).getPosition().getX() - 13, menuLevels.get(1).get(3).getPosition().getY()),
                         Shape.RectangleFilledGenerator(16, 16, ')', 1, '$')),
-                new Option(new Position(menuLevels.get(1).get(4).getPosition().getX() - 13, menuLevels.get(1).get(4).getPosition().getY()),
+                new Option("", new Position(menuLevels.get(1).get(4).getPosition().getX() - 13, menuLevels.get(1).get(4).getPosition().getY()),
                         Shape.RectangleFilledGenerator(16, 16, '&', 1, '$')),
-                new Option(new Position(menuLevels.get(2).get(1).getPosition().getX() - 13, menuLevels.get(2).get(1).getPosition().getY()),
+                new Option("", new Position(menuLevels.get(2).get(1).getPosition().getX() - 13, menuLevels.get(2).get(1).getPosition().getY()),
                         Shape.RectangleFilledGenerator(16, 16, '@', 1, '$'))
         );
 
@@ -122,19 +122,19 @@ public class CustomizeMenu {
     }
 
     public boolean isSelectedJoeCap() {
-        return isSelectedOption(0, 1); // Assuming Cap is the second option in Joe submenu
+        return isSelectedOption(0, 1);
     }
 
     public boolean isSelectedJoeClothes() {
-        return isSelectedOption(0, 2); // Assuming Clothes is the third option in Joe submenu
+        return isSelectedOption(0, 2);
     }
 
     public boolean isSelectedJoeVest() {
-        return isSelectedOption(0, 3); // Assuming Vest is the fourth option in Joe submenu
+        return isSelectedOption(0, 3);
     }
 
     public boolean isSelectedJoeShoes() {
-        return isSelectedOption(0, 4); // Assuming Shoes is the fifth option in Joe submenu
+        return isSelectedOption(0, 4);
     }
 
     // Kids submenu options
@@ -143,19 +143,19 @@ public class CustomizeMenu {
     }
 
     public boolean isSelectedKidsShirt() {
-        return isSelectedOption(1, 1); // Assuming Shirt is the second option in Kids submenu
+        return isSelectedOption(1, 1);
     }
 
     public boolean isSelectedKidsPants() {
-        return isSelectedOption(1, 2); // Assuming Pants is the third option in Kids submenu
+        return isSelectedOption(1, 2);
     }
 
     public boolean isSelectedKidsBackpack() {
-        return isSelectedOption(1, 3); // Assuming Backpack is the fourth option in Kids submenu
+        return isSelectedOption(1, 3);
     }
 
     public boolean isSelectedKidsShoes() {
-        return isSelectedOption(1, 4); // Assuming Kids Shoes is the fifth option in Kids submenu
+        return isSelectedOption(1, 4);
     }
 
     // Cars submenu options
@@ -164,7 +164,7 @@ public class CustomizeMenu {
     }
 
     public boolean isSelectedCarsBody() {
-        return isSelectedOption(2, 1); // Assuming Body is the second option in Cars submenu
+        return isSelectedOption(2, 1);
     }
 
     public boolean isSelectedOption(int levelIndex, int optionIndex) {

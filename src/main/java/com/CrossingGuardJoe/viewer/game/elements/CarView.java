@@ -2,7 +2,7 @@ package com.CrossingGuardJoe.viewer.game.elements;
 
 import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.game.elements.Car;
-import com.CrossingGuardJoe.viewer.images.CarImage;
+import com.CrossingGuardJoe.viewer.images.defined.CarImage;
 
 public class CarView extends ElementViewer<Car> {
 

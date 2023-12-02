@@ -26,7 +26,7 @@ public class MenuController extends Controller<Menu> {
             case SELECT:
                 if (getModel().isSelectedStartGame()) game.setState(new GameState(new RoadBuilder().createRoad()));
                 if (getModel().isSelectedInstructions()) {
-                    System.out.println("not implemented Instructions yet");
+                    System.out.println("not implemented Instructions yet"); //todo
                 }
                 if (getModel().isSelectedCustomize()) game.setState(new CustomizeMenuState(new CustomizeMenu()));
                 if (getModel().isSelectedExit()) game.setState(null);

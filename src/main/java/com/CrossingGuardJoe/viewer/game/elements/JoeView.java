@@ -2,8 +2,7 @@ package com.CrossingGuardJoe.viewer.game.elements;
 
 import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.game.elements.Joe;
-import com.CrossingGuardJoe.viewer.images.JoeImages;
-import com.CrossingGuardJoe.viewer.images.KidImages;
+import com.CrossingGuardJoe.viewer.images.defined.JoeImages;
 
 public class JoeView extends ElementViewer<Joe> {
     @Override
