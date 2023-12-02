@@ -1,6 +1,7 @@
 package com.CrossingGuardJoe.model.commands.MenusCommand;
 
 import com.CrossingGuardJoe.model.commands.Command;
+import com.CrossingGuardJoe.model.menu.ColorPalette;
 import com.CrossingGuardJoe.model.menu.CustomizeMenu;
 
 public class NavigateRightCommand implements Command {
@@ -14,8 +15,9 @@ public class NavigateRightCommand implements Command {
     public void execute() {
         if (menu instanceof CustomizeMenu customizeMenu) {
             customizeMenu.navigateRight();
-        }
-        else {
+        } else if (menu instanceof ColorPalette colorPalette) {
+            colorPalette.navigateColorPaletteRight();
+        } else {
             throw new IllegalArgumentException("Invalid menu type");
         }
     }

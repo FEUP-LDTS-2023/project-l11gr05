@@ -16,7 +16,8 @@ import java.util.List;
 public class CustomizeMenu {
     private final List<List<Option>> menuLevels;
     private final List<Option> definedColors;
-    private final List<Color> colorPalette;
+    //private final List<Color> colorPalette;
+    private final ColorPalette colorPalette;
     private Command currentCommand;
     private int currentLevel;
     private int optionSelected;
@@ -29,7 +30,7 @@ public class CustomizeMenu {
 
     public CustomizeMenu() {
         this.menuLevels = new ArrayList<>();
-        this.colorPalette = new ArrayList<>();
+        this.colorPalette = new ColorPalette();
         this.currentLevel = 0;
         this.optionSelected = 1;
         this.selectedColorIndex = 0;
@@ -83,9 +84,6 @@ public class CustomizeMenu {
                 new Option("", new Position(menuLevels.get(2).get(1).getPosition().getX() - 13, menuLevels.get(2).get(1).getPosition().getY()),
                         Shape.RectangleFilledGenerator(16, 16, '@', 1, '$'))
         );
-
-        this.colorPalette.addAll(Arrays.asList(Color.values()));
-
     }
 
     public List<List<Option>> getMenuLevels() {
@@ -198,10 +196,6 @@ public class CustomizeMenu {
         return this.definedColors;
     }
 
-    public List<Color> getColorPalette() {
-        return colorPalette;
-    }
-
     public boolean isColorPaletteSelected() {
         return colorPaletteSelected;
     }
@@ -210,30 +204,10 @@ public class CustomizeMenu {
         this.colorPaletteSelected = b;
     }
 
-    public void navigateColorPaletteLeft() {
-        selectedColorIndex = (selectedColorIndex - 1 + colorPalette.size()) % colorPalette.size();
-    }
-
-    public void navigateColorPaletteRight() {
-        selectedColorIndex = (selectedColorIndex + 1) % colorPalette.size();
-    }
-
-    public Color getSelectedColor() {
-        return colorPalette.get(selectedColorIndex);
-    }
-
-    public boolean isColorSelected(int index) {
-        return this.selectedColorIndex == index;
-    }
-
-    public int getSelectedColorIndex() {
-        return selectedColorIndex;
-    }
-
     public void setColorChange(char oldColor, char newColor) {
         this.oldColor = oldColor;
         this.newColor = newColor;
-        selectedColorIndex = 0;
+        colorPalette.resetSelectedColorIndex();
     }
 
     public char getOldColor() {
@@ -242,6 +216,10 @@ public class CustomizeMenu {
 
     public char getNewColor() {
         return this.newColor;
+    }
+
+    public ColorPalette getColorPalette() {
+        return this.colorPalette;
     }
 
 }

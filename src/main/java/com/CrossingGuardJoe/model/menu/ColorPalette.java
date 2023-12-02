@@ -1,5 +1,6 @@
 package com.CrossingGuardJoe.model.menu;
 
+import com.CrossingGuardJoe.model.commands.Command;
 import com.CrossingGuardJoe.viewer.Color;
 
 import java.util.ArrayList;
@@ -9,10 +10,19 @@ import java.util.List;
 public class ColorPalette {
     private final List<Color> colorPalette;
     private int selectedColorIndex;
+    private Command currentCommand;
 
     public ColorPalette() {
         this.colorPalette = new ArrayList<>(Arrays.asList(Color.values()));
         this.selectedColorIndex = 0;
+    }
+
+    public void setAndExecuteCommand(Command command) {
+        this.currentCommand = command;
+
+        if (this.currentCommand != null) {
+            currentCommand.execute();
+        }
     }
 
     public List<Color> getColorPalette() {
@@ -37,5 +47,9 @@ public class ColorPalette {
 
     public int getSelectedColorIndex() {
         return selectedColorIndex;
+    }
+
+    public void resetSelectedColorIndex() {
+        this.selectedColorIndex = 0;
     }
 }

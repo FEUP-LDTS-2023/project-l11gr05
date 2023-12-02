@@ -43,26 +43,27 @@ public class CustomizeMenuController extends Controller<CustomizeMenu> {
                     getModel().setColorPaletteSelected(true);
                     break;
             }
+            getModel().setAndExecuteCommand(this.command);
         }
         else {
             switch (action) {
                 case LEFT:
-                    getModel().navigateColorPaletteLeft();
+                    this.command = new NavigateLeftCommand(this.getModel().getColorPalette());
                     break;
                 case RIGHT:
-                    getModel().navigateColorPaletteRight();
+                    this.command = new NavigateRightCommand(this.getModel().getColorPalette());
                     break;
                 case ESC:
                     getModel().setColorPaletteSelected(false);
                     break;
                 case SELECT:
-                    char newColor = getModel().getColorPalette().get(getModel().getSelectedColorIndex()).getCharacter();
+                    char newColor = getModel().getColorPalette().getColorPalette().get(getModel().getColorPalette().getSelectedColorIndex()).getCharacter();
                     getModel().setColorChange(oldColor, newColor);
                     getModel().setColorPaletteSelected(false);
                     break;
             }
+            getModel().getColorPalette().setAndExecuteCommand(this.command);
         }
-        getModel().setAndExecuteCommand(this.command);
         this.command = null;
     }
 }
