@@ -90,14 +90,13 @@ public class CustomizeMenuViewer extends Viewer<CustomizeMenu> implements Inform
     @Override
     public void drawInformation(GUI gui) {
         gui.drawImage(new Position(5, 5), new Text().getTextImage("ESC"));
-        gui.drawImage(new Position(5, 5), new Text().getNumberImage(01));
         gui.drawImageCustomColor(new Position(4, 4), new Text().getTextImage("ESC"), "#FFFFFF");
     }
 
     private void drawSelectionBox(GUI gui) {
-        gui.drawImage(new Position(40, 70), Shape.RectangleFilledGenerator(SELECTION_BOX_WIDTH, SELECTION_BOX_HEIGHT, '«', 2, '$'));
-        gui.drawImage(new Position(195, 70), Shape.RectangleFilledGenerator(SELECTION_BOX_WIDTH, SELECTION_BOX_HEIGHT, '«', 2, '$'));
-        gui.drawImage(new Position(350, 70), Shape.RectangleFilledGenerator(SELECTION_BOX_WIDTH, SELECTION_BOX_HEIGHT, '«', 2, '$'));
+        gui.drawImage(new Position(40, 70), Shape.RectangleFilledGenerator(SELECTION_BOX_WIDTH, SELECTION_BOX_HEIGHT, 'K', 2, '$'));
+        gui.drawImage(new Position(195, 70), Shape.RectangleFilledGenerator(SELECTION_BOX_WIDTH, SELECTION_BOX_HEIGHT, 'K', 2, '$'));
+        gui.drawImage(new Position(350, 70), Shape.RectangleFilledGenerator(SELECTION_BOX_WIDTH, SELECTION_BOX_HEIGHT, 'K', 2, '$'));
     }
 
     private void drawOptionTextShadow(GUI gui, Position position, String[] image, int bias, String colorHexCode) {
