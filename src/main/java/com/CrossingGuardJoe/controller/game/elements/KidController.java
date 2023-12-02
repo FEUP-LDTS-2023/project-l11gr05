@@ -23,6 +23,7 @@ public class KidController extends GameController {
     private long lastUpdateTime;
     private boolean walking = false;
     private Kid selectedKid;
+    private Joe joe = getModel().getJoe();
     private List<Kid> outKids = new ArrayList<>();
 
 
@@ -83,7 +84,7 @@ public class KidController extends GameController {
             selectedKid.setSelected();
         }
 
-        if (action == GUI.ACTION.DOWN && !walking && joeInRange && getModel().getJoe().getIsPassSign()) {
+        if (action == GUI.ACTION.DOWN && !walking && joeInRange && joe.getIsPassSign()) {
             walking = true;
         }
 
@@ -92,7 +93,7 @@ public class KidController extends GameController {
             lastUpdateTime = time;
         }
 
-        if (action == GUI.ACTION.UP && joeInRange) {
+        if (action == GUI.ACTION.UP && joeInRange && selectedKid.getPosition().getX() > 60) {
             walking = false;
             stopKid(selectedKid);
         }

@@ -8,7 +8,7 @@ public class AuxCheckRange {
     public static boolean isInRangeJoeKid(Joe joe, Kid kid) {
         //1st x joe in rightside of kid, 2nd x joe in lefside of kid
         return joe.getPosition().getX() <= kid.getPosition().getX() + 9 &&
-                joe.getPosition().getX() >= kid.getPosition().getX() - 20;
+                joe.getPosition().getX() >= kid.getPosition().getX() - 22;
     }
 
     public static boolean isInRangeCarKid(Car car, Kid kid) {
