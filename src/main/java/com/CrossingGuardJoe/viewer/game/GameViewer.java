@@ -4,6 +4,7 @@ import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.game.Road;
 import com.CrossingGuardJoe.model.game.elements.Car;
+import com.CrossingGuardJoe.viewer.FontImageFactory;
 import com.CrossingGuardJoe.viewer.Text;
 import com.CrossingGuardJoe.viewer.Viewer;
 import com.CrossingGuardJoe.model.game.elements.Element;
@@ -101,8 +102,8 @@ public class GameViewer extends Viewer<Road> implements RoadView{
 
         gui.drawImage(new Position(0, 0), HUDImages.GAME_HUD);
 
-        gui.drawImage(new Position(165, 10), new Text().getNumberImage(getModel().getJoe().getScore()));
-        gui.drawImageCustomColor(new Position(164, 9), new Text().getNumberImage(getModel().getJoe().getScore()), "#FFFFFF");
+        gui.drawImage(new Position(165, 10), new FontImageFactory().getImageRepresentation(getModel().getJoe().getScore()));
+        gui.drawImageCustomColor(new Position(164, 9), new FontImageFactory().getImageRepresentation(getModel().getJoe().getScore()), "#FFFFFF");
         int heartIniX = 246;
         for (int i = 0; i < getModel().getJoe().getHearts(); i++) {
             gui.drawImage(new Position(heartIniX, 4), HUDImages.MINI_KID);

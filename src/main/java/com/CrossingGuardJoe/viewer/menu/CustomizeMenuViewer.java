@@ -4,10 +4,7 @@ import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.menu.CustomizeMenu;
 import com.CrossingGuardJoe.model.menu.Option;
-import com.CrossingGuardJoe.viewer.Color;
-import com.CrossingGuardJoe.viewer.Shape;
-import com.CrossingGuardJoe.viewer.Text;
-import com.CrossingGuardJoe.viewer.Viewer;
+import com.CrossingGuardJoe.viewer.*;
 import com.CrossingGuardJoe.viewer.images.ArrowImages;
 
 import java.util.List;
@@ -83,14 +80,14 @@ public class CustomizeMenuViewer extends Viewer<CustomizeMenu> implements Inform
 
     @Override
     public void drawTitle(GUI gui) {
-        gui.drawImage(new Position(181, 29), new Text().getTextImage("CUSTOMIZE YOUR GAME"));
-        gui.drawImageCustomColor(new Position(180, 28), new Text().getTextImage("CUSTOMIZE YOUR GAME"), "#FFFFFF");
+        gui.drawImage(new Position(181, 29), new FontImageFactory().getImageRepresentation("CUSTOMIZE YOUR GAME"));
+        gui.drawImageCustomColor(new Position(180, 28), new FontImageFactory().getImageRepresentation("CUSTOMIZE YOUR GAME"), "#FFFFFF");
     }
 
     @Override
     public void drawInformation(GUI gui) {
-        gui.drawImage(new Position(5, 5), new Text().getTextImage("ESC"));
-        gui.drawImageCustomColor(new Position(4, 4), new Text().getTextImage("ESC"), "#FFFFFF");
+        gui.drawImage(new Position(5, 5), new FontImageFactory().getImageRepresentation("ESC"));
+        gui.drawImageCustomColor(new Position(4, 4), new FontImageFactory().getImageRepresentation("ESC"), "#FFFFFF");
     }
 
     private void drawSelectionBox(GUI gui) {

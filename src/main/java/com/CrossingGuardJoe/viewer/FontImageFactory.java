@@ -25,7 +25,7 @@ public class FontImageFactory {
         for (Character character : text.toCharArray()) {
             String[] characterToAppend;
             if (character == ' ') {
-                characterToAppend = FontImages.ALPHABET;
+                characterToAppend = FontImages.SPACE;
             } else {
                 characterToAppend = new String[16];
                 int characterIndex = getAlphabetIndex(character);
