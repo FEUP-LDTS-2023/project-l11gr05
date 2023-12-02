@@ -25,10 +25,8 @@ public class KidController extends GameController {
     private Command command;
     private static final double KID_SPEED = 0.005;
     private long lastUpdateTime;
-    private boolean walking = false;
     private Kid selectedKid;
-    private Joe joe = getModel().getJoe();
-    private List<Kid> outKids = new ArrayList<>();
+    private final Joe joe = getModel().getJoe();
 
 
     public KidController(Road road) {
@@ -89,18 +87,23 @@ public class KidController extends GameController {
             selectedKid.setSelected();
         }
 
-        if (action == GUI.ACTION.DOWN && !walking && joeInRange && joe.getIsPassSign()) {
-            walking = true;
-        }
-
-        if (walking && time - lastUpdateTime > KID_SPEED) {
-            moveKid(selectedKid);
-            lastUpdateTime = time;
+        if (action == GUI.ACTION.DOWN && joeInRange) {
+            selectedKid.isWalking();
         }
 
         if (action == GUI.ACTION.UP && joeInRange && selectedKid.getPosition().getX() > 60) {
-            walking = false;
-            stopKid(selectedKid);
+            selectedKid.isNotWalking();
+        }
+
+        if (time - lastUpdateTime > KID_SPEED) {
+            for (Kid kid : kids) {
+                if (kid.getIsWalkingState()) {
+                    moveKid(kid);
+                } else {
+                    stopKid(kid);
+                }
+            }
+            lastUpdateTime = time;
         }
 
         checkCollisions();
@@ -119,7 +122,7 @@ public class KidController extends GameController {
                 if (isInRangeCarKid(car, kid)) {
                     int hitX = kid.getPosition().getX();
                     kid.isHit();
-                    walking = false;
+                    kid.isNotWalking();
                     moveKidAfterHit(car, kid, hitX, kidIterator);
                 }
             }
