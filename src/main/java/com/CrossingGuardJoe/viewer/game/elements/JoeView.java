@@ -11,7 +11,7 @@ public class JoeView extends ElementViewer<Joe> {
         if (joe.getIsHit()) {
             if (joe.getHitLeft()) {
                 gui.drawImage(joe.getPosition(), JoeImages.JOE_HITLEFT);
-            } else if (!joe.getHitLeft()){
+            } else {
                 gui.drawImage(joe.getPosition(), JoeImages.JOE_HITRIGHT);
             }
             joe.isNotHit();
