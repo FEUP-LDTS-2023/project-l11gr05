@@ -1,6 +1,6 @@
-package com.CrossingGuardJoe.model.game.elements.JoeCommand;
+package com.CrossingGuardJoe.model.commands.JoeCommand;
 
-import com.CrossingGuardJoe.model.game.elements.Command;
+import com.CrossingGuardJoe.model.commands.Command;
 import com.CrossingGuardJoe.model.game.elements.Joe;
 
 public class JoeStopWalkCommand implements Command {

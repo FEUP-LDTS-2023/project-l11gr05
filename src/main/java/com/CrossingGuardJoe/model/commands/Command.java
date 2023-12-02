@@ -1,4 +1,4 @@
-package com.CrossingGuardJoe.model.game.elements;
+package com.CrossingGuardJoe.model.commands;
 
 public interface Command {
     void execute();
