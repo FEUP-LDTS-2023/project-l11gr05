@@ -91,24 +91,20 @@ public class CustomizeMenu {
     }
 
     public void navigateLeft() {
-        // Move left to a previous level (list of options)
         currentLevel = Math.max(currentLevel - 1, 0);
         optionSelected = Math.min(optionSelected, menuLevels.get(currentLevel).size() - 1);
     }
 
     public void navigateRight() {
-        // Move right to the next level (list of options)
         currentLevel = Math.min(currentLevel + 1, menuLevels.size() - 1);
         optionSelected = Math.min(optionSelected, menuLevels.get(currentLevel).size() - 1);
     }
 
     public void navigateUp() {
-        // Move up within the current level (list of options)
         optionSelected = Math.max(optionSelected - 1, 1);
     }
 
     public void navigateDown() {
-        // Move down within the current level (list of options)
         optionSelected = Math.min(optionSelected + 1, menuLevels.get(currentLevel).size() - 1);
     }
 

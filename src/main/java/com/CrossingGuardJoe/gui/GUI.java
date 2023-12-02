@@ -11,8 +11,7 @@ public interface GUI {
     void setBackgroundColor(String colorHexCode);
     void fillRectangle(Position initialPosition, int rectangleWidth, int rectangleHeight);
     void drawImage(Position position, String[] image);
-    void drawText(Position position, String text, String colorHexCode);
-    void drawNumber(Position position, int number, String colorHexCode);
+    void drawText(Position position, Object text, String colorHexCode);
     void setColorHexaCode(String hexCode);
     void addColorMapping(char oldCharacter, char newCharacter);
 

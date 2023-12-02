@@ -13,10 +13,10 @@ public class Menu {
     public Menu() {
 
         this.options = Arrays.asList(
-                new Option("Start Game", new Position(203, 220), new FontImageFactory().getImageRepresentation("START GAME")),
-                new Option("Instructions", new Position(195, 260), new FontImageFactory().getImageRepresentation("INSTRUCTIONS")),
-                new Option("Customize", new Position(207, 300), new FontImageFactory().getImageRepresentation("CUSTOMIZE")),
-                new Option("Exit", new Position(226, 340), new FontImageFactory().getImageRepresentation("EXIT"))
+                new Option("Start Game", new Position(203, 220), null),
+                new Option("Instructions", new Position(195, 260), null),
+                new Option("Customize", new Position(207, 300), null),
+                new Option("Exit", new Position(226, 340), null)
         );
     }
 
