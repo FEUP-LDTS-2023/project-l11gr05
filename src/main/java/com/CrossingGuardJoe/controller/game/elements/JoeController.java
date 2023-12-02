@@ -5,12 +5,23 @@ import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.game.Road;
 import com.CrossingGuardJoe.Game;
+import com.CrossingGuardJoe.model.game.elements.Car;
 import com.CrossingGuardJoe.model.game.elements.Command;
+import com.CrossingGuardJoe.model.game.elements.Joe;
 import com.CrossingGuardJoe.model.game.elements.JoeCommand.*;
+
+import java.util.List;
+
+import static com.CrossingGuardJoe.controller.game.AuxCheckRange.isInRangeLeftCarJoe;
+import static com.CrossingGuardJoe.controller.game.AuxCheckRange.isInRangeRightCarJoe;
+
 
 public class JoeController extends GameController {
     private GUI.ACTION lastAction = GUI.ACTION.NONE;
     private Command command;
+    private boolean isHitCooldownActive = false;
+    private long hitCooldownEndTime = 0;
+    private static final long COOLDOWN_DURATION = 1250;
 
     public JoeController(Road road) {
         super(road);
@@ -36,6 +47,17 @@ public class JoeController extends GameController {
         moveJoe(6, 'r');
     }
 
+    public void moveJoeLeftHit() {
+        setLastActionNone();
+        Joe joe = getModel().getJoe();
+        joe.setPosition(new Position(joe.getPosition().getX() - 10, joe.getPosition().getY()));
+    }
+
+    public void moveJoeRightHit() {
+        setLastActionNone();
+        Joe joe = getModel().getJoe();
+        joe.setPosition(new Position(joe.getPosition().getX() + 10, joe.getPosition().getY()));
+    }
 
     public void joePassSign() {
         JoeAction(getModel().getJoe().getPosition(), 'p');
@@ -95,5 +117,22 @@ public class JoeController extends GameController {
         if (lastAction == GUI.ACTION.UP) joeStopSign();
         if (lastAction == GUI.ACTION.DOWN) joePassSign();
         if (lastAction == GUI.ACTION.NONE) joeNotWalking();
+
+        checkCollisions();
+    }
+
+    public void checkCollisions(){
+        List<Car> cars = getModel().getCars();
+        Joe joe = getModel().getJoe();
+
+        for (Car car : cars) {
+            if (isInRangeLeftCarJoe(car, joe)) {
+                joe.isHitLeft();
+                moveJoeLeftHit();
+            } else if (isInRangeRightCarJoe(car, joe)) {
+                joe.isHitRight();
+                moveJoeRightHit();
+            }
+        }
     }
 }

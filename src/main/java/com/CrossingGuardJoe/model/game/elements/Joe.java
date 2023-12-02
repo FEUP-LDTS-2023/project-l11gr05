@@ -11,6 +11,8 @@ public class Joe extends Element{
     private boolean raisingStopSign = false;
     private boolean passSign = false;
     private boolean firstHalfOfMovement = true;
+    private boolean hit = false;
+    private boolean hitLeft = true;
 
     public Joe(int x, int y) {
         super(x, y);
@@ -78,6 +80,24 @@ public class Joe extends Element{
         raisingStopSign = false;
         firstHalfOfMovement = true;
     }
+
+    public void isNotHit() {
+        hit = false;
+    }
+
+    public void isHitLeft() {
+        hit = true;
+        hitLeft = true;
+    }
+
+    public void isHitRight() {
+        hit = true;
+        hitLeft = false;
+    }
+
+    public boolean getIsHit() { return this.hit; }
+
+    public boolean getHitLeft() {return this.hitLeft;}
 
     public boolean getIsWalkingState() {
         return this.walking;
