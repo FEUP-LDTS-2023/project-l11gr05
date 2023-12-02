@@ -40,10 +40,6 @@ public class Joe extends Element{
 
     public void setAndExecuteCommand(Command command) {
         this.currentCommand = command;
-        executeCommand();
-    }
-
-    private void executeCommand() {
         if (currentCommand != null) {
             currentCommand.execute();
         }

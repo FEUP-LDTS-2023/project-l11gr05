@@ -84,7 +84,6 @@ public class JoeController extends GameController {
                 this.command = new JoeWalkToRightCommand(getModel().getJoe());
                 break;
         }
-
         getModel().getJoe().setAndExecuteCommand(command);
     }
 

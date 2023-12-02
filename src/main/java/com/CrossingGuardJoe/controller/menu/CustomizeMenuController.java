@@ -3,11 +3,17 @@ package com.CrossingGuardJoe.controller.menu;
 import com.CrossingGuardJoe.Game;
 import com.CrossingGuardJoe.controller.Controller;
 import com.CrossingGuardJoe.gui.GUI;
+import com.CrossingGuardJoe.model.commands.Command;
+import com.CrossingGuardJoe.model.commands.MenusCommand.NavigateDownCommand;
+import com.CrossingGuardJoe.model.commands.MenusCommand.NavigateLeftCommand;
+import com.CrossingGuardJoe.model.commands.MenusCommand.NavigateRightCommand;
+import com.CrossingGuardJoe.model.commands.MenusCommand.NavigateUpCommand;
 import com.CrossingGuardJoe.model.menu.CustomizeMenu;
 
 import java.io.IOException;
 
 public class CustomizeMenuController extends Controller<CustomizeMenu> {
+    private Command command;
     private char oldColor;
     public CustomizeMenuController(CustomizeMenu model) {
         super(model);
@@ -18,16 +24,16 @@ public class CustomizeMenuController extends Controller<CustomizeMenu> {
         if (!getModel().isColorPaletteSelected()) {
             switch (action) {
                 case LEFT:
-                    getModel().navigateLeft();
+                    this.command = new NavigateLeftCommand(this.getModel());
                     break;
                 case RIGHT:
-                    getModel().navigateRight();
+                    this.command = new NavigateRightCommand(this.getModel());
                     break;
                 case UP:
-                    getModel().navigateUp();
+                    this.command = new NavigateUpCommand(this.getModel());
                     break;
                 case DOWN:
-                    getModel().navigateDown();
+                    this.command = new NavigateDownCommand(this.getModel());
                     break;
                 case ESC:
                     game.popState();
@@ -56,8 +62,7 @@ public class CustomizeMenuController extends Controller<CustomizeMenu> {
                     break;
             }
         }
-
+        getModel().setAndExecuteCommand(this.command);
+        this.command = null;
     }
-
-
 }
