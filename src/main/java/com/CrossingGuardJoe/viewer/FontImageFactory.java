@@ -15,7 +15,7 @@ public class FontImageFactory {
         }
     }
 
-    public String[] getTextImage(String text) {
+    private String[] getTextImage(String text) {
         StringBuilder[] result = new StringBuilder[16];
 
         for (int i = 0; i < result.length; i++) {

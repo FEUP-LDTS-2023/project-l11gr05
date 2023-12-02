@@ -4,6 +4,7 @@ package com.CrossingGuardJoe.gui;
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.viewer.Color;
 import com.CrossingGuardJoe.viewer.ColorCustomize;
+import com.CrossingGuardJoe.viewer.FontImageFactory;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
@@ -112,6 +113,18 @@ public class LanternaGUI implements GUI {
             drawLine(position.getX(), yPos, imageLine);
             yPos++;
         }
+    }
+
+    @Override
+    public void drawText(Position position, String text, String colorHexCode) {
+        String[] textImage = new FontImageFactory().getImageRepresentation(text);
+        drawImageCustomColor(position, textImage, colorHexCode);
+    }
+
+    @Override
+    public void drawNumber(Position position, int number, String colorHexCode) {
+        String[] numberImage = new FontImageFactory().getImageRepresentation(number);
+        drawImageCustomColor(position, numberImage, colorHexCode);
     }
 
     @Override

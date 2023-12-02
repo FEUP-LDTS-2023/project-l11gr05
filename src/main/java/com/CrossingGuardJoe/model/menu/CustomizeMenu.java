@@ -4,7 +4,6 @@ import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.viewer.Color;
 import com.CrossingGuardJoe.viewer.FontImageFactory;
 import com.CrossingGuardJoe.viewer.Shape;
-import com.CrossingGuardJoe.viewer.Text;
 import com.CrossingGuardJoe.viewer.images.CarImage;
 import com.CrossingGuardJoe.viewer.images.JoeImages;
 import com.CrossingGuardJoe.viewer.images.KidImages;

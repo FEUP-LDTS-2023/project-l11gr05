@@ -5,7 +5,6 @@ import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.game.Road;
 import com.CrossingGuardJoe.model.game.elements.Car;
 import com.CrossingGuardJoe.viewer.FontImageFactory;
-import com.CrossingGuardJoe.viewer.Text;
 import com.CrossingGuardJoe.viewer.Viewer;
 import com.CrossingGuardJoe.model.game.elements.Element;
 import com.CrossingGuardJoe.viewer.game.elements.CarView;
