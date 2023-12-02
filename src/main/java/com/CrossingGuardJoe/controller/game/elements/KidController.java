@@ -25,7 +25,7 @@ public class KidController extends GameController {
     private boolean walking = false;
     private Kid selectedKid;
     private List<Kid> outKids = new ArrayList<>();
-    private Joe joe = getModel().getJoe();
+
 
     public KidController(Road road) {
         super(road);
@@ -47,6 +47,7 @@ public class KidController extends GameController {
     public void moveKidAfterHit(Car car, Kid kid, int hitX, Iterator<Kid> kidIterator) {
         if (kid.getPosition().getY() > 500) {
             kidIterator.remove();
+            getModel().getJoe().removeHeart();
         }
         kid.setPosition(new Position(hitX, car.getPosition().getY() + 55));
     }
@@ -79,7 +80,6 @@ public class KidController extends GameController {
             kid.setNotSelected();
         }
 
-
         if (joeInRange) {
             selectedKid.setSelected();
         }
@@ -99,10 +99,11 @@ public class KidController extends GameController {
         }
 
         checkCollisions(game);
-        checkWin(game); // temporary
+        checkPoints();
+        //checkWin(game); // temporary
     }
 
-    public void checkCollisions(Game game) throws IOException {
+    private void checkCollisions(Game game) throws IOException {
         List<Car> cars = getModel().getCars();
         List<Kid> kids = getModel().getKids();
 
@@ -130,6 +131,17 @@ public class KidController extends GameController {
             if (!kid.getIsHit() && kid.getPosition().getX() <= 0) {
                 System.out.println("You win!");
                 game.end();
+            }
+        }
+    }
+
+    private void checkPoints() {
+        Iterator<Kid> kidIterator = getModel().getKids().iterator();
+        while (kidIterator.hasNext()) {
+            Kid kid = kidIterator.next();
+            if (kid.getPosition().getX() <= 0) {
+                getModel().getJoe().addScore(kid.getPoints());
+                kidIterator.remove();
             }
         }
     }
