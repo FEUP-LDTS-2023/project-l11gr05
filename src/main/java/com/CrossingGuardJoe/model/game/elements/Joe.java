@@ -16,7 +16,7 @@ public class Joe extends Element{
 
     public Joe(int x, int y) {
         super(x, y);
-        this.Score = 0;
+        this.Score = 2163;
         this.Hearts = 10;
     }
 
