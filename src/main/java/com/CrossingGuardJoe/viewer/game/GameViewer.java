@@ -57,10 +57,12 @@ public class GameViewer extends Viewer<Road> implements RoadView{
 
     @Override
     public void drawRoadLines() {
+        int ROAD_START_Y = 38;
+
         //boards
         gui.setColorHexaCode("#C0BBB1");
-        gui.fillRectangle(new Position(0, 0),150, 500);
-        gui.fillRectangle(new Position(850, 0), 150, 500);
+        gui.fillRectangle(new Position(0, ROAD_START_Y),150, 500);
+        gui.fillRectangle(new Position(850, ROAD_START_Y), 150, 500);
 
         //crossing line
         int iniX = 167;
@@ -69,16 +71,16 @@ public class GameViewer extends Viewer<Road> implements RoadView{
         }
 
         //road middle lines
-        gui.fillRectangle(new Position(326, 0), 4, 340);
-        gui.fillRectangle(new Position(500, 0), 4, 340);
-        gui.fillRectangle(new Position(674, 0), 4, 340);
+        gui.fillRectangle(new Position(326, ROAD_START_Y), 4, 340);
+        gui.fillRectangle(new Position(500, ROAD_START_Y), 4, 340);
+        gui.fillRectangle(new Position(674, ROAD_START_Y), 4, 340);
 
         //details
         gui.setColorHexaCode("#3D3638");
-        gui.fillRectangle(new Position(150, 0), 2, 500);
-        gui.fillRectangle(new Position(154, 0), 2, 500);
-        gui.fillRectangle(new Position(848, 0), 2, 500);
-        gui.fillRectangle(new Position(844, 0), 2, 500);
+        gui.fillRectangle(new Position(150, ROAD_START_Y), 2, 500);
+        gui.fillRectangle(new Position(154, ROAD_START_Y), 2, 500);
+        gui.fillRectangle(new Position(848, ROAD_START_Y), 2, 500);
+        gui.fillRectangle(new Position(844, ROAD_START_Y), 2, 500);
 
     }
 
@@ -89,28 +91,16 @@ public class GameViewer extends Viewer<Road> implements RoadView{
     }
 
     private void drawHUD(GUI gui) {
-        /*gui.drawImage(new Position(1, 1), new Text().getTextImage("SCORE "));
-        gui.drawImage(new Position(50, 1), new Text().getNumberImage(getModel().getJoe().getScore()));
-
-        int heartIniX = 400;
-        for (int i = 0; i < getModel().getJoe().getHearts(); i++) {
-            gui.drawImage(new Position(heartIniX, 1), HUDImages.HEART);
-            heartIniX += 10;
-        }*/
-
-
         gui.drawImage(new Position(0, 0), HUDImages.GAME_HUD);
 
         gui.drawImage(new Position(165, 10), new Text().getNumberImage(getModel().getJoe().getScore()));
         gui.drawImageCustomColor(new Position(164, 9), new Text().getNumberImage(getModel().getJoe().getScore()), "#FFFFFF");
+
         int heartIniX = 246;
         for (int i = 0; i < getModel().getJoe().getHearts(); i++) {
             gui.drawImage(new Position(heartIniX, 4), HUDImages.MINI_KID);
             heartIniX += 25;
         }
-
-
-
     }
 
 }
