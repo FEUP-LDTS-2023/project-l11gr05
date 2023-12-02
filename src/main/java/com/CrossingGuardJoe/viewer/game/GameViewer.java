@@ -100,12 +100,16 @@ public class GameViewer extends Viewer<Road> implements RoadView{
 
 
         gui.drawImage(new Position(0, 0), HUDImages.GAME_HUD);
-        gui.drawImage(new Position(150, 10), new Text().getNumberImage(getModel().getJoe().getScore()));
-        int heartIniX = 245;
+
+        gui.drawImage(new Position(165, 10), new Text().getNumberImage(getModel().getJoe().getScore()));
+        gui.drawImageCustomColor(new Position(164, 9), new Text().getNumberImage(getModel().getJoe().getScore()), "#FFFFFF");
+        int heartIniX = 246;
         for (int i = 0; i < getModel().getJoe().getHearts(); i++) {
             gui.drawImage(new Position(heartIniX, 4), HUDImages.MINI_KID);
             heartIniX += 25;
         }
+
+
 
     }
 

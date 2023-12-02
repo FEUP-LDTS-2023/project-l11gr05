@@ -2,7 +2,9 @@ package com.CrossingGuardJoe.model.game.elements;
 
 public class Joe extends Element{
     private int Score;
+    private final int MAX_SCORE = 99999;
     private int Hearts;
+    private final int MAX_HEARTS = 10;
     private Command currentCommand;
     private boolean walking = false;
     private boolean isWalkingToLeft = true;
@@ -12,8 +14,8 @@ public class Joe extends Element{
 
     public Joe(int x, int y) {
         super(x, y);
-        this.Score = 1234567890;
-        this.Hearts = 10;
+        this.Score = 12345;
+        this.Hearts = 9;
     }
 
     public int getScore() {
