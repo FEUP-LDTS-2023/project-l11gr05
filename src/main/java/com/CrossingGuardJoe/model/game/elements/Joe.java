@@ -16,16 +16,24 @@ public class Joe extends Element{
 
     public Joe(int x, int y) {
         super(x, y);
-        this.Score = 12345;
-        this.Hearts = 9;
+        this.Score = 0;
+        this.Hearts = 10;
     }
 
     public int getScore() {
         return this.Score;
     }
 
+    public void addScore(int points) {
+        this.Score += points;
+    }
+
     public int getHearts() {
         return this.Hearts;
+    }
+
+    public void removeHeart() {
+        this.Hearts--;
     }
 
     public void setAndExecuteCommand(Command command) {
@@ -122,5 +130,4 @@ public class Joe extends Element{
     public void setFirstHalfOfMovement(boolean firstHalfOfMovement) {
         this.firstHalfOfMovement = firstHalfOfMovement;
     }
-
 }

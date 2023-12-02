@@ -676,8 +676,4 @@ public class Text {
         }
         return c - 'A';
     }
-
-
-
-
 }
