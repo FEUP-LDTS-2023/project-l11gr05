@@ -3,9 +3,9 @@ package com.CrossingGuardJoe.viewer;
 public enum Color {
 
     BLACK("#000000", '$'),
-    DARK_GREY("#3D3638", '»'),
+    DARK_GREY("#3D3638", 'L'),
     BACKGROUND("#7F7976", 'A'),
-    LIGHT_GREY("#C0BBB1", '«'),
+    LIGHT_GREY("#C0BBB1", 'K'),
     WHITE("#FFFFFF", 'W'),
     SKIN("#FFEBB2", '%'),
     SKIN2("#FFCA8E", '>'),

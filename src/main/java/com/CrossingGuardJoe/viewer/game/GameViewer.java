@@ -4,12 +4,14 @@ import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.game.Road;
 import com.CrossingGuardJoe.model.game.elements.Car;
+import com.CrossingGuardJoe.viewer.Text;
 import com.CrossingGuardJoe.viewer.Viewer;
 import com.CrossingGuardJoe.model.game.elements.Element;
 import com.CrossingGuardJoe.viewer.game.elements.CarView;
 import com.CrossingGuardJoe.viewer.game.elements.ElementViewer;
 import com.CrossingGuardJoe.viewer.game.elements.JoeView;
 import com.CrossingGuardJoe.viewer.game.elements.KidView;
+import com.CrossingGuardJoe.viewer.images.HUDImages;
 import com.CrossingGuardJoe.viewer.images.RoadElementsImages;
 
 import java.util.ArrayList;
@@ -34,6 +36,8 @@ public class GameViewer extends Viewer<Road> implements RoadView{
 
         drawElement(gui, getModel().getJoe(), new JoeView());
         drawElements(gui, getModel().getKids(), new KidView());
+
+        drawHUD(gui);
     }
 
     private <T extends Element> void drawElements(GUI gui, List<T> elements, ElementViewer<T> viewer) {
@@ -85,6 +89,17 @@ public class GameViewer extends Viewer<Road> implements RoadView{
     }
 
     private void drawHUD(GUI gui) {
+        /*gui.drawImage(new Position(1, 1), new Text().getTextImage("SCORE "));
+        gui.drawImage(new Position(50, 1), new Text().getNumberImage(getModel().getJoe().getScore()));
+
+        int heartIniX = 400;
+        for (int i = 0; i < getModel().getJoe().getHearts(); i++) {
+            gui.drawImage(new Position(heartIniX, 1), HUDImages.HEART);
+            heartIniX += 10;
+        }*/
+
+
+        gui.drawImage(new Position(0, 0), HUDImages.GAME_HUD);
 
     }
 

@@ -1,6 +1,8 @@
 package com.CrossingGuardJoe.model.game.elements;
 
 public class Joe extends Element{
+    private int Score;
+    private int Hearts;
     private Command currentCommand;
     private boolean walking = false;
     private boolean isWalkingToLeft = true;
@@ -10,6 +12,16 @@ public class Joe extends Element{
 
     public Joe(int x, int y) {
         super(x, y);
+        this.Score = 1284151;
+        this.Hearts = 10;
+    }
+
+    public int getScore() {
+        return this.Score;
+    }
+
+    public int getHearts() {
+        return this.Hearts;
     }
 
     public void setAndExecuteCommand(Command command) {
