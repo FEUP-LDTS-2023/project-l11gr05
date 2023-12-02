@@ -51,9 +51,9 @@ public class CustomizeMenu {
                 new Option(new Position(KIDS_X, OPTIONS_Y + 90), new Text().getTextImage("Shoes"))
         );
 
-        int CARS_X = 400;
+        int CARS_X = 403;
         List<Option> Cars = Arrays.asList(
-                new Option(new Position(CARS_X - 26, 100), CarImage.CAR),
+                new Option(new Position(CARS_X - 27, 100), CarImage.CAR),
                 new Option(new Position(CARS_X, OPTIONS_Y + 30), new Text().getTextImage("CAR"))
         );
 
