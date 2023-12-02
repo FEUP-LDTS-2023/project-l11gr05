@@ -49,13 +49,41 @@ public class JoeController extends GameController {
 
     public void moveJoeLeftHit() {
         setLastActionNone();
-        getModel().getJoe().setPosition(new Position(getModel().getJoe().getPosition().getX() - 10, getModel().getJoe().getPosition().getY()));
+        Joe joe = getModel().getJoe();
+        int initialX = joe.getPosition().getX();
+        int initialY = joe.getPosition().getY();
+
+        for (int x = 0; x >= -10; x--) {
+            int y = parabolaPoints(joe, x);
+            joe.setPosition(new Position(initialX + x, initialY - y));
+        }
     }
+
 
     public void moveJoeRightHit() {
         setLastActionNone();
-        getModel().getJoe().setPosition(new Position(getModel().getJoe().getPosition().getX() + 10, getModel().getJoe().getPosition().getY()));
+        Joe joe = getModel().getJoe();
+        int initialX = joe.getPosition().getX();
+        int initialY = joe.getPosition().getY();
+
+        for (int x = 0; x <= 10; x++) {
+            int y = parabolaPoints(joe, x);
+            joe.setPosition(new Position(initialX + x, initialY - y));
+        }
     }
+
+
+    private int parabolaPoints(Joe joe, int x) {
+        double a = -2.0 / 5.0;
+        double h = joe.getHitLeft() ? -5.0 : 5.0;
+        double k = 10;
+
+        double result = a * Math.pow((x - h), 2) + k;
+
+        return (int) result;
+    }
+
+
 
     public void joePassSign() {
         JoeAction(getModel().getJoe().getPosition(), 'p');
