@@ -95,9 +95,9 @@ public class Joe extends Element{
         hitLeft = false;
     }
 
-    public boolean getIsHit() { return hit; }
+    public boolean getIsHit() { return this.hit; }
 
-    public boolean getHitLeft() {return hitLeft;}
+    public boolean getHitLeft() {return this.hitLeft;}
 
     public boolean getIsWalkingState() {
         return this.walking;
