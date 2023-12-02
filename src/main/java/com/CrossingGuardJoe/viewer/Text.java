@@ -637,24 +637,27 @@ public class Text {
     }
 
     public String[] getNumberImage(int number) {
+        String numberString = Integer.toString(number);
+
         StringBuilder[] result = new StringBuilder[16];
 
         for (int i = 0; i < result.length; i++) {
             result[i] = new StringBuilder();
         }
 
-        String[] numberText = new String[]{numbers[number]};
+        for (Character character : numberString.toCharArray()) {
+            String[] characterToAppend;
 
-        for (String line : numberText) {
-            for (int i = 0; i < line.length(); i++) {
-                char character = line.charAt(i);
-                if (character == ' ') {
-                    for (StringBuilder sb : result) {
-                        sb.append(' ');
-                    }
-                } else {
-                    result[i].append(character);
-                }
+            characterToAppend = new String[16];
+            int characterIndex = Character.getNumericValue(character);
+            for (int i = characterIndex * 16; i < (characterIndex + 1) * 16; i++) {
+                String line = numbers[i % numbers.length];
+                characterToAppend[i - characterIndex * 16] = line;
+            }
+
+
+            for (int i = 0; i < characterToAppend.length; i++) {
+                result[i].append(characterToAppend[i]);
             }
         }
 

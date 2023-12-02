@@ -84,4 +84,8 @@ public class GameViewer extends Viewer<Road> implements RoadView{
         gui.drawImage(new Position(55, 258), RoadElementsImages.SIGNAL);
     }
 
+    private void drawHUD(GUI gui) {
+
+    }
+
 }

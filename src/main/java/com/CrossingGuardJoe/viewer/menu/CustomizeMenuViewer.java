@@ -90,6 +90,7 @@ public class CustomizeMenuViewer extends Viewer<CustomizeMenu> implements Inform
     @Override
     public void drawInformation(GUI gui) {
         gui.drawImage(new Position(5, 5), new Text().getTextImage("ESC"));
+        gui.drawImage(new Position(5, 5), new Text().getNumberImage(01));
         gui.drawImageCustomColor(new Position(4, 4), new Text().getTextImage("ESC"), "#FFFFFF");
     }
 
