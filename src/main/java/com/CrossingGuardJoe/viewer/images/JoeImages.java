@@ -558,7 +558,7 @@ public class JoeImages {
             "                           $$$$$$$$$        $$$$$$$$$                           "
     };
 
-    public static final String[] JOE_HITRIGHT = {
+    public static final String[] JOE_HITLEFT = {
             "                                                                                  ",
             "                                                                                  ",
             "                                                                                  ",
@@ -637,7 +637,7 @@ public class JoeImages {
             "                                      $$$$$$$$$         $$$$$$                    ",
     };
 
-    public static final String[] JOE_HITLEFT = {
+    public static final String[] JOE_HITRIGHT = {
             "                                                                                  ",
             "                                                                                  ",
             "                                                                                  ",
