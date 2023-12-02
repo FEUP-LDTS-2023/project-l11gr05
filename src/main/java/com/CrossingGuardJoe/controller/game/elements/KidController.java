@@ -6,9 +6,12 @@ import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.game.Road;
 import com.CrossingGuardJoe.model.game.elements.Car;
+import com.CrossingGuardJoe.model.game.elements.Command;
 import com.CrossingGuardJoe.model.game.elements.Joe;
 import com.CrossingGuardJoe.model.game.elements.Kid;
 import com.CrossingGuardJoe.Game;
+import com.CrossingGuardJoe.model.game.elements.KidCommand.KidStopCommand;
+import com.CrossingGuardJoe.model.game.elements.KidCommand.KidWalkCommand;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,7 +22,7 @@ import static com.CrossingGuardJoe.controller.game.AuxCheckRange.isInRangeCarKid
 import static com.CrossingGuardJoe.controller.game.AuxCheckRange.isInRangeJoeKid;
 
 public class KidController extends GameController {
-
+    private Command command;
     private static final double KID_SPEED = 0.005;
     private long lastUpdateTime;
     private boolean walking = false;
@@ -58,15 +61,16 @@ public class KidController extends GameController {
 
     public void KidAction(Kid kid, Position position, char passOrStop) {
         if (passOrStop == 'p') {
-            kid.isWalking();
+            this.command = new KidWalkCommand(kid);
             kid.setPosition(position);
         } else if (passOrStop == 's') {
-            kid.isNotWalking();
+            this.command = new KidStopCommand(kid);
         }
+        kid.setAndExecuteCommand(command);
     }
 
     @Override
-    public void nextAction(Game game, GUI.ACTION action, long time) throws IOException {
+    public void nextAction(Game game, GUI.ACTION action, long time) {
         List<Kid> kids = getModel().getKids();
         //moveKidsToBegin(kids);
 
@@ -98,12 +102,12 @@ public class KidController extends GameController {
             stopKid(selectedKid);
         }
 
-        checkCollisions(game);
+        checkCollisions();
         checkPoints();
         //checkWin(game); // temporary
     }
 
-    private void checkCollisions(Game game) throws IOException {
+    private void checkCollisions() {
         List<Car> cars = getModel().getCars();
         List<Kid> kids = getModel().getKids();
 
@@ -116,8 +120,6 @@ public class KidController extends GameController {
                     kid.isHit();
                     walking = false;
                     moveKidAfterHit(car, kid, hitX, kidIterator);
-                    //System.out.println("Game Over - Car collided with a kid!");
-                    //game.end();
                 }
             }
         }

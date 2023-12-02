@@ -19,9 +19,6 @@ import static com.CrossingGuardJoe.controller.game.AuxCheckRange.isInRangeRightC
 public class JoeController extends GameController {
     private GUI.ACTION lastAction = GUI.ACTION.NONE;
     private Command command;
-    private boolean isHitCooldownActive = false;
-    private long hitCooldownEndTime = 0;
-    private static final long COOLDOWN_DURATION = 1250;
 
     public JoeController(Road road) {
         super(road);

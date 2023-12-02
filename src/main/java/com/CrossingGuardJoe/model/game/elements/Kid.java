@@ -1,14 +1,25 @@
 package com.CrossingGuardJoe.model.game.elements;
 
 public class Kid extends Element {
+    private Command currentCommand;
     private boolean walking = false;
     private boolean hit = false;
     private boolean selected = false;
     private boolean firstHalfOfMovement = true;
-    private boolean dead = false;
 
     public Kid(int x, int y) {
         super(x, y);
+    }
+
+    public void setAndExecuteCommand(Command command) {
+        this.currentCommand = command;
+        executeCommand();
+    }
+
+    private void executeCommand() {
+        if (currentCommand != null) {
+            currentCommand.execute();
+        }
     }
 
     public void isWalking() {
@@ -47,7 +58,6 @@ public class Kid extends Element {
     public void isHit() {
         hit = true;
         selected = false;
-        dead = true;
     }
 
     public boolean getIsHit() { return hit;}
