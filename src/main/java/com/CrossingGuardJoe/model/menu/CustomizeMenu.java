@@ -179,6 +179,10 @@ public class CustomizeMenu {
         return currentLevel == levelIndex;
     }
 
+    public ColorPalette getColorPalette() {
+        return this.colorPalette;
+    }
+
     public char getSelectedColorChar() {
         if (isSelectedJoeCap()) selectedColorChar = '<';
         if (isSelectedJoeClothes()) selectedColorChar = '!';
@@ -217,9 +221,4 @@ public class CustomizeMenu {
     public char getNewColor() {
         return this.newColor;
     }
-
-    public ColorPalette getColorPalette() {
-        return this.colorPalette;
-    }
-
 }
