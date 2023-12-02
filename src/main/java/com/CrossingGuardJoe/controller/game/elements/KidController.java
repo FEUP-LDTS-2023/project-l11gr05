@@ -23,11 +23,16 @@ import static com.CrossingGuardJoe.controller.game.AuxCheckRange.isInRangeJoeKid
 
 public class KidController extends GameController {
     private Command command;
+    private static final int KID_STEP = 3;
     private static final double KID_SPEED = 0.005;
+    private static final int KID_DISTANCE = 10;
+    private static final int PASS_POINT = 60;
+    private static final int MAX_Y_DISTANCE = 500;
+    private static final int Y_AFTER_HIT = 55;
     private long lastUpdateTime;
     private Kid selectedKid;
     private final Joe joe = getModel().getJoe();
-
+    private List<Kid> outKids = new ArrayList<>();
 
     public KidController(Road road) {
         super(road);
@@ -35,23 +40,26 @@ public class KidController extends GameController {
     }
 
     public void moveKid(Kid kid) {
-        KidAction(kid, new Position(kid.getPosition().getX() - 3, kid.getPosition().getY()), 'p');
+        KidAction(kid, new Position(kid.getPosition().getX() - KID_STEP, kid.getPosition().getY()), 'p');
+        repositionQueue(kid);
     }
 
-    public void moveKidsToBegin(List<Kid> kids) {
-        while (kids.get(0).getPosition().getX() > 430) {
-            for (Kid kid : kids) {
-                moveKid(kid);
-            }
+    private void repositionQueue(Kid sentKid) {
+        List<Kid> kids = getModel().getKids();
+        int sentKidIndex = kids.indexOf(sentKid);
+
+        for (int i = sentKidIndex + 1; i < kids.size(); i++) {
+            Kid kid = kids.get(i);
+            kid.setPosition(new Position(kid.getPosition().getX() - KID_DISTANCE, kid.getPosition().getY()));
         }
     }
 
     public void moveKidAfterHit(Car car, Kid kid, int hitX, Iterator<Kid> kidIterator) {
-        if (kid.getPosition().getY() > 500) {
+        if (kid.getPosition().getY() > MAX_Y_DISTANCE) {
             kidIterator.remove();
-            getModel().getJoe().removeHeart();
+            joe.removeHeart();
         }
-        kid.setPosition(new Position(hitX, car.getPosition().getY() + 55));
+        kid.setPosition(new Position(hitX, car.getPosition().getY() + Y_AFTER_HIT));
     }
 
     public void stopKid(Kid kid) {
@@ -71,12 +79,11 @@ public class KidController extends GameController {
     @Override
     public void nextAction(Game game, GUI.ACTION action, long time) {
         List<Kid> kids = getModel().getKids();
-        //moveKidsToBegin(kids);
 
         boolean joeInRange = false;
 
         for (Kid kid : kids) {
-            if (isInRangeJoeKid(getModel().getJoe(), kid)) {
+            if (isInRangeJoeKid(joe, kid)) {
                 joeInRange = true;
                 selectedKid = kid;
             }
@@ -89,14 +96,15 @@ public class KidController extends GameController {
 
         if (action == GUI.ACTION.DOWN && joeInRange) {
             selectedKid.isWalking();
+            outKids.add(selectedKid);
         }
 
-        if (action == GUI.ACTION.UP && joeInRange && selectedKid.getPosition().getX() > 60) {
+        if (action == GUI.ACTION.UP && joeInRange && selectedKid.getPosition().getX() > PASS_POINT) {
             selectedKid.isNotWalking();
         }
 
         if (time - lastUpdateTime > KID_SPEED) {
-            for (Kid kid : kids) {
+            for (Kid kid : outKids) {
                 if (kid.getIsWalkingState()) {
                     moveKid(kid);
                 } else {
@@ -108,7 +116,6 @@ public class KidController extends GameController {
 
         checkCollisions();
         checkPoints();
-        //checkWin(game); // temporary
     }
 
     private void checkCollisions() {
@@ -129,24 +136,12 @@ public class KidController extends GameController {
         }
     }
 
-    //temporary function
-    public void checkWin(Game game) throws IOException {
-        List<Kid> kids = getModel().getKids();
-
-        for (Kid kid : kids) {
-            if (!kid.getIsHit() && kid.getPosition().getX() <= 0) {
-                System.out.println("You win!");
-                game.end();
-            }
-        }
-    }
-
     private void checkPoints() {
         Iterator<Kid> kidIterator = getModel().getKids().iterator();
         while (kidIterator.hasNext()) {
             Kid kid = kidIterator.next();
-            if (kid.getPosition().getX() <= 0) {
-                getModel().getJoe().addScore(kid.getPoints());
+            if (kid.getPosition().getX() < 0) {
+                joe.addScore(kid.getPoints());
                 kidIterator.remove();
             }
         }

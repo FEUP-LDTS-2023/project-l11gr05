@@ -71,7 +71,7 @@ public class RoadBuilder {
 
     private List<Kid> createKids() {
         List<Kid> kids = new ArrayList<>();
-        int x = 400;
+        int x = 430;
 
         for (int i = 0; i < 3; i++) {
             Kid kid = new Kid(x, 330);
