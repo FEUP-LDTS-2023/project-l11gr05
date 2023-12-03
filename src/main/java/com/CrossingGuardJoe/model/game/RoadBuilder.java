@@ -18,7 +18,7 @@ public class RoadBuilder {
     private static final int DISTANCE_BETWEEN_CARS = 200;
     private static final int RANDOM_BOUND = 500;
     private static final int MAX_Y_DISTANCE = 500;
-    private static final int KID_SPAWN_X = 120;
+    private static final int KID_SPAWN_X = 430;
     private static final int KID_Y = 330;
     private static final int MIN_KID_DISTANCE = 9;
 

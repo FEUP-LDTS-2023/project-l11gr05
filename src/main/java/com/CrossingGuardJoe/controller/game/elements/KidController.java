@@ -26,10 +26,12 @@ public class KidController extends GameController {
     private static final int MAX_Y_DISTANCE = 500;
     private static final int Y_AFTER_HIT = 55;
     private static final int INITIAL_POSITION = 430;
+    private final int INITIAL_NUMBER_KIDS = getModel().getKids().size();
     private long lastUpdateTime;
     private Kid selectedKid;
     private final Joe joe = getModel().getJoe();
     private final List<Kid> sentKids = new ArrayList<>();
+    private boolean repositionNedded = false;
 
     public KidController(Road road) {
         super(road);
@@ -83,17 +85,15 @@ public class KidController extends GameController {
     }
 
     private void repositionQueue() {
-        List<Kid> kids = getModel().getKids();
-
-        Kid lastSentKid = sentKids.get(sentKids.size() - 1);
-        for (int i = kids.indexOf(lastSentKid) + 1; i < kids.size(); i++) {
-            Kid kid = kids.get(i);
-            if (!sentKids.contains(kid)) {
-                for (int j = 0; j < MIN_KID_DISTANCE / KID_STEP; j++) {
-                    moveKid(kid);
+        if (sentKids.size() != INITIAL_NUMBER_KIDS) {
+            List<Kid> kids = getModel().getKids();
+            for (int kidIndex = sentKids.size(); kidIndex < kids.size(); kidIndex++) {
+                for (int i = 0; i < MIN_KID_DISTANCE / KID_STEP; i++) {
+                    moveKid(kids.get(kidIndex));
                 }
-                stopKid(kid);
+                stopKid(kids.get(kidIndex));
             }
+            repositionNedded = false;
         }
     }
 
@@ -119,7 +119,7 @@ public class KidController extends GameController {
             selectedKid.isWalking();
             if (selectedKid.isSelected() && !sentKids.contains(selectedKid)) {
                 sentKids.add(selectedKid);
-                repositionQueue();
+                repositionNedded = true;
             }
         }
 
@@ -128,6 +128,9 @@ public class KidController extends GameController {
         }
 
         if (time - lastUpdateTime > KID_SPEED) {
+            if (repositionNedded) {
+                repositionQueue();
+            }
             for (Kid kid : kids) {
                 if (sentKids.contains(kid)) {
                     if (kid.getIsWalkingState()) {
@@ -135,9 +138,6 @@ public class KidController extends GameController {
                             moveKid(kid);
                         }
                         if (isInRangeJoeKid(joe, kid) && joe.getIsRaisingStopSign() && kid.getPosition().getX() > PASS_POINT + 10) {
-                            if (canContinueWalk(kid)) {
-                                moveKid(kid);
-                            }
                             stopKid(kid);
                         }
                     } else {
@@ -148,7 +148,7 @@ public class KidController extends GameController {
             lastUpdateTime = time;
         }
 
-        checkCollisions();
+        //checkCollisions();
         checkPoints();
         checkLoss(); //temporary implemented
     }

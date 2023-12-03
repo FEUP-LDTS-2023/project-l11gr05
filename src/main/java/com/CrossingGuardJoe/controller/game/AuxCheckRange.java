@@ -6,7 +6,7 @@ import com.CrossingGuardJoe.model.game.elements.Kid;
 
 public class AuxCheckRange {
     private static final int JOE_AT_KID_RIGHT = 9;
-    private static final int JOE_AT_KID_LEFT = 22;
+    private static final int JOE_AT_KID_LEFT = 21;
     private static final int KID_AT_CAR_LEFT = 10;
     private static final int KID_AT_CAR_RIGHT = 52;
     private static final int CAR_FRONT = 15;
