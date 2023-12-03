@@ -31,7 +31,7 @@ public class KidController extends GameController {
     private Kid selectedKid;
     private final Joe joe = getModel().getJoe();
     private final List<Kid> sentKids = new ArrayList<>();
-    private boolean repositionNedded = false;
+    private boolean repositionNeeded = false;
 
     public KidController(Road road) {
         super(road);
@@ -88,12 +88,13 @@ public class KidController extends GameController {
         if (sentKids.size() != INITIAL_NUMBER_KIDS) {
             List<Kid> kids = getModel().getKids();
             for (int kidIndex = sentKids.size(); kidIndex < kids.size(); kidIndex++) {
+                Kid kid = kids.get(kidIndex);
                 for (int i = 0; i < MIN_KID_DISTANCE / KID_STEP; i++) {
-                    moveKid(kids.get(kidIndex));
+                    moveKid(kid);
                 }
-                stopKid(kids.get(kidIndex));
+                stopKid(kid);
             }
-            repositionNedded = false;
+            repositionNeeded = false;
         }
     }
 
@@ -119,7 +120,7 @@ public class KidController extends GameController {
             selectedKid.isWalking();
             if (selectedKid.isSelected() && !sentKids.contains(selectedKid)) {
                 sentKids.add(selectedKid);
-                repositionNedded = true;
+                repositionNeeded = true;
             }
         }
 
@@ -128,7 +129,7 @@ public class KidController extends GameController {
         }
 
         if (time - lastUpdateTime > KID_SPEED) {
-            if (repositionNedded) {
+            if (repositionNeeded) {
                 repositionQueue();
             }
             for (Kid kid : kids) {
@@ -148,7 +149,7 @@ public class KidController extends GameController {
             lastUpdateTime = time;
         }
 
-        //checkCollisions();
+        checkCollisions();
         checkPoints();
         checkLoss(); //temporary implemented
     }

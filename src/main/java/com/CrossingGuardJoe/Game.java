@@ -43,7 +43,7 @@ public class Game {
 
     private void run() throws IOException {
         //i think manipulating that values can improve the lag problem
-        int FPS = 40;
+        int FPS = 60;
         int frameTime = 100 / FPS;
 
         while (getCurrentState() != null) {
