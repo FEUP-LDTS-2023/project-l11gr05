@@ -1,7 +1,6 @@
 package com.CrossingGuardJoe.model.menu;
 
 import com.CrossingGuardJoe.model.Position;
-import com.CrossingGuardJoe.model.commands.Command;
 import com.CrossingGuardJoe.viewer.images.Font.FontImageFactory;
 import com.CrossingGuardJoe.viewer.images.generator.Shape;
 import com.CrossingGuardJoe.viewer.images.defined.CarImage;
@@ -12,11 +11,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class CustomizeMenu {
+public class CustomizeMenu implements MenuNavigator{
     private final List<List<Option>> menuLevels;
     private final List<Option> definedColors;
-    private final ColorPaletteMenu colorPalette;
-    private Command currentCommand;
+    private final ColorPaletteMenu colorPaletteMenu;
     private int currentLevel;
     private int optionSelected;
     private char selectedColorChar;
@@ -27,7 +25,7 @@ public class CustomizeMenu {
 
     public CustomizeMenu() {
         this.menuLevels = new ArrayList<>();
-        this.colorPalette = new ColorPaletteMenu();
+        this.colorPaletteMenu = new ColorPaletteMenu();
         this.currentLevel = 0;
         this.optionSelected = 1;
 
@@ -86,28 +84,24 @@ public class CustomizeMenu {
         return this.menuLevels;
     }
 
-    public void setAndExecuteCommand(Command command) {
-        this.currentCommand = command;
-
-        if (currentCommand != null) {
-            currentCommand.execute();
-        }
-    }
-
+    @Override
     public void navigateLeft() {
         currentLevel = Math.max(currentLevel - 1, 0);
         optionSelected = Math.min(optionSelected, menuLevels.get(currentLevel).size() - 1);
     }
 
+    @Override
     public void navigateRight() {
         currentLevel = Math.min(currentLevel + 1, menuLevels.size() - 1);
         optionSelected = Math.min(optionSelected, menuLevels.get(currentLevel).size() - 1);
     }
 
+    @Override
     public void navigateUp() {
         optionSelected = Math.max(optionSelected - 1, 1);
     }
 
+    @Override
     public void navigateDown() {
         optionSelected = Math.min(optionSelected + 1, menuLevels.get(currentLevel).size() - 1);
     }
@@ -171,8 +165,8 @@ public class CustomizeMenu {
         return currentLevel == levelIndex;
     }
 
-    public ColorPaletteMenu getColorPalette() {
-        return this.colorPalette;
+    public ColorPaletteMenu getColorPaletteMenu() {
+        return this.colorPaletteMenu;
     }
 
     public char getSelectedColorChar() {
@@ -203,7 +197,7 @@ public class CustomizeMenu {
     public void setColorChange(char oldColor, char newColor) {
         this.oldColor = oldColor;
         this.newColor = newColor;
-        colorPalette.resetSelectedColorIndex();
+        colorPaletteMenu.resetSelectedColorIndex();
     }
 
     public char getOldColor() {

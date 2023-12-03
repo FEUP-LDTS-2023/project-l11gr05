@@ -22,20 +22,12 @@ public class Menu implements MenuNavigator{
 
     @Override
     public void navigateUp() {
-        optionSelected = (optionSelected + 1) % options.size();
+        optionSelected = (optionSelected - 1 + options.size()) % options.size();
     }
 
     @Override
     public void navigateDown() {
-        optionSelected = (optionSelected - 1 + options.size()) % options.size();
-    }
-
-    public void nextOption() {
         optionSelected = (optionSelected + 1) % options.size();
-    }
-
-    public void previousOption() {
-        optionSelected = (optionSelected - 1 + options.size()) % options.size();
     }
 
     public Option getOption(int i) {
@@ -64,12 +56,8 @@ public class Menu implements MenuNavigator{
     }
 
     @Override
-    public void navigateRight() {
-
-    }
+    public void navigateRight() {}
 
     @Override
-    public void navigateLeft() {
-
-    }
+    public void navigateLeft() {}
 }

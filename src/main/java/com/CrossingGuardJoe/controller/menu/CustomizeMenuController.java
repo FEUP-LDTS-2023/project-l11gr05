@@ -3,17 +3,11 @@ package com.CrossingGuardJoe.controller.menu;
 import com.CrossingGuardJoe.Game;
 import com.CrossingGuardJoe.controller.Controller;
 import com.CrossingGuardJoe.gui.GUI;
-import com.CrossingGuardJoe.model.commands.Command;
-import com.CrossingGuardJoe.model.commands.MenusNavigationCommand.NavigateDownCommand;
-import com.CrossingGuardJoe.model.commands.MenusNavigationCommand.NavigateLeftCommand;
-import com.CrossingGuardJoe.model.commands.MenusNavigationCommand.NavigateRightCommand;
-import com.CrossingGuardJoe.model.commands.MenusNavigationCommand.NavigateUpCommand;
 import com.CrossingGuardJoe.model.menu.CustomizeMenu;
 
 import java.io.IOException;
 
 public class CustomizeMenuController extends Controller<CustomizeMenu> {
-    private Command command;
     private char oldColor;
     public CustomizeMenuController(CustomizeMenu model) {
         super(model);
@@ -24,16 +18,16 @@ public class CustomizeMenuController extends Controller<CustomizeMenu> {
         if (!getModel().isColorPaletteSelected()) {
             switch (action) {
                 case LEFT:
-                    this.command = new NavigateLeftCommand(this.getModel());
+                    getModel().navigateLeft();
                     break;
                 case RIGHT:
-                    this.command = new NavigateRightCommand(this.getModel());
+                    getModel().navigateRight();
                     break;
                 case UP:
-                    this.command = new NavigateUpCommand(this.getModel());
+                    getModel().navigateUp();
                     break;
                 case DOWN:
-                    this.command = new NavigateDownCommand(this.getModel());
+                    getModel().navigateDown();
                     break;
                 case ESC:
                     game.popState();
@@ -43,27 +37,24 @@ public class CustomizeMenuController extends Controller<CustomizeMenu> {
                     getModel().setColorPaletteSelected(true);
                     break;
             }
-            getModel().setAndExecuteCommand(this.command);
         }
         else {
             switch (action) {
                 case LEFT:
-                    this.command = new NavigateLeftCommand(this.getModel().getColorPalette());
+                    getModel().getColorPaletteMenu().navigateLeft();
                     break;
                 case RIGHT:
-                    this.command = new NavigateRightCommand(this.getModel().getColorPalette());
+                    getModel().getColorPaletteMenu().navigateRight();
                     break;
                 case ESC:
                     getModel().setColorPaletteSelected(false);
                     break;
                 case SELECT:
-                    char newColor = getModel().getColorPalette().getColorPalette().get(getModel().getColorPalette().getSelectedColorIndex()).getCharacter();
+                    char newColor = getModel().getColorPaletteMenu().getColorPalette().get(getModel().getColorPaletteMenu().getSelectedColorIndex()).getCharacter();
                     getModel().setColorChange(oldColor, newColor);
                     getModel().setColorPaletteSelected(false);
                     break;
             }
-            getModel().getColorPalette().setAndExecuteCommand(this.command);
         }
-        this.command = null;
     }
 }

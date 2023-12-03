@@ -65,8 +65,8 @@ public class CustomizeMenuViewer extends Viewer<CustomizeMenu> implements Inform
         drawColorsPalette(gui);
 
         if (getModel().isColorPaletteSelected()) {
-            for (int i = 0; i < getModel().getColorPalette().getColorPalette().size(); i++) {
-                if (getModel().getColorPalette().isColorSelected(i)) {
+            for (int i = 0; i < getModel().getColorPaletteMenu().getColorPalette().size(); i++) {
+                if (getModel().getColorPaletteMenu().isColorSelected(i)) {
                     gui.drawImage(new Position(15 * i + 55, 405), ArrowImages.ARROW_DOWN);
                 }
             }
@@ -108,7 +108,7 @@ public class CustomizeMenuViewer extends Viewer<CustomizeMenu> implements Inform
         int initialXBoard = 52;
         int iniitialXFill = 105;
 
-        for (Color color : getModel().getColorPalette().getColorPalette()) {
+        for (Color color : getModel().getColorPaletteMenu().getColorPalette()) {
             gui.setColorHexaCode(color.getColorHexCode());
             gui.fillRectangle(new Position(iniitialXFill, 426), 25, 30);
             gui.drawImage(new Position(initialXBoard, 426), Shape.RectangleFilledGenerator(25, 30, ' ', 1, '$'));

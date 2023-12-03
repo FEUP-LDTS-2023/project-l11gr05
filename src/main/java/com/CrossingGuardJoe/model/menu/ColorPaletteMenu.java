@@ -1,39 +1,31 @@
 package com.CrossingGuardJoe.model.menu;
 
-import com.CrossingGuardJoe.model.commands.Command;
 import com.CrossingGuardJoe.viewer.Color;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class ColorPaletteMenu {
+public class ColorPaletteMenu implements MenuNavigator{
     private final List<Color> colorPalette;
     private int selectedColorIndex;
-    private Command currentCommand;
 
     public ColorPaletteMenu() {
         this.colorPalette = new ArrayList<>(Arrays.asList(Color.values()));
         this.selectedColorIndex = 0;
     }
 
-    public void setAndExecuteCommand(Command command) {
-        this.currentCommand = command;
-
-        if (this.currentCommand != null) {
-            currentCommand.execute();
-        }
-    }
-
     public List<Color> getColorPalette() {
         return colorPalette;
     }
 
-    public void navigateColorPaletteLeft() {
+    @Override
+    public void navigateLeft() {
         selectedColorIndex = (selectedColorIndex - 1 + colorPalette.size()) % colorPalette.size();
     }
 
-    public void navigateColorPaletteRight() {
+    @Override
+    public void navigateRight() {
         selectedColorIndex = (selectedColorIndex + 1) % colorPalette.size();
     }
 
@@ -52,4 +44,10 @@ public class ColorPaletteMenu {
     public void resetSelectedColorIndex() {
         this.selectedColorIndex = 0;
     }
+
+    @Override
+    public void navigateUp() {}
+
+    @Override
+    public void navigateDown() {}
 }
