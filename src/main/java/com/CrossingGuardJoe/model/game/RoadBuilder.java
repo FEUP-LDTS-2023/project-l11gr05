@@ -83,7 +83,7 @@ public class RoadBuilder {
         List<Kid> kids = new ArrayList<>();
         int x = KID_SPAWN_X;
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 10; i++) {
             Kid kid = new Kid(x, KID_Y);
             kids.add(kid);
             x += MIN_KID_DISTANCE;

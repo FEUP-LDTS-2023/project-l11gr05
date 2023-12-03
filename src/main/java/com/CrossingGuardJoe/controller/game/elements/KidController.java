@@ -32,6 +32,7 @@ public class KidController extends GameController {
     private final Joe joe = getModel().getJoe();
     private final List<Kid> sentKids = new ArrayList<>();
     private boolean repositionNeeded = false;
+    private int NUMBER_DEAD_KIDS = 0;
 
     public KidController(Road road) {
         super(road);
@@ -45,6 +46,7 @@ public class KidController extends GameController {
     public void moveKidAfterHit(Car car, Kid kid, int hitX, Iterator<Kid> kidIterator) {
         if (kid.getPosition().getY() > MAX_Y_DISTANCE) {
             kidIterator.remove();
+            NUMBER_DEAD_KIDS++;
         }
         kid.setPosition(new Position(hitX, car.getPosition().getY() + Y_AFTER_HIT));
     }
@@ -71,7 +73,9 @@ public class KidController extends GameController {
         List<Kid> kids = getModel().getKids();
         if (!isFirstKid(kid)) {
             Kid kidInFront = kids.get(kids.indexOf(kid) - 1);
-            return kid.getPosition().getX() - kidInFront.getPosition().getX() <= MIN_KID_DISTANCE;
+            if (!kidInFront.getIsHit()) {
+                return kid.getPosition().getX() - kidInFront.getPosition().getX() <= MIN_KID_DISTANCE;
+            }
         }
         return false;
     }
@@ -85,17 +89,17 @@ public class KidController extends GameController {
     }
 
     private void repositionQueue() {
-        if (sentKids.size() != INITIAL_NUMBER_KIDS) {
-            List<Kid> kids = getModel().getKids();
-            for (int kidIndex = sentKids.size(); kidIndex < kids.size(); kidIndex++) {
+        List<Kid> kids = getModel().getKids();
+        int nextKidIndex = sentKids.size() - NUMBER_DEAD_KIDS;
+        Kid nextKidInQueue = kids.get(sentKids.size() - NUMBER_DEAD_KIDS);
+        while (nextKidInQueue.getPosition().getX() > INITIAL_POSITION) {
+            for (int kidIndex = nextKidIndex; kidIndex < kids.size(); kidIndex++) {
                 Kid kid = kids.get(kidIndex);
-                for (int i = 0; i < MIN_KID_DISTANCE / KID_STEP; i++) {
-                    moveKid(kid);
-                }
-                stopKid(kid);
+                moveKid(kid);
+                //stopKid(kid);
             }
-            repositionNeeded = false;
         }
+        repositionNeeded = false;
     }
 
     @Override
@@ -120,7 +124,9 @@ public class KidController extends GameController {
             selectedKid.isWalking();
             if (selectedKid.isSelected() && !sentKids.contains(selectedKid)) {
                 sentKids.add(selectedKid);
-                repositionNeeded = true;
+                if (kids.indexOf(selectedKid) != kids.size() - 1) {
+                    repositionNeeded = true;
+                }
             }
         }
 
@@ -133,17 +139,11 @@ public class KidController extends GameController {
                 repositionQueue();
             }
             for (Kid kid : kids) {
-                if (sentKids.contains(kid)) {
-                    if (kid.getIsWalkingState()) {
-                        if (canContinueWalk(kid)) {
-                            moveKid(kid);
-                        }
-                        if (isInRangeJoeKid(joe, kid) && joe.getIsRaisingStopSign() && kid.getPosition().getX() > PASS_POINT + 10) {
-                            stopKid(kid);
-                        }
-                    } else {
-                        stopKid(kid);
-                    }
+                if (kid.getIsWalkingState() && canContinueWalk(kid)) {
+                    moveKid(kid);
+                }
+                if (isInRangeJoeKid(joe, kid) && joe.getIsRaisingStopSign() && kid.getPosition().getX() > PASS_POINT + 10) {
+                    stopKid(kid);
                 }
             }
             lastUpdateTime = time;
