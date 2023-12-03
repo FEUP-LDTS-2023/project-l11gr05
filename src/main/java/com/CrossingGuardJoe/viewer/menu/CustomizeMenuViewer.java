@@ -10,7 +10,7 @@ import com.CrossingGuardJoe.viewer.images.generator.Shape;
 
 import java.util.List;
 
-public class CustomizeMenuViewer extends Viewer<CustomizeMenu> implements InformationDrawer {
+public class CustomizeMenuViewer extends Viewer<CustomizeMenu> implements MenuInformationDrawer {
     private final int SELECTION_BOX_WIDTH = 235;
     private final int SELECTION_BOX_HEIGHT = 300;
     public CustomizeMenuViewer(CustomizeMenu model) {
