@@ -5,7 +5,7 @@ import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.menu.Menu;
 import com.CrossingGuardJoe.model.menu.Option;
 import com.CrossingGuardJoe.viewer.Viewer;
-import com.CrossingGuardJoe.viewer.images.defined.ArrowImages;
+import com.CrossingGuardJoe.viewer.images.defined.ToolImages;
 import com.CrossingGuardJoe.viewer.images.defined.LogoImages;
 
 public class MenuViewer extends Viewer<Menu> implements InformationDrawer {
@@ -29,7 +29,7 @@ public class MenuViewer extends Viewer<Menu> implements InformationDrawer {
                     option.name(), "#FFFFFF");
 
             if (getModel().isSelectedOption(i)) {
-                gui.drawImage(new Position(optionPosition.getX() - 15, optionPosition.getY()), ArrowImages.ARROW_RIGHT);
+                gui.drawImage(new Position(optionPosition.getX() - 15, optionPosition.getY()), ToolImages.ARROW_RIGHT);
             }
         }
     }
