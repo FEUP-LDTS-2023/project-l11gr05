@@ -30,7 +30,7 @@ public class CustomizeMenuViewer extends Viewer<CustomizeMenu> implements Inform
             for (int j = 0; j < levelOptions.size(); j++) {
 
                 Option option = levelOptions.get(j);
-                Position optionPosition = option.getPosition();
+                Position optionPosition = option.position();
 
                 // Column selected box drawer (green)
                 if (getModel().isSelectedElement(i)) {
@@ -46,12 +46,12 @@ public class CustomizeMenuViewer extends Viewer<CustomizeMenu> implements Inform
                 }
 
                 // Draw the options images (Joe, Kid and Car) and the text shadows (black)
-                gui.drawImage(optionPosition, option.getImage());
+                gui.drawImage(optionPosition, option.image());
 
                 // Draw the options text (white)
                 if (j > 0) {
                     gui.drawText(new Position(optionPosition.getX() - 1, optionPosition.getY() - 1),
-                            option.getName(), "#FFFFFF");
+                            option.name(), "#FFFFFF");
                 }
 
                 // Draw the selection arrow (green)
@@ -100,7 +100,7 @@ public class CustomizeMenuViewer extends Viewer<CustomizeMenu> implements Inform
 
     private void drawElementsColorSquare(GUI gui) {
         for (Option colorSquare : getModel().getDefinedColors()) {
-            gui.drawImage(colorSquare.getPosition(), colorSquare.getImage());
+            gui.drawImage(colorSquare.position(), colorSquare.image());
         }
     }
 

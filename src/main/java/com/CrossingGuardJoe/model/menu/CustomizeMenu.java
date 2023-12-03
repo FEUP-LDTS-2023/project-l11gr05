@@ -59,23 +59,23 @@ public class CustomizeMenu implements MenuNavigator{
         menuLevels.add(Cars);
 
         this.definedColors = Arrays.asList(
-                new Option("", new Position(menuLevels.get(0).get(1).getPosition().getX() - 13, menuLevels.get(0).get(1).getPosition().getY()),
+                new Option("", new Position(menuLevels.get(0).get(1).position().getX() - 13, menuLevels.get(0).get(1).position().getY()),
                         Shape.RectangleFilledGenerator(16, 16, '<', 1, '$')),
-                new Option("", new Position(menuLevels.get(0).get(2).getPosition().getX() - 13, menuLevels.get(0).get(2).getPosition().getY()),
+                new Option("", new Position(menuLevels.get(0).get(2).position().getX() - 13, menuLevels.get(0).get(2).position().getY()),
                         Shape.RectangleFilledGenerator(16, 16, '!', 1, '$')),
-                new Option("", new Position(menuLevels.get(0).get(3).getPosition().getX() - 13, menuLevels.get(0).get(3).getPosition().getY()),
+                new Option("", new Position(menuLevels.get(0).get(3).position().getX() - 13, menuLevels.get(0).get(3).position().getY()),
                         Shape.RectangleFilledGenerator(16, 16, '+', 1, '$')),
-                new Option("", new Position(menuLevels.get(0).get(4).getPosition().getX() - 13, menuLevels.get(0).get(4).getPosition().getY()),
+                new Option("", new Position(menuLevels.get(0).get(4).position().getX() - 13, menuLevels.get(0).get(4).position().getY()),
                         Shape.RectangleFilledGenerator(16, 16, '*', 1, '$')),
-                new Option("", new Position(menuLevels.get(1).get(1).getPosition().getX() - 13, menuLevels.get(1).get(1).getPosition().getY()),
+                new Option("", new Position(menuLevels.get(1).get(1).position().getX() - 13, menuLevels.get(1).get(1).position().getY()),
                         Shape.RectangleFilledGenerator(16, 16, '\'', 1, '$')),
-                new Option("", new Position(menuLevels.get(1).get(2).getPosition().getX() - 13, menuLevels.get(1).get(2).getPosition().getY()),
+                new Option("", new Position(menuLevels.get(1).get(2).position().getX() - 13, menuLevels.get(1).get(2).position().getY()),
                         Shape.RectangleFilledGenerator(16, 16, '(', 1, '$')),
-                new Option("", new Position(menuLevels.get(1).get(3).getPosition().getX() - 13, menuLevels.get(1).get(3).getPosition().getY()),
+                new Option("", new Position(menuLevels.get(1).get(3).position().getX() - 13, menuLevels.get(1).get(3).position().getY()),
                         Shape.RectangleFilledGenerator(16, 16, ')', 1, '$')),
-                new Option("", new Position(menuLevels.get(1).get(4).getPosition().getX() - 13, menuLevels.get(1).get(4).getPosition().getY()),
+                new Option("", new Position(menuLevels.get(1).get(4).position().getX() - 13, menuLevels.get(1).get(4).position().getY()),
                         Shape.RectangleFilledGenerator(16, 16, '&', 1, '$')),
-                new Option("", new Position(menuLevels.get(2).get(1).getPosition().getX() - 13, menuLevels.get(2).get(1).getPosition().getY()),
+                new Option("", new Position(menuLevels.get(2).get(1).position().getX() - 13, menuLevels.get(2).get(1).position().getY()),
                         Shape.RectangleFilledGenerator(16, 16, '@', 1, '$'))
         );
     }

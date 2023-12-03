@@ -1,7 +1,6 @@
 package com.CrossingGuardJoe.model.menu;
 
 import com.CrossingGuardJoe.model.Position;
-import com.CrossingGuardJoe.viewer.images.Font.FontImageFactory;
 
 import java.util.Arrays;
 import java.util.List;
