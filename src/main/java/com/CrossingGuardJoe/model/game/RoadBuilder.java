@@ -76,7 +76,7 @@ public class RoadBuilder {
         for (int i = 0; i < 3; i++) {
             Kid kid = new Kid(x, 330);
             kids.add(kid);
-            x += 10;
+            x += 9;
         }
         return kids;
     }

@@ -25,14 +25,14 @@ public class KidController extends GameController {
     private Command command;
     private static final int KID_STEP = 3;
     private static final double KID_SPEED = 0.005;
-    private static final int KID_DISTANCE = 10;
+    private static final int KID_DISTANCE = 9;
     private static final int PASS_POINT = 60;
     private static final int MAX_Y_DISTANCE = 500;
     private static final int Y_AFTER_HIT = 55;
     private long lastUpdateTime;
     private Kid selectedKid;
     private final Joe joe = getModel().getJoe();
-    private List<Kid> outKids = new ArrayList<>();
+    private List<Kid> sentKids = new ArrayList<>();
 
     public KidController(Road road) {
         super(road);
@@ -50,7 +50,14 @@ public class KidController extends GameController {
 
         for (int i = sentKidIndex + 1; i < kids.size(); i++) {
             Kid kid = kids.get(i);
-            kid.setPosition(new Position(kid.getPosition().getX() - KID_DISTANCE, kid.getPosition().getY()));
+            if (kid.getPosition().getX() < 430) {
+                kid.isNotWalking();
+                kid.setPosition(new Position(kid.getPosition().getX(), kid.getPosition().getY()));
+                stopKid(kid);
+            } else {
+                kid.isWalking();
+                kid.setPosition(new Position(kid.getPosition().getX() - 1, kid.getPosition().getY()));
+            }
         }
     }
 
@@ -96,7 +103,9 @@ public class KidController extends GameController {
 
         if (action == GUI.ACTION.DOWN && joeInRange) {
             selectedKid.isWalking();
-            outKids.add(selectedKid);
+            if (selectedKid.isSelected()) {
+                sentKids.add(selectedKid);
+            }
         }
 
         if (action == GUI.ACTION.UP && joeInRange && selectedKid.getPosition().getX() > PASS_POINT) {
@@ -104,11 +113,16 @@ public class KidController extends GameController {
         }
 
         if (time - lastUpdateTime > KID_SPEED) {
-            for (Kid kid : outKids) {
-                if (kid.getIsWalkingState()) {
-                    moveKid(kid);
-                } else {
-                    stopKid(kid);
+            for (Kid kid : kids) {
+                if (sentKids.contains(kid)) {
+                    if (kid.getIsWalkingState()) {
+                        moveKid(kid);
+                        if (isInRangeJoeKid(joe, kid) && joe.getIsRaisingStopSign()) {
+                            stopKid(kid);
+                        }
+                    } else {
+                        stopKid(kid);
+                    }
                 }
             }
             lastUpdateTime = time;
