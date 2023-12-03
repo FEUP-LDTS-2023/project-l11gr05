@@ -8,6 +8,7 @@ import com.CrossingGuardJoe.model.game.elements.Car;
 import com.CrossingGuardJoe.Game;
 
 public class CarController extends GameController {
+    private static final int CAR_STEP = 15;
     private static final double CAR_SPEED = 0.001;
     private long lastUpdateTime;
 
@@ -17,7 +18,7 @@ public class CarController extends GameController {
     }
 
     public void moveCar(Car car, Position position) {
-        car.setPosition(new Position(position.getX(), position.getY() + 15));
+        car.setPosition(new Position(position.getX(), position.getY() + CAR_STEP));
     }
 
     @Override
