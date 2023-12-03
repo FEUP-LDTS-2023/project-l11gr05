@@ -41,7 +41,9 @@ public class KidController extends GameController {
     }
 
     public void moveKid(Kid kid) {
-        KidAction(kid, new Position(kid.getPosition().getX() - KID_STEP, kid.getPosition().getY()), 'p');
+        if (kid.getCanMove()) {
+            KidAction(kid, new Position(kid.getPosition().getX() - KID_STEP, kid.getPosition().getY()), 'p');
+        }
     }
 
     public void moveKidAfterHit(Car car, Kid kid, int hitX, Iterator<Kid> kidIterator) {
@@ -65,9 +67,10 @@ public class KidController extends GameController {
         kid.setAndExecuteCommand(command);
     }
 
-    private void checkDistanceKidInFront(Kid kid) {
+    private void checkContinueWalk(Kid kid) {
         List<Kid> kids = getModel().getKids();
         int count = 0;
+
         for (Kid k : kids) {
             if (k == kid) {
                 break;
@@ -76,7 +79,6 @@ public class KidController extends GameController {
         }
         if (count > 0) {
             Kid kidInFront = kids.get(count - 1);
-            kid.setCanMove();
             if (kid.getPosition().getX() - kidInFront.getPosition().getX() <= KID_DISTANCE) {
                 stopKid(kid);
                 kid.setCannotMove();
@@ -145,7 +147,7 @@ public class KidController extends GameController {
                 if (sentKids.contains(kid)) {
                     if (kid.getIsWalkingState()) {
                         moveKid(kid);
-                        checkDistanceKidInFront(kid);
+                        checkContinueWalk(kid);
                         if (isInRangeJoeKid(joe, kid) && joe.getIsRaisingStopSign()) {
                             stopKid(kid);
                         }
@@ -164,13 +166,14 @@ public class KidController extends GameController {
     private void checkCollisions() {
         List<Car> cars = getModel().getCars();
         List<Kid> kids = getModel().getKids();
+        int hitX;
 
         Iterator<Kid> kidIterator = kids.iterator();
         while (kidIterator.hasNext()) {
             Kid kid = kidIterator.next();
             for (Car car : cars) {
                 if (isInRangeCarKid(car, kid)) {
-                    int hitX = kid.getPosition().getX();
+                    hitX = kid.getPosition().getX();
                     kid.isHit();
                     kid.isNotWalking();
                     checkDeathCount(kid);
@@ -181,7 +184,7 @@ public class KidController extends GameController {
     }
 
     private void checkDeathCount(Kid kid) {
-        if (!kid.getDeathCount()) {
+        if (!kid.getDeathCounted()) {
             joe.removeHeart();
             kid.setDead();
         }

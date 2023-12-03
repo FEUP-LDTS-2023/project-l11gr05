@@ -6,7 +6,7 @@ public class Kid extends Element {
     private boolean hit = false;
     private boolean selected = false;
     private boolean firstHalfOfMovement = true;
-    private boolean cannotMove = false;
+    private boolean canMove = true;
     private boolean deadCount = false;
 
     public Kid(int x, int y) {
@@ -68,7 +68,7 @@ public class Kid extends Element {
         this.deadCount = true;
     }
 
-    public boolean getDeathCount() {
+    public boolean getDeathCounted() {
         return this.deadCount;
     }
 
@@ -77,14 +77,14 @@ public class Kid extends Element {
     }
 
     public void setCannotMove() {
-        this.cannotMove = true;
+        this.canMove = false;
     }
 
     public void setCanMove() {
-        this.cannotMove = false;
+        this.canMove = true;
     }
 
     public boolean getCanMove() {
-        return cannotMove;
+        return canMove;
     }
 }
