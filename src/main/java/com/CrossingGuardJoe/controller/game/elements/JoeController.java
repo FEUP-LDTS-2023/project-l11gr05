@@ -18,7 +18,6 @@ import static com.CrossingGuardJoe.controller.game.AuxCheckRange.isInRangeRightC
 
 public class JoeController extends GameController {
     private GUI.ACTION lastAction = GUI.ACTION.NONE;
-    private Command command;
     private boolean isHitCooldownActive = false;
     private long hitCooldownEndTime = 0;
     private static final long COOLDOWN_DURATION = 1250;
@@ -70,26 +69,24 @@ public class JoeController extends GameController {
     public void JoeAction(Position position, char passOrStop) {
         switch (passOrStop) {
             case 'p':
-                this.command = new JoeRaisingPassSign(getModel().getJoe());
+                getModel().getJoe().startRaisingPassSign();
                 break;
             case 's':
-                this.command = new JoeRaisingStopSign(getModel().getJoe());
+                getModel().getJoe().startRaisingStopSign();
                 break;
             case 'l':
                 getModel().getJoe().setPosition(position);
-                this.command = new JoeWalkToLeftCommand(getModel().getJoe());
+                getModel().getJoe().startWalkingToLeft();
                 break;
             case 'r':
                 getModel().getJoe().setPosition(position);
-                this.command = new JoeWalkToRightCommand(getModel().getJoe());
+                getModel().getJoe().startWalkingToRight();
                 break;
         }
-        getModel().getJoe().setAndExecuteCommand(command);
     }
 
     public void joeNotWalking() {
-        this.command = new JoeStopWalkCommand(getModel().getJoe());
-        getModel().getJoe().setAndExecuteCommand(command);
+        getModel().getJoe().stopWalking();
     }
 
     private boolean canGoThrough(Position position) {
@@ -102,7 +99,6 @@ public class JoeController extends GameController {
 
     @Override
     public void nextAction(Game game, GUI.ACTION action, long time) {
-        //this one, joe will stop walking if the key direction is different
         if (action == GUI.ACTION.LEFT && lastAction == GUI.ACTION.RIGHT || action == GUI.ACTION.RIGHT && lastAction == GUI.ACTION.LEFT) {
             setLastActionNone();
         }
