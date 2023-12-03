@@ -15,7 +15,6 @@ public interface GUI {
     void setColorHexaCode(String hexCode);
     void addColorMapping(char oldCharacter, char newCharacter);
 
-
     ACTION getNextAction() throws IOException;
 
     enum ACTION {

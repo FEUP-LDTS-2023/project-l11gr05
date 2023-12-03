@@ -31,14 +31,14 @@ public class JoeControllerTest {
     public void testJoePassSign() {
         joeController.joePassSign();
 
-        verify(joeController.getModel().getJoe()).passSign();
+        verify(joeController.getModel().getJoe()).getIsPassSign();
     }
 
     @Test
     public void testJoeStopSign() {
         joeController.joeStopSign();
 
-        verify(joeController.getModel().getJoe()).isRaisingStopSign();
+        verify(joeController.getModel().getJoe()).getIsRaisingStopSign();
     }
 
     @Test
@@ -47,7 +47,7 @@ public class JoeControllerTest {
 
         joeController.JoeAction(initialPos, 'l');
 
-        verify(joeController.getModel().getJoe()).isWalkingToLeft();
+        verify(joeController.getModel().getJoe()).getIsWalkingToLeft();
         verify(joeController.getModel().getJoe()).setPosition(initialPos);
     }
 
@@ -57,7 +57,7 @@ public class JoeControllerTest {
 
         joeController.JoeAction(initialPos, 'r');
 
-        verify(joeController.getModel().getJoe()).isWalkingToRight();
+        verify(joeController.getModel().getJoe()).getIsWalkingToLeft();
         verify(joeController.getModel().getJoe()).setPosition(initialPos);
     }
 }

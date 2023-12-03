@@ -131,7 +131,7 @@ public class LanternaGUI implements GUI {
         colorCustomize.addMapping(oldCharacter, newCharacter);
     }
 
-    private void drawImageCustomColor(Position position, String[] image, String colorHexCode) {
+    public void drawImageCustomColor(Position position, String[] image, String colorHexCode) {
         int yPos = position.getY();
         for (String imageLine : image) {
             drawLineCustomColor(position.getX(), yPos, imageLine, colorHexCode);

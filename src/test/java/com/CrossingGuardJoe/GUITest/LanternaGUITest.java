@@ -1,20 +1,26 @@
 package com.CrossingGuardJoe.GUITest;
 
+import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.gui.LanternaGUI;
 import com.CrossingGuardJoe.model.Position;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
+import com.googlecode.lanterna.input.KeyStroke;
+import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import org.mockito.stubbing.OngoingStubbing;
 
+import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 public class LanternaGUITest {
@@ -82,8 +88,45 @@ public class LanternaGUITest {
         };
 
         lanternaGUI.drawImage(position, testImage);
-
-        // Verify if drawLine was called for each line in the image
+        
         verify(textGraphicsMock, times(testImage[0].length() * testImage.length)).fillRectangle(any(), any(), anyChar());
     }
+
+    @Test
+    public void testCloseScreen() throws IOException {
+        lanternaGUI.closeScreen();
+
+        verify(screenMock).close();
+    }
+
+    @Test
+    public void testSetColorHexaCode() {
+        lanternaGUI.setColorHexaCode("#FF0000");
+
+        verify(textGraphicsMock).setBackgroundColor(TextColor.Factory.fromString("#FF0000"));
+    }
+
+    @Test
+    public void testAddAndGetColorMapping() {
+        lanternaGUI.addColorMapping('a', 'b');
+        assertEquals('b', lanternaGUI.getMappedCharacter('a'));
+    }
+
+    @Test
+    public void testDrawImageCustomColor() {
+        Position position = new Position(5, 5);
+        String[] testImage = {
+                "#####",
+                "#####",
+                "#####"
+        };
+        String colorHexCode = "#FFFF00";
+
+        lanternaGUI.drawImageCustomColor(position, testImage, colorHexCode);
+
+        verify(textGraphicsMock, times(testImage[0].length() * testImage.length))
+                .setBackgroundColor(TextColor.Factory.fromString(colorHexCode));
+        verify(textGraphicsMock, times(testImage[0].length() * testImage.length)).fillRectangle(any(), any(), anyChar());
+    }
+
 }
