@@ -25,7 +25,7 @@ public class KidController extends GameController {
     private Command command;
     private static final int KID_STEP = 3;
     private static final double KID_SPEED = 0.005;
-    private static final int KID_DISTANCE = 9;
+    private static final int MIN_KID_DISTANCE = 9;
     private static final int PASS_POINT = 60;
     private static final int MAX_Y_DISTANCE = 500;
     private static final int Y_AFTER_HIT = 55;
@@ -41,9 +41,7 @@ public class KidController extends GameController {
     }
 
     public void moveKid(Kid kid) {
-        if (kid.getCanMove()) {
-            KidAction(kid, new Position(kid.getPosition().getX() - KID_STEP, kid.getPosition().getY()), 'p');
-        }
+        KidAction(kid, new Position(kid.getPosition().getX() - KID_STEP, kid.getPosition().getY()), 'p');
     }
 
     public void moveKidAfterHit(Car car, Kid kid, int hitX, Iterator<Kid> kidIterator) {
@@ -67,23 +65,26 @@ public class KidController extends GameController {
         kid.setAndExecuteCommand(command);
     }
 
-    private void checkContinueWalk(Kid kid) {
+    private boolean isFirstKid(Kid kid) {
         List<Kid> kids = getModel().getKids();
-        int count = 0;
+        return kids.indexOf(kid) == 0;
+    }
 
-        for (Kid k : kids) {
-            if (k == kid) {
-                break;
-            }
-            count++;
+    private boolean inMinDistance(Kid kid) {
+        List<Kid> kids = getModel().getKids();
+        if (!isFirstKid(kid)) {
+            Kid kidInFront = kids.get(kids.indexOf(kid) - 1);
+            return kid.getPosition().getX() - kidInFront.getPosition().getX() <= MIN_KID_DISTANCE;
         }
-        if (count > 0) {
-            Kid kidInFront = kids.get(count - 1);
-            if (kid.getPosition().getX() - kidInFront.getPosition().getX() <= KID_DISTANCE) {
-                stopKid(kid);
-                kid.setCannotMove();
-            }
+        return false;
+    }
+
+    private boolean canContinueWalk(Kid kid) {
+        if (!isFirstKid(kid) && inMinDistance(kid)) {
+            stopKid(kid);
+            return false;
         }
+        return true;
     }
 
     private void repositionQueue(Kid sentKid) {
@@ -92,7 +93,7 @@ public class KidController extends GameController {
         Kid kidInFront = kids.get(sentKidIndex);
         for (int i = sentKidIndex + 1; i < kids.size(); i++) {
             Kid kid = kids.get(i);
-            boolean shouldStop = kid.getPosition().getX() - kidInFront.getPosition().getX() <= KID_DISTANCE;
+            boolean shouldStop = kid.getPosition().getX() - kidInFront.getPosition().getX() <= MIN_KID_DISTANCE;
             /*while (kid.getPosition().getX() > INITIAL_POSITION && !shouldStop) {
                 kid.isWalking();
                 moveKid(kid);
@@ -146,9 +147,9 @@ public class KidController extends GameController {
             for (Kid kid : kids) {
                 if (sentKids.contains(kid)) {
                     if (kid.getIsWalkingState()) {
-                        moveKid(kid);
-                        checkContinueWalk(kid);
-                        if (isInRangeJoeKid(joe, kid) && joe.getIsRaisingStopSign()) {
+                        if (canContinueWalk(kid)) {
+                            moveKid(kid);
+                        } else if (isInRangeJoeKid(joe, kid) && joe.getIsRaisingStopSign()) {
                             stopKid(kid);
                         }
                     } else {
@@ -161,6 +162,7 @@ public class KidController extends GameController {
 
         checkCollisions();
         checkPoints();
+        checkLoss(); //temporary implemented
     }
 
     private void checkCollisions() {
@@ -198,6 +200,13 @@ public class KidController extends GameController {
                 joe.addScore(kid.getPoints());
                 kidIterator.remove();
             }
+        }
+    }
+
+    private void checkLoss() {
+        if (joe.getHearts() == 0) {
+            //temporary
+            System.out.println("loss");
         }
     }
 }

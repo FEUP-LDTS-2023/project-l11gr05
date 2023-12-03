@@ -21,7 +21,8 @@ public class JoeController extends GameController {
     private Command command;
     private static final int JOE_MIN_X_DISTANCE = 50;
     private static final int JOE_MAX_X_DISTANCE = 414;
-    private static final int JOE_STEP = 10;
+    private static final int JOE_STEP = 6;
+    private static final int JOE_AFTER_HIT = 10;
 
     public JoeController(Road road) {
         super(road);
@@ -40,23 +41,23 @@ public class JoeController extends GameController {
     }
 
     public void moveJoeLeft() {
-        moveJoe(-6, 'l');
+        moveJoe(-JOE_STEP, 'l');
     }
 
     public void moveJoeRight() {
-        moveJoe(6, 'r');
+        moveJoe(JOE_STEP, 'r');
     }
 
     public void moveJoeLeftHit() {
         setLastActionNone();
         Joe joe = getModel().getJoe();
-        joe.setPosition(new Position(joe.getPosition().getX() - JOE_STEP, joe.getPosition().getY()));
+        joe.setPosition(new Position(joe.getPosition().getX() - JOE_AFTER_HIT, joe.getPosition().getY()));
     }
 
     public void moveJoeRightHit() {
         setLastActionNone();
         Joe joe = getModel().getJoe();
-        joe.setPosition(new Position(joe.getPosition().getX() + JOE_STEP, joe.getPosition().getY()));
+        joe.setPosition(new Position(joe.getPosition().getX() + JOE_AFTER_HIT, joe.getPosition().getY()));
     }
 
     public void joePassSign() {

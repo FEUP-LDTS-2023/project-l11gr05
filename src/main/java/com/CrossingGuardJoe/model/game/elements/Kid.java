@@ -75,16 +75,4 @@ public class Kid extends Element {
     public int getPoints() {
         return 100;
     }
-
-    public void setCannotMove() {
-        this.canMove = false;
-    }
-
-    public void setCanMove() {
-        this.canMove = true;
-    }
-
-    public boolean getCanMove() {
-        return canMove;
-    }
 }
