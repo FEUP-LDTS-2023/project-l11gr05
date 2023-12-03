@@ -6,14 +6,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public class InstructionsMenu implements MenuNavigator {
-    private final List<Option> pages;
-    private int currentPage = 0;
+    private final int LAST_PAGE = 2;
+    private int currentPage;
 
     public InstructionsMenu() {
-        this.pages = Arrays.asList(
-                new Option("1", new Position(400, 400), null),
-                new Option("2", new Position(400, 400), null)
-        );
+        currentPage = 1;
     }
 
     @Override
@@ -24,23 +21,24 @@ public class InstructionsMenu implements MenuNavigator {
 
     @Override
     public void navigateRight() {
-        currentPage = (currentPage + 1) % pages.size();
+        if (currentPage < LAST_PAGE) {
+            currentPage++;
+        }
     }
 
     @Override
     public void navigateLeft() {
-        currentPage = (currentPage - 1) % pages.size();
+        if (currentPage > 1) {
+            currentPage--;
+        }
     }
 
-    public Option getCurrentPage() {
-        return pages.get(currentPage);
+    public int getCurrentPage() {
+        return currentPage;
     }
 
     public int getTotalPages() {
-        return pages.size();
+        return LAST_PAGE;
     }
 
-    public boolean isLastPage() {
-        return currentPage == pages.size() - 1;
-    }
 }

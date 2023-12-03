@@ -14,6 +14,16 @@ public class InstructionsMenuController extends Controller<InstructionsMenu> {
 
     @Override
     public void nextAction(Game game, GUI.ACTION action, long time) throws IOException {
-
+        switch (action) {
+            case RIGHT:
+                getModel().navigateRight();
+                break;
+            case LEFT:
+                getModel().navigateLeft();
+                break;
+            case ESC:
+                game.popState();
+                break;
+        }
     }
 }
