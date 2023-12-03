@@ -145,7 +145,8 @@ public class KidController extends GameController {
                     if (kid.getIsWalkingState()) {
                         if (canContinueWalk(kid)) {
                             moveKid(kid);
-                        } else if (isInRangeJoeKid(joe, kid) && joe.getIsRaisingStopSign()) {
+                        }
+                        if (isInRangeJoeKid(joe, kid) && joe.getIsRaisingStopSign()) {
                             stopKid(kid);
                         }
                     } else {
