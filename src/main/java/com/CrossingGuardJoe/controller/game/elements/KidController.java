@@ -29,10 +29,11 @@ public class KidController extends GameController {
     private static final int PASS_POINT = 60;
     private static final int MAX_Y_DISTANCE = 500;
     private static final int Y_AFTER_HIT = 55;
+    private static final int INITIAL_POSITION = 430;
     private long lastUpdateTime;
     private Kid selectedKid;
     private final Joe joe = getModel().getJoe();
-    private List<Kid> sentKids = new ArrayList<>();
+    private final List<Kid> sentKids = new ArrayList<>();
 
     public KidController(Road road) {
         super(road);
@@ -41,30 +42,11 @@ public class KidController extends GameController {
 
     public void moveKid(Kid kid) {
         KidAction(kid, new Position(kid.getPosition().getX() - KID_STEP, kid.getPosition().getY()), 'p');
-        repositionQueue(kid);
-    }
-
-    private void repositionQueue(Kid sentKid) {
-        List<Kid> kids = getModel().getKids();
-        int sentKidIndex = kids.indexOf(sentKid);
-
-        for (int i = sentKidIndex + 1; i < kids.size(); i++) {
-            Kid kid = kids.get(i);
-            if (kid.getPosition().getX() < 430) {
-                kid.isNotWalking();
-                kid.setPosition(new Position(kid.getPosition().getX(), kid.getPosition().getY()));
-                stopKid(kid);
-            } else {
-                kid.isWalking();
-                kid.setPosition(new Position(kid.getPosition().getX() - 1, kid.getPosition().getY()));
-            }
-        }
     }
 
     public void moveKidAfterHit(Car car, Kid kid, int hitX, Iterator<Kid> kidIterator) {
         if (kid.getPosition().getY() > MAX_Y_DISTANCE) {
             kidIterator.remove();
-            joe.removeHeart();
         }
         kid.setPosition(new Position(hitX, car.getPosition().getY() + Y_AFTER_HIT));
     }
@@ -81,6 +63,51 @@ public class KidController extends GameController {
             this.command = new KidStopCommand(kid);
         }
         kid.setAndExecuteCommand(command);
+    }
+
+    private void checkDistanceKidInFront(Kid kid) {
+        List<Kid> kids = getModel().getKids();
+        int count = 0;
+        for (Kid k : kids) {
+            if (k == kid) {
+                break;
+            }
+            count++;
+        }
+        if (count > 0) {
+            Kid kidInFront = kids.get(count - 1);
+            kid.setCanMove();
+            if (kid.getPosition().getX() - kidInFront.getPosition().getX() <= KID_DISTANCE) {
+                stopKid(kid);
+                kid.setCannotMove();
+            }
+        }
+    }
+
+    private void repositionQueue(Kid sentKid) {
+        List<Kid> kids = getModel().getKids();
+        int sentKidIndex = kids.indexOf(sentKid);
+        Kid kidInFront = kids.get(sentKidIndex);
+        for (int i = sentKidIndex + 1; i < kids.size(); i++) {
+            Kid kid = kids.get(i);
+            boolean shouldStop = kid.getPosition().getX() - kidInFront.getPosition().getX() <= KID_DISTANCE;
+            /*while (kid.getPosition().getX() > INITIAL_POSITION && !shouldStop) {
+                kid.isWalking();
+                moveKid(kid);
+            }
+            kid.isNotWalking();
+            kid.setPosition(new Position(kid.getPosition().getX(), kid.getPosition().getY()));
+            stopKid(kid);*/
+            if (kid.getPosition().getX() <= INITIAL_POSITION && shouldStop) {
+                kid.isNotWalking();
+                kid.setPosition(new Position(kid.getPosition().getX(), kid.getPosition().getY()));
+                stopKid(kid);
+            } else {
+                kid.isWalking();
+                kid.setPosition(new Position(kid.getPosition().getX() - KID_STEP, kid.getPosition().getY()));
+            }
+            kidInFront = kid;
+        }
     }
 
     @Override
@@ -103,7 +130,8 @@ public class KidController extends GameController {
 
         if (action == GUI.ACTION.DOWN && joeInRange) {
             selectedKid.isWalking();
-            if (selectedKid.isSelected()) {
+            //repositionQueue(selectedKid);
+            if (selectedKid.isSelected() && !sentKids.contains(selectedKid)) {
                 sentKids.add(selectedKid);
             }
         }
@@ -117,6 +145,7 @@ public class KidController extends GameController {
                 if (sentKids.contains(kid)) {
                     if (kid.getIsWalkingState()) {
                         moveKid(kid);
+                        checkDistanceKidInFront(kid);
                         if (isInRangeJoeKid(joe, kid) && joe.getIsRaisingStopSign()) {
                             stopKid(kid);
                         }
@@ -144,9 +173,17 @@ public class KidController extends GameController {
                     int hitX = kid.getPosition().getX();
                     kid.isHit();
                     kid.isNotWalking();
+                    checkDeathCount(kid);
                     moveKidAfterHit(car, kid, hitX, kidIterator);
                 }
             }
+        }
+    }
+
+    private void checkDeathCount(Kid kid) {
+        if (!kid.getDeathCount()) {
+            joe.removeHeart();
+            kid.setDead();
         }
     }
 
