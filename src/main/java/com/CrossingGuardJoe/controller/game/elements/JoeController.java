@@ -3,11 +3,9 @@ package com.CrossingGuardJoe.controller.game.elements;
 import com.CrossingGuardJoe.controller.game.GameController;
 import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.Position;
-import com.CrossingGuardJoe.model.commands.JoeCommand.*;
 import com.CrossingGuardJoe.model.game.Road;
 import com.CrossingGuardJoe.Game;
 import com.CrossingGuardJoe.model.game.elements.Car;
-import com.CrossingGuardJoe.model.commands.Command;
 import com.CrossingGuardJoe.model.game.elements.Joe;
 
 import java.util.List;

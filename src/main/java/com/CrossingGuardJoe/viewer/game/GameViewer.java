@@ -11,7 +11,7 @@ import com.CrossingGuardJoe.viewer.game.elements.ElementViewer;
 import com.CrossingGuardJoe.viewer.game.elements.JoeView;
 import com.CrossingGuardJoe.viewer.game.elements.KidView;
 import com.CrossingGuardJoe.viewer.images.defined.HUDImages;
-import com.CrossingGuardJoe.viewer.images.defined.RoadElementsImages;
+import com.CrossingGuardJoe.viewer.images.defined.RoadItemsImages;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -85,8 +85,8 @@ public class GameViewer extends Viewer<Road> implements RoadView{
 
     @Override
     public void drawRoadItems() {
-        gui.drawImage(new Position(426, 258), RoadElementsImages.SIGNAL);
-        gui.drawImage(new Position(55, 258), RoadElementsImages.SIGNAL);
+        gui.drawImage(new Position(426, 258), RoadItemsImages.SIGNAL);
+        gui.drawImage(new Position(55, 258), RoadItemsImages.SIGNAL);
     }
 
     private void drawHUD(GUI gui) {

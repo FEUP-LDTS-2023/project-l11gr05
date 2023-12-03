@@ -1,7 +1,5 @@
 package com.CrossingGuardJoe.model.game.elements;
 
-import com.CrossingGuardJoe.model.commands.Command;
-
 public class Joe extends Element{
     private int Score;
     private final int MAX_SCORE = 99999;

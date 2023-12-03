@@ -1,6 +1,6 @@
 package com.CrossingGuardJoe.viewer.images.defined;
 
-public class RoadElementsImages {
+public class RoadItemsImages {
     public static final String[] SIGNAL = {
             "                 $$$$$                 ",
             "                $$qqq$$                ",
