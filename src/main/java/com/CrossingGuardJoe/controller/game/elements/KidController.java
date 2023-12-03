@@ -21,7 +21,7 @@ public class KidController extends GameController {
     private static final int KID_STEP = 3;
     private static final double KID_SPEED = 0.005;
     private static final int MIN_KID_DISTANCE = 9;
-    private static final int PASS_POINT = 60;
+    private static final int PASS_POINT = 70;
     private static final int MIN_Y_DISTANCE = 0;
     private static final int MAX_Y_DISTANCE = 500;
     private static final int Y_AFTER_HIT = 55;
@@ -88,10 +88,12 @@ public class KidController extends GameController {
         Kid lastSentKid = sentKids.get(sentKids.size() - 1);
         for (int i = kids.indexOf(lastSentKid) + 1; i < kids.size(); i++) {
             Kid kid = kids.get(i);
-            for (int j = 0; j < 3; j++) {
-                moveKid(kid);
+            if (!sentKids.contains(kid)) {
+                for (int j = 0; j < MIN_KID_DISTANCE / KID_STEP; j++) {
+                    moveKid(kid);
+                }
+                stopKid(kid);
             }
-            stopKid(kid);
         }
     }
 
@@ -133,6 +135,9 @@ public class KidController extends GameController {
                             moveKid(kid);
                         }
                         if (isInRangeJoeKid(joe, kid) && joe.getIsRaisingStopSign()) {
+                            if (canContinueWalk(kid)) {
+                                moveKid(kid);
+                            }
                             stopKid(kid);
                         }
                     } else {
@@ -143,7 +148,7 @@ public class KidController extends GameController {
             lastUpdateTime = time;
         }
 
-        checkCollisions();
+        //checkCollisions();
         checkPoints();
         checkLoss(); //temporary implemented
     }
