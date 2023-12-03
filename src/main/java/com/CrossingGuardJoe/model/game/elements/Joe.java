@@ -7,7 +7,6 @@ public class Joe extends Element{
     private final int MAX_SCORE = 99999;
     private int Hearts;
     private final int MAX_HEARTS = 10;
-    private Command currentCommand;
     private boolean walking = false;
     private boolean isWalkingToLeft = true;
     private boolean raisingStopSign = false;
@@ -36,20 +35,6 @@ public class Joe extends Element{
 
     public void removeHeart() {
         this.Hearts--;
-    }
-
-    public void setAndExecuteCommand(Command command) {
-        this.currentCommand = command;
-        if (currentCommand != null) {
-            currentCommand.execute();
-        }
-    }
-
-    public void isWalkingToLeft() {
-        walking = true;
-        isWalkingToLeft = true;
-        raisingStopSign = false;
-        passSign = false;
     }
 
     public void startWalkingToLeft() {
