@@ -5,6 +5,7 @@ public class Kid extends Element {
     private boolean hit = false;
     private boolean selected = false;
     private boolean firstHalfOfMovement = true;
+    private boolean deathCount = false;
 
     public Kid(int x, int y) {
         super(x, y);
@@ -15,8 +16,8 @@ public class Kid extends Element {
     }
 
     public void isNotWalking() {
-        walking = false;
-        firstHalfOfMovement = true;
+        this.walking = false;
+        this.firstHalfOfMovement = true;
     }
 
     public boolean getIsWalkingState() {
@@ -44,11 +45,19 @@ public class Kid extends Element {
     }
 
     public void isHit() {
-        hit = true;
-        selected = false;
+        this.hit = true;
+        this.selected = false;
     }
 
-    public boolean getIsHit() { return hit;}
+    public boolean getIsHit() { return this.hit;}
+
+    public void setDead() {
+        this.deathCount = true;
+    }
+
+    public boolean getDeathCounted() {
+        return this.deathCount;
+    }
 
     public int getPoints() {
         return 100;
