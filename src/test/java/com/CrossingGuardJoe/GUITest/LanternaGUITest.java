@@ -88,7 +88,7 @@ public class LanternaGUITest {
         };
 
         lanternaGUI.drawImage(position, testImage);
-        
+
         verify(textGraphicsMock, times(testImage[0].length() * testImage.length)).fillRectangle(any(), any(), anyChar());
     }
 
@@ -128,5 +128,6 @@ public class LanternaGUITest {
                 .setBackgroundColor(TextColor.Factory.fromString(colorHexCode));
         verify(textGraphicsMock, times(testImage[0].length() * testImage.length)).fillRectangle(any(), any(), anyChar());
     }
+
 
 }
