@@ -82,30 +82,16 @@ public class KidController extends GameController {
         return true;
     }
 
-    private void repositionQueue(Kid sentKid) {
+    private void repositionQueue() {
         List<Kid> kids = getModel().getKids();
-        int sentKidIndex = kids.indexOf(sentKid);
-        Kid kidInFront = kids.get(sentKidIndex);
 
-        for (int i = sentKidIndex + 1; i < kids.size(); i++) {
+        Kid lastSentKid = sentKids.get(sentKids.size() - 1);
+        for (int i = kids.indexOf(lastSentKid) + 1; i < kids.size(); i++) {
             Kid kid = kids.get(i);
-            boolean shouldStop = kid.getPosition().getX() - kidInFront.getPosition().getX() <= MIN_KID_DISTANCE;
-            /*while (kid.getPosition().getX() > INITIAL_POSITION && !shouldStop) {
-                kid.isWalking();
+            for (int j = 0; j < 3; j++) {
                 moveKid(kid);
             }
-            kid.isNotWalking();
-            kid.setPosition(new Position(kid.getPosition().getX(), kid.getPosition().getY()));
-            stopKid(kid);*/
-            if (kid.getPosition().getX() <= INITIAL_POSITION && shouldStop) {
-                kid.isNotWalking();
-                kid.setPosition(new Position(kid.getPosition().getX(), kid.getPosition().getY()));
-                stopKid(kid);
-            } else {
-                kid.isWalking();
-                kid.setPosition(new Position(kid.getPosition().getX() - KID_STEP, kid.getPosition().getY()));
-            }
-            kidInFront = kid;
+            stopKid(kid);
         }
     }
 
@@ -129,9 +115,9 @@ public class KidController extends GameController {
 
         if (action == GUI.ACTION.DOWN && joeInRange) {
             selectedKid.isWalking();
-            //repositionQueue(selectedKid);
             if (selectedKid.isSelected() && !sentKids.contains(selectedKid)) {
                 sentKids.add(selectedKid);
+                repositionQueue();
             }
         }
 
