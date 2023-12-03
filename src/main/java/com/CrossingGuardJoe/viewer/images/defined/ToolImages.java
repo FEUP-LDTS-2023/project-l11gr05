@@ -1,6 +1,6 @@
 package com.CrossingGuardJoe.viewer.images.defined;
 
-public class ArrowImages {
+public class ToolImages {
     public static final String[] ARROW_DOWN = {
             "$$$$$$$$$$$$$$$$",
             "$$GGGGGGGGGGGG$$",

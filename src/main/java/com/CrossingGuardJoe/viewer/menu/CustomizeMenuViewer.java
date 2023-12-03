@@ -5,7 +5,7 @@ import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.menu.CustomizeMenu;
 import com.CrossingGuardJoe.model.menu.Option;
 import com.CrossingGuardJoe.viewer.*;
-import com.CrossingGuardJoe.viewer.images.defined.ArrowImages;
+import com.CrossingGuardJoe.viewer.images.defined.ToolImages;
 import com.CrossingGuardJoe.viewer.images.generator.Shape;
 
 import java.util.List;
@@ -56,7 +56,7 @@ public class CustomizeMenuViewer extends Viewer<CustomizeMenu> implements Inform
 
                 // Draw the selection arrow (green)
                 if (getModel().isSelectedOption(i, j)) {
-                    gui.drawImage(new Position(optionPosition.getX() - 30, optionPosition.getY()), ArrowImages.ARROW_RIGHT);
+                    gui.drawImage(new Position(optionPosition.getX() - 30, optionPosition.getY()), ToolImages.ARROW_RIGHT);
                 }
             }
         }
@@ -67,7 +67,7 @@ public class CustomizeMenuViewer extends Viewer<CustomizeMenu> implements Inform
         if (getModel().isColorPaletteSelected()) {
             for (int i = 0; i < getModel().getColorPaletteMenu().getColorPalette().size(); i++) {
                 if (getModel().getColorPaletteMenu().isColorSelected(i)) {
-                    gui.drawImage(new Position(15 * i + 55, 405), ArrowImages.ARROW_DOWN);
+                    gui.drawImage(new Position(15 * i + 55, 405), ToolImages.ARROW_DOWN);
                 }
             }
         }

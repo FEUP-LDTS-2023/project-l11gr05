@@ -3,7 +3,7 @@ package com.CrossingGuardJoe.viewer.game.elements;
 import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.game.elements.Kid;
-import com.CrossingGuardJoe.viewer.images.defined.ArrowImages;
+import com.CrossingGuardJoe.viewer.images.defined.ToolImages;
 import com.CrossingGuardJoe.viewer.images.defined.KidImages;
 
 public class KidView extends ElementViewer<Kid> {
@@ -15,7 +15,7 @@ public class KidView extends ElementViewer<Kid> {
             return;
         }
         if (kid.isSelected()) {
-            gui.drawImage(new Position(kid.getPosition().getX() + 7, kid.getPosition().getY() - 20), ArrowImages.ARROW_DOWN);
+            gui.drawImage(new Position(kid.getPosition().getX() + 7, kid.getPosition().getY() - 20), ToolImages.ARROW_DOWN);
         }
         if (kid.getIsWalkingState()) {
             if (kid.isFirstHalfOfMovement()) {
