@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class InstructionsMenu implements MenuNavigator {
-    private final int LAST_PAGE = 2;
+    private final int LAST_PAGE = 5;
     private int currentPage;
 
     public InstructionsMenu() {

@@ -6,6 +6,7 @@ import com.CrossingGuardJoe.model.menu.InstructionsMenu;
 import com.CrossingGuardJoe.viewer.Viewer;
 import com.CrossingGuardJoe.viewer.images.defined.JoeImages;
 import com.CrossingGuardJoe.viewer.images.defined.ToolImages;
+import com.CrossingGuardJoe.viewer.images.generator.Shape;
 
 public class InstructionsMenuViewer extends Viewer<InstructionsMenu> implements MenuInformationDrawer {
     public InstructionsMenuViewer(InstructionsMenu model) {
@@ -14,7 +15,11 @@ public class InstructionsMenuViewer extends Viewer<InstructionsMenu> implements 
 
     @Override
     protected void drawElements(GUI gui) {
+        drawTitle(gui);
         drawInformation(gui);
+
+        gui.drawImage(new Position(20, 50), Shape.RectangleFilledGenerator(920, 410, 'K', 2, '$'));
+
         if (getModel().getCurrentPage() == 1) {
             drawPageOne(gui);
         }
@@ -22,15 +27,16 @@ public class InstructionsMenuViewer extends Viewer<InstructionsMenu> implements 
 
     @Override
     public void drawTitle(GUI gui) {
-        gui.drawText(new Position(203, 29), "Instructions", "#000000");
-        gui.drawText(new Position(202, 28), "Instructions", "#FFFFFF");
+        gui.drawText(new Position(203, 18), "Instructions", "#000000");
+        gui.drawText(new Position(202, 17), "Instructions", "#FFFFFF");
 
     }
 
     @Override
     public void drawInformation(GUI gui) {
         int PAGES_INI_X = 400;
-        int PAGES_Y = 480;
+        int PAGES_Y = 474;
+
         //shadows
         gui.drawText(new Position(PAGES_INI_X + 1, PAGES_Y + 1), "Page", "#000000");
         gui.drawText(new Position(PAGES_INI_X + 40 + 1, PAGES_Y + 1), getModel().getCurrentPage(), "#000000");
@@ -39,14 +45,19 @@ public class InstructionsMenuViewer extends Viewer<InstructionsMenu> implements 
 
         //text
         gui.drawText(new Position(PAGES_INI_X, PAGES_Y), "Page", "#FFFFFF");
-        gui.drawText(new Position(PAGES_INI_X + 40, PAGES_Y), getModel().getCurrentPage(), "#FFFFFF");
         gui.drawText(new Position(PAGES_INI_X + 54, PAGES_Y), "of", "#FFFFFF");
         gui.drawText(new Position(PAGES_INI_X + 74, PAGES_Y), getModel().getTotalPages(), "#FFFFFF");
+
+        if (getModel().getCurrentPage() == getModel().getTotalPages()) {
+            gui.drawText(new Position(PAGES_INI_X + 40, PAGES_Y), getModel().getCurrentPage(), "#D30000");
+        } else {
+            gui.drawText(new Position(PAGES_INI_X + 40, PAGES_Y), getModel().getCurrentPage(), "#FFFFFF");
+        }
+
+
     }
 
     private void drawPageOne(GUI gui) {
-        drawTitle(gui);
-
         gui.drawText(new Position(50 + 1, 100 + 1), "you are Joe", "#000000");
         gui.drawText(new Position(70 + 1, 120 + 1), "a crossing guard", "#000000");
 
