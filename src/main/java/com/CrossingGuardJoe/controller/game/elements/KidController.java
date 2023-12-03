@@ -19,7 +19,6 @@ import static com.CrossingGuardJoe.controller.game.AuxCheckRange.isInRangeCarKid
 import static com.CrossingGuardJoe.controller.game.AuxCheckRange.isInRangeJoeKid;
 
 public class KidController extends GameController {
-
     private static final double KID_SPEED = 0.005;
     private long lastUpdateTime;
     private boolean walking = false;
@@ -66,7 +65,7 @@ public class KidController extends GameController {
     }
 
     @Override
-    public void nextAction(Game game, GUI.ACTION action, long time) throws IOException {
+    public void nextAction(Game game, GUI.ACTION action, long time) {
         List<Kid> kids = getModel().getKids();
         //moveKidsToBegin(kids);
 
@@ -98,12 +97,12 @@ public class KidController extends GameController {
             stopKid(selectedKid);
         }
 
-        checkCollisions(game);
+        checkCollisions();
         checkPoints();
         //checkWin(game); // temporary
     }
 
-    private void checkCollisions(Game game) throws IOException {
+    private void checkCollisions() {
         List<Car> cars = getModel().getCars();
         List<Kid> kids = getModel().getKids();
 
@@ -116,8 +115,6 @@ public class KidController extends GameController {
                     kid.isHit();
                     walking = false;
                     moveKidAfterHit(car, kid, hitX, kidIterator);
-                    //System.out.println("Game Over - Car collided with a kid!");
-                    //game.end();
                 }
             }
         }
