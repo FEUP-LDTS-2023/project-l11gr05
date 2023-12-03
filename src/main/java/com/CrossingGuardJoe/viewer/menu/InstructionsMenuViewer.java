@@ -4,6 +4,8 @@ import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.menu.InstructionsMenu;
 import com.CrossingGuardJoe.viewer.Viewer;
+import com.CrossingGuardJoe.viewer.images.defined.JoeImages;
+import com.CrossingGuardJoe.viewer.images.defined.ToolImages;
 
 public class InstructionsMenuViewer extends Viewer<InstructionsMenu> implements MenuInformationDrawer {
     public InstructionsMenuViewer(InstructionsMenu model) {
@@ -14,7 +16,7 @@ public class InstructionsMenuViewer extends Viewer<InstructionsMenu> implements 
     protected void drawElements(GUI gui) {
         drawInformation(gui);
         if (getModel().getCurrentPage() == 1) {
-            drawTitle(gui);
+            drawPageOne(gui);
         }
     }
 
@@ -40,5 +42,24 @@ public class InstructionsMenuViewer extends Viewer<InstructionsMenu> implements 
         gui.drawText(new Position(PAGES_INI_X + 40, PAGES_Y), getModel().getCurrentPage(), "#FFFFFF");
         gui.drawText(new Position(PAGES_INI_X + 54, PAGES_Y), "of", "#FFFFFF");
         gui.drawText(new Position(PAGES_INI_X + 74, PAGES_Y), getModel().getTotalPages(), "#FFFFFF");
+    }
+
+    private void drawPageOne(GUI gui) {
+        drawTitle(gui);
+
+        gui.drawText(new Position(50 + 1, 100 + 1), "you are Joe", "#000000");
+        gui.drawText(new Position(70 + 1, 120 + 1), "a crossing guard", "#000000");
+
+        gui.drawText(new Position(50, 100), "you are Joe", "#FFFFFF");
+        gui.drawText(new Position(70, 120), "a crossing guard", "#FFFFFF");
+        int JOE_Y = 190;
+
+        gui.drawImage(new Position(150, JOE_Y), JoeImages.JOE_STAND);
+        gui.drawImage(new Position(230, JOE_Y), JoeImages.JOE_WALKLEFT);
+        gui.drawImage(new Position(310, JOE_Y), JoeImages.JOE_WALKRIGHT);
+
+        int KEY_Y = 310;
+        gui.drawImage(new Position(235, KEY_Y), ToolImages.KEY_ESC);
+        gui.drawImage(new Position(315, KEY_Y), ToolImages.KEY_ESC);
     }
 }
