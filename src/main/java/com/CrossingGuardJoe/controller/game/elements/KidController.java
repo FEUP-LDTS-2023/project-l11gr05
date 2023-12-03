@@ -22,6 +22,7 @@ public class KidController extends GameController {
     private static final double KID_SPEED = 0.005;
     private static final int MIN_KID_DISTANCE = 9;
     private static final int PASS_POINT = 60;
+    private static final int MIN_Y_DISTANCE = 0;
     private static final int MAX_Y_DISTANCE = 500;
     private static final int Y_AFTER_HIT = 55;
     private static final int INITIAL_POSITION = 430;
@@ -85,6 +86,7 @@ public class KidController extends GameController {
         List<Kid> kids = getModel().getKids();
         int sentKidIndex = kids.indexOf(sentKid);
         Kid kidInFront = kids.get(sentKidIndex);
+
         for (int i = sentKidIndex + 1; i < kids.size(); i++) {
             Kid kid = kids.get(i);
             boolean shouldStop = kid.getPosition().getX() - kidInFront.getPosition().getX() <= MIN_KID_DISTANCE;
@@ -190,7 +192,7 @@ public class KidController extends GameController {
         Iterator<Kid> kidIterator = getModel().getKids().iterator();
         while (kidIterator.hasNext()) {
             Kid kid = kidIterator.next();
-            if (kid.getPosition().getX() < 0) {
+            if (kid.getPosition().getX() < MIN_Y_DISTANCE) {
                 joe.addScore(kid.getPoints());
                 kidIterator.remove();
             }

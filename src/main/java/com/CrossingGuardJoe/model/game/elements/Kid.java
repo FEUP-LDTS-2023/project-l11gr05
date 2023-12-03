@@ -6,6 +6,7 @@ public class Kid extends Element {
     private boolean selected = false;
     private boolean firstHalfOfMovement = true;
     private boolean deathCount = false;
+    private static final int POINTS = 100;
 
     public Kid(int x, int y) {
         super(x, y);
@@ -60,6 +61,6 @@ public class Kid extends Element {
     }
 
     public int getPoints() {
-        return 100;
+        return POINTS;
     }
 }
