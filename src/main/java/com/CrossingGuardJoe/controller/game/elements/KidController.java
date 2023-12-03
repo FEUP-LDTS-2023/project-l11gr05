@@ -9,10 +9,7 @@ import com.CrossingGuardJoe.model.game.elements.Car;
 import com.CrossingGuardJoe.model.game.elements.Joe;
 import com.CrossingGuardJoe.model.game.elements.Kid;
 import com.CrossingGuardJoe.Game;
-import com.CrossingGuardJoe.model.game.elements.KidCommand.KidStopCommand;
-import com.CrossingGuardJoe.model.game.elements.KidCommand.KidWalkCommand;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
