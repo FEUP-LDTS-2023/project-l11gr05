@@ -6,7 +6,7 @@ import com.CrossingGuardJoe.viewer.images.Font.FontImageFactory;
 import java.util.Arrays;
 import java.util.List;
 
-public class Menu {
+public class Menu implements MenuNavigator{
     private final List<Option> options;
     private int optionSelected = 0;
 
@@ -18,6 +18,16 @@ public class Menu {
                 new Option("Customize", new Position(207, 300), null),
                 new Option("Exit", new Position(226, 340), null)
         );
+    }
+
+    @Override
+    public void navigateUp() {
+        optionSelected = (optionSelected + 1) % options.size();
+    }
+
+    @Override
+    public void navigateDown() {
+        optionSelected = (optionSelected - 1 + options.size()) % options.size();
     }
 
     public void nextOption() {
@@ -51,5 +61,15 @@ public class Menu {
 
     public int getOptionSelected() {
         return optionSelected;
+    }
+
+    @Override
+    public void navigateRight() {
+
+    }
+
+    @Override
+    public void navigateLeft() {
+
     }
 }

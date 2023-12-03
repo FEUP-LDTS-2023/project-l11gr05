@@ -7,12 +7,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class ColorPalette {
+public class ColorPaletteMenu {
     private final List<Color> colorPalette;
     private int selectedColorIndex;
     private Command currentCommand;
 
-    public ColorPalette() {
+    public ColorPaletteMenu() {
         this.colorPalette = new ArrayList<>(Arrays.asList(Color.values()));
         this.selectedColorIndex = 0;
     }

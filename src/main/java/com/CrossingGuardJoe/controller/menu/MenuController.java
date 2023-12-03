@@ -18,10 +18,10 @@ public class MenuController extends Controller<Menu> {
     public void nextAction(Game game, GUI.ACTION action, long time) throws IOException {
         switch (action) {
             case UP:
-                getModel().previousOption();
+                getModel().navigateUp();
                 break;
             case DOWN:
-                getModel().nextOption();
+                getModel().navigateDown();
                 break;
             case SELECT:
                 if (getModel().isSelectedStartGame()) game.setState(new GameState(new RoadBuilder().createRoad()));

@@ -2,7 +2,6 @@ package com.CrossingGuardJoe.model.menu;
 
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.commands.Command;
-import com.CrossingGuardJoe.viewer.Color;
 import com.CrossingGuardJoe.viewer.images.Font.FontImageFactory;
 import com.CrossingGuardJoe.viewer.images.generator.Shape;
 import com.CrossingGuardJoe.viewer.images.defined.CarImage;
@@ -16,7 +15,7 @@ import java.util.List;
 public class CustomizeMenu {
     private final List<List<Option>> menuLevels;
     private final List<Option> definedColors;
-    private final ColorPalette colorPalette;
+    private final ColorPaletteMenu colorPalette;
     private Command currentCommand;
     private int currentLevel;
     private int optionSelected;
@@ -28,7 +27,7 @@ public class CustomizeMenu {
 
     public CustomizeMenu() {
         this.menuLevels = new ArrayList<>();
-        this.colorPalette = new ColorPalette();
+        this.colorPalette = new ColorPaletteMenu();
         this.currentLevel = 0;
         this.optionSelected = 1;
 
@@ -172,7 +171,7 @@ public class CustomizeMenu {
         return currentLevel == levelIndex;
     }
 
-    public ColorPalette getColorPalette() {
+    public ColorPaletteMenu getColorPalette() {
         return this.colorPalette;
     }
 
