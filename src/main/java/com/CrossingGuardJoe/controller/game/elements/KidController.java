@@ -18,7 +18,7 @@ import static com.CrossingGuardJoe.controller.game.AuxCheckRange.isInRangeJoeKid
 public class KidController extends GameController {
     private static final int KID_STEP = 3;
     private static final double KID_SPEED = 0.005;
-    private static final int MIN_KID_DISTANCE = 10;
+    private static final int MIN_KID_DISTANCE = 40;
     private static final int PASS_POINT = 80;
     private static final int MIN_Y_DISTANCE = 0;
     private static final int MAX_Y_DISTANCE = 500;
@@ -28,7 +28,6 @@ public class KidController extends GameController {
     private Kid selectedKid;
     private final Joe joe = getModel().getJoe();
     private final List<Kid> sentKids = new ArrayList<>();
-    private boolean repositionNeeded = false;
 
     public KidController(Road road) {
         super(road);
@@ -37,6 +36,10 @@ public class KidController extends GameController {
 
     public void moveKid(Kid kid) {
         KidAction(kid, new Position(kid.getPosition().getX() - KID_STEP, kid.getPosition().getY()), 'p');
+    }
+
+    public void moveKidQueue(Kid kid) {
+        KidAction(kid, new Position(kid.getPosition().getX() - 9, kid.getPosition().getY()), 'p');
     }
 
     public void moveKidAfterHit(Car car, Kid kid, int hitX, Iterator<Kid> kidIterator) {
@@ -82,24 +85,27 @@ public class KidController extends GameController {
         }
         return true;
     }
-    private int movesLeft = 3;
+    private int movesLeft = 0;
     private int nextKidToMoveIndex;
+
     private void repositionQueue() {
         List<Kid> kids = getModel().getKids();
 
         if (nextKidToMoveIndex < kids.size()) {
             Kid kidToMove = kids.get(nextKidToMoveIndex);
+            movesLeft = kidToMove.getMovesLeft();
             if (movesLeft > 0) {
-                if (canContinueWalk(kidToMove)) {
+                //System.out.println(movesLeft);
+                //if (canContinueWalk(kidToMove)) {
                     moveKid(kidToMove);
-                }
-                movesLeft--;
+                    System.out.println(kidToMove.getPosition().getX());
+                //}
+                kidToMove.setMovesLeft(movesLeft - 1);
             } else {
-                movesLeft = MIN_KID_DISTANCE / KID_STEP;
+                stopKid(kidToMove);
                 nextKidToMoveIndex++;
+                System.out.println(nextKidToMoveIndex);
             }
-        } else {
-            repositionNeeded = false;
         }
     }
 
@@ -126,8 +132,16 @@ public class KidController extends GameController {
             selectedKid.isWalking();
             if (selectedKid.isSelected() && !sentKids.contains(selectedKid)) {
                 sentKids.add(selectedKid);
+                if (sentKids.indexOf(selectedKid) - 1 != -1) {
+                    Kid kidInFront = sentKids.get(sentKids.indexOf(selectedKid) - 1);
+                    kidInFront.setNotLastSent();
+                }
+                selectedKid.setLastSent();
                 nextKidToMoveIndex = kids.indexOf(selectedKid) + 1;
-                repositionNeeded = true;
+                for (int i = nextKidToMoveIndex; i < kids.size(); i++) {
+                    Kid kid = kids.get(i);
+                    kid.setMovesLeft(3);
+                }
             }
         }
 
@@ -135,11 +149,8 @@ public class KidController extends GameController {
             selectedKid.isNotWalking();
         }
 
-        if (time - lastUpdateTime > KID_SPEED) {
-            if (repositionNeeded) {
-                repositionQueue();
-            }
-            for (Kid kid : kids) {
+        if (time - lastUpdateTime > KID_SPEED && !kids.isEmpty()) {
+            for (Kid kid : sentKids) {
                 if (kid.getIsWalkingState() && canContinueWalk(kid)) {
                     moveKid(kid);
                 }
@@ -147,10 +158,11 @@ public class KidController extends GameController {
                     stopKid(kid);
                 }
             }
+            repositionQueue();
             lastUpdateTime = time;
         }
 
-        //checkCollisions();
+        checkCollisions();
         checkPoints();
         checkLoss(); //temporary implemented
     }

@@ -18,6 +18,7 @@ public class RoadBuilder {
     private static final int DISTANCE_BETWEEN_CARS = 200;
     private static final int RANDOM_BOUND = 500;
     private static final int MAX_Y_DISTANCE = 500;
+    private static final int NUMBER_OF_KIDS = 5;
     private static final int KID_SPAWN_X = 430;
     private static final int KID_Y = 330;
     private static final int MIN_KID_DISTANCE = 9;
@@ -83,7 +84,7 @@ public class RoadBuilder {
         List<Kid> kids = new ArrayList<>();
         int x = KID_SPAWN_X;
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < NUMBER_OF_KIDS; i++) {
             Kid kid = new Kid(x, KID_Y);
             kids.add(kid);
             x += MIN_KID_DISTANCE;
