@@ -8,7 +8,7 @@ import com.CrossingGuardJoe.viewer.Viewer;
 import com.CrossingGuardJoe.viewer.images.defined.ToolImages;
 import com.CrossingGuardJoe.viewer.images.defined.LogoImages;
 
-public class MenuViewer extends Viewer<Menu> implements InformationDrawer {
+public class MenuViewer extends Viewer<Menu> implements MenuInformationDrawer {
     public MenuViewer(Menu menu) { super(menu); }
 
     @Override

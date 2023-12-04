@@ -10,7 +10,7 @@ import com.CrossingGuardJoe.viewer.images.generator.Shape;
 
 import java.util.List;
 
-public class CustomizeMenuViewer extends Viewer<CustomizeMenu> implements InformationDrawer {
+public class CustomizeMenuViewer extends Viewer<CustomizeMenu> implements MenuInformationDrawer {
     private final int SELECTION_BOX_WIDTH = 235;
     private final int SELECTION_BOX_HEIGHT = 300;
     public CustomizeMenuViewer(CustomizeMenu model) {
@@ -88,8 +88,9 @@ public class CustomizeMenuViewer extends Viewer<CustomizeMenu> implements Inform
 
     @Override
     public void drawInformation(GUI gui) {
-        gui.drawText(new Position(5, 5), "ESC", "#000000");
-        gui.drawText(new Position(4, 4), "ESC", "#FFFFFF");
+        //gui.drawText(new Position(5, 5), "ESC", "#000000");
+        //gui.drawText(new Position(4, 4), "ESC", "#FFFFFF");
+        gui.drawImage(new Position(4, 4), ToolImages.KEY_ESC);
     }
 
     private void drawSelectionBox(GUI gui) {

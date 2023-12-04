@@ -1,0 +1,2765 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007f60ed654c8e, pid=7976, tid=7978
+#
+# JRE version: OpenJDK Runtime Environment Corretto-17.0.9.8.1 (17.0.9+8) (build 17.0.9+8-LTS)
+# Java VM: OpenJDK 64-Bit Server VM Corretto-17.0.9.8.1 (17.0.9+8-LTS, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, linux-amd64)
+# Problematic frame:
+# J 1562 c1 com.CrossingGuardJoe.viewer.images.Font.FontImageFactory.getNumberImage(I)[Ljava/lang/String; (211 bytes) @ 0x00007f60ed654c8e [0x00007f60ed6542c0+0x00000000000009ce]
+#
+# Core dump will be written. Default location: Core dumps may be processed with "/usr/share/apport/apport -p%p -s%s -c%c -d%d -P%P -u%u -g%g -- %E" (or dumping to /home/chill/CodeUbuntu/project-l11gr05/core.7976)
+#
+# If you would like to submit a bug report, please visit:
+#   https://github.com/corretto/corretto-17/issues/
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Dfile.encoding=UTF-8 -Duser.country=US -Duser.language=en -Duser.variant com.CrossingGuardJoe.Game
+
+Host: AMD Ryzen 5 3500U with Radeon Vega Mobile Gfx, 8 cores, 17G, Ubuntu 22.04.3 LTS
+Time: Sun Dec  3 14:54:12 2023 WET elapsed time: 12.040283 seconds (0d 0h 0m 12s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007f6104026220):  JavaThread "main" [_thread_in_Java, id=7978, stack(0x00007f610c300000,0x00007f610c400000)]
+
+Stack: [0x00007f610c300000,0x00007f610c400000],  sp=0x00007f610c3fe500,  free space=1017k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+J 1562 c1 com.CrossingGuardJoe.viewer.images.Font.FontImageFactory.getNumberImage(I)[Ljava/lang/String; (211 bytes) @ 0x00007f60ed654c8e [0x00007f60ed6542c0+0x00000000000009ce]
+J 1536 c1 com.CrossingGuardJoe.viewer.images.Font.FontImageFactory.getImageRepresentation(Ljava/lang/Object;)[Ljava/lang/String; (59 bytes) @ 0x00007f60ed64fb6c [0x00007f60ed64f4c0+0x00000000000006ac]
+J 1490 c1 com.CrossingGuardJoe.gui.LanternaGUI.drawText(Lcom/CrossingGuardJoe/model/Position;Ljava/lang/Object;Ljava/lang/String;)V (22 bytes) @ 0x00007f60ed63f2c4 [0x00007f60ed63f160+0x0000000000000164]
+j  com.CrossingGuardJoe.viewer.menu.InstructionsMenuViewer.drawInformation(Lcom/CrossingGuardJoe/gui/GUI;)V+55
+j  com.CrossingGuardJoe.viewer.menu.InstructionsMenuViewer.drawElements(Lcom/CrossingGuardJoe/gui/GUI;)V+2
+j  com.CrossingGuardJoe.viewer.Viewer.draw(Lcom/CrossingGuardJoe/gui/GUI;)V+8
+j  com.CrossingGuardJoe.states.State.step(Lcom/CrossingGuardJoe/Game;Lcom/CrossingGuardJoe/gui/GUI;J)V+24
+j  com.CrossingGuardJoe.Game.run()V+29
+j  com.CrossingGuardJoe.Game.main([Ljava/lang/String;)V+7
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x859164]  JavaCalls::call_helper(JavaValue*, methodHandle const&, JavaCallArguments*, JavaThread*)+0x334
+V  [libjvm.so+0x8f2faf]  jni_invoke_static(JNIEnv_*, JavaValue*, _jobject*, JNICallType, _jmethodID*, JNI_ArgumentPusher*, JavaThread*) [clone .isra.156] [clone .constprop.366]+0x15f
+V  [libjvm.so+0x8f51b1]  jni_CallStaticVoidMethod+0x141
+C  [libjli.so+0x555d]  JavaMain+0xd5d
+C  [libjli.so+0x8379]  ThreadJavaMain+0x9
+
+
+siginfo: si_signo: 11 (SIGSEGV), si_code: 1 (SEGV_MAPERR), si_addr: 0x0000000000000050
+
+Registers:
+RAX=0x0000000000000000, RBX=0x00000000fffffff0, RCX=0x00000007013f61e8, RDX=0x0000000000000048
+RSP=0x00007f610c3fe500, RBP=0x00007f610c3fe708, RSI=0x00000000ffffffff, RDI=0x00000000fffffff0
+R8 =0x00007f6087018ff8, R9 =0x0000000000000000, R10=0x00007f6087000000, R11=0x00007f6087000000
+R12=0x0000000000000000, R13=0x00000007ffc75bf8, R14=0x0000000000000002, R15=0x00007f6104026220
+RIP=0x00007f60ed654c8e, EFLAGS=0x0000000000010202, CSGSFS=0x002b000000000033, ERR=0x0000000000000004
+  TRAPNO=0x000000000000000e
+
+
+Register to memory mapping:
+
+RAX=0x0 is NULL
+RBX=0x00000000fffffff0 is an unknown value
+RCX=0x00000007013f61e8 is an oop: [Ljava.lang.String; 
+{0x00000007013f61e8} - klass: 'java/lang/String'[]
+ - length: 16
+RDX=0x0000000000000048 is an unknown value
+RSP=0x00007f610c3fe500 is pointing into the stack for thread: 0x00007f6104026220
+RBP=0x00007f610c3fe708 is pointing into the stack for thread: 0x00007f6104026220
+RSI=0x00000000ffffffff is an unknown value
+RDI=0x00000000fffffff0 is an unknown value
+R8 =0x00007f6087018ff8 is a pointer to class: 
+R9 =0x0 is NULL
+R10=0x00007f6087000000 is pointing into metadata
+R11=0x00007f6087000000 is pointing into metadata
+R12=0x0 is NULL
+R13=0x00000007ffc75bf8 is an oop: java.lang.Character 
+{0x00000007ffc75bf8} - klass: 'java/lang/Character'
+ - ---- fields (total size 2 words):
+ - private final 'value' 'C' @12  - 45 (2d)
+R14=0x0000000000000002 is an unknown value
+R15=0x00007f6104026220 is a thread
+
+
+Top of Stack: (sp=0x00007f610c3fe500)
+0x00007f610c3fe500:   00007f61dd23c2c2 0000035b0000019f
+0x00007f610c3fe510:   00007f6087b52cd4 00007f6104026850
+0x00007f610c3fe520:   000000000000035b 00007f60f4ffb558
+0x00007f610c3fe530:   00000007013f1f38 0000019000000320
+0x00007f610c3fe540:   00000006e91e70c0 000000400000019f
+0x00007f610c3fe550:   00000006eae6a160 000001cb0000003b
+0x00007f610c3fe560:   e027773b0000000f 00000007013f6198
+0x00007f610c3fe570:   00000007013f5e00 0000002d0000000f
+0x00007f610c3fe580:   00000007013f5de8 00000007013f61e8
+0x00007f610c3fe590:   0000000200000000 00000007013f61d0
+0x00007f610c3fe5a0:   00007f6104026220 00007f610cb3bd0c
+0x00007f610c3fe5b0:   00007f610c3fe5c0 00007f610cb3f20c
+0x00007f610c3fe5c0:   00007f610c3fe708 00007f60ed64fb6c
+0x00007f610c3fe5d0:   0000019f00000010 00007f610000000f
+0x00007f610c3fe5e0:   00000006e91e70c0 00000006eae6a160
+0x00007f610c3fe5f0:   00000007013bc468 00000007013bb618
+0x00007f610c3fe600:   00007f610c0cdee0 0000000000000000
+0x00007f610c3fe610:   00007f610c3fe708 00007f60ed63f2c4
+0x00007f610c3fe620:   0000000000000000 00000007013bb548
+0x00007f610c3fe630:   00000000000001f1 00007f6104026220
+0x00007f610c3fe640:   00000000000001d4 00007f60f4f3fd51
+0x00007f610c3fe650:   dd23c2bbdd2b6046 00000006000003e7
+0x00007f610c3fe660:   00000006e91e70c0 00000007013f5da8
+0x00007f610c3fe670:   00000006eae6a160 00000006e91e15d8
+0x00007f610c3fe680:   00007f610c3fe708 00007f60f49406a2
+0x00007f610c3fe690:   00007f610c3fe708 00007f60f49406a2
+0x00007f610c3fe6a0:   00000006eae6a160 00000007ffc70ad8
+0x00007f610c3fe6b0:   00000007013f5da8 00000006e91e70c0
+0x00007f610c3fe6c0:   00007f610c3fe6c0 00007f60cc728baf
+0x00007f610c3fe6d0:   00007f610c3fe728 00007f60cc7296b0
+0x00007f610c3fe6e0:   0000000000000000 00000006eb7f40d8
+0x00007f610c3fe6f0:   00007f60cc728c28 00007f610c3fe6a0 
+
+Instructions: (pc=0x00007f60ed654c8e)
+0x00007f60ed654b8e:   00 00 48 81 be 58 01 00 00 00 00 00 00 75 17 48
+0x00007f60ed654b9e:   89 96 58 01 00 00 48 c7 86 60 01 00 00 01 00 00
+0x00007f60ed654bae:   00 e9 2c 00 00 00 48 81 be 68 01 00 00 00 00 00
+0x00007f60ed654bbe:   00 75 17 48 89 96 68 01 00 00 48 c7 86 70 01 00
+0x00007f60ed654bce:   00 01 00 00 00 e9 08 00 00 00 48 83 86 48 01 00
+0x00007f60ed654bde:   00 01 8b 54 24 7c 48 8b f0 66 0f 1f 44 00 00 48
+0x00007f60ed654bee:   b8 00 cd 36 04 61 7f 00 00 e8 a4 fd 32 07 48 8b
+0x00007f60ed654bfe:   f0 48 8b fe c1 e7 04 48 8b df 48 8b 84 24 88 00
+0x00007f60ed654c0e:   00 00 e9 ed 01 00 00 66 66 90 48 8b c3 41 b8 a0
+0x00007f60ed654c1e:   00 00 00 81 f8 00 00 00 80 0f 85 0c 00 00 00 33
+0x00007f60ed654c2e:   d2 41 83 f8 ff 0f 84 04 00 00 00 99 41 f7 f8 48
+0x00007f60ed654c3e:   b8 a8 47 00 eb 06 00 00 00 48 63 d2 8b 54 90 10
+0x00007f60ed654c4e:   48 c1 e2 03 48 8b c3 2b c7 3b 41 0c 0f 83 c2 09
+0x00007f60ed654c5e:   00 00 48 83 fa 00 75 17 49 b9 80 c1 72 cc 60 7f
+0x00007f60ed654c6e:   00 00 41 80 89 91 02 00 00 01 e9 09 01 00 00 44
+0x00007f60ed654c7e:   8b 41 08 49 ba 00 00 00 87 60 7f 00 00 4d 03 c2
+0x00007f60ed654c8e:   44 8b 4a 08 49 ba 00 00 00 87 60 7f 00 00 4d 03
+0x00007f60ed654c9e:   ca 4d 8b 80 e0 00 00 00 4d 3b c8 0f 84 2f 00 00
+0x00007f60ed654cae:   00 45 8b 58 14 4f 3b 04 19 0f 84 21 00 00 00 41
+0x00007f60ed654cbe:   83 fb 20 0f 85 a8 00 00 00 41 51 41 50 e8 b0 7e
+0x00007f60ed654cce:   3d 07 41 59 41 58 41 83 f8 00 0f 84 91 00 00 00
+0x00007f60ed654cde:   49 b9 80 c1 72 cc 60 7f 00 00 44 8b 42 08 49 ba
+0x00007f60ed654cee:   00 00 00 87 60 7f 00 00 4d 03 c2 4d 3b 81 a8 02
+0x00007f60ed654cfe:   00 00 75 0d 49 83 81 b0 02 00 00 01 e9 77 00 00
+0x00007f60ed654d0e:   00 4d 3b 81 b8 02 00 00 75 0d 49 83 81 c0 02 00
+0x00007f60ed654d1e:   00 01 e9 61 00 00 00 49 81 b9 a8 02 00 00 00 00
+0x00007f60ed654d2e:   00 00 75 17 4d 89 81 a8 02 00 00 49 c7 81 b0 02
+0x00007f60ed654d3e:   00 00 01 00 00 00 e9 3d 00 00 00 49 81 b9 b8 02
+0x00007f60ed654d4e:   00 00 00 00 00 00 75 17 4d 89 81 b8 02 00 00 49
+0x00007f60ed654d5e:   c7 81 c0 02 00 00 01 00 00 00 e9 19 00 00 00 eb
+0x00007f60ed654d6e:   17 49 b9 80 c1 72 cc 60 7f 00 00 49 83 a9 98 02
+0x00007f60ed654d7e:   00 00 01 e9 af 08 00 00 48 63 c0 48 8d 44 81 10 
+
+
+Stack slot to memory mapping:
+stack at sp + 0 slots: 0x00007f61dd23c2c2 is an unknown value
+stack at sp + 1 slots: 0x0000035b0000019f is an unknown value
+stack at sp + 2 slots: 0x00007f6087b52cd4 is pointing into metadata
+stack at sp + 3 slots: 0x00007f6104026850 points into unknown readable memory: 0x6c2e6176616a4c5b | 5b 4c 6a 61 76 61 2e 6c
+stack at sp + 4 slots: 0x000000000000035b is an unknown value
+stack at sp + 5 slots: 0x00007f60f4ffb558 is at entry_point+504 in (nmethod*)0x00007f60f4ffb190
+Compiled method (c2)   12052 1431       4       com.CrossingGuardJoe.gui.LanternaGUI::drawLineCustomColor (72 bytes)
+ total in heap  [0x00007f60f4ffb190,0x00007f60f4ffbb88] = 2552
+ relocation     [0x00007f60f4ffb2f0,0x00007f60f4ffb348] = 88
+ main code      [0x00007f60f4ffb360,0x00007f60f4ffb820] = 1216
+ stub code      [0x00007f60f4ffb820,0x00007f60f4ffb868] = 72
+ oops           [0x00007f60f4ffb868,0x00007f60f4ffb870] = 8
+ metadata       [0x00007f60f4ffb870,0x00007f60f4ffb8d0] = 96
+ scopes data    [0x00007f60f4ffb8d0,0x00007f60f4ffba08] = 312
+ scopes pcs     [0x00007f60f4ffba08,0x00007f60f4ffbad8] = 208
+ dependencies   [0x00007f60f4ffbad8,0x00007f60f4ffbaf0] = 24
+ handler table  [0x00007f60f4ffbaf0,0x00007f60f4ffbb68] = 120
+ nul chk table  [0x00007f60f4ffbb68,0x00007f60f4ffbb88] = 32
+stack at sp + 6 slots: 0x00000007013f1f38 is an oop: [C 
+{0x00000007013f1f38} - klass: {type array char}
+ - length: 64
+stack at sp + 7 slots: 0x0000019000000320 is an unknown value
+
+
+Compiled method (c1)   12053 1562       3       com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage (211 bytes)
+ total in heap  [0x00007f60ed653f90,0x00007f60ed656180] = 8688
+ relocation     [0x00007f60ed6540f0,0x00007f60ed6542a8] = 440
+ main code      [0x00007f60ed6542c0,0x00007f60ed655820] = 5472
+ stub code      [0x00007f60ed655820,0x00007f60ed6558e0] = 192
+ oops           [0x00007f60ed6558e0,0x00007f60ed6558e8] = 8
+ metadata       [0x00007f60ed6558e8,0x00007f60ed655948] = 96
+ scopes data    [0x00007f60ed655948,0x00007f60ed655d80] = 1080
+ scopes pcs     [0x00007f60ed655d80,0x00007f60ed656110] = 912
+ dependencies   [0x00007f60ed656110,0x00007f60ed656118] = 8
+ nul chk table  [0x00007f60ed656118,0x00007f60ed656180] = 104
+
+[Constant Pool (empty)]
+
+[MachCode]
+[Entry Point]
+  # {method} {0x00007f60cc71d218} 'getNumberImage' '(I)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory'
+  # this:     rsi:rsi   = 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory'
+  # parm0:    rdx       = int
+  #           [sp+0xd0]  (sp of caller)
+  0x00007f60ed6542c0: 448b 5608 | 49bb 0000 | 0087 607f | 0000 4d03 | d34c 3bd0 
+
+  0x00007f60ed6542d4: ;   {runtime_call ic_miss_stub}
+  0x00007f60ed6542d4: 0f85 a63a | 3307 660f | 1f44 0000 
+[Verified Entry Point]
+  0x00007f60ed6542e0: 8984 2400 | c0fe ff55 | 4881 ecc0 
+
+  0x00007f60ed6542ec: ;   {metadata(method data for {method} {0x00007f60cc71d218} 'getNumberImage' '(I)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed6542ec: 0000 0048 | bf80 c172 | cc60 7f00 | 008b 9ff4 | 0000 0083 | c302 899f | f400 0000 | 81e3 fe07 
+  0x00007f60ed65430c: 0000 83fb | 000f 841e 
+
+  0x00007f60ed654314: ;   {metadata(method data for {method} {0x00007f60cc71d218} 'getNumberImage' '(I)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed654314: 1100 0048 | be80 c172 | cc60 7f00 | 0048 8386 | 3801 0000 | 0148 8bf2 
+
+  0x00007f60ed65432c: ;   {static_call}
+  0x00007f60ed65432c: 6666 90e8 
+
+  0x00007f60ed654330: ; ImmutableOopMap {}
+                      ;*invokestatic toString {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@1 (line 50)
+  0x00007f60ed654330: 2cf3 0200 | 4889 8424 | 8000 0000 | bb10 0000 
+
+  0x00007f60ed654340: ;   {metadata('java/lang/StringBuilder'[])}
+  0x00007f60ed654340: 0048 bac8 | 1a0b 8860 | 7f00 0048 | 63db 488b | fb48 81fb | ffff ff00 | 0f87 f810 | 0000 48be 
+  0x00007f60ed654360: 1700 0000 | 0000 0000 | 488d 349e | 4883 e6f8 | 498b 8708 | 0100 0048 | 8d34 3049 | 3bb7 1801 
+  0x00007f60ed654380: 0000 0f87 | ce10 0000 | 4989 b708 | 0100 0048 | 2bf0 48c7 | 0001 0000 | 0048 8bca | 49ba 0000 
+  0x00007f60ed6543a0: 0087 607f | 0000 492b | ca89 4808 | 8958 0c48 | 83ee 100f | 841a 0000 | 0048 85f6 | 0f84 1100 
+  0x00007f60ed6543c0: 0000 4833 | db48 c1ee | 0348 895c | f008 48ff | ce75 f648 | 8944 2470 | bb00 0000 | 00e9 6302 
+  0x00007f60ed6543e0: 0000 660f | 1f44 0000 | 895c 2478 
+
+  0x00007f60ed6543ec: ;   {metadata('java/lang/StringBuilder')}
+  0x00007f60ed6543ec: 48ba 48f7 | 0087 607f | 0000 498b | 8708 0100 | 0048 8d78 | 1849 3bbf | 1801 0000 | 0f87 5210 
+  0x00007f60ed65440c: 0000 4989 | bf08 0100 | 0048 c700 | 0100 0000 | 488b ca49 | ba00 0000 | 8760 7f00 | 0049 2bca 
+  0x00007f60ed65442c: 8948 0848 | 33c9 8948 | 0c48 33c9 | 4889 4810 
+
+  0x00007f60ed65443c: ;   {metadata(method data for {method} {0x00007f60cc71d218} 'getNumberImage' '(I)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed65443c: 488b d048 | be80 c172 | cc60 7f00 | 0048 8386 | 6801 0000 
+
+  0x00007f60ed654450: ;   {metadata(method data for {method} {0x00007f6087421f48} '<init>' '()V' in 'java/lang/StringBuilder')}
+  0x00007f60ed654450: 0148 ba28 | db01 cc60 | 7f00 008b | b2f4 0000 | 0083 c602 | 89b2 f400 | 0000 81e6 | feff 1f00 
+  0x00007f60ed654470: 83fe 000f | 84f4 0f00 | 0048 8bd0 
+
+  0x00007f60ed65447c: ;   {metadata(method data for {method} {0x00007f6087421f48} '<init>' '()V' in 'java/lang/StringBuilder')}
+  0x00007f60ed65447c: 48be 28db | 01cc 607f | 0000 4883 | 8638 0100 | 0001 ba10 | 0000 0048 | 8bf0 4889 | 4424 680f 
+  0x00007f60ed65449c: ;   {optimized virtual_call}
+  0x00007f60ed65449c: 1f40 00e8 
+
+  0x00007f60ed6544a0: ; ImmutableOopMap {[104]=Oop [112]=Oop [128]=Oop }
+                      ;*invokespecial <init> {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.lang.StringBuilder::<init>@3 (line 106)
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@28 (line 55)
+  0x00007f60ed6544a0: 9c70 9b07 | 488b 7424 | 6848 8b44 | 2470 4883 | fe00 7516 
+
+  0x00007f60ed6544b4: ;   {metadata(method data for {method} {0x00007f60cc71d218} 'getNumberImage' '(I)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed6544b4: 48bb 80c1 | 72cc 607f | 0000 808b | 7101 0000 | 01e9 ff00 | 0000 8b78 | 0849 ba00 | 0000 8760 
+  0x00007f60ed6544d4: 7f00 0049 | 03fa 8b5e | 0849 ba00 | 0000 8760 | 7f00 0049 | 03da 488b | bfe0 0000 | 0048 3bdf 
+  0x00007f60ed6544f4: 0f84 2800 | 0000 8b57 | 1448 3b3c | 130f 841b | 0000 0083 | fa20 0f85 | a200 0000 
+
+  0x00007f60ed654510: ;   {runtime_call slow_subtype_check Runtime1 stub}
+  0x00007f60ed654510: 5357 e869 | 863d 075b | 5f83 ff00 | 0f84 9000 
+
+  0x00007f60ed654520: ;   {metadata(method data for {method} {0x00007f60cc71d218} 'getNumberImage' '(I)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed654520: 0000 48bb | 80c1 72cc | 607f 0000 | 8b7e 0849 | ba00 0000 | 8760 7f00 | 0049 03fa | 483b bb88 
+  0x00007f60ed654540: 0100 0075 | 0d48 8383 | 9001 0000 | 01e9 7700 | 0000 483b | bb98 0100 | 0075 0d48 | 8383 a001 
+  0x00007f60ed654560: 0000 01e9 | 6100 0000 | 4881 bb88 | 0100 0000 | 0000 0075 | 1748 89bb | 8801 0000 | 48c7 8390 
+  0x00007f60ed654580: 0100 0001 | 0000 00e9 | 3d00 0000 | 4881 bb98 | 0100 0000 | 0000 0075 | 1748 89bb | 9801 0000 
+  0x00007f60ed6545a0: 48c7 83a0 | 0100 0001 | 0000 00e9 | 1900 0000 
+
+  0x00007f60ed6545b0: ;   {metadata(method data for {method} {0x00007f60cc71d218} 'getNumberImage' '(I)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed6545b0: eb17 48bb | 80c1 72cc | 607f 0000 | 4883 ab78 | 0100 0001 | e9ca 0e00 | 008b 5c24 | 7848 63fb 
+  0x00007f60ed6545d0: 488d 7cb8 | 1041 0fbe | 5738 83fa | 000f 85b9 | 0e00 004c | 8bd6 49c1 | ea03 4489 | 1748 8bd7 
+  0x00007f60ed6545f0: 4833 d648 | c1ea 1648 | 83fa 000f | 85b9 0e00 
+
+  0x00007f60ed654600: ;   {metadata(method data for {method} {0x00007f60cc71d218} 'getNumberImage' '(I)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed654600: 00ff c348 | be80 c172 | cc60 7f00 | 008b bef8 | 0000 0083 | c702 89be | f800 0000 | 81e7 fe3f 
+  0x00007f60ed654620: 0000 83ff | 000f 84a7 | 0e00 004d | 8b97 5003 
+
+  0x00007f60ed654630: ; ImmutableOopMap {[128]=Oop rax=Oop [112]=Oop }
+                      ;*goto {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@35 (line 54)
+                      ;   {poll}
+  0x00007f60ed654630: 0000 4185 
+
+  0x00007f60ed654634: ;   {metadata(method data for {method} {0x00007f60cc71d218} 'getNumberImage' '(I)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed654634: 0248 be80 | c172 cc60 | 7f00 00ff | 86b0 0100 | 0083 fb10 
+
+  0x00007f60ed654648: ;   {metadata(method data for {method} {0x00007f60cc71d218} 'getNumberImage' '(I)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed654648: 48ba 80c1 | 72cc 607f | 0000 48be | 5801 0000 | 0000 0000 | 0f8c 0a00 | 0000 48be | 4801 0000 
+  0x00007f60ed654668: 0000 0000 | 488b 3c32 | 488d 7f01 | 4889 3c32 | 0f8c 6afd | ffff 488b | 4424 7048 | 8bb4 2480 
+  0x00007f60ed654688: 0000 0048 | 3b06 488b 
+
+  0x00007f60ed654690: ;   {metadata(method data for {method} {0x00007f60cc71d218} 'getNumberImage' '(I)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed654690: fe48 bb80 | c172 cc60 | 7f00 0048 | 8383 c801 
+
+  0x00007f60ed6546a0: ;   {metadata(method data for {method} {0x00007f608742cd30} 'toCharArray' '()[C' in 'java/lang/String')}
+  0x00007f60ed6546a0: 0000 0148 | bfa0 8d65 | cc60 7f00 | 008b 9ff4 | 0000 0083 | c302 899f | f400 0000 | 81e3 feff 
+  0x00007f60ed6546c0: 1f00 83fb | 000f 842d | 0e00 0048 
+
+  0x00007f60ed6546cc: ;   {metadata(method data for {method} {0x00007f608742cd30} 'toCharArray' '()[C' in 'java/lang/String')}
+  0x00007f60ed6546cc: 8bfe 48bb | a08d 65cc | 607f 0000 | 4883 8338 | 0100 0001 
+
+  0x00007f60ed6546e0: ;   {metadata(method data for {method} {0x00007f608742bc00} 'isLatin1' '()Z' in 'java/lang/String')}
+  0x00007f60ed6546e0: 48bf b8b4 | 00cc 607f | 0000 8b9f | f400 0000 | 83c3 0289 | 9ff4 0000 | 0081 e3fe | ff1f 0083 
+  0x00007f60ed654700: fb00 0f84 | 110e 0000 
+
+  0x00007f60ed654708: ;   {metadata(method data for {method} {0x00007f608742bc00} 'isLatin1' '()Z' in 'java/lang/String')}
+  0x00007f60ed654708: 48bf b8b4 | 00cc 607f | 0000 ff87 | 4801 0000 | 0fbe 7e10 
+
+  0x00007f60ed65471c: ;   {metadata(method data for {method} {0x00007f608742bc00} 'isLatin1' '()Z' in 'java/lang/String')}
+  0x00007f60ed65471c: 83ff 0048 | bfb8 b400 | cc60 7f00 | 0048 bb58 | 0100 0000 | 0000 000f | 850a 0000 | 0048 bb68 
+  0x00007f60ed65473c: 0100 0000 | 0000 0048 | 8b14 1f48 | 8d52 0148 | 8914 1f0f | 851a 0000 
+
+  0x00007f60ed654754: ;   {metadata(method data for {method} {0x00007f608742bc00} 'isLatin1' '()Z' in 'java/lang/String')}
+  0x00007f60ed654754: 0048 bfb8 | b400 cc60 | 7f00 00ff | 8778 0100 | 00bf 0100 | 0000 e905 | 0000 00bf | 0000 0000 
+  0x00007f60ed654774: 83e7 0183 
+
+  0x00007f60ed654778: ;   {metadata(method data for {method} {0x00007f608742cd30} 'toCharArray' '()[C' in 'java/lang/String')}
+  0x00007f60ed654778: ff00 48bf | a08d 65cc | 607f 0000 | 48bb 7001 | 0000 0000 | 0000 0f84 | 0a00 0000 | 48bb 8001 
+  0x00007f60ed654798: 0000 0000 | 0000 488b | 141f 488d | 5201 4889 | 141f 0f84 | 3900 0000 | 8b76 1448 
+
+  0x00007f60ed6547b4: ;   {metadata(method data for {method} {0x00007f608742cd30} 'toCharArray' '()[C' in 'java/lang/String')}
+  0x00007f60ed6547b4: c1e6 0348 | bfa0 8d65 | cc60 7f00 | 0048 8387 | 9001 0000 | 0166 0f1f 
+
+  0x00007f60ed6547cc: ;   {static_call}
+  0x00007f60ed6547cc: 4400 00e8 
+
+  0x00007f60ed6547d0: ; ImmutableOopMap {[112]=Oop }
+                      ;*invokestatic toChars {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.lang.String::toCharArray@11 (line 4103)
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@39 (line 58)
+  0x00007f60ed6547d0: 6c5c fdff 
+
+  0x00007f60ed6547d4: ;   {metadata(method data for {method} {0x00007f608742cd30} 'toCharArray' '()[C' in 'java/lang/String')}
+  0x00007f60ed6547d4: 48be a08d | 65cc 607f | 0000 ff86 | a001 0000 | e923 0000 | 008b 7614 | 48c1 e603 
+
+  0x00007f60ed6547f0: ;   {metadata(method data for {method} {0x00007f608742cd30} 'toCharArray' '()[C' in 'java/lang/String')}
+  0x00007f60ed6547f0: 48bf a08d | 65cc 607f | 0000 4883 | 87b8 0100 | 0001 0f1f 
+
+  0x00007f60ed654804: ;   {static_call}
+  0x00007f60ed654804: 4400 00e8 
+
+  0x00007f60ed654808: ; ImmutableOopMap {[112]=Oop }
+                      ;*invokestatic toChars {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.lang.String::toCharArray@21 (line 4104)
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@39 (line 58)
+  0x00007f60ed654808: 743e 3307 
+
+  0x00007f60ed65480c: ; implicit exception: dispatches to 0x00007f60ed65553a
+  0x00007f60ed65480c: 448b 400c | 4489 8424 | 9400 0000 | 41b9 0000 | 0000 6690 
+
+  0x00007f60ed654820: ;   {metadata(method data for {method} {0x00007f60cc71d218} 'getNumberImage' '(I)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed654820: 453b c848 | ba80 c172 | cc60 7f00 | 0048 be00 | 0200 0000 | 0000 000f | 8d0a 0000 | 0048 be10 
+  0x00007f60ed654840: 0200 0000 | 0000 0048 | 8b3c 3248 | 8d7f 0148 | 893c 320f | 8d80 0700 | 0049 63d1 | 0fb7 5c50 
+  0x00007f60ed654860: ;   {metadata(method data for {method} {0x00007f60cc71d218} 'getNumberImage' '(I)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed654860: 1048 ba80 | c172 cc60 | 7f00 0048 | 8382 2002 
+
+  0x00007f60ed654870: ;   {metadata(method data for {method} {0x00007f6087037738} 'valueOf' '(C)Ljava/lang/Character;' in 'java/lang/Character')}
+  0x00007f60ed654870: 0000 0148 | ba70 514f | cc60 7f00 | 008b b2f4 | 0000 0083 | c602 89b2 | f400 0000 | 81e6 feff 
+  0x00007f60ed654890: 1f00 83fe | 000f 84a4 | 0c00 0083 
+
+  0x00007f60ed65489c: ;   {metadata(method data for {method} {0x00007f6087037738} 'valueOf' '(C)Ljava/lang/Character;' in 'java/lang/Character')}
+  0x00007f60ed65489c: fb7f 48ba | 7051 4fcc | 607f 0000 | 48be 3801 | 0000 0000 | 0000 0f8f | 0a00 0000 | 48be 4801 
+  0x00007f60ed6548bc: 0000 0000 | 0000 488b | 3c32 488d | 7f01 4889 | 3c32 0f8f | 3a00 0000 | ba80 0000 
+
+  0x00007f60ed6548d8: ;   {oop(a 'java/lang/Character'[128] {0x00000007ffc75718})}
+  0x00007f60ed6548d8: 0048 be18 | 57c7 ff07 | 0000 003b | d30f 8675 | 0c00 0048 | 63db 8b54 | 9e10 48c1 | e203 4c8b 
+  0x00007f60ed6548f8: ea44 898c | 2490 0000 | 0048 8984 | 2498 0000 | 00e9 dd00 | 0000 4889 | 8424 9800 
+
+  0x00007f60ed654914: ;   {metadata('java/lang/Character')}
+  0x00007f60ed654914: 0000 48ba | 1847 0387 | 607f 0000 | 498b 8708 | 0100 0048 | 8d78 1049 | 3bbf 1801 | 0000 0f87 
+  0x00007f60ed654934: 3b0c 0000 | 4989 bf08 | 0100 0048 | c700 0100 | 0000 488b | ca49 ba00 | 0000 8760 | 7f00 0049 
+  0x00007f60ed654954: 2bca 8948 | 0848 33c9 | 8948 0c48 | 33c9 488b 
+
+  0x00007f60ed654964: ;   {metadata(method data for {method} {0x00007f6087037738} 'valueOf' '(C)Ljava/lang/Character;' in 'java/lang/Character')}
+  0x00007f60ed654964: d048 be70 | 514f cc60 | 7f00 0048 | 8386 5801 
+
+  0x00007f60ed654974: ;   {metadata(method data for {method} {0x00007f6087036fa8} '<init>' '(C)V' in 'java/lang/Character')}
+  0x00007f60ed654974: 0000 0148 | ba08 534f | cc60 7f00 | 008b b2f4 | 0000 0083 | c602 89b2 | f400 0000 | 81e6 feff 
+  0x00007f60ed654994: 1f00 83fe | 000f 84e1 | 0b00 0048 
+
+  0x00007f60ed6549a0: ;   {metadata(method data for {method} {0x00007f6087036fa8} '<init>' '(C)V' in 'java/lang/Character')}
+  0x00007f60ed6549a0: 8bd0 48be | 0853 4fcc | 607f 0000 | 4883 8638 | 0100 0001 
+
+  0x00007f60ed6549b4: ;   {metadata(method data for {method} {0x00007f60874445b8} '<init>' '()V' in 'java/lang/Object')}
+  0x00007f60ed6549b4: 48ba 908d | 00cc 607f | 0000 8bb2 | f400 0000 | 83c6 0289 | b2f4 0000 | 0081 e6fe | ff1f 0083 
+  0x00007f60ed6549d4: fe00 0f84 | c50b 0000 | 6689 580c | 4c8b e844 | 898c 2490 | 0000 00bb | 1000 0000 
+
+  0x00007f60ed6549f0: ;   {metadata('java/lang/String'[])}
+  0x00007f60ed6549f0: 48ba f88f | 0187 607f | 0000 4863 | db48 8bfb | 4881 fbff | ffff 000f | 87b5 0b00 | 0048 be17 
+  0x00007f60ed654a10: 0000 0000 | 0000 0048 | 8d34 9e48 | 83e6 f849 | 8b87 0801 | 0000 488d | 3430 493b | b718 0100 
+  0x00007f60ed654a30: 000f 878b | 0b00 0049 | 89b7 0801 | 0000 482b | f048 c700 | 0100 0000 | 488b ca49 | ba00 0000 
+  0x00007f60ed654a50: 8760 7f00 | 0049 2bca | 8948 0889 | 580c 4883 | ee10 0f84 | 1a00 0000 | 4885 f60f | 8411 0000 
+  0x00007f60ed654a70: 0048 33db | 48c1 ee03 | 4889 5cf0 | 0848 ffce | 75f6 4889 | 8424 8800 | 0000 493b | 4500 498b 
+  0x00007f60ed654a90: ;   {metadata(method data for {method} {0x00007f60cc71d218} 'getNumberImage' '(I)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed654a90: f548 bf80 | c172 cc60 | 7f00 0048 | 8387 3002 | 0000 0141 | 0fb7 750c 
+
+  0x00007f60ed654aa8: ;   {metadata(method data for {method} {0x00007f60cc71d218} 'getNumberImage' '(I)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed654aa8: 48bf 80c1 | 72cc 607f | 0000 4883 | 8768 0200 | 0001 81e6 | ffff 0000 
+
+  0x00007f60ed654ac0: ;   {metadata(method data for {method} {0x00007f60870389c8} 'getNumericValue' '(C)I' in 'java/lang/Character')}
+  0x00007f60ed654ac0: 48bf 687b | 68cc 607f | 0000 8b9f | f400 0000 | 83c3 0289 | 9ff4 0000 | 0081 e3fe | ff1f 0083 
+  0x00007f60ed654ae0: fb00 0f84 | e90a 0000 
+
+  0x00007f60ed654ae8: ;   {metadata(method data for {method} {0x00007f60870389c8} 'getNumericValue' '(C)I' in 'java/lang/Character')}
+  0x00007f60ed654ae8: 48bf 687b | 68cc 607f | 0000 4883 | 8738 0100 
+
+  0x00007f60ed654af8: ;   {metadata(method data for {method} {0x00007f6087038970} 'getNumericValue' '(I)I' in 'java/lang/Character')}
+  0x00007f60ed654af8: 0001 48bf | f07c 68cc | 607f 0000 | 8b9f f400 | 0000 83c3 | 0289 9ff4 | 0000 0081 | e3fe ff1f 
+  0x00007f60ed654b18: 0083 fb00 | 0f84 d00a 
+
+  0x00007f60ed654b20: ;   {metadata(method data for {method} {0x00007f6087038970} 'getNumericValue' '(I)I' in 'java/lang/Character')}
+  0x00007f60ed654b20: 0000 48bf | f07c 68cc | 607f 0000 | 4883 8738 | 0100 0001 | 488b fe48 | 8bf7 897c 
+
+  0x00007f60ed654b3c: ;   {static_call}
+  0x00007f60ed654b3c: 247c 90e8 
+
+  0x00007f60ed654b40: ; ImmutableOopMap {[136]=Oop [112]=Oop [152]=Oop }
+                      ;*invokestatic of {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.lang.Character::getNumericValue@1 (line 10734)
+                      ; - java.lang.Character::getNumericValue@1 (line 10700)
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@81 (line 62)
+  0x00007f60ed654b40: dcbe 9407 
+
+  0x00007f60ed654b44: ; implicit exception: dispatches to 0x00007f60ed655613
+  0x00007f60ed654b44: 483b 0048 
+
+  0x00007f60ed654b48: ;   {metadata(method data for {method} {0x00007f6087038970} 'getNumericValue' '(I)I' in 'java/lang/Character')}
+  0x00007f60ed654b48: 8bd0 48be | f07c 68cc | 607f 0000 | 8b52 0849 | ba00 0000 | 8760 7f00 | 0049 03d2 | 483b 9658 
+  0x00007f60ed654b68: 0100 0075 | 0d48 8386 | 6001 0000 | 01e9 6600 | 0000 483b | 9668 0100 | 0075 0d48 | 8386 7001 
+  0x00007f60ed654b88: 0000 01e9 | 5000 0000 | 4881 be58 | 0100 0000 | 0000 0075 | 1748 8996 | 5801 0000 | 48c7 8660 
+  0x00007f60ed654ba8: 0100 0001 | 0000 00e9 | 2c00 0000 | 4881 be68 | 0100 0000 | 0000 0075 | 1748 8996 | 6801 0000 
+  0x00007f60ed654bc8: 48c7 8670 | 0100 0001 | 0000 00e9 | 0800 0000 | 4883 8648 | 0100 0001 | 8b54 247c | 488b f066 
+  0x00007f60ed654be8: 0f1f 4400 | 0048 b800 | cd36 0461 
+
+  0x00007f60ed654bf4: ;   {virtual_call}
+  0x00007f60ed654bf4: 7f00 00e8 
+
+  0x00007f60ed654bf8: ; ImmutableOopMap {[136]=Oop [112]=Oop [152]=Oop }
+                      ;*invokevirtual getNumericValue {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.lang.Character::getNumericValue@5 (line 10734)
+                      ; - java.lang.Character::getNumericValue@1 (line 10700)
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@81 (line 62)
+  0x00007f60ed654bf8: a4fd 3207 | 488b f048 | 8bfe c1e7 | 0448 8bdf | 488b 8424 | 8800 0000 | e9ed 0100 | 0066 6690 
+  0x00007f60ed654c18: 488b c341 | b8a0 0000 | 0081 f800 | 0000 800f | 850c 0000 | 0033 d241 | 83f8 ff0f | 8404 0000 
+  0x00007f60ed654c38: 0099 41f7 
+
+  0x00007f60ed654c3c: ;   {oop(a 'java/lang/String'[160] {0x00000006eb0047a8})}
+  0x00007f60ed654c3c: f848 b8a8 | 4700 eb06 | 0000 0048 | 63d2 8b54 | 9010 48c1 | e203 488b | c32b c73b | 410c 0f83 
+  0x00007f60ed654c5c: c209 0000 | 4883 fa00 
+
+  0x00007f60ed654c64: ;   {metadata(method data for {method} {0x00007f60cc71d218} 'getNumberImage' '(I)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed654c64: 7517 49b9 | 80c1 72cc | 607f 0000 | 4180 8991 | 0200 0001 | e909 0100 | 0044 8b41 | 0849 ba00 
+  0x00007f60ed654c84: 0000 8760 | 7f00 004d | 03c2 448b | 4a08 49ba | 0000 0087 | 607f 0000 | 4d03 ca4d | 8b80 e000 
+  0x00007f60ed654ca4: 0000 4d3b | c80f 842f | 0000 0045 | 8b58 144f | 3b04 190f | 8421 0000 | 0041 83fb | 200f 85a8 
+  0x00007f60ed654cc4: 0000 0041 
+
+  0x00007f60ed654cc8: ;   {runtime_call slow_subtype_check Runtime1 stub}
+  0x00007f60ed654cc8: 5141 50e8 | b07e 3d07 | 4159 4158 | 4183 f800 | 0f84 9100 
+
+  0x00007f60ed654cdc: ;   {metadata(method data for {method} {0x00007f60cc71d218} 'getNumberImage' '(I)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed654cdc: 0000 49b9 | 80c1 72cc | 607f 0000 | 448b 4208 | 49ba 0000 | 0087 607f | 0000 4d03 | c24d 3b81 
+  0x00007f60ed654cfc: a802 0000 | 750d 4983 | 81b0 0200 | 0001 e977 | 0000 004d | 3b81 b802 | 0000 750d | 4983 81c0 
+  0x00007f60ed654d1c: 0200 0001 | e961 0000 | 0049 81b9 | a802 0000 | 0000 0000 | 7517 4d89 | 81a8 0200 | 0049 c781 
+  0x00007f60ed654d3c: b002 0000 | 0100 0000 | e93d 0000 | 0049 81b9 | b802 0000 | 0000 0000 | 7517 4d89 | 81b8 0200 
+  0x00007f60ed654d5c: 0049 c781 | c002 0000 | 0100 0000 | e919 0000 
+
+  0x00007f60ed654d6c: ;   {metadata(method data for {method} {0x00007f60cc71d218} 'getNumberImage' '(I)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed654d6c: 00eb 1749 | b980 c172 | cc60 7f00 | 0049 83a9 | 9802 0000 | 01e9 af08 | 0000 4863 | c048 8d44 
+  0x00007f60ed654d8c: 8110 450f | be47 3841 | 83f8 000f | 85a1 0800 | 004c 8bd2 | 49c1 ea03 | 4489 104c | 8bc0 4c33 
+  0x00007f60ed654dac: c249 c1e8 | 1649 83f8 | 000f 85a2 | 0800 00ff 
+
+  0x00007f60ed654dbc: ;   {metadata(method data for {method} {0x00007f60cc71d218} 'getNumberImage' '(I)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed654dbc: c348 ba80 | c172 cc60 | 7f00 008b | 82f8 0000 | 0083 c002 | 8982 f800 | 0000 81e0 | fe3f 0000 
+  0x00007f60ed654ddc: 83f8 000f | 8490 0800 | 004d 8b97 
+
+  0x00007f60ed654de8: ; ImmutableOopMap {[112]=Oop [152]=Oop rcx=Oop [136]=Oop }
+                      ;*goto {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@134 (line 63)
+  0x00007f60ed654de8: 5003 0000 
+
+  0x00007f60ed654dec: ;   {poll}
+  0x00007f60ed654dec: 4185 0248 | ba80 c172 | cc60 7f00 | 00ff 82d0 | 0200 0048 | 8bc1 488b | d6ff c2c1 | e204 3bda 
+  0x00007f60ed654e0c: ;   {metadata(method data for {method} {0x00007f60cc71d218} 'getNumberImage' '(I)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed654e0c: 48ba 80c1 | 72cc 607f | 0000 48b9 | 8802 0000 | 0000 0000 | 0f8c 0a00 | 0000 48b9 | 7802 0000 
+  0x00007f60ed654e2c: 0000 0000 | 4c8b 040a | 4d8d 4001 | 4c89 040a | 488b c80f | 8cd3 fdff | ffbf 0000 | 0000 e9e8 
+  0x00007f60ed654e4c: 0000 0090 | ba10 0000 | 003b d70f | 8639 0800 | 0048 63d7 | 8b5c 9010 | 48c1 e303 | 4863 d78b 
+  0x00007f60ed654e6c: 5491 1048 | c1e2 0348 | 3b03 488b 
+
+  0x00007f60ed654e78: ;   {metadata(method data for {method} {0x00007f60cc71d218} 'getNumberImage' '(I)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed654e78: f349 b880 | c172 cc60 | 7f00 0049 | 8380 0803 
+
+  0x00007f60ed654e88: ;   {metadata(method data for {method} {0x00007f6087422680} 'append' '(Ljava/lang/String;)Ljava/lang/StringBuilder;' in 'java/lang/StringBuilder')}
+  0x00007f60ed654e88: 0000 0148 | be68 de01 | cc60 7f00 | 0044 8b86 | f400 0000 | 4183 c002 | 4489 86f4 | 0000 0041 
+  0x00007f60ed654ea8: 81e0 feff | 1f00 4183 | f800 0f84 | f107 0000 
+
+  0x00007f60ed654eb8: ;   {metadata(method data for {method} {0x00007f6087422680} 'append' '(Ljava/lang/String;)Ljava/lang/StringBuilder;' in 'java/lang/StringBuilder')}
+  0x00007f60ed654eb8: 488b f349 | b868 de01 | cc60 7f00 | 0049 8380 | 3801 0000 | 0148 8bf3 | 4889 9c24 | a800 0000 
+  0x00007f60ed654ed8: 89bc 24a0 
+
+  0x00007f60ed654edc: ;   {optimized virtual_call}
+  0x00007f60ed654edc: 0000 00e8 
+
+  0x00007f60ed654ee0: ; ImmutableOopMap {[152]=Oop [168]=Oop [112]=Oop [136]=Oop }
+                      ;*invokespecial append {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.lang.StringBuilder::append@2 (line 179)
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@157 (line 69)
+  0x00007f60ed654ee0: dc0a 9907 | 8bbc 24a0 | 0000 00ff 
+
+  0x00007f60ed654eec: ;   {metadata(method data for {method} {0x00007f60cc71d218} 'getNumberImage' '(I)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed654eec: c748 bb80 | c172 cc60 | 7f00 008b | 93f8 0000 | 0083 c202 | 8993 f800 | 0000 81e2 | fe3f 0000 
+  0x00007f60ed654f0c: 83fa 000f | 84b5 0700 | 004d 8b97 
+
+  0x00007f60ed654f18: ; ImmutableOopMap {[152]=Oop [112]=Oop [136]=Oop }
+                      ;*goto {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@164 (line 68)
+  0x00007f60ed654f18: 5003 0000 
+
+  0x00007f60ed654f1c: ;   {poll}
+  0x00007f60ed654f1c: 4185 0248 | bb80 c172 | cc60 7f00 | 00ff 8340 | 0300 0048 | 8b8c 2488 | 0000 0048 | 8b44 2470 
+  0x00007f60ed654f3c: 8b51 0c3b 
+
+  0x00007f60ed654f40: ;   {metadata(method data for {method} {0x00007f60cc71d218} 'getNumberImage' '(I)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed654f40: fa48 ba80 | c172 cc60 | 7f00 0048 | bef8 0200 | 0000 0000 | 000f 8c0a | 0000 0048 | bee8 0200 
+  0x00007f60ed654f60: 0000 0000 | 0048 8b1c | 3248 8d5b | 0148 891c | 320f 8cd9 | feff ff44 | 8b8c 2490 | 0000 0041 
+  0x00007f60ed654f80: ;   {metadata(method data for {method} {0x00007f60cc71d218} 'getNumberImage' '(I)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed654f80: ffc1 48bb | 80c1 72cc | 607f 0000 | 8b93 f800 | 0000 83c2 | 0289 93f8 | 0000 0081 | e2fe 3f00 
+  0x00007f60ed654fa0: 0083 fa00 | 0f84 4107 | 0000 4d8b | 9750 0300 
+
+  0x00007f60ed654fb0: ; ImmutableOopMap {[152]=Oop [112]=Oop }
+                      ;*goto {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@170 (line 58)
+                      ;   {poll}
+  0x00007f60ed654fb0: 0041 8502 
+
+  0x00007f60ed654fb4: ;   {metadata(method data for {method} {0x00007f60cc71d218} 'getNumberImage' '(I)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed654fb4: 48bb 80c1 | 72cc 607f | 0000 ff83 | 5803 0000 | 448b 8424 | 9400 0000 | 488b 8424 | 9800 0000 
+  0x00007f60ed654fd4: e947 f8ff | ffbb 1000 
+
+  0x00007f60ed654fdc: ;   {metadata('java/lang/String'[])}
+  0x00007f60ed654fdc: 0000 48ba | f88f 0187 | 607f 0000 | 4863 db48 | 8bfb 4881 | fbff ffff | 000f 8711 | 0700 0048 
+  0x00007f60ed654ffc: be17 0000 | 0000 0000 | 0048 8d34 | 9e48 83e6 | f849 8b87 | 0801 0000 | 488d 3430 | 493b b718 
+  0x00007f60ed65501c: 0100 000f | 87e7 0600 | 0049 89b7 | 0801 0000 | 482b f048 | c700 0100 | 0000 488b | ca49 ba00 
+  0x00007f60ed65503c: 0000 8760 | 7f00 0049 | 2bca 8948 | 0889 580c | 4883 ee10 | 0f84 1a00 | 0000 4885 | f60f 8411 
+  0x00007f60ed65505c: 0000 0048 | 33db 48c1 | ee03 4889 | 5cf0 0848 | ffce 75f6 | 4889 8424 | b000 0000 | bf00 0000 
+  0x00007f60ed65507c: 0066 6690 | 488b 4424 | 7083 ff10 
+
+  0x00007f60ed655088: ;   {metadata(method data for {method} {0x00007f60cc71d218} 'getNumberImage' '(I)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed655088: 48be 80c1 | 72cc 607f | 0000 48ba | 7003 0000 | 0000 0000 | 0f8d 0a00 | 0000 48ba | 8003 0000 
+  0x00007f60ed6550a8: 0000 0000 | 488b 0c16 | 488d 4901 | 4889 0c16 | 0f8d 5603 | 0000 4863 | f78b 74b0 | 1048 c1e6 
+  0x00007f60ed6550c8: 0348 3b06 
+
+  0x00007f60ed6550cc: ;   {metadata(method data for {method} {0x00007f60cc71d218} 'getNumberImage' '(I)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed6550cc: 488b d648 | b980 c172 | cc60 7f00 | 0048 8381 | 9003 0000 
+
+  0x00007f60ed6550e0: ;   {metadata(method data for {method} {0x00007f6087421fa0} 'toString' '()Ljava/lang/String;' in 'java/lang/StringBuilder')}
+  0x00007f60ed6550e0: 0148 bad8 | e601 cc60 | 7f00 008b | 8af4 0000 | 0083 c102 | 898a f400 | 0000 81e1 | feff 1f00 
+  0x00007f60ed655100: 83f9 000f | 8412 0600 | 0048 8bd6 
+
+  0x00007f60ed65510c: ;   {metadata(method data for {method} {0x00007f6087421fa0} 'toString' '()Ljava/lang/String;' in 'java/lang/StringBuilder')}
+  0x00007f60ed65510c: 48b9 d8e6 | 01cc 607f | 0000 4883 | 8138 0100 
+
+  0x00007f60ed65511c: ;   {metadata(method data for {method} {0x00007f608705deb8} 'isLatin1' '()Z' in 'java/lang/AbstractStringBuilder')}
+  0x00007f60ed65511c: 0001 48ba | 18e9 01cc | 607f 0000 | 8b8a f400 | 0000 83c1 | 0289 8af4 | 0000 0081 | e1fe ff1f 
+  0x00007f60ed65513c: 0083 f900 | 0f84 f605 
+
+  0x00007f60ed655144: ;   {metadata(method data for {method} {0x00007f608705deb8} 'isLatin1' '()Z' in 'java/lang/AbstractStringBuilder')}
+  0x00007f60ed655144: 0000 48ba | 18e9 01cc | 607f 0000 | ff82 4801 | 0000 0fbe | 5610 83fa 
+
+  0x00007f60ed65515c: ;   {metadata(method data for {method} {0x00007f608705deb8} 'isLatin1' '()Z' in 'java/lang/AbstractStringBuilder')}
+  0x00007f60ed65515c: 0048 ba18 | e901 cc60 | 7f00 0048 | b958 0100 | 0000 0000 | 000f 850a | 0000 0048 | b968 0100 
+  0x00007f60ed65517c: 0000 0000 | 004c 8b04 | 0a4d 8d40 | 014c 8904 | 0a0f 851a 
+
+  0x00007f60ed655190: ;   {metadata(method data for {method} {0x00007f608705deb8} 'isLatin1' '()Z' in 'java/lang/AbstractStringBuilder')}
+  0x00007f60ed655190: 0000 0048 | ba18 e901 | cc60 7f00 | 00ff 8278 | 0100 00ba | 0100 0000 | e905 0000 | 00ba 0000 
+  0x00007f60ed6551b0: 0000 83e2 | 0183 fa00 
+
+  0x00007f60ed6551b8: ;   {metadata(method data for {method} {0x00007f6087421fa0} 'toString' '()Ljava/lang/String;' in 'java/lang/StringBuilder')}
+  0x00007f60ed6551b8: 48ba d8e6 | 01cc 607f | 0000 48b9 | 7001 0000 | 0000 0000 | 0f84 0a00 | 0000 48b9 | 8001 0000 
+  0x00007f60ed6551d8: 0000 0000 | 4c8b 040a | 4d8d 4001 | 4c89 040a | 89bc 24a4 | 0000 000f | 8444 0000 | 008b 5614 
+  0x00007f60ed6551f8: 48c1 e203 
+
+  0x00007f60ed6551fc: ;   {metadata(method data for {method} {0x00007f6087421fa0} 'toString' '()Ljava/lang/String;' in 'java/lang/StringBuilder')}
+  0x00007f60ed6551fc: 8b4e 0c48 | bed8 e601 | cc60 7f00 | 0048 8386 | 9001 0000 | 0148 8bf2 | ba00 0000 | 0066 0f1f 
+  0x00007f60ed65521c: ;   {static_call}
+  0x00007f60ed65521c: 4400 00e8 
+
+  0x00007f60ed655220: ; ImmutableOopMap {[112]=Oop [176]=Oop }
+                      ;*invokestatic newString {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.lang.StringBuilder::toString@16 (line 453)
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@198 (line 75)
+  0x00007f60ed655220: fc32 9b07 
+
+  0x00007f60ed655224: ;   {metadata(method data for {method} {0x00007f6087421fa0} 'toString' '()Ljava/lang/String;' in 'java/lang/StringBuilder')}
+  0x00007f60ed655224: 48be d8e6 | 01cc 607f | 0000 ff86 | a001 0000 | e92b 0000 | 008b 5614 | 48c1 e203 
+
+  0x00007f60ed655240: ;   {metadata(method data for {method} {0x00007f6087421fa0} 'toString' '()Ljava/lang/String;' in 'java/lang/StringBuilder')}
+  0x00007f60ed655240: 8b4e 0c48 | bed8 e601 | cc60 7f00 | 0048 8386 | b801 0000 | 0148 8bf2 | ba00 0000 
+
+  0x00007f60ed65525c: ;   {static_call}
+  0x00007f60ed65525c: 0066 90e8 
+
+  0x00007f60ed655260: ; ImmutableOopMap {[112]=Oop [176]=Oop }
+                      ;*invokestatic newString {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.lang.StringBuilder::toString@31 (line 454)
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@198 (line 75)
+  0x00007f60ed655260: 1c34 3307 | 8bbc 24a4 | 0000 0048 | 8bb4 24b0 | 0000 003b | 7e0c 0f83 | e104 0000 | 4883 f800 
+  0x00007f60ed655280: ;   {metadata(method data for {method} {0x00007f60cc71d218} 'getNumberImage' '(I)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed655280: 7516 48ba | 80c1 72cc | 607f 0000 | 808a c103 | 0000 01e9 | ff00 0000 
+
+  0x00007f60ed655298: ; implicit exception: dispatches to 0x00007f60ed65576b
+  0x00007f60ed655298: 8b5e 0849 | ba00 0000 | 8760 7f00 | 0049 03da | 8b50 0849 | ba00 0000 | 8760 7f00 | 0049 03d2 
+  0x00007f60ed6552b8: 488b 9be0 | 0000 0048 | 3bd3 0f84 | 2800 0000 | 8b4b 1448 | 3b1c 0a0f | 841b 0000 | 0083 f920 
+  0x00007f60ed6552d8: 0f85 a200 | 0000 5253 
+
+  0x00007f60ed6552e0: ;   {runtime_call slow_subtype_check Runtime1 stub}
+  0x00007f60ed6552e0: e89b 783d | 075a 5b83 | fb00 0f84 | 9000 0000 
+
+  0x00007f60ed6552f0: ;   {metadata(method data for {method} {0x00007f60cc71d218} 'getNumberImage' '(I)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed6552f0: 48ba 80c1 | 72cc 607f | 0000 8b58 | 0849 ba00 | 0000 8760 | 7f00 0049 | 03da 483b | 9ad8 0300 
+  0x00007f60ed655310: 0075 0d48 | 8382 e003 | 0000 01e9 | 7700 0000 | 483b 9ae8 | 0300 0075 | 0d48 8382 | f003 0000 
+  0x00007f60ed655330: 01e9 6100 | 0000 4881 | bad8 0300 | 0000 0000 | 0075 1748 | 899a d803 | 0000 48c7 | 82e0 0300 
+  0x00007f60ed655350: 0001 0000 | 00e9 3d00 | 0000 4881 | bae8 0300 | 0000 0000 | 0075 1748 | 899a e803 | 0000 48c7 
+  0x00007f60ed655370: 82f0 0300 | 0001 0000 | 00e9 1900 | 0000 eb17 
+
+  0x00007f60ed655380: ;   {metadata(method data for {method} {0x00007f60cc71d218} 'getNumberImage' '(I)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed655380: 48ba 80c1 | 72cc 607f | 0000 4883 | aac8 0300 | 0001 e9d9 | 0300 0048 | 63df 488d | 5c9e 1041 
+  0x00007f60ed6553a0: 0fbe 5738 | 83fa 000f | 85cc 0300 | 004c 8bd0 | 49c1 ea03 | 4489 1348 | 8bd3 4833 | d048 c1ea 
+  0x00007f60ed6553c0: 1648 83fa | 000f 85cc | 0300 00ff 
+
+  0x00007f60ed6553cc: ;   {metadata(method data for {method} {0x00007f60cc71d218} 'getNumberImage' '(I)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed6553cc: c748 b880 | c172 cc60 | 7f00 008b | 98f8 0000 | 0083 c302 | 8998 f800 | 0000 81e3 | fe3f 0000 
+  0x00007f60ed6553ec: 83fb 000f | 84ba 0300 | 004d 8b97 
+
+  0x00007f60ed6553f8: ; ImmutableOopMap {[112]=Oop rsi=Oop [176]=Oop }
+                      ;*goto {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@205 (line 74)
+  0x00007f60ed6553f8: 5003 0000 
+
+  0x00007f60ed6553fc: ;   {poll}
+  0x00007f60ed6553fc: 4185 0248 | b880 c172 | cc60 7f00 | 00ff 8000 | 0400 00e9 | 6cfc ffff | 488b b424 | b000 0000 
+  0x00007f60ed65541c: 488b c648 | 81c4 c000 
+
+  0x00007f60ed655424: ;   {poll_return}
+  0x00007f60ed655424: 0000 5d49 | 3ba7 4803 | 0000 0f87 | 9c03 0000 
+
+  0x00007f60ed655434: ;   {metadata({method} {0x00007f60cc71d218} 'getNumberImage' '(I)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed655434: c349 ba18 | d271 cc60 | 7f00 004c | 8954 2408 | 48c7 0424 | ffff ffff 
+
+  0x00007f60ed65544c: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f60ed65544c: e82f a13d 
+
+  0x00007f60ed655450: ; ImmutableOopMap {rsi=Oop }
+                      ;*synchronization entry
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@-1 (line 50)
+  0x00007f60ed655450: 07e9 c1ee 
+
+  0x00007f60ed655454: ;   {runtime_call new_object_array Runtime1 stub}
+  0x00007f60ed655454: ffff e825 
+
+  0x00007f60ed655458: ; ImmutableOopMap {[128]=Oop }
+                      ;*anewarray {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@7 (line 52)
+  0x00007f60ed655458: 5c3d 07e9 | 73ef ffff 
+
+  0x00007f60ed655460: ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x00007f60ed655460: 488b d2e8 
+
+  0x00007f60ed655464: ; ImmutableOopMap {[128]=Oop [112]=Oop }
+                      ;*new {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@24 (line 55)
+  0x00007f60ed655464: 184a 3d07 | e9cf efff 
+
+  0x00007f60ed65546c: ;   {metadata({method} {0x00007f6087421f48} '<init>' '()V' in 'java/lang/StringBuilder')}
+  0x00007f60ed65546c: ff49 ba48 | 1f42 8760 | 7f00 004c | 8954 2408 | 48c7 0424 | ffff ffff 
+
+  0x00007f60ed655484: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f60ed655484: e8f7 a03d 
+
+  0x00007f60ed655488: ; ImmutableOopMap {[128]=Oop [112]=Oop rax=Oop }
+                      ;*synchronization entry
+                      ; - java.lang.StringBuilder::<init>@-1 (line 106)
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@28 (line 55)
+  0x00007f60ed655488: 07e9 ebef 
+
+  0x00007f60ed65548c: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x00007f60ed65548c: ffff e80d 
+
+  0x00007f60ed655490: ; ImmutableOopMap {[128]=Oop rax=Oop [112]=Oop rsi=Oop }
+                      ;*aastore {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@31 (line 55)
+  0x00007f60ed655490: 413d 0748 
+
+  0x00007f60ed655494: ;   {runtime_call throw_array_store_exception Runtime1 stub}
+  0x00007f60ed655494: 8934 24e8 
+
+  0x00007f60ed655498: ; ImmutableOopMap {[128]=Oop rax=Oop [112]=Oop rsi=Oop }
+                      ;*aastore {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@31 (line 55)
+  0x00007f60ed655498: 046e 3d07 | 8b17 48c1 | e203 4883 | fa00 0f84 | 37f1 ffff | 4889 1424 
+
+  0x00007f60ed6554b0: ;   {runtime_call g1_pre_barrier_slow}
+  0x00007f60ed6554b0: e8cb a63d | 07e9 29f1 | ffff 4883 | fe00 0f84 | 3df1 ffff | 4889 3c24 
+
+  0x00007f60ed6554c8: ;   {runtime_call g1_post_barrier_slow}
+  0x00007f60ed6554c8: e8b3 a93d | 07e9 2ff1 
+
+  0x00007f60ed6554d0: ;   {metadata({method} {0x00007f60cc71d218} 'getNumberImage' '(I)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed6554d0: ffff 49ba | 18d2 71cc | 607f 0000 | 4c89 5424 | 0848 c704 | 2423 0000 
+
+  0x00007f60ed6554e8: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f60ed6554e8: 00e8 92a0 
+
+  0x00007f60ed6554ec: ; ImmutableOopMap {[128]=Oop rax=Oop [112]=Oop }
+                      ;*goto {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@35 (line 54)
+  0x00007f60ed6554ec: 3d07 e938 
+
+  0x00007f60ed6554f0: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x00007f60ed6554f0: f1ff ffe8 
+
+  0x00007f60ed6554f4: ; ImmutableOopMap {rax=Oop [112]=Oop rsi=Oop [128]=Oop }
+                      ;*invokevirtual toCharArray {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@39 (line 58)
+  0x00007f60ed6554f4: a840 3d07 
+
+  0x00007f60ed6554f8: ;   {metadata({method} {0x00007f608742cd30} 'toCharArray' '()[C' in 'java/lang/String')}
+  0x00007f60ed6554f8: 49ba 30cd | 4287 607f | 0000 4c89 | 5424 0848 | c704 24ff 
+
+  0x00007f60ed65550c: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f60ed65550c: ffff ffe8 
+
+  0x00007f60ed655510: ; ImmutableOopMap {rax=Oop [112]=Oop rsi=Oop [128]=Oop }
+                      ;*synchronization entry
+                      ; - java.lang.String::toCharArray@-1 (line 4103)
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@39 (line 58)
+  0x00007f60ed655510: 6ca0 3d07 | e9b2 f1ff 
+
+  0x00007f60ed655518: ;   {metadata({method} {0x00007f608742bc00} 'isLatin1' '()Z' in 'java/lang/String')}
+  0x00007f60ed655518: ff49 ba00 | bc42 8760 | 7f00 004c | 8954 2408 | 48c7 0424 | ffff ffff 
+
+  0x00007f60ed655530: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f60ed655530: e84b a03d 
+
+  0x00007f60ed655534: ; ImmutableOopMap {rax=Oop [112]=Oop rsi=Oop [128]=Oop }
+                      ;*synchronization entry
+                      ; - java.lang.String::isLatin1@-1 (line 4553)
+                      ; - java.lang.String::toCharArray@1 (line 4103)
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@39 (line 58)
+  0x00007f60ed655534: 07e9 cef1 
+
+  0x00007f60ed655538: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x00007f60ed655538: ffff e861 
+
+  0x00007f60ed65553c: ; ImmutableOopMap {[112]=Oop rax=Oop }
+                      ;*arraylength {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@46 (line 58)
+                      ;   {metadata({method} {0x00007f6087037738} 'valueOf' '(C)Ljava/lang/Character;' in 'java/lang/Character')}
+  0x00007f60ed65553c: 403d 0749 | ba38 7703 | 8760 7f00 | 004c 8954 | 2408 48c7 | 0424 ffff 
+
+  0x00007f60ed655554: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f60ed655554: ffff e825 
+
+  0x00007f60ed655558: ; ImmutableOopMap {rax=Oop [112]=Oop }
+                      ;*synchronization entry
+                      ; - java.lang.Character::valueOf@-1 (line 8593)
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@64 (line 58)
+  0x00007f60ed655558: a03d 07e9 | 3bf3 ffff | 4889 1c24 | 4889 7424 
+
+  0x00007f60ed655568: ;   {runtime_call throw_range_check_failed Runtime1 stub}
+  0x00007f60ed655568: 08e8 325d 
+
+  0x00007f60ed65556c: ; ImmutableOopMap {rax=Oop [112]=Oop rsi=Oop }
+                      ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.lang.Character::valueOf@10 (line 8594)
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@64 (line 58)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x00007f60ed65556c: 3407 e82d 
+
+  0x00007f60ed655570: ; ImmutableOopMap {rax=Oop [112]=Oop }
+                      ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.lang.Character::valueOf@10 (line 8594)
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@64 (line 58)
+  0x00007f60ed655570: 403d 0748 
+
+  0x00007f60ed655574: ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x00007f60ed655574: 8bd2 e805 
+
+  0x00007f60ed655578: ; ImmutableOopMap {[112]=Oop [152]=Oop }
+                      ;*new {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.lang.Character::valueOf@12 (line 8596)
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@64 (line 58)
+  0x00007f60ed655578: 493d 07e9 | e2f3 ffff 
+
+  0x00007f60ed655580: ;   {metadata({method} {0x00007f6087036fa8} '<init>' '(C)V' in 'java/lang/Character')}
+  0x00007f60ed655580: 49ba a86f | 0387 607f | 0000 4c89 | 5424 0848 | c704 24ff 
+
+  0x00007f60ed655594: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f60ed655594: ffff ffe8 
+
+  0x00007f60ed655598: ; ImmutableOopMap {[112]=Oop [152]=Oop rax=Oop }
+                      ;*synchronization entry
+                      ; - java.lang.Character::<init>@-1 (line 8548)
+                      ; - java.lang.Character::valueOf@17 (line 8596)
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@64 (line 58)
+  0x00007f60ed655598: e49f 3d07 | e9fe f3ff 
+
+  0x00007f60ed6555a0: ;   {metadata({method} {0x00007f60874445b8} '<init>' '()V' in 'java/lang/Object')}
+  0x00007f60ed6555a0: ff49 bab8 | 4544 8760 | 7f00 004c | 8954 2408 | 48c7 0424 | ffff ffff 
+
+  0x00007f60ed6555b8: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f60ed6555b8: e8c3 9f3d 
+
+  0x00007f60ed6555bc: ; ImmutableOopMap {[112]=Oop [152]=Oop rax=Oop }
+                      ;*synchronization entry
+                      ; - java.lang.Object::<init>@-1 (line 44)
+                      ; - java.lang.Character::<init>@1 (line 8548)
+                      ; - java.lang.Character::valueOf@17 (line 8596)
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@64 (line 58)
+  0x00007f60ed6555bc: 07e9 1af4 
+
+  0x00007f60ed6555c0: ;   {runtime_call new_object_array Runtime1 stub}
+  0x00007f60ed6555c0: ffff e8b9 
+
+  0x00007f60ed6555c4: ; ImmutableOopMap {r13=Oop [152]=Oop [112]=Oop }
+                      ;*anewarray {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@71 (line 61)
+  0x00007f60ed6555c4: 5a3d 07e9 | b6f4 ffff 
+
+  0x00007f60ed6555cc: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x00007f60ed6555cc: e8cf 3f3d 
+
+  0x00007f60ed6555d0: ; ImmutableOopMap {r13=Oop [152]=Oop [112]=Oop rax=Oop [136]=Oop }
+                      ;*invokevirtual charValue {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@78 (line 62)
+                      ;   {metadata({method} {0x00007f60870389c8} 'getNumericValue' '(C)I' in 'java/lang/Character')}
+  0x00007f60ed6555d0: 0749 bac8 | 8903 8760 | 7f00 004c | 8954 2408 | 48c7 0424 | ffff ffff 
+
+  0x00007f60ed6555e8: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f60ed6555e8: e893 9f3d 
+
+  0x00007f60ed6555ec: ; ImmutableOopMap {[152]=Oop [112]=Oop rax=Oop [136]=Oop }
+                      ;*synchronization entry
+                      ; - java.lang.Character::getNumericValue@-1 (line 10700)
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@81 (line 62)
+  0x00007f60ed6555ec: 07e9 f6f4 
+
+  0x00007f60ed6555f0: ;   {metadata({method} {0x00007f6087038970} 'getNumericValue' '(I)I' in 'java/lang/Character')}
+  0x00007f60ed6555f0: ffff 49ba | 7089 0387 | 607f 0000 | 4c89 5424 | 0848 c704 | 24ff ffff 
+
+  0x00007f60ed655608: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f60ed655608: ffe8 729f 
+
+  0x00007f60ed65560c: ; ImmutableOopMap {[152]=Oop [112]=Oop rax=Oop [136]=Oop }
+                      ;*synchronization entry
+                      ; - java.lang.Character::getNumericValue@-1 (line 10734)
+                      ; - java.lang.Character::getNumericValue@1 (line 10700)
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@81 (line 62)
+  0x00007f60ed65560c: 3d07 e90f 
+
+  0x00007f60ed655610: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x00007f60ed655610: f5ff ffe8 
+
+  0x00007f60ed655614: ; ImmutableOopMap {[136]=Oop [112]=Oop [152]=Oop rax=Oop }
+                      ;*invokevirtual getNumericValue {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.lang.Character::getNumericValue@5 (line 10734)
+                      ; - java.lang.Character::getNumericValue@1 (line 10700)
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@81 (line 62)
+  0x00007f60ed655614: 883f 3d07 
+
+  0x00007f60ed655618: ;   {runtime_call throw_div0_exception Runtime1 stub}
+  0x00007f60ed655618: e883 3c3d 
+
+  0x00007f60ed65561c: ; ImmutableOopMap {[112]=Oop [152]=Oop rcx=Oop [136]=Oop }
+                      ;*irem {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@114 (line 64)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x00007f60ed65561c: 07e8 7e3f 
+
+  0x00007f60ed655620: ; ImmutableOopMap {[112]=Oop [152]=Oop rcx=Oop [136]=Oop }
+                      ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@115 (line 64)
+  0x00007f60ed655620: 3d07 4889 | 0424 4889 
+
+  0x00007f60ed655628: ;   {runtime_call throw_range_check_failed Runtime1 stub}
+  0x00007f60ed655628: 4c24 08e8 
+
+  0x00007f60ed65562c: ; ImmutableOopMap {[112]=Oop [152]=Oop rcx=Oop [136]=Oop rdx=Oop }
+                      ;*aastore {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@130 (line 65)
+  0x00007f60ed65562c: 705c 3407 
+
+  0x00007f60ed655630: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x00007f60ed655630: e86b 3f3d 
+
+  0x00007f60ed655634: ; ImmutableOopMap {[112]=Oop [152]=Oop rcx=Oop [136]=Oop rdx=Oop }
+                      ;*aastore {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@130 (line 65)
+  0x00007f60ed655634: 0748 8914 
+
+  0x00007f60ed655638: ;   {runtime_call throw_array_store_exception Runtime1 stub}
+  0x00007f60ed655638: 24e8 626c 
+
+  0x00007f60ed65563c: ; ImmutableOopMap {[112]=Oop [152]=Oop rcx=Oop [136]=Oop rdx=Oop }
+                      ;*aastore {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@130 (line 65)
+  0x00007f60ed65563c: 3d07 448b | 0049 c1e0 | 0349 83f8 | 000f 844e | f7ff ff4c 
+
+  0x00007f60ed655650: ;   {runtime_call g1_pre_barrier_slow}
+  0x00007f60ed655650: 8904 24e8 | 28a5 3d07 | e940 f7ff | ff48 83fa | 000f 8454 | f7ff ff48 
+
+  0x00007f60ed655668: ;   {runtime_call g1_post_barrier_slow}
+  0x00007f60ed655668: 8904 24e8 | 10a8 3d07 | e946 f7ff 
+
+  0x00007f60ed655674: ;   {metadata({method} {0x00007f60cc71d218} 'getNumberImage' '(I)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed655674: ff49 ba18 | d271 cc60 | 7f00 004c | 8954 2408 | 48c7 0424 | 8600 0000 
+
+  0x00007f60ed65568c: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f60ed65568c: e8ef 9e3d 
+
+  0x00007f60ed655690: ; ImmutableOopMap {[112]=Oop [152]=Oop rcx=Oop [136]=Oop }
+                      ;*goto {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@134 (line 63)
+  0x00007f60ed655690: 07e9 4ff7 | ffff 4889 | 3c24 4889 
+
+  0x00007f60ed65569c: ;   {runtime_call throw_range_check_failed Runtime1 stub}
+  0x00007f60ed65569c: 4424 08e8 
+
+  0x00007f60ed6556a0: ; ImmutableOopMap {[152]=Oop rcx=Oop [136]=Oop rax=Oop [112]=Oop }
+                      ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@151 (line 69)
+  0x00007f60ed6556a0: fc5b 3407 
+
+  0x00007f60ed6556a4: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x00007f60ed6556a4: e8f7 3e3d 
+
+  0x00007f60ed6556a8: ; ImmutableOopMap {[152]=Oop rcx=Oop [136]=Oop rax=Oop [112]=Oop rbx=Oop rdx=Oop }
+                      ;*invokevirtual append {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@157 (line 69)
+                      ;   {metadata({method} {0x00007f6087422680} 'append' '(Ljava/lang/String;)Ljava/lang/StringBuilder;' in 'java/lang/StringBuilder')}
+  0x00007f60ed6556a8: 0749 ba80 | 2642 8760 | 7f00 004c | 8954 2408 | 48c7 0424 | ffff ffff 
+
+  0x00007f60ed6556c0: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f60ed6556c0: e8bb 9e3d 
+
+  0x00007f60ed6556c4: ; ImmutableOopMap {[152]=Oop rcx=Oop [136]=Oop rax=Oop [112]=Oop rbx=Oop rdx=Oop }
+                      ;*synchronization entry
+                      ; - java.lang.StringBuilder::append@-1 (line 179)
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@157 (line 69)
+  0x00007f60ed6556c4: 07e9 eef7 
+
+  0x00007f60ed6556c8: ;   {metadata({method} {0x00007f60cc71d218} 'getNumberImage' '(I)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed6556c8: ffff 49ba | 18d2 71cc | 607f 0000 | 4c89 5424 | 0848 c704 | 24a4 0000 
+
+  0x00007f60ed6556e0: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f60ed6556e0: 00e8 9a9e 
+
+  0x00007f60ed6556e4: ; ImmutableOopMap {[152]=Oop [112]=Oop [136]=Oop }
+                      ;*goto {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@164 (line 68)
+  0x00007f60ed6556e4: 3d07 e92a 
+
+  0x00007f60ed6556e8: ;   {metadata({method} {0x00007f60cc71d218} 'getNumberImage' '(I)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed6556e8: f8ff ff49 | ba18 d271 | cc60 7f00 | 004c 8954 | 2408 48c7 | 0424 aa00 
+
+  0x00007f60ed655700: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f60ed655700: 0000 e879 
+
+  0x00007f60ed655704: ; ImmutableOopMap {[152]=Oop [112]=Oop }
+                      ;*goto {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@170 (line 58)
+  0x00007f60ed655704: 9e3d 07e9 | 9ef8 ffff 
+
+  0x00007f60ed65570c: ;   {runtime_call new_object_array Runtime1 stub}
+  0x00007f60ed65570c: e86f 593d 
+
+  0x00007f60ed655710: ; ImmutableOopMap {[112]=Oop }
+                      ;*anewarray {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@175 (line 73)
+  0x00007f60ed655710: 07e9 5af9 
+
+  0x00007f60ed655714: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x00007f60ed655714: ffff e885 
+
+  0x00007f60ed655718: ; ImmutableOopMap {[176]=Oop rax=Oop [112]=Oop rsi=Oop }
+                      ;*invokevirtual toString {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@198 (line 75)
+                      ;   {metadata({method} {0x00007f6087421fa0} 'toString' '()Ljava/lang/String;' in 'java/lang/StringBuilder')}
+  0x00007f60ed655718: 3e3d 0749 | baa0 1f42 | 8760 7f00 | 004c 8954 | 2408 48c7 | 0424 ffff 
+
+  0x00007f60ed655730: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f60ed655730: ffff e849 
+
+  0x00007f60ed655734: ; ImmutableOopMap {[176]=Oop rax=Oop [112]=Oop rsi=Oop }
+                      ;*synchronization entry
+                      ; - java.lang.StringBuilder::toString@-1 (line 453)
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@198 (line 75)
+  0x00007f60ed655734: 9e3d 07e9 | cdf9 ffff 
+
+  0x00007f60ed65573c: ;   {metadata({method} {0x00007f608705deb8} 'isLatin1' '()Z' in 'java/lang/AbstractStringBuilder')}
+  0x00007f60ed65573c: 49ba b8de | 0587 607f | 0000 4c89 | 5424 0848 | c704 24ff 
+
+  0x00007f60ed655750: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f60ed655750: ffff ffe8 
+
+  0x00007f60ed655754: ; ImmutableOopMap {[176]=Oop rax=Oop [112]=Oop rsi=Oop }
+                      ;*synchronization entry
+                      ; - java.lang.AbstractStringBuilder::isLatin1@-1 (line 1677)
+                      ; - java.lang.StringBuilder::toString@1 (line 453)
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@198 (line 75)
+  0x00007f60ed655754: 289e 3d07 | e9e9 f9ff | ff48 893c | 2448 8974 
+
+  0x00007f60ed655764: ;   {runtime_call throw_range_check_failed Runtime1 stub}
+  0x00007f60ed655764: 2408 e835 
+
+  0x00007f60ed655768: ; ImmutableOopMap {[112]=Oop rax=Oop rsi=Oop [176]=Oop }
+                      ;*aastore {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@201 (line 75)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x00007f60ed655768: 5b34 07e8 
+
+  0x00007f60ed65576c: ; ImmutableOopMap {[112]=Oop rax=Oop rsi=Oop [176]=Oop }
+                      ;*aastore {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@201 (line 75)
+  0x00007f60ed65576c: 303e 3d07 | 4889 0424 
+
+  0x00007f60ed655774: ;   {runtime_call throw_array_store_exception Runtime1 stub}
+  0x00007f60ed655774: e827 6b3d 
+
+  0x00007f60ed655778: ; ImmutableOopMap {[112]=Oop rax=Oop rsi=Oop [176]=Oop }
+                      ;*aastore {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@201 (line 75)
+  0x00007f60ed655778: 078b 1348 | c1e2 0348 | 83fa 000f | 8424 fcff | ff48 8914 
+
+  0x00007f60ed65578c: ;   {runtime_call g1_pre_barrier_slow}
+  0x00007f60ed65578c: 24e8 eea3 | 3d07 e916 | fcff ff48 | 83f8 000f | 842a fcff | ff48 891c 
+
+  0x00007f60ed6557a4: ;   {runtime_call g1_post_barrier_slow}
+  0x00007f60ed6557a4: 24e8 d6a6 | 3d07 e91c 
+
+  0x00007f60ed6557ac: ;   {metadata({method} {0x00007f60cc71d218} 'getNumberImage' '(I)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed6557ac: fcff ff49 | ba18 d271 | cc60 7f00 | 004c 8954 | 2408 48c7 | 0424 cd00 
+
+  0x00007f60ed6557c4: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f60ed6557c4: 0000 e8b5 
+
+  0x00007f60ed6557c8: ; ImmutableOopMap {[112]=Oop rsi=Oop [176]=Oop }
+                      ;*goto {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getNumberImage@205 (line 74)
+  0x00007f60ed6557c8: 9d3d 07e9 | 25fc ffff 
+
+  0x00007f60ed6557d0: ;   {internal_word}
+  0x00007f60ed6557d0: 49ba 2754 | 65ed 607f | 0000 4d89 | 9760 0300 
+
+  0x00007f60ed6557e0: ;   {runtime_call SafepointBlob}
+  0x00007f60ed6557e0: 00e9 1a8f | 3307 9090 | 498b 87d8 | 0300 0049 | c787 d803 | 0000 0000 | 0000 49c7 | 87e0 0300 
+  0x00007f60ed655800: 0000 0000 | 0048 81c4 | c000 0000 
+
+  0x00007f60ed65580c: ;   {runtime_call unwind_exception Runtime1 stub}
+  0x00007f60ed65580c: 5de9 ee60 | 3407 f4f4 | f4f4 f4f4 | f4f4 f4f4 | f4f4 f4f4 
+[Stub Code]
+  0x00007f60ed655820: ;   {no_reloc}
+  0x00007f60ed655820: 0f1f 4400 
+
+  0x00007f60ed655824: ;   {static_stub}
+  0x00007f60ed655824: 0048 bb58 | 2804 8760 
+
+  0x00007f60ed65582c: ;   {runtime_call I2C/C2I adapters}
+  0x00007f60ed65582c: 7f00 00e9 | 2475 3307 
+
+  0x00007f60ed655834: ;   {static_stub}
+  0x00007f60ed655834: 9048 bb00 | 0000 0000 
+
+  0x00007f60ed65583c: ;   {runtime_call}
+  0x00007f60ed65583c: 0000 00e9 | fbff ffff 
+
+  0x00007f60ed655844: ;   {static_stub}
+  0x00007f60ed655844: 9048 bb00 | 0000 0000 
+
+  0x00007f60ed65584c: ;   {runtime_call}
+  0x00007f60ed65584c: 0000 00e9 | fbff ffff 
+
+  0x00007f60ed655854: ;   {static_stub}
+  0x00007f60ed655854: 9048 bb00 | 0000 0000 
+
+  0x00007f60ed65585c: ;   {runtime_call}
+  0x00007f60ed65585c: 0000 00e9 | fbff ffff 
+
+  0x00007f60ed655864: ;   {static_stub}
+  0x00007f60ed655864: 9048 bb00 | 0000 0000 
+
+  0x00007f60ed65586c: ;   {runtime_call}
+  0x00007f60ed65586c: 0000 00e9 | fbff ffff 
+
+  0x00007f60ed655874: ;   {static_stub}
+  0x00007f60ed655874: 9048 bb00 | 0000 0000 
+
+  0x00007f60ed65587c: ;   {runtime_call}
+  0x00007f60ed65587c: 0000 00e9 | fbff ffff 
+
+  0x00007f60ed655884: ;   {static_stub}
+  0x00007f60ed655884: 9048 bb00 | 0000 0000 
+
+  0x00007f60ed65588c: ;   {runtime_call}
+  0x00007f60ed65588c: 0000 00e9 | fbff ffff 
+
+  0x00007f60ed655894: ;   {static_stub}
+  0x00007f60ed655894: 9048 bb00 | 0000 0000 
+
+  0x00007f60ed65589c: ;   {runtime_call}
+  0x00007f60ed65589c: 0000 00e9 | fbff ffff 
+
+  0x00007f60ed6558a4: ;   {static_stub}
+  0x00007f60ed6558a4: 9048 bb00 | 0000 0000 
+
+  0x00007f60ed6558ac: ;   {runtime_call}
+  0x00007f60ed6558ac: 0000 00e9 | fbff ffff 
+[Exception Handler]
+  0x00007f60ed6558b4: ;   {runtime_call handle_exception_from_callee Runtime1 stub}
+  0x00007f60ed6558b4: e8c7 663d 
+
+  0x00007f60ed6558b8: ;   {external_word}
+  0x00007f60ed6558b8: 0748 bfd2 | aec0 0b61 | 7f00 0048 
+
+  0x00007f60ed6558c4: ;   {runtime_call MacroAssembler::debug64(char*, long, long*)}
+  0x00007f60ed6558c4: 83e4 f0e8 | b48b 0b1e 
+
+  0x00007f60ed6558cc: ;   {section_word}
+  0x00007f60ed6558cc: f449 bacd | 5865 ed60 | 7f00 0041 
+
+  0x00007f60ed6558d8: ;   {runtime_call DeoptimizationBlob}
+  0x00007f60ed6558d8: 52e9 c280 | 3307 f4f4 
+[/MachCode]
+
+
+Compiled method (c1)   12127 1536       3       com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getImageRepresentation (59 bytes)
+ total in heap  [0x00007f60ed64f290,0x00007f60ed64ffd0] = 3392
+ relocation     [0x00007f60ed64f3f0,0x00007f60ed64f4a8] = 184
+ main code      [0x00007f60ed64f4c0,0x00007f60ed64fe20] = 2400
+ stub code      [0x00007f60ed64fe20,0x00007f60ed64fe80] = 96
+ oops           [0x00007f60ed64fe80,0x00007f60ed64fe88] = 8
+ metadata       [0x00007f60ed64fe88,0x00007f60ed64fe98] = 16
+ scopes data    [0x00007f60ed64fe98,0x00007f60ed64fee8] = 80
+ scopes pcs     [0x00007f60ed64fee8,0x00007f60ed64ffb8] = 208
+ dependencies   [0x00007f60ed64ffb8,0x00007f60ed64ffc0] = 8
+ nul chk table  [0x00007f60ed64ffc0,0x00007f60ed64ffd0] = 16
+
+[Constant Pool (empty)]
+
+[MachCode]
+[Entry Point]
+  # {method} {0x00007f60cc71cd80} 'getImageRepresentation' '(Ljava/lang/Object;)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory'
+  # this:     rsi:rsi   = 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory'
+  # parm0:    rdx:rdx   = 'java/lang/Object'
+  #           [sp+0x50]  (sp of caller)
+  0x00007f60ed64f4c0: 448b 5608 | 49bb 0000 | 0087 607f | 0000 4d03 | d34c 3bd0 
+
+  0x00007f60ed64f4d4: ;   {runtime_call ic_miss_stub}
+  0x00007f60ed64f4d4: 0f85 a688 | 3307 660f | 1f44 0000 
+[Verified Entry Point]
+  0x00007f60ed64f4e0: 8984 2400 | c0fe ff55 | 4883 ec40 
+
+  0x00007f60ed64f4ec: ;   {metadata(method data for {method} {0x00007f60cc71cd80} 'getImageRepresentation' '(Ljava/lang/Object;)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed64f4ec: 48bf a8b9 | 72cc 607f | 0000 8b9f | f400 0000 | 83c3 0289 | 9ff4 0000 | 0081 e3fe | 0700 0083 
+  0x00007f60ed64f50c: fb00 0f84 | 1a08 0000 | 4883 fa00 
+
+  0x00007f60ed64f518: ;   {metadata(method data for {method} {0x00007f60cc71cd80} 'getImageRepresentation' '(Ljava/lang/Object;)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed64f518: 7516 48b8 | a8b9 72cc | 607f 0000 | 8088 3101 | 0000 01e9 | d200 0000 
+
+  0x00007f60ed64f530: ;   {metadata('java/lang/String')}
+  0x00007f60ed64f530: 48b9 20ec | 0087 607f | 0000 8b5a | 0849 ba00 | 0000 8760 | 7f00 0049 | 03da 483b | cb0f 8593 
+  0x00007f60ed64f550: ;   {metadata(method data for {method} {0x00007f60cc71cd80} 'getImageRepresentation' '(Ljava/lang/Object;)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed64f550: 0000 0048 | b8a8 b972 | cc60 7f00 | 008b 4a08 | 49ba 0000 | 0087 607f | 0000 4903 | ca48 3b88 
+  0x00007f60ed64f570: 4801 0000 | 750d 4883 | 8050 0100 | 0001 e984 | 0000 0048 | 3b88 5801 | 0000 750d | 4883 8060 
+  0x00007f60ed64f590: 0100 0001 | e96e 0000 | 0048 81b8 | 4801 0000 | 0000 0000 | 7517 4889 | 8848 0100 | 0048 c780 
+  0x00007f60ed64f5b0: 5001 0000 | 0100 0000 | e94a 0000 | 0048 81b8 | 5801 0000 | 0000 0000 | 7517 4889 | 8858 0100 
+  0x00007f60ed64f5d0: 0048 c780 | 6001 0000 | 0100 0000 | e926 0000 | 00e9 2100 
+
+  0x00007f60ed64f5e4: ;   {metadata(method data for {method} {0x00007f60cc71cd80} 'getImageRepresentation' '(Ljava/lang/Object;)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed64f5e4: 0000 48b8 | a8b9 72cc | 607f 0000 | 4883 a838 | 0100 0001 | e905 0000 | 00e9 0500 | 0000 4833 
+  0x00007f60ed64f604: ffeb 0a48 | bf01 0000 | 0000 0000 | 0083 ff00 
+
+  0x00007f60ed64f614: ;   {metadata(method data for {method} {0x00007f60cc71cd80} 'getImageRepresentation' '(Ljava/lang/Object;)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed64f614: 48bf a8b9 | 72cc 607f | 0000 48bb | 8001 0000 | 0000 0000 | 0f85 0a00 | 0000 48bb | 7001 0000 
+  0x00007f60ed64f634: 0000 0000 | 488b 041f | 488d 4001 | 4889 041f | 0f85 3505 | 0000 4883 | fa00 7516 
+
+  0x00007f60ed64f650: ;   {metadata(method data for {method} {0x00007f60cc71cd80} 'getImageRepresentation' '(Ljava/lang/Object;)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed64f650: 48b8 a8b9 | 72cc 607f | 0000 8088 | f901 0000 | 01e9 d200 
+
+  0x00007f60ed64f664: ;   {metadata('java/lang/Integer')}
+  0x00007f60ed64f664: 0000 48b9 | b813 0487 | 607f 0000 | 8b5a 0849 | ba00 0000 | 8760 7f00 | 0049 03da | 483b cb0f 
+  0x00007f60ed64f684: 8593 0000 
+
+  0x00007f60ed64f688: ;   {metadata(method data for {method} {0x00007f60cc71cd80} 'getImageRepresentation' '(Ljava/lang/Object;)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed64f688: 0048 b8a8 | b972 cc60 | 7f00 008b | 4a08 49ba | 0000 0087 | 607f 0000 | 4903 ca48 | 3b88 1002 
+  0x00007f60ed64f6a8: 0000 750d | 4883 8018 | 0200 0001 | e984 0000 | 0048 3b88 | 2002 0000 | 750d 4883 | 8028 0200 
+  0x00007f60ed64f6c8: 0001 e96e | 0000 0048 | 81b8 1002 | 0000 0000 | 0000 7517 | 4889 8810 | 0200 0048 | c780 1802 
+  0x00007f60ed64f6e8: 0000 0100 | 0000 e94a | 0000 0048 | 81b8 2002 | 0000 0000 | 0000 7517 | 4889 8820 | 0200 0048 
+  0x00007f60ed64f708: c780 2802 | 0000 0100 | 0000 e926 | 0000 00e9 | 2100 0000 
+
+  0x00007f60ed64f71c: ;   {metadata(method data for {method} {0x00007f60cc71cd80} 'getImageRepresentation' '(Ljava/lang/Object;)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed64f71c: 48b8 a8b9 | 72cc 607f | 0000 4883 | a800 0200 | 0001 e905 | 0000 00e9 | 0500 0000 | 4833 ffeb 
+  0x00007f60ed64f73c: 0a48 bf01 | 0000 0000 | 0000 0083 
+
+  0x00007f60ed64f748: ;   {metadata(method data for {method} {0x00007f60cc71cd80} 'getImageRepresentation' '(Ljava/lang/Object;)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed64f748: ff00 48bf | a8b9 72cc | 607f 0000 | 48bb 3802 | 0000 0000 | 0000 0f85 | 0a00 0000 | 48bb 4802 
+  0x00007f60ed64f768: 0000 0000 | 0000 488b | 041f 488d | 4001 4889 | 041f 0f85 | c202 0000 | 4883 fa00 
+
+  0x00007f60ed64f784: ;   {metadata(method data for {method} {0x00007f60cc71cd80} 'getImageRepresentation' '(Ljava/lang/Object;)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed64f784: 7516 48b8 | a8b9 72cc | 607f 0000 | 8088 5102 | 0000 01e9 | fe00 0000 | 0f1f 4000 
+
+  0x00007f60ed64f7a0: ;   {no_reloc}
+  0x00007f60ed64f7a0: e9b9 0500 | 0000 0000 | 0000 8b42 | 0849 ba00 | 0000 8760 | 7f00 0049 | 03c2 483b | c10f 8428 
+  0x00007f60ed64f7c0: 0000 008b | 5914 483b | 0c18 0f84 | 1b00 0000 | 83fb 200f | 85a5 0000 
+
+  0x00007f60ed64f7d8: ;   {runtime_call slow_subtype_check Runtime1 stub}
+  0x00007f60ed64f7d8: 0050 51e8 | a0d3 3d07 | 5859 83f9 | 000f 8493 
+
+  0x00007f60ed64f7e8: ;   {metadata(method data for {method} {0x00007f60cc71cd80} 'getImageRepresentation' '(Ljava/lang/Object;)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed64f7e8: 0000 0048 | b8a8 b972 | cc60 7f00 | 008b 4a08 | 49ba 0000 | 0087 607f | 0000 4903 | ca48 3b88 
+  0x00007f60ed64f808: 6802 0000 | 750d 4883 | 8070 0200 | 0001 e984 | 0000 0048 | 3b88 7802 | 0000 750d | 4883 8080 
+  0x00007f60ed64f828: 0200 0001 | e96e 0000 | 0048 81b8 | 6802 0000 | 0000 0000 | 7517 4889 | 8868 0200 | 0048 c780 
+  0x00007f60ed64f848: 7002 0000 | 0100 0000 | e94a 0000 | 0048 81b8 | 7802 0000 | 0000 0000 | 7517 4889 | 8878 0200 
+  0x00007f60ed64f868: 0048 c780 | 8002 0000 | 0100 0000 | e926 0000 | 00e9 2100 
+
+  0x00007f60ed64f87c: ;   {metadata(method data for {method} {0x00007f60cc71cd80} 'getImageRepresentation' '(Ljava/lang/Object;)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed64f87c: 0000 48b8 | a8b9 72cc | 607f 0000 | 4883 a858 | 0200 0001 | e905 0000 | 00e9 0500 | 0000 4833 
+  0x00007f60ed64f89c: ffeb 0a48 | bf01 0000 | 0000 0000 | 0083 ff00 
+
+  0x00007f60ed64f8ac: ;   {metadata(method data for {method} {0x00007f60cc71cd80} 'getImageRepresentation' '(Ljava/lang/Object;)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed64f8ac: 48bf a8b9 | 72cc 607f | 0000 48bb | 9002 0000 | 0000 0000 | 0f85 0a00 | 0000 48bb | a002 0000 
+  0x00007f60ed64f8cc: 0000 0000 | 488b 041f | 488d 4001 | 4889 041f | 0f85 6001 | 0000 4883 | fa00 7516 
+
+  0x00007f60ed64f8e8: ;   {metadata(method data for {method} {0x00007f60cc71cd80} 'getImageRepresentation' '(Ljava/lang/Object;)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed64f8e8: 48b8 a8b9 | 72cc 607f | 0000 8088 | a902 0000 | 01e9 fc00 | 0000 6690 
+
+  0x00007f60ed64f900: ;   {no_reloc}
+  0x00007f60ed64f900: e972 0400 | 0000 0000 | 0000 8b42 | 0849 ba00 | 0000 8760 | 7f00 0049 | 03c2 483b | c10f 8428 
+  0x00007f60ed64f920: 0000 008b | 5914 483b | 0c18 0f84 | 1b00 0000 | 83fb 200f | 85a5 0000 
+
+  0x00007f60ed64f938: ;   {runtime_call slow_subtype_check Runtime1 stub}
+  0x00007f60ed64f938: 0050 51e8 | 40d2 3d07 | 5859 83f9 | 000f 8493 
+
+  0x00007f60ed64f948: ;   {metadata(method data for {method} {0x00007f60cc71cd80} 'getImageRepresentation' '(Ljava/lang/Object;)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed64f948: 0000 0048 | b8a8 b972 | cc60 7f00 | 008b 4a08 | 49ba 0000 | 0087 607f | 0000 4903 | ca48 3b88 
+  0x00007f60ed64f968: c002 0000 | 750d 4883 | 80c8 0200 | 0001 e984 | 0000 0048 | 3b88 d002 | 0000 750d | 4883 80d8 
+  0x00007f60ed64f988: 0200 0001 | e96e 0000 | 0048 81b8 | c002 0000 | 0000 0000 | 7517 4889 | 88c0 0200 | 0048 c780 
+  0x00007f60ed64f9a8: c802 0000 | 0100 0000 | e94a 0000 | 0048 81b8 | d002 0000 | 0000 0000 | 7517 4889 | 88d0 0200 
+  0x00007f60ed64f9c8: 0048 c780 | d802 0000 | 0100 0000 | e926 0000 | 00e9 2100 
+
+  0x00007f60ed64f9dc: ;   {metadata(method data for {method} {0x00007f60cc71cd80} 'getImageRepresentation' '(Ljava/lang/Object;)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed64f9dc: 0000 48b8 | a8b9 72cc | 607f 0000 | 4883 a8b0 | 0200 0001 | e905 0000 | 00e9 0500 | 0000 4833 
+  0x00007f60ed64f9fc: ffeb 0a48 | bf01 0000 | 0000 0000 | 0083 ff00 
+
+  0x00007f60ed64fa0c: ;   {metadata(method data for {method} {0x00007f60cc71cd80} 'getImageRepresentation' '(Ljava/lang/Object;)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed64fa0c: 48bf a8b9 | 72cc 607f | 0000 48bb | e802 0000 | 0000 0000 | 0f84 0a00 | 0000 48bb | f802 0000 
+  0x00007f60ed64fa2c: 0000 0000 | 488b 041f | 488d 4001 | 4889 041f | 0f84 5d02 | 0000 4883 | fa00 7516 
+
+  0x00007f60ed64fa48: ;   {metadata(method data for {method} {0x00007f60cc71cd80} 'getImageRepresentation' '(Ljava/lang/Object;)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed64fa48: 48bb a8b9 | 72cc 607f | 0000 808b | 0103 0000 | 01e9 d200 
+
+  0x00007f60ed64fa5c: ;   {metadata('java/lang/Integer')}
+  0x00007f60ed64fa5c: 0000 48b8 | b813 0487 | 607f 0000 | 8b7a 0849 | ba00 0000 | 8760 7f00 | 0049 03fa | 483b c70f 
+  0x00007f60ed64fa7c: 8593 0000 
+
+  0x00007f60ed64fa80: ;   {metadata(method data for {method} {0x00007f60cc71cd80} 'getImageRepresentation' '(Ljava/lang/Object;)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed64fa80: 0048 bba8 | b972 cc60 | 7f00 008b | 4208 49ba | 0000 0087 | 607f 0000 | 4903 c248 | 3b83 1803 
+  0x00007f60ed64faa0: 0000 750d | 4883 8320 | 0300 0001 | e97f 0000 | 0048 3b83 | 2803 0000 | 750d 4883 | 8330 0300 
+  0x00007f60ed64fac0: 0001 e969 | 0000 0048 | 81bb 1803 | 0000 0000 | 0000 7517 | 4889 8318 | 0300 0048 | c783 2003 
+  0x00007f60ed64fae0: 0000 0100 | 0000 e945 | 0000 0048 | 81bb 2803 | 0000 0000 | 0000 7517 | 4889 8328 | 0300 0048 
+  0x00007f60ed64fb00: c783 3003 | 0000 0100 | 0000 e921 | 0000 00e9 | 1c00 0000 
+
+  0x00007f60ed64fb14: ;   {metadata(method data for {method} {0x00007f60cc71cd80} 'getImageRepresentation' '(Ljava/lang/Object;)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed64fb14: 48bb a8b9 | 72cc 607f | 0000 4883 | ab08 0300 | 0001 e956 | 0200 00e9 | 0000 0000 
+
+  0x00007f60ed64fb30: ; implicit exception: dispatches to 0x00007f60ed64fd8a
+  0x00007f60ed64fb30: 483b 0248 
+
+  0x00007f60ed64fb34: ;   {metadata(method data for {method} {0x00007f60cc71cd80} 'getImageRepresentation' '(Ljava/lang/Object;)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed64fb34: 8bfa 48bb | a8b9 72cc | 607f 0000 | 4883 8340 | 0300 0001 | 8b52 0c48 
+
+  0x00007f60ed64fb4c: ;   {metadata(method data for {method} {0x00007f60cc71cd80} 'getImageRepresentation' '(Ljava/lang/Object;)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed64fb4c: 8bfe 48bb | a8b9 72cc | 607f 0000 | 4883 8390 | 0300 0001 | 0f1f 8000 
+
+  0x00007f60ed64fb64: ;   {optimized virtual_call}
+  0x00007f60ed64fb64: 0000 00e8 
+
+  0x00007f60ed64fb68: ; ImmutableOopMap {}
+                      ;*invokevirtual getNumberImage {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getImageRepresentation@45 (line 10)
+  0x00007f60ed64fb68: 7447 0000 | 4883 c440 
+
+  0x00007f60ed64fb70: ;   {poll_return}
+  0x00007f60ed64fb70: 5d49 3ba7 | 4803 0000 | 0f87 1102 | 0000 c348 | 83fa 0075 
+
+  0x00007f60ed64fb84: ;   {metadata(method data for {method} {0x00007f60cc71cd80} 'getImageRepresentation' '(Ljava/lang/Object;)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed64fb84: 1648 bba8 | b972 cc60 | 7f00 0080 | 8b89 0100 | 0001 e9d2 
+
+  0x00007f60ed64fb98: ;   {metadata('java/lang/String')}
+  0x00007f60ed64fb98: 0000 0048 | b820 ec00 | 8760 7f00 | 008b 7a08 | 49ba 0000 | 0087 607f | 0000 4903 | fa48 3bc7 
+  0x00007f60ed64fbb8: 0f85 9300 
+
+  0x00007f60ed64fbbc: ;   {metadata(method data for {method} {0x00007f60cc71cd80} 'getImageRepresentation' '(Ljava/lang/Object;)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed64fbbc: 0000 48bb | a8b9 72cc | 607f 0000 | 8b42 0849 | ba00 0000 | 8760 7f00 | 0049 03c2 | 483b 83a0 
+  0x00007f60ed64fbdc: 0100 0075 | 0d48 8383 | a801 0000 | 01e9 7f00 | 0000 483b | 83b0 0100 | 0075 0d48 | 8383 b801 
+  0x00007f60ed64fbfc: 0000 01e9 | 6900 0000 | 4881 bba0 | 0100 0000 | 0000 0075 | 1748 8983 | a001 0000 | 48c7 83a8 
+  0x00007f60ed64fc1c: 0100 0001 | 0000 00e9 | 4500 0000 | 4881 bbb0 | 0100 0000 | 0000 0075 | 1748 8983 | b001 0000 
+  0x00007f60ed64fc3c: 48c7 83b8 | 0100 0001 | 0000 00e9 | 2100 0000 | e91c 0000 
+
+  0x00007f60ed64fc50: ;   {metadata(method data for {method} {0x00007f60cc71cd80} 'getImageRepresentation' '(Ljava/lang/Object;)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed64fc50: 0048 bba8 | b972 cc60 | 7f00 0048 | 83ab 9001 | 0000 01e9 | 3d01 0000 | e900 0000 | 0048 8bfe 
+  0x00007f60ed64fc70: ;   {metadata(method data for {method} {0x00007f60cc71cd80} 'getImageRepresentation' '(Ljava/lang/Object;)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed64fc70: 48bb a8b9 | 72cc 607f | 0000 4883 | 83c8 0100 | 0001 0f1f 
+
+  0x00007f60ed64fc84: ;   {optimized virtual_call}
+  0x00007f60ed64fc84: 4400 00e8 
+
+  0x00007f60ed64fc88: ; ImmutableOopMap {}
+                      ;*invokevirtual getTextImage {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getImageRepresentation@12 (line 8)
+  0x00007f60ed64fc88: d4e5 9c07 | 4883 c440 
+
+  0x00007f60ed64fc90: ;   {poll_return}
+  0x00007f60ed64fc90: 5d49 3ba7 | 4803 0000 | 0f87 1001 | 0000 c390 
+
+  0x00007f60ed64fca0: ;   {no_reloc}
+  0x00007f60ed64fca0: e92e 0100 | 0000 0000 | 0000 498b | 8708 0100 | 0048 8d78 | 2849 3bbf | 1801 0000 | 0f87 1b01 
+  0x00007f60ed64fcc0: 0000 4989 | bf08 0100 | 0048 c700 | 0100 0000 | 488b ca49 | ba00 0000 | 8760 7f00 | 0049 2bca 
+  0x00007f60ed64fce0: 8948 0848 | 33c9 8948 | 0c48 33c9 | 4889 4810 | 4889 4818 | 4889 4820 
+
+  0x00007f60ed64fcf8: ;   {metadata(method data for {method} {0x00007f60cc71cd80} 'getImageRepresentation' '(Ljava/lang/Object;)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed64fcf8: 488b d048 | bea8 b972 | cc60 7f00 | 0048 8386 | b003 0000 
+
+  0x00007f60ed64fd0c: ;   {oop("Unsupported input type"{0x00000006fc8d42a0})}
+  0x00007f60ed64fd0c: 0148 baa0 | 428d fc06 | 0000 0048 | 8bf0 4889 
+
+  0x00007f60ed64fd1c: ;   {optimized virtual_call}
+  0x00007f60ed64fd1c: 4424 30e8 
+
+  0x00007f60ed64fd20: ; ImmutableOopMap {[48]=Oop }
+                      ;*invokespecial <init> {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getImageRepresentation@55 (line 12)
+  0x00007f60ed64fd20: 5c83 3307 | 488b 4424 | 30e9 db00 
+
+  0x00007f60ed64fd2c: ;   {metadata({method} {0x00007f60cc71cd80} 'getImageRepresentation' '(Ljava/lang/Object;)[Ljava/lang/String;' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed64fd2c: 0000 49ba | 80cd 71cc | 607f 0000 | 4c89 5424 | 0848 c704 | 24ff ffff 
+
+  0x00007f60ed64fd44: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f60ed64fd44: ffe8 36f8 
+
+  0x00007f60ed64fd48: ; ImmutableOopMap {rsi=Oop rdx=Oop }
+                      ;*synchronization entry
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getImageRepresentation@-1 (line 7)
+  0x00007f60ed64fd48: 3d07 e9c5 
+
+  0x00007f60ed64fd4c: ;   {metadata(NULL)}
+  0x00007f60ed64fd4c: f7ff ff48 | b900 0000 | 0000 0000 | 00b8 000f 
+
+  0x00007f60ed64fd5c: ;   {runtime_call load_klass_patching Runtime1 stub}
+  0x00007f60ed64fd5c: 050a e89d 
+
+  0x00007f60ed64fd60: ; ImmutableOopMap {rsi=Oop rdx=Oop }
+                      ;*instanceof {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getImageRepresentation@24 (line 9)
+  0x00007f60ed64fd60: e73d 07e9 | 38fa ffff 
+
+  0x00007f60ed64fd68: ;   {metadata(NULL)}
+  0x00007f60ed64fd68: 48b9 0000 | 0000 0000 | 0000 b800 
+
+  0x00007f60ed64fd74: ;   {runtime_call load_klass_patching Runtime1 stub}
+  0x00007f60ed64fd74: 0f05 0ae8 
+
+  0x00007f60ed64fd78: ; ImmutableOopMap {rsi=Oop rdx=Oop }
+                      ;*instanceof {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getImageRepresentation@31 (line 9)
+  0x00007f60ed64fd78: 84e7 3d07 | e97f fbff | ff48 8914 
+
+  0x00007f60ed64fd84: ;   {runtime_call throw_class_cast_exception Runtime1 stub}
+  0x00007f60ed64fd84: 24e8 16c8 
+
+  0x00007f60ed64fd88: ; ImmutableOopMap {rsi=Oop }
+                      ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getImageRepresentation@39 (line 10)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x00007f60ed64fd88: 3d07 e811 
+
+  0x00007f60ed64fd8c: ; ImmutableOopMap {rsi=Oop rdx=Oop }
+                      ;*invokevirtual intValue {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getImageRepresentation@42 (line 10)
+                      ;   {internal_word}
+  0x00007f60ed64fd8c: 983d 0749 | ba71 fb64 | ed60 7f00 | 004d 8997 | 6003 0000 
+
+  0x00007f60ed64fda0: ;   {runtime_call SafepointBlob}
+  0x00007f60ed64fda0: e95b e933 | 0748 8914 
+
+  0x00007f60ed64fda8: ;   {runtime_call throw_class_cast_exception Runtime1 stub}
+  0x00007f60ed64fda8: 24e8 f2c7 
+
+  0x00007f60ed64fdac: ; ImmutableOopMap {rsi=Oop }
+                      ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getImageRepresentation@9 (line 8)
+                      ;   {internal_word}
+  0x00007f60ed64fdac: 3d07 49ba | 91fc 64ed | 607f 0000 | 4d89 9760 
+
+  0x00007f60ed64fdbc: ;   {runtime_call SafepointBlob}
+  0x00007f60ed64fdbc: 0300 00e9 | 3ce9 3307 
+
+  0x00007f60ed64fdc4: ;   {metadata(NULL)}
+  0x00007f60ed64fdc4: 48ba 0000 | 0000 0000 | 0000 b800 
+
+  0x00007f60ed64fdd0: ;   {runtime_call load_klass_patching Runtime1 stub}
+  0x00007f60ed64fdd0: 0f05 0ae8 
+
+  0x00007f60ed64fdd4: ; ImmutableOopMap {}
+                      ;*new {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getImageRepresentation@49 (line 12)
+  0x00007f60ed64fdd4: 28e7 3d07 | e9c3 feff | ff48 8bd2 
+
+  0x00007f60ed64fde0: ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x00007f60ed64fde0: e89b a03d 
+
+  0x00007f60ed64fde4: ; ImmutableOopMap {}
+                      ;*new {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::getImageRepresentation@49 (line 12)
+  0x00007f60ed64fde4: 07e9 0eff | ffff 9090 | 498b 87d8 | 0300 0049 | c787 d803 | 0000 0000 | 0000 49c7 | 87e0 0300 
+  0x00007f60ed64fe04: 0000 0000 | 0048 83c4 
+
+  0x00007f60ed64fe0c: ;   {runtime_call unwind_exception Runtime1 stub}
+  0x00007f60ed64fe0c: 405d e9ed | ba34 07f4 | f4f4 f4f4 | f4f4 f4f4 | f4f4 f4f4 
+[Stub Code]
+  0x00007f60ed64fe20: ;   {no_reloc}
+  0x00007f60ed64fe20: 0f1f 4400 
+
+  0x00007f60ed64fe24: ;   {static_stub}
+  0x00007f60ed64fe24: 0048 bb18 | d271 cc60 
+
+  0x00007f60ed64fe2c: ;   {runtime_call I2C/C2I adapters}
+  0x00007f60ed64fe2c: 7f00 00e9 | 28d2 3307 
+
+  0x00007f60ed64fe34: ;   {static_stub}
+  0x00007f60ed64fe34: 9048 bb00 | 0000 0000 
+
+  0x00007f60ed64fe3c: ;   {runtime_call}
+  0x00007f60ed64fe3c: 0000 00e9 | fbff ffff 
+
+  0x00007f60ed64fe44: ;   {static_stub}
+  0x00007f60ed64fe44: 9048 bb00 | 0000 0000 
+
+  0x00007f60ed64fe4c: ;   {runtime_call}
+  0x00007f60ed64fe4c: 0000 00e9 | fbff ffff 
+[Exception Handler]
+  0x00007f60ed64fe54: ;   {runtime_call handle_exception_from_callee Runtime1 stub}
+  0x00007f60ed64fe54: e827 c13d 
+
+  0x00007f60ed64fe58: ;   {external_word}
+  0x00007f60ed64fe58: 0748 bfd2 | aec0 0b61 | 7f00 0048 
+
+  0x00007f60ed64fe64: ;   {runtime_call MacroAssembler::debug64(char*, long, long*)}
+  0x00007f60ed64fe64: 83e4 f0e8 | 14e6 0b1e 
+
+  0x00007f60ed64fe6c: ;   {section_word}
+  0x00007f60ed64fe6c: f449 ba6d | fe64 ed60 | 7f00 0041 
+
+  0x00007f60ed64fe78: ;   {runtime_call DeoptimizationBlob}
+  0x00007f60ed64fe78: 52e9 22db | 3307 f4f4 
+[/MachCode]
+
+
+Compiled method (c1)   12152 1490       3       com.CrossingGuardJoe.gui.LanternaGUI::drawText (22 bytes)
+ total in heap  [0x00007f60ed63ef90,0x00007f60ed63f538] = 1448
+ relocation     [0x00007f60ed63f0f0,0x00007f60ed63f150] = 96
+ main code      [0x00007f60ed63f160,0x00007f60ed63f3c0] = 608
+ stub code      [0x00007f60ed63f3c0,0x00007f60ed63f410] = 80
+ oops           [0x00007f60ed63f410,0x00007f60ed63f418] = 8
+ metadata       [0x00007f60ed63f418,0x00007f60ed63f440] = 40
+ scopes data    [0x00007f60ed63f440,0x00007f60ed63f4b0] = 112
+ scopes pcs     [0x00007f60ed63f4b0,0x00007f60ed63f530] = 128
+ dependencies   [0x00007f60ed63f530,0x00007f60ed63f538] = 8
+
+[Constant Pool (empty)]
+
+[MachCode]
+[Entry Point]
+  # {method} {0x00007f60cc403750} 'drawText' '(Lcom/CrossingGuardJoe/model/Position;Ljava/lang/Object;Ljava/lang/String;)V' in 'com/CrossingGuardJoe/gui/LanternaGUI'
+  # this:     rsi:rsi   = 'com/CrossingGuardJoe/gui/LanternaGUI'
+  # parm0:    rdx:rdx   = 'com/CrossingGuardJoe/model/Position'
+  # parm1:    rcx:rcx   = 'java/lang/Object'
+  # parm2:    r8:r8     = 'java/lang/String'
+  #           [sp+0x70]  (sp of caller)
+  0x00007f60ed63f160: 448b 5608 | 49bb 0000 | 0087 607f | 0000 4d03 | d34c 3bd0 
+
+  0x00007f60ed63f174: ;   {runtime_call ic_miss_stub}
+  0x00007f60ed63f174: 0f85 068c | 3407 660f | 1f44 0000 
+[Verified Entry Point]
+  0x00007f60ed63f180: 8984 2400 | c0fe ff55 | 4883 ec60 
+
+  0x00007f60ed63f18c: ;   {metadata(method data for {method} {0x00007f60cc403750} 'drawText' '(Lcom/CrossingGuardJoe/model/Position;Ljava/lang/Object;Ljava/lang/String;)V' in 'com/CrossingGuardJoe/gui/LanternaGUI')}
+  0x00007f60ed63f18c: 488b d948 | bf30 b672 | cc60 7f00 | 008b 87f4 | 0000 0083 | c002 8987 | f400 0000 | 81e0 fe07 
+  0x00007f60ed63f1ac: 0000 83f8 | 000f 8450 | 0100 004c | 8944 2450 | 4889 5424 | 4848 8974 
+
+  0x00007f60ed63f1c4: ;   {metadata('com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed63f1c4: 2440 48ba | 5873 0c88 | 607f 0000 | 498b 8708 | 0100 0048 | 8d78 1049 | 3bbf 1801 | 0000 0f87 
+  0x00007f60ed63f1e4: 4001 0000 | 4989 bf08 | 0100 0048 | c700 0100 | 0000 488b | ca49 ba00 | 0000 8760 | 7f00 0049 
+  0x00007f60ed63f204: 2bca 8948 | 0848 33c9 | 8948 0c48 | 33c9 488b 
+
+  0x00007f60ed63f214: ;   {metadata(method data for {method} {0x00007f60cc403750} 'drawText' '(Lcom/CrossingGuardJoe/model/Position;Ljava/lang/Object;Ljava/lang/String;)V' in 'com/CrossingGuardJoe/gui/LanternaGUI')}
+  0x00007f60ed63f214: d048 be30 | b672 cc60 | 7f00 0048 | 8386 3801 
+
+  0x00007f60ed63f224: ;   {metadata(method data for {method} {0x00007f60cc71cc98} '<init>' '()V' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed63f224: 0000 0148 | ba40 b872 | cc60 7f00 | 008b b2f4 | 0000 0083 | c602 89b2 | f400 0000 | 81e6 feff 
+  0x00007f60ed63f244: 1f00 83fe | 000f 84e6 | 0000 0048 
+
+  0x00007f60ed63f250: ;   {metadata(method data for {method} {0x00007f60cc71cc98} '<init>' '()V' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed63f250: 8bd0 48be | 40b8 72cc | 607f 0000 | 4883 8638 | 0100 0001 
+
+  0x00007f60ed63f264: ;   {metadata(method data for {method} {0x00007f60874445b8} '<init>' '()V' in 'java/lang/Object')}
+  0x00007f60ed63f264: 48ba 908d | 00cc 607f | 0000 8bb2 | f400 0000 | 83c6 0289 | b2f4 0000 | 0081 e6fe | ff1f 0083 
+  0x00007f60ed63f284: fe00 0f84 | ca00 0000 
+
+  0x00007f60ed63f28c: ;   {metadata(method data for {method} {0x00007f60cc403750} 'drawText' '(Lcom/CrossingGuardJoe/model/Position;Ljava/lang/Object;Ljava/lang/String;)V' in 'com/CrossingGuardJoe/gui/LanternaGUI')}
+  0x00007f60ed63f28c: 488b d048 | be30 b672 | cc60 7f00 
+
+  0x00007f60ed63f298: ;   {metadata('com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed63f298: 0049 ba58 | 730c 8860 | 7f00 004c | 8996 5801 | 0000 4883 | 8660 0100 | 0001 488b | d348 8bf0 
+  0x00007f60ed63f2b8: 0f1f 8000 
+
+  0x00007f60ed63f2bc: ;   {optimized virtual_call}
+  0x00007f60ed63f2bc: 0000 00e8 
+
+  0x00007f60ed63f2c0: ; ImmutableOopMap {[64]=Oop [72]=Oop [80]=Oop }
+                      ;*invokevirtual getImageRepresentation {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.CrossingGuardJoe.gui.LanternaGUI::drawText@8 (line 120)
+  0x00007f60ed63f2c0: 1c02 0100 | 488b 7424 
+
+  0x00007f60ed63f2c8: ;   {metadata(method data for {method} {0x00007f60cc403750} 'drawText' '(Lcom/CrossingGuardJoe/model/Position;Ljava/lang/Object;Ljava/lang/String;)V' in 'com/CrossingGuardJoe/gui/LanternaGUI')}
+  0x00007f60ed63f2c8: 4048 ba30 | b672 cc60 | 7f00 0048 | 8382 8001 | 0000 0148 | 8b54 2448 | 488b c84c | 8b44 2450 
+  0x00007f60ed63f2e8: 488b 7424 
+
+  0x00007f60ed63f2ec: ;   {optimized virtual_call}
+  0x00007f60ed63f2ec: 4066 90e8 
+
+  0x00007f60ed63f2f0: ; ImmutableOopMap {}
+                      ;*invokevirtual drawImageCustomColor {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.CrossingGuardJoe.gui.LanternaGUI::drawText@18 (line 121)
+  0x00007f60ed63f2f0: 0c11 ffff | 4883 c460 
+
+  0x00007f60ed63f2f8: ;   {poll_return}
+  0x00007f60ed63f2f8: 5d49 3ba7 | 4803 0000 | 0f87 7100 
+
+  0x00007f60ed63f304: ;   {metadata({method} {0x00007f60cc403750} 'drawText' '(Lcom/CrossingGuardJoe/model/Position;Ljava/lang/Object;Ljava/lang/String;)V' in 'com/CrossingGuardJoe/gui/LanternaGUI')}
+  0x00007f60ed63f304: 0000 c349 | ba50 3740 | cc60 7f00 | 004c 8954 | 2408 48c7 | 0424 ffff 
+
+  0x00007f60ed63f31c: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f60ed63f31c: ffff e85d 
+
+  0x00007f60ed63f320: ; ImmutableOopMap {rsi=Oop rdx=Oop rbx=Oop r8=Oop }
+                      ;*synchronization entry
+                      ; - com.CrossingGuardJoe.gui.LanternaGUI::drawText@-1 (line 120)
+  0x00007f60ed63f320: 023f 07e9 | 8ffe ffff 
+
+  0x00007f60ed63f328: ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x00007f60ed63f328: 488b d2e8 
+
+  0x00007f60ed63f32c: ; ImmutableOopMap {rbx=Oop [80]=Oop [72]=Oop [64]=Oop }
+                      ;*new {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.CrossingGuardJoe.gui.LanternaGUI::drawText@0 (line 120)
+  0x00007f60ed63f32c: 50ab 3e07 | e9dd feff 
+
+  0x00007f60ed63f334: ;   {metadata({method} {0x00007f60cc71cc98} '<init>' '()V' in 'com/CrossingGuardJoe/viewer/images/Font/FontImageFactory')}
+  0x00007f60ed63f334: ff49 ba98 | cc71 cc60 | 7f00 004c | 8954 2408 | 48c7 0424 | ffff ffff 
+
+  0x00007f60ed63f34c: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f60ed63f34c: e82f 023f 
+
+  0x00007f60ed63f350: ; ImmutableOopMap {rbx=Oop [80]=Oop [72]=Oop [64]=Oop rax=Oop }
+                      ;*synchronization entry
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::<init>@-1 (line 4)
+                      ; - com.CrossingGuardJoe.gui.LanternaGUI::drawText@4 (line 120)
+  0x00007f60ed63f350: 07e9 f9fe 
+
+  0x00007f60ed63f354: ;   {metadata({method} {0x00007f60874445b8} '<init>' '()V' in 'java/lang/Object')}
+  0x00007f60ed63f354: ffff 49ba | b845 4487 | 607f 0000 | 4c89 5424 | 0848 c704 | 24ff ffff 
+
+  0x00007f60ed63f36c: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f60ed63f36c: ffe8 0e02 
+
+  0x00007f60ed63f370: ; ImmutableOopMap {rbx=Oop [80]=Oop [72]=Oop [64]=Oop rax=Oop }
+                      ;*synchronization entry
+                      ; - java.lang.Object::<init>@-1 (line 44)
+                      ; - com.CrossingGuardJoe.viewer.images.Font.FontImageFactory::<init>@1 (line 4)
+                      ; - com.CrossingGuardJoe.gui.LanternaGUI::drawText@4 (line 120)
+  0x00007f60ed63f370: 3f07 e915 
+
+  0x00007f60ed63f374: ;   {internal_word}
+  0x00007f60ed63f374: ffff ff49 | baf9 f263 | ed60 7f00 | 004d 8997 | 6003 0000 
+
+  0x00007f60ed63f388: ;   {runtime_call SafepointBlob}
+  0x00007f60ed63f388: e973 f334 | 0790 9049 | 8b87 d803 | 0000 49c7 | 87d8 0300 | 0000 0000 | 0049 c787 | e003 0000 
+  0x00007f60ed63f3a8: 0000 0000 | 4883 c460 
+
+  0x00007f60ed63f3b0: ;   {runtime_call unwind_exception Runtime1 stub}
+  0x00007f60ed63f3b0: 5de9 4ac5 | 3507 f4f4 | f4f4 f4f4 | f4f4 f4f4 
+[Stub Code]
+  0x00007f60ed63f3c0: ;   {no_reloc}
+  0x00007f60ed63f3c0: 0f1f 4400 
+
+  0x00007f60ed63f3c4: ;   {static_stub}
+  0x00007f60ed63f3c4: 0048 bb80 | cd71 cc60 
+
+  0x00007f60ed63f3cc: ;   {runtime_call I2C/C2I adapters}
+  0x00007f60ed63f3cc: 7f00 00e9 | 89df 3407 
+
+  0x00007f60ed63f3d4: ;   {static_stub}
+  0x00007f60ed63f3d4: 9048 bb00 | 0000 0000 
+
+  0x00007f60ed63f3dc: ;   {runtime_call}
+  0x00007f60ed63f3dc: 0000 00e9 | fbff ffff 
+[Exception Handler]
+  0x00007f60ed63f3e4: ;   {runtime_call handle_exception_from_callee Runtime1 stub}
+  0x00007f60ed63f3e4: e897 cb3e 
+
+  0x00007f60ed63f3e8: ;   {external_word}
+  0x00007f60ed63f3e8: 0748 bfd2 | aec0 0b61 | 7f00 0048 
+
+  0x00007f60ed63f3f4: ;   {runtime_call MacroAssembler::debug64(char*, long, long*)}
+  0x00007f60ed63f3f4: 83e4 f0e8 | 84f0 0c1e 
+
+  0x00007f60ed63f3fc: ;   {section_word}
+  0x00007f60ed63f3fc: f449 bafd | f363 ed60 | 7f00 0041 
+
+  0x00007f60ed63f408: ;   {runtime_call DeoptimizationBlob}
+  0x00007f60ed63f408: 52e9 92e5 | 3407 f4f4 
+[/MachCode]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007f60483a8ec0, length=16, elements={
+0x00007f6104026220, 0x00007f61040fcac0, 0x00007f61040fdeb0, 0x00007f6104104530,
+0x00007f61041058f0, 0x00007f6104106d10, 0x00007f61041086d0, 0x00007f6104109c10,
+0x00007f6104113080, 0x00007f610411b200, 0x00007f610411e1e0, 0x00007f61041b4810,
+0x00007f61043199a0, 0x00007f61043429c0, 0x00007f61043441f0, 0x00007f6104326190
+}
+
+Java Threads: ( => current thread )
+=>0x00007f6104026220 JavaThread "main" [_thread_in_Java, id=7978, stack(0x00007f610c300000,0x00007f610c400000)]
+  0x00007f61040fcac0 JavaThread "Reference Handler" daemon [_thread_blocked, id=7985, stack(0x00007f60d57ff000,0x00007f60d58ff000)]
+  0x00007f61040fdeb0 JavaThread "Finalizer" daemon [_thread_blocked, id=7986, stack(0x00007f60d56ff000,0x00007f60d57ff000)]
+  0x00007f6104104530 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=7987, stack(0x00007f60d55ff000,0x00007f60d56ff000)]
+  0x00007f61041058f0 JavaThread "Service Thread" daemon [_thread_blocked, id=7988, stack(0x00007f60d4f00000,0x00007f60d5000000)]
+  0x00007f6104106d10 JavaThread "Monitor Deflation Thread" daemon [_thread_blocked, id=7989, stack(0x00007f60d4e00000,0x00007f60d4f00000)]
+  0x00007f61041086d0 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=7990, stack(0x00007f60d4d00000,0x00007f60d4e00000)]
+  0x00007f6104109c10 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=7991, stack(0x00007f60d4c00000,0x00007f60d4d00000)]
+  0x00007f6104113080 JavaThread "Sweeper thread" daemon [_thread_blocked, id=7992, stack(0x00007f60d4b00000,0x00007f60d4c00000)]
+  0x00007f610411b200 JavaThread "Notification Thread" daemon [_thread_blocked, id=7993, stack(0x00007f60d4a00000,0x00007f60d4b00000)]
+  0x00007f610411e1e0 JavaThread "Common-Cleaner" daemon [_thread_blocked, id=7995, stack(0x00007f60d47ff000,0x00007f60d48ff000)]
+  0x00007f61041b4810 JavaThread "Java2D Disposer" daemon [_thread_blocked, id=7996, stack(0x00007f60d4300000,0x00007f60d4400000)]
+  0x00007f61043199a0 JavaThread "AWT-XAWT" daemon [_thread_in_native, id=8000, stack(0x00007f60d4100000,0x00007f60d4200000)]
+  0x00007f61043429c0 JavaThread "AWT-Shutdown" [_thread_blocked, id=8001, stack(0x00007f60d4000000,0x00007f60d4100000)]
+  0x00007f61043441f0 JavaThread "LanternaTerminalBlinkTimer" daemon [_thread_blocked, id=8002, stack(0x00007f6086f00000,0x00007f6087000000)]
+  0x00007f6104326190 JavaThread "AWT-EventQueue-0" [_thread_blocked, id=8003, stack(0x00007f6086b00000,0x00007f6086c00000)]
+
+Other Threads:
+  0x00007f61040f8b30 VMThread "VM Thread" [stack: 0x00007f60d5900000,0x00007f60d5a00000] [id=7984]
+  0x00007f610411cb50 WatcherThread [stack: 0x00007f60d4900000,0x00007f60d4a00000] [id=7994]
+  0x00007f610404e020 GCTaskThread "GC Thread#0" [stack: 0x00007f61082ba000,0x00007f61083ba000] [id=7979]
+  0x00007f6080005f00 GCTaskThread "GC Thread#1" [stack: 0x00007f6086300000,0x00007f6086400000] [id=8005]
+  0x00007f6080006920 GCTaskThread "GC Thread#2" [stack: 0x00007f6085f00000,0x00007f6086000000] [id=8006]
+  0x00007f6080007730 GCTaskThread "GC Thread#3" [stack: 0x00007f6085900000,0x00007f6085a00000] [id=8007]
+  0x00007f6080008540 GCTaskThread "GC Thread#4" [stack: 0x00007f6085500000,0x00007f6085600000] [id=8008]
+  0x00007f6080009350 GCTaskThread "GC Thread#5" [stack: 0x00007f60853ff000,0x00007f60854ff000] [id=8009]
+  0x00007f608003acc0 GCTaskThread "GC Thread#6" [stack: 0x00007f6084c10000,0x00007f6084d10000] [id=8022]
+  0x00007f608003b320 GCTaskThread "GC Thread#7" [stack: 0x00007f6084b0f000,0x00007f6084c0f000] [id=8023]
+  0x00007f6104058230 ConcurrentGCThread "G1 Main Marker" [stack: 0x00007f61081b9000,0x00007f61082b9000] [id=7980]
+  0x00007f61040591a0 ConcurrentGCThread "G1 Conc#0" [stack: 0x00007f61080b8000,0x00007f61081b8000] [id=7981]
+  0x00007f61040cdd80 ConcurrentGCThread "G1 Refine#0" [stack: 0x00007f60d5dff000,0x00007f60d5eff000] [id=7982]
+  0x00007f60d0000eb0 ConcurrentGCThread "G1 Refine#1" [stack: 0x00007f60852fe000,0x00007f60853fe000] [id=8010]
+  0x00007f6024000eb0 ConcurrentGCThread "G1 Refine#2" [stack: 0x00007f60851fd000,0x00007f60852fd000] [id=8011]
+  0x00007f6018000eb0 ConcurrentGCThread "G1 Refine#3" [stack: 0x00007f60850fc000,0x00007f60851fc000] [id=8012]
+  0x00007f601c000eb0 ConcurrentGCThread "G1 Refine#4" [stack: 0x00007f6084ffb000,0x00007f60850fb000] [id=8013]
+  0x00007f6010000eb0 ConcurrentGCThread "G1 Refine#5" [stack: 0x00007f6084efa000,0x00007f6084ffa000] [id=8014]
+  0x00007f61040cec80 ConcurrentGCThread "G1 Service" [stack: 0x00007f60d5cfe000,0x00007f60d5dfe000] [id=7983]
+
+Threads with active compile tasks:
+
+VM state: not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap address: 0x00000006e8000000, size: 4480 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+
+CDS archive(s) mapped at: [0x00007f6087000000-0x00007f6087bc6000-0x00007f6087bc6000), size 12345344, SharedBaseAddress: 0x00007f6087000000, ArchiveRelocationMode: 1.
+Compressed class space mapped at: 0x00007f6088000000-0x00007f60c8000000, reserved size: 1073741824
+Narrow klass base: 0x00007f6087000000, Narrow klass shift: 0, Narrow klass range: 0x100000000
+
+GC Precious Log:
+ CPUs: 8 total, 8 available
+ Memory: 17912M
+ Large Page Support: Disabled
+ NUMA Support: Disabled
+ Compressed Oops: Enabled (Zero based)
+ Heap Region Size: 4M
+ Heap Min Capacity: 8M
+ Heap Initial Capacity: 280M
+ Heap Max Capacity: 4480M
+ Pre-touch: Disabled
+ Parallel Workers: 8
+ Concurrent Workers: 2
+ Concurrent Refinement Workers: 8
+ Periodic GC: Disabled
+
+Heap:
+ garbage-first heap   total 458752K, used 102380K [0x00000006e8000000, 0x0000000800000000)
+  region size 4096K, 11 young (45056K), 1 survivors (4096K)
+ Metaspace       used 7636K, committed 7808K, reserved 1114112K
+  class space    used 707K, committed 832K, reserved 1048576K
+
+Heap Regions: E=young(eden), S=young(survivor), O=old, HS=humongous(starts), HC=humongous(continues), CS=collection set, F=free, OA=open archive, CA=closed archive, TAMS=top-at-mark-start (previous, next)
+|   0|0x00000006e8000000, 0x00000006e8400000, 0x00000006e8400000|100%|HS|  |TAMS 0x00000006e8000000, 0x00000006e8000000| Complete 
+|   1|0x00000006e8400000, 0x00000006e8800000, 0x00000006e8800000|100%|HC|  |TAMS 0x00000006e8400000, 0x00000006e8400000| Complete 
+|   2|0x00000006e8800000, 0x00000006e8c00000, 0x00000006e8c00000|100%|HS|  |TAMS 0x00000006e8800000, 0x00000006e8800000| Complete 
+|   3|0x00000006e8c00000, 0x00000006e9000000, 0x00000006e9000000|100%|HC|  |TAMS 0x00000006e8c00000, 0x00000006e8c00000| Complete 
+|   4|0x00000006e9000000, 0x00000006e9400000, 0x00000006e9400000|100%| O|  |TAMS 0x00000006e9000000, 0x00000006e9000000| Untracked 
+|   5|0x00000006e9400000, 0x00000006e9800000, 0x00000006e9800000|100%| O|  |TAMS 0x00000006e9400000, 0x00000006e9400000| Untracked 
+|   6|0x00000006e9800000, 0x00000006e9c00000, 0x00000006e9c00000|100%| O|  |TAMS 0x00000006e9800000, 0x00000006e9800000| Untracked 
+|   7|0x00000006e9c00000, 0x00000006ea000000, 0x00000006ea000000|100%| O|  |TAMS 0x00000006e9c00000, 0x00000006e9c00000| Untracked 
+|   8|0x00000006ea000000, 0x00000006ea400000, 0x00000006ea400000|100%| O|  |TAMS 0x00000006ea000000, 0x00000006ea000000| Untracked 
+|   9|0x00000006ea400000, 0x00000006ea800000, 0x00000006ea800000|100%| O|  |TAMS 0x00000006ea400000, 0x00000006ea400000| Untracked 
+|  10|0x00000006ea800000, 0x00000006eac00000, 0x00000006eac00000|100%| O|  |TAMS 0x00000006ea800000, 0x00000006ea800000| Untracked 
+|  11|0x00000006eac00000, 0x00000006eb000000, 0x00000006eb000000|100%| O|  |TAMS 0x00000006eac00000, 0x00000006eac00000| Untracked 
+|  12|0x00000006eb000000, 0x00000006eb400000, 0x00000006eb400000|100%| O|  |TAMS 0x00000006eb000000, 0x00000006eb000000| Untracked 
+|  13|0x00000006eb400000, 0x00000006eb800000, 0x00000006eb800000|100%| O|  |TAMS 0x00000006eb400000, 0x00000006eb400000| Untracked 
+|  14|0x00000006eb800000, 0x00000006eb93e800, 0x00000006ebc00000| 31%| O|  |TAMS 0x00000006eb800000, 0x00000006eb800000| Untracked 
+|  15|0x00000006ebc00000, 0x00000006ebc00000, 0x00000006ec000000|  0%| F|  |TAMS 0x00000006ebc00000, 0x00000006ebc00000| Untracked 
+|  16|0x00000006ec000000, 0x00000006ec000000, 0x00000006ec400000|  0%| F|  |TAMS 0x00000006ec000000, 0x00000006ec000000| Untracked 
+|  17|0x00000006ec400000, 0x00000006ec400000, 0x00000006ec800000|  0%| F|  |TAMS 0x00000006ec400000, 0x00000006ec400000| Untracked 
+|  18|0x00000006ec800000, 0x00000006ec800000, 0x00000006ecc00000|  0%| F|  |TAMS 0x00000006ec800000, 0x00000006ec800000| Untracked 
+|  19|0x00000006ecc00000, 0x00000006ecc00000, 0x00000006ed000000|  0%| F|  |TAMS 0x00000006ecc00000, 0x00000006ecc00000| Untracked 
+|  20|0x00000006ed000000, 0x00000006ed000000, 0x00000006ed400000|  0%| F|  |TAMS 0x00000006ed000000, 0x00000006ed000000| Untracked 
+|  21|0x00000006ed400000, 0x00000006ed400000, 0x00000006ed800000|  0%| F|  |TAMS 0x00000006ed400000, 0x00000006ed400000| Untracked 
+|  22|0x00000006ed800000, 0x00000006ed800000, 0x00000006edc00000|  0%| F|  |TAMS 0x00000006ed800000, 0x00000006ed800000| Untracked 
+|  23|0x00000006edc00000, 0x00000006edc00000, 0x00000006ee000000|  0%| F|  |TAMS 0x00000006edc00000, 0x00000006edc00000| Untracked 
+|  24|0x00000006ee000000, 0x00000006ee000000, 0x00000006ee400000|  0%| F|  |TAMS 0x00000006ee000000, 0x00000006ee000000| Untracked 
+|  25|0x00000006ee400000, 0x00000006ee400000, 0x00000006ee800000|  0%| F|  |TAMS 0x00000006ee400000, 0x00000006ee400000| Untracked 
+|  26|0x00000006ee800000, 0x00000006ee800000, 0x00000006eec00000|  0%| F|  |TAMS 0x00000006ee800000, 0x00000006ee800000| Untracked 
+|  27|0x00000006eec00000, 0x00000006eec00000, 0x00000006ef000000|  0%| F|  |TAMS 0x00000006eec00000, 0x00000006eec00000| Untracked 
+|  28|0x00000006ef000000, 0x00000006ef000000, 0x00000006ef400000|  0%| F|  |TAMS 0x00000006ef000000, 0x00000006ef000000| Untracked 
+|  29|0x00000006ef400000, 0x00000006ef400000, 0x00000006ef800000|  0%| F|  |TAMS 0x00000006ef400000, 0x00000006ef400000| Untracked 
+|  30|0x00000006ef800000, 0x00000006ef800000, 0x00000006efc00000|  0%| F|  |TAMS 0x00000006ef800000, 0x00000006ef800000| Untracked 
+|  31|0x00000006efc00000, 0x00000006efc00000, 0x00000006f0000000|  0%| F|  |TAMS 0x00000006efc00000, 0x00000006efc00000| Untracked 
+|  32|0x00000006f0000000, 0x00000006f0000000, 0x00000006f0400000|  0%| F|  |TAMS 0x00000006f0000000, 0x00000006f0000000| Untracked 
+|  33|0x00000006f0400000, 0x00000006f0400000, 0x00000006f0800000|  0%| F|  |TAMS 0x00000006f0400000, 0x00000006f0400000| Untracked 
+|  34|0x00000006f0800000, 0x00000006f0800000, 0x00000006f0c00000|  0%| F|  |TAMS 0x00000006f0800000, 0x00000006f0800000| Untracked 
+|  35|0x00000006f0c00000, 0x00000006f0c00000, 0x00000006f1000000|  0%| F|  |TAMS 0x00000006f0c00000, 0x00000006f0c00000| Untracked 
+|  36|0x00000006f1000000, 0x00000006f1000000, 0x00000006f1400000|  0%| F|  |TAMS 0x00000006f1000000, 0x00000006f1000000| Untracked 
+|  37|0x00000006f1400000, 0x00000006f1400000, 0x00000006f1800000|  0%| F|  |TAMS 0x00000006f1400000, 0x00000006f1400000| Untracked 
+|  38|0x00000006f1800000, 0x00000006f1800000, 0x00000006f1c00000|  0%| F|  |TAMS 0x00000006f1800000, 0x00000006f1800000| Untracked 
+|  39|0x00000006f1c00000, 0x00000006f1c00000, 0x00000006f2000000|  0%| F|  |TAMS 0x00000006f1c00000, 0x00000006f1c00000| Untracked 
+|  40|0x00000006f2000000, 0x00000006f2000000, 0x00000006f2400000|  0%| F|  |TAMS 0x00000006f2000000, 0x00000006f2000000| Untracked 
+|  41|0x00000006f2400000, 0x00000006f2400000, 0x00000006f2800000|  0%| F|  |TAMS 0x00000006f2400000, 0x00000006f2400000| Untracked 
+|  42|0x00000006f2800000, 0x00000006f2800000, 0x00000006f2c00000|  0%| F|  |TAMS 0x00000006f2800000, 0x00000006f2800000| Untracked 
+|  43|0x00000006f2c00000, 0x00000006f2c00000, 0x00000006f3000000|  0%| F|  |TAMS 0x00000006f2c00000, 0x00000006f2c00000| Untracked 
+|  44|0x00000006f3000000, 0x00000006f3000000, 0x00000006f3400000|  0%| F|  |TAMS 0x00000006f3000000, 0x00000006f3000000| Untracked 
+|  45|0x00000006f3400000, 0x00000006f3400000, 0x00000006f3800000|  0%| F|  |TAMS 0x00000006f3400000, 0x00000006f3400000| Untracked 
+|  46|0x00000006f3800000, 0x00000006f3800000, 0x00000006f3c00000|  0%| F|  |TAMS 0x00000006f3800000, 0x00000006f3800000| Untracked 
+|  47|0x00000006f3c00000, 0x00000006f3c00000, 0x00000006f4000000|  0%| F|  |TAMS 0x00000006f3c00000, 0x00000006f3c00000| Untracked 
+|  48|0x00000006f4000000, 0x00000006f4000000, 0x00000006f4400000|  0%| F|  |TAMS 0x00000006f4000000, 0x00000006f4000000| Untracked 
+|  49|0x00000006f4400000, 0x00000006f4400000, 0x00000006f4800000|  0%| F|  |TAMS 0x00000006f4400000, 0x00000006f4400000| Untracked 
+|  50|0x00000006f4800000, 0x00000006f4800000, 0x00000006f4c00000|  0%| F|  |TAMS 0x00000006f4800000, 0x00000006f4800000| Untracked 
+|  51|0x00000006f4c00000, 0x00000006f4c00000, 0x00000006f5000000|  0%| F|  |TAMS 0x00000006f4c00000, 0x00000006f4c00000| Untracked 
+|  52|0x00000006f5000000, 0x00000006f5000000, 0x00000006f5400000|  0%| F|  |TAMS 0x00000006f5000000, 0x00000006f5000000| Untracked 
+|  53|0x00000006f5400000, 0x00000006f5400000, 0x00000006f5800000|  0%| F|  |TAMS 0x00000006f5400000, 0x00000006f5400000| Untracked 
+|  54|0x00000006f5800000, 0x00000006f5800000, 0x00000006f5c00000|  0%| F|  |TAMS 0x00000006f5800000, 0x00000006f5800000| Untracked 
+|  55|0x00000006f5c00000, 0x00000006f5c00000, 0x00000006f6000000|  0%| F|  |TAMS 0x00000006f5c00000, 0x00000006f5c00000| Untracked 
+|  56|0x00000006f6000000, 0x00000006f6000000, 0x00000006f6400000|  0%| F|  |TAMS 0x00000006f6000000, 0x00000006f6000000| Untracked 
+|  57|0x00000006f6400000, 0x00000006f6400000, 0x00000006f6800000|  0%| F|  |TAMS 0x00000006f6400000, 0x00000006f6400000| Untracked 
+|  58|0x00000006f6800000, 0x00000006f6800000, 0x00000006f6c00000|  0%| F|  |TAMS 0x00000006f6800000, 0x00000006f6800000| Untracked 
+|  59|0x00000006f6c00000, 0x00000006f6c00000, 0x00000006f7000000|  0%| F|  |TAMS 0x00000006f6c00000, 0x00000006f6c00000| Untracked 
+|  60|0x00000006f7000000, 0x00000006f7000000, 0x00000006f7400000|  0%| F|  |TAMS 0x00000006f7000000, 0x00000006f7000000| Untracked 
+|  61|0x00000006f7400000, 0x00000006f7400000, 0x00000006f7800000|  0%| F|  |TAMS 0x00000006f7400000, 0x00000006f7400000| Untracked 
+|  62|0x00000006f7800000, 0x00000006f7800000, 0x00000006f7c00000|  0%| F|  |TAMS 0x00000006f7800000, 0x00000006f7800000| Untracked 
+|  63|0x00000006f7c00000, 0x00000006f7c00000, 0x00000006f8000000|  0%| F|  |TAMS 0x00000006f7c00000, 0x00000006f7c00000| Untracked 
+|  64|0x00000006f8000000, 0x00000006f8000000, 0x00000006f8400000|  0%| F|  |TAMS 0x00000006f8000000, 0x00000006f8000000| Untracked 
+|  65|0x00000006f8400000, 0x00000006f8400000, 0x00000006f8800000|  0%| F|  |TAMS 0x00000006f8400000, 0x00000006f8400000| Untracked 
+|  66|0x00000006f8800000, 0x00000006f8800000, 0x00000006f8c00000|  0%| F|  |TAMS 0x00000006f8800000, 0x00000006f8800000| Untracked 
+|  67|0x00000006f8c00000, 0x00000006f8c00000, 0x00000006f9000000|  0%| F|  |TAMS 0x00000006f8c00000, 0x00000006f8c00000| Untracked 
+|  68|0x00000006f9000000, 0x00000006f9000000, 0x00000006f9400000|  0%| F|  |TAMS 0x00000006f9000000, 0x00000006f9000000| Untracked 
+|  69|0x00000006f9400000, 0x00000006f9400000, 0x00000006f9800000|  0%| F|  |TAMS 0x00000006f9400000, 0x00000006f9400000| Untracked 
+|  70|0x00000006f9800000, 0x00000006f9800000, 0x00000006f9c00000|  0%| F|  |TAMS 0x00000006f9800000, 0x00000006f9800000| Untracked 
+|  71|0x00000006f9c00000, 0x00000006f9c00000, 0x00000006fa000000|  0%| F|  |TAMS 0x00000006f9c00000, 0x00000006f9c00000| Untracked 
+|  72|0x00000006fa000000, 0x00000006fa000000, 0x00000006fa400000|  0%| F|  |TAMS 0x00000006fa000000, 0x00000006fa000000| Untracked 
+|  73|0x00000006fa400000, 0x00000006fa400000, 0x00000006fa800000|  0%| F|  |TAMS 0x00000006fa400000, 0x00000006fa400000| Untracked 
+|  74|0x00000006fa800000, 0x00000006fa800000, 0x00000006fac00000|  0%| F|  |TAMS 0x00000006fa800000, 0x00000006fa800000| Untracked 
+|  75|0x00000006fac00000, 0x00000006fac00000, 0x00000006fb000000|  0%| F|  |TAMS 0x00000006fac00000, 0x00000006fac00000| Untracked 
+|  76|0x00000006fb000000, 0x00000006fb000000, 0x00000006fb400000|  0%| F|  |TAMS 0x00000006fb000000, 0x00000006fb000000| Untracked 
+|  77|0x00000006fb400000, 0x00000006fb400000, 0x00000006fb800000|  0%| F|  |TAMS 0x00000006fb400000, 0x00000006fb400000| Untracked 
+|  78|0x00000006fb800000, 0x00000006fb800000, 0x00000006fbc00000|  0%| F|  |TAMS 0x00000006fb800000, 0x00000006fb800000| Untracked 
+|  79|0x00000006fbc00000, 0x00000006fbc00000, 0x00000006fc000000|  0%| F|  |TAMS 0x00000006fbc00000, 0x00000006fbc00000| Untracked 
+|  80|0x00000006fc000000, 0x00000006fc000000, 0x00000006fc400000|  0%| F|  |TAMS 0x00000006fc000000, 0x00000006fc000000| Untracked 
+|  81|0x00000006fc400000, 0x00000006fc400000, 0x00000006fc800000|  0%| F|  |TAMS 0x00000006fc400000, 0x00000006fc400000| Untracked 
+|  82|0x00000006fc800000, 0x00000006fcad0960, 0x00000006fcc00000| 70%| S|CS|TAMS 0x00000006fc800000, 0x00000006fc800000| Complete 
+|  83|0x00000006fcc00000, 0x00000006fcc00000, 0x00000006fd000000|  0%| F|  |TAMS 0x00000006fcc00000, 0x00000006fcc00000| Untracked 
+|  84|0x00000006fd000000, 0x00000006fd000000, 0x00000006fd400000|  0%| F|  |TAMS 0x00000006fd000000, 0x00000006fd000000| Untracked 
+|  85|0x00000006fd400000, 0x00000006fd400000, 0x00000006fd800000|  0%| F|  |TAMS 0x00000006fd400000, 0x00000006fd400000| Untracked 
+|  86|0x00000006fd800000, 0x00000006fd800000, 0x00000006fdc00000|  0%| F|  |TAMS 0x00000006fd800000, 0x00000006fd800000| Untracked 
+|  87|0x00000006fdc00000, 0x00000006fdc00000, 0x00000006fe000000|  0%| F|  |TAMS 0x00000006fdc00000, 0x00000006fdc00000| Untracked 
+|  88|0x00000006fe000000, 0x00000006fe000000, 0x00000006fe400000|  0%| F|  |TAMS 0x00000006fe000000, 0x00000006fe000000| Untracked 
+|  89|0x00000006fe400000, 0x00000006fe400000, 0x00000006fe800000|  0%| F|  |TAMS 0x00000006fe400000, 0x00000006fe400000| Untracked 
+|  90|0x00000006fe800000, 0x00000006fe800000, 0x00000006fec00000|  0%| F|  |TAMS 0x00000006fe800000, 0x00000006fe800000| Untracked 
+|  91|0x00000006fec00000, 0x00000006fec00000, 0x00000006ff000000|  0%| F|  |TAMS 0x00000006fec00000, 0x00000006fec00000| Untracked 
+|  92|0x00000006ff000000, 0x00000006ff000000, 0x00000006ff400000|  0%| F|  |TAMS 0x00000006ff000000, 0x00000006ff000000| Untracked 
+|  93|0x00000006ff400000, 0x00000006ff400000, 0x00000006ff800000|  0%| F|  |TAMS 0x00000006ff400000, 0x00000006ff400000| Untracked 
+|  94|0x00000006ff800000, 0x00000006ff800000, 0x00000006ffc00000|  0%| F|  |TAMS 0x00000006ff800000, 0x00000006ff800000| Untracked 
+|  95|0x00000006ffc00000, 0x00000006ffc00000, 0x0000000700000000|  0%| F|  |TAMS 0x00000006ffc00000, 0x00000006ffc00000| Untracked 
+|  96|0x0000000700000000, 0x0000000700000000, 0x0000000700400000|  0%| F|  |TAMS 0x0000000700000000, 0x0000000700000000| Untracked 
+|  97|0x0000000700400000, 0x0000000700400000, 0x0000000700800000|  0%| F|  |TAMS 0x0000000700400000, 0x0000000700400000| Untracked 
+|  98|0x0000000700800000, 0x0000000700800000, 0x0000000700c00000|  0%| F|  |TAMS 0x0000000700800000, 0x0000000700800000| Untracked 
+|  99|0x0000000700c00000, 0x0000000700c00000, 0x0000000701000000|  0%| F|  |TAMS 0x0000000700c00000, 0x0000000700c00000| Untracked 
+| 100|0x0000000701000000, 0x0000000701400000, 0x0000000701400000|100%| E|  |TAMS 0x0000000701000000, 0x0000000701000000| Complete 
+| 101|0x0000000701400000, 0x0000000701800000, 0x0000000701800000|100%| E|CS|TAMS 0x0000000701400000, 0x0000000701400000| Complete 
+| 102|0x0000000701800000, 0x0000000701c00000, 0x0000000701c00000|100%| E|CS|TAMS 0x0000000701800000, 0x0000000701800000| Complete 
+| 103|0x0000000701c00000, 0x0000000702000000, 0x0000000702000000|100%| E|CS|TAMS 0x0000000701c00000, 0x0000000701c00000| Complete 
+| 104|0x0000000702000000, 0x0000000702400000, 0x0000000702400000|100%| E|CS|TAMS 0x0000000702000000, 0x0000000702000000| Complete 
+| 105|0x0000000702400000, 0x0000000702800000, 0x0000000702800000|100%| E|CS|TAMS 0x0000000702400000, 0x0000000702400000| Complete 
+| 106|0x0000000702800000, 0x0000000702c00000, 0x0000000702c00000|100%| E|CS|TAMS 0x0000000702800000, 0x0000000702800000| Complete 
+| 107|0x0000000702c00000, 0x0000000703000000, 0x0000000703000000|100%| E|CS|TAMS 0x0000000702c00000, 0x0000000702c00000| Complete 
+| 108|0x0000000703000000, 0x0000000703400000, 0x0000000703400000|100%| E|CS|TAMS 0x0000000703000000, 0x0000000703000000| Complete 
+| 109|0x0000000703400000, 0x0000000703800000, 0x0000000703800000|100%| E|CS|TAMS 0x0000000703400000, 0x0000000703400000| Complete 
+|1118|0x00000007ff800000, 0x00000007ffb75000, 0x00000007ffc00000| 86%|OA|  |TAMS 0x00000007ff800000, 0x00000007ff800000| Untracked 
+|1119|0x00000007ffc00000, 0x00000007ffc77000, 0x0000000800000000| 11%|CA|  |TAMS 0x00000007ffc00000, 0x00000007ffc00000| Untracked 
+
+Card table byte_map: [0x00007f6108c7a000,0x00007f610953a000] _byte_map_base: 0x00007f610553a000
+
+Marking Bits (Prev, Next): (CMBitMap*) 0x00007f610404eab0, (CMBitMap*) 0x00007f610404eaf0
+ Prev Bits: [0x00007f60e8e00000, 0x00007f60ed400000)
+ Next Bits: [0x00007f60e4800000, 0x00007f60e8e00000)
+
+Polling page: 0x00007f610cb23000
+
+Metaspace:
+
+Usage:
+  Non-class:      6,77 MB used.
+      Class:    707,60 KB used.
+       Both:      7,46 MB used.
+
+Virtual space:
+  Non-class space:       64,00 MB reserved,       6,81 MB ( 11%) committed,  1 nodes.
+      Class space:        1,00 GB reserved,     832,00 KB ( <1%) committed,  1 nodes.
+             Both:        1,06 GB reserved,       7,62 MB ( <1%) committed. 
+
+Chunk freelists:
+   Non-Class:  8,81 MB
+       Class:  15,22 MB
+        Both:  24,03 MB
+
+MaxMetaspaceSize: unlimited
+CompressedClassSpaceSize: 1,00 GB
+Initial GC threshold: 21,00 MB
+Current GC threshold: 21,00 MB
+CDS: on
+MetaspaceReclaimPolicy: balanced
+ - commit_granule_bytes: 65536.
+ - commit_granule_words: 8192.
+ - virtual_space_node_default_size: 8388608.
+ - enlarge_chunks_in_place: 1.
+ - new_chunks_are_fully_committed: 0.
+ - uncommit_free_chunks: 1.
+ - use_allocation_guard: 0.
+ - handle_deallocations: 1.
+
+
+Internal statistics:
+
+num_allocs_failed_limit: 0.
+num_arena_births: 134.
+num_arena_deaths: 0.
+num_vsnodes_births: 2.
+num_vsnodes_deaths: 0.
+num_space_committed: 122.
+num_space_uncommitted: 0.
+num_chunks_returned_to_freelist: 0.
+num_chunks_taken_from_freelist: 194.
+num_chunk_merges: 0.
+num_chunk_splits: 125.
+num_chunks_enlarged: 75.
+num_inconsistent_stats: 0.
+
+CodeHeap 'non-profiled nmethods': size=120028Kb used=1456Kb max_used=1456Kb free=118571Kb
+ bounds [0x00007f60f4ec9000, 0x00007f60f5139000, 0x00007f60fc400000]
+CodeHeap 'profiled nmethods': size=120028Kb used=2591Kb max_used=2591Kb free=117436Kb
+ bounds [0x00007f60ed400000, 0x00007f60ed690000, 0x00007f60f4937000]
+CodeHeap 'non-nmethods': size=5704Kb used=1285Kb max_used=1334Kb free=4418Kb
+ bounds [0x00007f60f4937000, 0x00007f60f4ba7000, 0x00007f60f4ec9000]
+ total_blobs=2313 nmethods=1691 adapters=536
+ compilation: enabled
+              stopped_count=0, restarted_count=0
+ full_count=0
+
+Compilation events (20 events):
+Event: 11,291 Thread 0x00007f6104109c10 1682       3       java.lang.Integer::toString (55 bytes)
+Event: 11,291 Thread 0x00007f6104109c10 nmethod 1682 0x00007f60ed683490 code [0x00007f60ed683660, 0x00007f60ed6839f0]
+Event: 11,454 Thread 0x00007f6104109c10 1683       1       sun.awt.X11.XKeysym$Keysym2JavaKeycode::getJavaKeycode (5 bytes)
+Event: 11,454 Thread 0x00007f6104109c10 nmethod 1683 0x00007f60f5034390 code [0x00007f60f5034520, 0x00007f60f50345f0]
+Event: 11,464 Thread 0x00007f6104109c10 1684       3       java.lang.CharacterDataLatin1::getNumericValue (101 bytes)
+Event: 11,465 Thread 0x00007f6104109c10 nmethod 1684 0x00007f60ed683b90 code [0x00007f60ed683d60, 0x00007f60ed684090]
+Event: 11,717 Thread 0x00007f61041086d0 1685       4       sun.java2d.SunGraphics2D::invalidatePipe (41 bytes)
+Event: 11,724 Thread 0x00007f61041086d0 nmethod 1685 0x00007f60f5034690 code [0x00007f60f5034820, 0x00007f60f5034d38]
+Event: 11,847 Thread 0x00007f6104109c10 1686       3       java.awt.Component::dispatchEvent (6 bytes)
+Event: 11,847 Thread 0x00007f6104109c10 nmethod 1686 0x00007f60ed684190 code [0x00007f60ed684340, 0x00007f60ed684500]
+Event: 11,847 Thread 0x00007f6104109c10 1687   !   3       java.awt.Container::dispatchEventImpl (129 bytes)
+Event: 11,849 Thread 0x00007f6104109c10 nmethod 1687 0x00007f60ed684590 code [0x00007f60ed6847e0, 0x00007f60ed685130]
+Event: 11,976 Thread 0x00007f6104109c10 1688       3       java.lang.StringConcatHelper::initialCoder (14 bytes)
+Event: 11,976 Thread 0x00007f6104109c10 nmethod 1688 0x00007f60ed685490 code [0x00007f60ed685620, 0x00007f60ed685730]
+Event: 11,982 Thread 0x00007f6104109c10 1689       1       com.CrossingGuardJoe.model.menu.InstructionsMenu::getTotalPages (2 bytes)
+Event: 11,982 Thread 0x00007f6104109c10 nmethod 1689 0x00007f60f5034d90 code [0x00007f60f5034f20, 0x00007f60f5034ff0]
+Event: 11,982 Thread 0x00007f6104109c10 1690       3       sun.awt.AWTAccessor::getAWTEventAccessor (15 bytes)
+Event: 11,983 Thread 0x00007f6104109c10 nmethod 1690 0x00007f60ed685790 code [0x00007f60ed685980, 0x00007f60ed685d20]
+Event: 11,983 Thread 0x00007f6104109c10 1691       3       java.lang.StringConcatHelper::simpleConcat (94 bytes)
+Event: 11,985 Thread 0x00007f6104109c10 nmethod 1691 0x00007f60ed685f10 code [0x00007f60ed686260, 0x00007f60ed687780]
+
+GC Heap History (18 events):
+Event: 0,678 GC heap before
+{Heap before GC invocations=0 (full 0):
+ garbage-first heap   total 294912K, used 40880K [0x00000006e8000000, 0x0000000800000000)
+  region size 4096K, 5 young (20480K), 0 survivors (0K)
+ Metaspace       used 6760K, committed 6976K, reserved 1114112K
+  class space    used 641K, committed 768K, reserved 1048576K
+}
+Event: 0,685 GC heap after
+{Heap after GC invocations=1 (full 0):
+ garbage-first heap   total 294912K, used 26331K [0x00000006e8000000, 0x0000000800000000)
+  region size 4096K, 1 young (4096K), 1 survivors (4096K)
+ Metaspace       used 6760K, committed 6976K, reserved 1114112K
+  class space    used 641K, committed 768K, reserved 1048576K
+}
+Event: 0,854 GC heap before
+{Heap before GC invocations=1 (full 0):
+ garbage-first heap   total 294912K, used 46811K [0x00000006e8000000, 0x0000000800000000)
+  region size 4096K, 6 young (24576K), 1 survivors (4096K)
+ Metaspace       used 6764K, committed 6976K, reserved 1114112K
+  class space    used 641K, committed 768K, reserved 1048576K
+}
+Event: 0,860 GC heap after
+{Heap after GC invocations=2 (full 0):
+ garbage-first heap   total 294912K, used 26427K [0x00000006e8000000, 0x0000000800000000)
+  region size 4096K, 1 young (4096K), 1 survivors (4096K)
+ Metaspace       used 6764K, committed 6976K, reserved 1114112K
+  class space    used 641K, committed 768K, reserved 1048576K
+}
+Event: 1,528 GC heap before
+{Heap before GC invocations=2 (full 0):
+ garbage-first heap   total 294912K, used 100155K [0x00000006e8000000, 0x0000000800000000)
+  region size 4096K, 19 young (77824K), 1 survivors (4096K)
+ Metaspace       used 7166K, committed 7360K, reserved 1114112K
+  class space    used 683K, committed 832K, reserved 1048576K
+}
+Event: 1,533 GC heap after
+{Heap after GC invocations=3 (full 0):
+ garbage-first heap   total 294912K, used 27865K [0x00000006e8000000, 0x0000000800000000)
+  region size 4096K, 1 young (4096K), 1 survivors (4096K)
+ Metaspace       used 7166K, committed 7360K, reserved 1114112K
+  class space    used 683K, committed 832K, reserved 1048576K
+}
+Event: 1,873 GC heap before
+{Heap before GC invocations=3 (full 0):
+ garbage-first heap   total 294912K, used 195801K [0x00000006e8000000, 0x0000000800000000)
+  region size 4096K, 42 young (172032K), 1 survivors (4096K)
+ Metaspace       used 7172K, committed 7424K, reserved 1114112K
+  class space    used 683K, committed 832K, reserved 1048576K
+}
+Event: 1,905 GC heap after
+{Heap after GC invocations=4 (full 0):
+ garbage-first heap   total 294912K, used 50797K [0x00000006e8000000, 0x0000000800000000)
+  region size 4096K, 6 young (24576K), 6 survivors (24576K)
+ Metaspace       used 7172K, committed 7424K, reserved 1114112K
+  class space    used 683K, committed 832K, reserved 1048576K
+}
+Event: 2,387 GC heap before
+{Heap before GC invocations=4 (full 0):
+ garbage-first heap   total 294912K, used 194157K [0x00000006e8000000, 0x0000000800000000)
+  region size 4096K, 41 young (167936K), 6 survivors (24576K)
+ Metaspace       used 7294K, committed 7488K, reserved 1114112K
+  class space    used 698K, committed 832K, reserved 1048576K
+}
+Event: 2,416 GC heap after
+{Heap after GC invocations=5 (full 0):
+ garbage-first heap   total 294912K, used 64438K [0x00000006e8000000, 0x0000000800000000)
+  region size 4096K, 4 young (16384K), 4 survivors (16384K)
+ Metaspace       used 7294K, committed 7488K, reserved 1114112K
+  class space    used 698K, committed 832K, reserved 1048576K
+}
+Event: 3,058 GC heap before
+{Heap before GC invocations=5 (full 0):
+ garbage-first heap   total 294912K, used 203702K [0x00000006e8000000, 0x0000000800000000)
+  region size 4096K, 38 young (155648K), 4 survivors (16384K)
+ Metaspace       used 7352K, committed 7616K, reserved 1114112K
+  class space    used 700K, committed 832K, reserved 1048576K
+}
+Event: 3,079 GC heap after
+{Heap after GC invocations=6 (full 0):
+ garbage-first heap   total 294912K, used 71326K [0x00000006e8000000, 0x0000000800000000)
+  region size 4096K, 3 young (12288K), 3 survivors (12288K)
+ Metaspace       used 7352K, committed 7616K, reserved 1114112K
+  class space    used 700K, committed 832K, reserved 1048576K
+}
+Event: 3,483 GC heap before
+{Heap before GC invocations=6 (full 0):
+ garbage-first heap   total 294912K, used 214686K [0x00000006e8000000, 0x0000000800000000)
+  region size 4096K, 38 young (155648K), 3 survivors (12288K)
+ Metaspace       used 7354K, committed 7616K, reserved 1114112K
+  class space    used 700K, committed 832K, reserved 1048576K
+}
+Event: 3,494 GC heap after
+{Heap after GC invocations=7 (full 0):
+ garbage-first heap   total 458752K, used 70139K [0x00000006e8000000, 0x0000000800000000)
+  region size 4096K, 3 young (12288K), 3 survivors (12288K)
+ Metaspace       used 7354K, committed 7616K, reserved 1114112K
+  class space    used 700K, committed 832K, reserved 1048576K
+}
+Event: 4,360 GC heap before
+{Heap before GC invocations=7 (full 0):
+ garbage-first heap   total 458752K, used 332283K [0x00000006e8000000, 0x0000000800000000)
+  region size 4096K, 67 young (274432K), 3 survivors (12288K)
+ Metaspace       used 7485K, committed 7680K, reserved 1114112K
+  class space    used 707K, committed 832K, reserved 1048576K
+}
+Event: 4,372 GC heap after
+{Heap after GC invocations=8 (full 0):
+ garbage-first heap   total 458752K, used 73155K [0x00000006e8000000, 0x0000000800000000)
+  region size 4096K, 3 young (12288K), 3 survivors (12288K)
+ Metaspace       used 7485K, committed 7680K, reserved 1114112K
+  class space    used 707K, committed 832K, reserved 1048576K
+}
+Event: 8,434 GC heap before
+{Heap before GC invocations=8 (full 0):
+ garbage-first heap   total 458752K, used 183747K [0x00000006e8000000, 0x0000000800000000)
+  region size 4096K, 30 young (122880K), 3 survivors (12288K)
+ Metaspace       used 7546K, committed 7744K, reserved 1114112K
+  class space    used 707K, committed 832K, reserved 1048576K
+}
+Event: 8,442 GC heap after
+{Heap after GC invocations=9 (full 0):
+ garbage-first heap   total 458752K, used 65516K [0x00000006e8000000, 0x0000000800000000)
+  region size 4096K, 1 young (4096K), 1 survivors (4096K)
+ Metaspace       used 7546K, committed 7744K, reserved 1114112K
+  class space    used 707K, committed 832K, reserved 1048576K
+}
+
+Dll operation events (9 events):
+Event: 0,002 Loaded shared library /home/chill/.jdks/corretto-17.0.9/lib/libjava.so
+Event: 0,021 Loaded shared library /home/chill/.jdks/corretto-17.0.9/lib/libjsvml.so
+Event: 0,051 Loaded shared library /home/chill/.jdks/corretto-17.0.9/lib/libnio.so
+Event: 0,056 Loaded shared library /home/chill/.jdks/corretto-17.0.9/lib/libzip.so
+Event: 0,067 Loaded shared library /home/chill/.jdks/corretto-17.0.9/lib/libjimage.so
+Event: 0,095 Loaded shared library /home/chill/.jdks/corretto-17.0.9/lib/libawt.so
+Event: 0,105 Loaded shared library /home/chill/.jdks/corretto-17.0.9/lib/libawt_xawt.so
+Event: 0,145 Loaded shared library /home/chill/.jdks/corretto-17.0.9/lib/libfontmanager.so
+Event: 0,166 Loaded shared library /home/chill/.jdks/corretto-17.0.9/lib/libnet.so
+
+Deoptimization events (20 events):
+Event: 4,301 Thread 0x00007f6104326190 DEOPT PACKING pc=0x00007f60f4f0b6f0 sp=0x00007f6086bfd910
+Event: 4,301 Thread 0x00007f6104326190 DEOPT UNPACKING pc=0x00007f60f498d699 sp=0x00007f6086bfd8a8 mode 2
+Event: 4,301 Thread 0x00007f6104326190 Uncommon trap: trap_request=0xffffff66 fr.pc=0x00007f60f5008fec relative=0x000000000000004c
+Event: 4,301 Thread 0x00007f6104326190 Uncommon trap: reason=speculate_class_check action=maybe_recompile pc=0x00007f60f5008fec method=java.lang.invoke.Invokers$Holder.linkToTargetMethod(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object; @ 1 c2
+Event: 4,301 Thread 0x00007f6104326190 DEOPT PACKING pc=0x00007f60f5008fec sp=0x00007f6086bfd920
+Event: 4,301 Thread 0x00007f6104326190 DEOPT UNPACKING pc=0x00007f60f498d699 sp=0x00007f6086bfd8d0 mode 2
+Event: 4,336 Thread 0x00007f6104026220 Uncommon trap: trap_request=0xffffff45 fr.pc=0x00007f60f4fc2948 relative=0x00000000000000a8
+Event: 4,336 Thread 0x00007f6104026220 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f60f4fc2948 method=com.googlecode.lanterna.TerminalPosition.compareTo(Lcom/googlecode/lanterna/TerminalPosition;)I @ 45 c2
+Event: 4,336 Thread 0x00007f6104026220 DEOPT PACKING pc=0x00007f60f4fc2948 sp=0x00007f610c3fe180
+Event: 4,336 Thread 0x00007f6104026220 DEOPT UNPACKING pc=0x00007f60f498d699 sp=0x00007f610c3fe138 mode 2
+Event: 5,288 Thread 0x00007f6104326190 Uncommon trap: trap_request=0xffffffc6 fr.pc=0x00007f60f5015354 relative=0x0000000000000294
+Event: 5,288 Thread 0x00007f6104326190 Uncommon trap: reason=bimorphic_or_optimized_type_check action=maybe_recompile pc=0x00007f60f5015354 method=java.util.HashMap.getNode(Ljava/lang/Object;)Ljava/util/HashMap$Node; @ 128 c2
+Event: 5,288 Thread 0x00007f6104326190 DEOPT PACKING pc=0x00007f60f5015354 sp=0x00007f6086bfd920
+Event: 5,288 Thread 0x00007f6104326190 DEOPT UNPACKING pc=0x00007f60f498d699 sp=0x00007f6086bfd8a8 mode 2
+Event: 5,817 Thread 0x00007f6104326190 Uncommon trap: trap_request=0xffffffc6 fr.pc=0x00007f60f5015354 relative=0x0000000000000294
+Event: 5,817 Thread 0x00007f6104326190 Uncommon trap: reason=bimorphic_or_optimized_type_check action=maybe_recompile pc=0x00007f60f5015354 method=java.util.HashMap.getNode(Ljava/lang/Object;)Ljava/util/HashMap$Node; @ 128 c2
+Event: 5,817 Thread 0x00007f6104326190 DEOPT PACKING pc=0x00007f60f5015354 sp=0x00007f6086bfd920
+Event: 5,817 Thread 0x00007f6104326190 DEOPT UNPACKING pc=0x00007f60f498d699 sp=0x00007f6086bfd8a8 mode 2
+Event: 6,157 Thread 0x00007f6104026220 DEOPT PACKING pc=0x00007f60ed62f62f sp=0x00007f610c3fe4a0
+Event: 6,157 Thread 0x00007f6104026220 DEOPT UNPACKING pc=0x00007f60f498de2f sp=0x00007f610c3fd9e0 mode 0
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (11 events):
+Event: 0,082 Thread 0x00007f6104026220 Exception <a 'java/lang/ClassNotFoundException'{0x00000006f94573e0}: sun/awt/resources/spi/awtProvider> (0x00000006f94573e0) 
+thrown [src/hotspot/share/classfile/systemDictionary.cpp, line 256]
+Event: 0,126 Thread 0x00007f6104026220 Exception <a 'java/io/FileNotFoundException'{0x00000006f9584dc0}> (0x00000006f9584dc0) 
+thrown [src/hotspot/share/prims/jni.cpp, line 516]
+Event: 0,139 Thread 0x00007f6104026220 Exception <a 'java/io/FileNotFoundException'{0x00000006f95b1d28}> (0x00000006f95b1d28) 
+thrown [src/hotspot/share/prims/jni.cpp, line 516]
+Event: 0,153 Thread 0x00007f6104026220 Exception <a 'java/lang/NoSuchMethodError'{0x00000006f95bebe8}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeStaticInit(java.lang.Object)'> (0x00000006f95bebe8) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 759]
+Event: 0,431 Thread 0x00007f6104026220 Exception <a 'java/lang/NoSuchMethodError'{0x00000006f933a810}: 'void java.lang.invoke.DirectMethodHandle$Holder.invokeSpecial(java.lang.Object, java.lang.Object, java.lang.Object)'> (0x00000006f933a810) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 759]
+Event: 0,459 Thread 0x00007f6104026220 Exception <a 'java/lang/NoSuchMethodError'{0x00000006f9385a78}: 'void java.lang.invoke.DirectMethodHandle$Holder.invokeStaticInit(java.lang.Object)'> (0x00000006f9385a78) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 759]
+Event: 0,528 Thread 0x00007f6104026220 Exception <a 'java/lang/NoSuchMethodError'{0x00000006f888a548}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object, java.lang.Object, int)'> (0x00000006f888a548) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 759]
+Event: 0,980 Thread 0x00007f6104026220 Exception <a 'java/lang/NoSuchMethodError'{0x00000006f8b4af98}: 'void java.lang.invoke.DirectMethodHandle$Holder.invokeVirtual(java.lang.Object, java.lang.Object)'> (0x00000006f8b4af98) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 759]
+Event: 0,981 Thread 0x00007f6104026220 Implicit null exception at 0x00007f60f4f0c5fa to 0x00007f60f4f0ca8c
+Event: 2,638 Thread 0x00007f6104026220 Implicit null exception at 0x00007f60f4fc708e to 0x00007f60f4fc83cc
+Event: 12,040 Thread 0x00007f6104026220 Implicit null exception at 0x00007f60ed654c8e to 0x0000000000000000
+
+VM Operations (20 events):
+Event: 3,058 Executing VM operation: G1CollectForAllocation
+Event: 3,079 Executing VM operation: G1CollectForAllocation done
+Event: 3,482 Executing VM operation: G1CollectForAllocation
+Event: 3,494 Executing VM operation: G1CollectForAllocation done
+Event: 4,360 Executing VM operation: G1CollectForAllocation
+Event: 4,372 Executing VM operation: G1CollectForAllocation done
+Event: 5,373 Executing VM operation: Cleanup
+Event: 5,373 Executing VM operation: Cleanup done
+Event: 7,373 Executing VM operation: Cleanup
+Event: 7,373 Executing VM operation: Cleanup done
+Event: 8,373 Executing VM operation: Cleanup
+Event: 8,373 Executing VM operation: Cleanup done
+Event: 8,434 Executing VM operation: G1CollectForAllocation
+Event: 8,442 Executing VM operation: G1CollectForAllocation done
+Event: 9,442 Executing VM operation: Cleanup
+Event: 9,442 Executing VM operation: Cleanup done
+Event: 10,442 Executing VM operation: Cleanup
+Event: 10,443 Executing VM operation: Cleanup done
+Event: 11,443 Executing VM operation: Cleanup
+Event: 11,443 Executing VM operation: Cleanup done
+
+Events (20 events):
+Event: 2,299 loading class java/util/Stack
+Event: 2,299 loading class java/util/Stack done
+Event: 2,338 Thread 0x00007f60601c3300 Thread added: 0x00007f60601c3300
+Event: 2,338 Protecting memory [0x00007f60d4200000,0x00007f60d4204000] with protection modes 0
+Event: 2,358 Thread 0x00007f604848f9c0 Thread added: 0x00007f604848f9c0
+Event: 2,358 Protecting memory [0x00007f6086700000,0x00007f6086704000] with protection modes 0
+Event: 2,639 loading class java/util/BitSet
+Event: 2,639 loading class java/util/BitSet done
+Event: 2,796 Thread 0x00007f604848f9c0 Thread exited: 0x00007f604848f9c0
+Event: 2,950 Thread 0x00007f60601c3300 Thread exited: 0x00007f60601c3300
+Event: 3,763 loading class sun/awt/X11/XKeyEvent
+Event: 3,764 loading class sun/awt/X11/XKeyEvent done
+Event: 3,764 loading class sun/awt/X11/XKeysym
+Event: 3,764 loading class sun/awt/X11/XKeysym done
+Event: 3,764 loading class sun/awt/X11/XKeysym$Keysym2JavaKeycode
+Event: 3,764 loading class sun/awt/X11/XKeysym$Keysym2JavaKeycode done
+Event: 3,767 loading class sun/awt/X11/XConstants
+Event: 3,768 loading class sun/awt/X11/XConstants done
+Event: 3,768 loading class sun/awt/DebugSettings
+Event: 3,768 loading class sun/awt/DebugSettings done
+
+
+Dynamic libraries:
+6e8000000-703800000 rw-p 00000000 00:00 0 
+703800000-7ff800000 ---p 00000000 00:00 0 
+7ff800000-7ffb00000 rw-p 00000000 00:00 0 
+7ffb00000-7ffb75000 rw-p 00c75000 103:07 6979900                         /home/chill/.jdks/corretto-17.0.9/lib/server/classes.jsa
+7ffb75000-7ffc00000 rw-p 00000000 00:00 0 
+7ffc00000-7ffc77000 rw-p 00bfe000 103:07 6979900                         /home/chill/.jdks/corretto-17.0.9/lib/server/classes.jsa
+7ffc77000-800000000 rw-p 00000000 00:00 0 
+55b045600000-55b045601000 r-xp 00000000 103:07 6980041                   /home/chill/.jdks/corretto-17.0.9/bin/java
+55b045801000-55b045802000 r--p 00001000 103:07 6980041                   /home/chill/.jdks/corretto-17.0.9/bin/java
+55b045802000-55b045803000 rw-p 00002000 103:07 6980041                   /home/chill/.jdks/corretto-17.0.9/bin/java
+55b046e41000-55b046e89000 rw-p 00000000 00:00 0                          [heap]
+7f6010000000-7f6010021000 rw-p 00000000 00:00 0 
+7f6010021000-7f6014000000 ---p 00000000 00:00 0 
+7f6014000000-7f6014021000 rw-p 00000000 00:00 0 
+7f6014021000-7f6018000000 ---p 00000000 00:00 0 
+7f6018000000-7f6018021000 rw-p 00000000 00:00 0 
+7f6018021000-7f601c000000 ---p 00000000 00:00 0 
+7f601c000000-7f601c021000 rw-p 00000000 00:00 0 
+7f601c021000-7f6020000000 ---p 00000000 00:00 0 
+7f6020000000-7f6020021000 rw-p 00000000 00:00 0 
+7f6020021000-7f6024000000 ---p 00000000 00:00 0 
+7f6024000000-7f6024021000 rw-p 00000000 00:00 0 
+7f6024021000-7f6028000000 ---p 00000000 00:00 0 
+7f6028000000-7f6028021000 rw-p 00000000 00:00 0 
+7f6028021000-7f602c000000 ---p 00000000 00:00 0 
+7f602c000000-7f602c021000 rw-p 00000000 00:00 0 
+7f602c021000-7f6030000000 ---p 00000000 00:00 0 
+7f6030000000-7f6030021000 rw-p 00000000 00:00 0 
+7f6030021000-7f6034000000 ---p 00000000 00:00 0 
+7f6034000000-7f6034021000 rw-p 00000000 00:00 0 
+7f6034021000-7f6038000000 ---p 00000000 00:00 0 
+7f6038000000-7f6038021000 rw-p 00000000 00:00 0 
+7f6038021000-7f603c000000 ---p 00000000 00:00 0 
+7f603c000000-7f603c943000 rw-p 00000000 00:00 0 
+7f603c943000-7f6040000000 ---p 00000000 00:00 0 
+7f6040000000-7f6040021000 rw-p 00000000 00:00 0 
+7f6040021000-7f6044000000 ---p 00000000 00:00 0 
+7f6044000000-7f6044021000 rw-p 00000000 00:00 0 
+7f6044021000-7f6048000000 ---p 00000000 00:00 0 
+7f6048000000-7f6048a95000 rw-p 00000000 00:00 0 
+7f6048a95000-7f604c000000 ---p 00000000 00:00 0 
+7f604c000000-7f604c021000 rw-p 00000000 00:00 0 
+7f604c021000-7f6050000000 ---p 00000000 00:00 0 
+7f6050000000-7f6050021000 rw-p 00000000 00:00 0 
+7f6050021000-7f6054000000 ---p 00000000 00:00 0 
+7f6054000000-7f6054021000 rw-p 00000000 00:00 0 
+7f6054021000-7f6058000000 ---p 00000000 00:00 0 
+7f6058000000-7f6058021000 rw-p 00000000 00:00 0 
+7f6058021000-7f605c000000 ---p 00000000 00:00 0 
+7f605c000000-7f605c021000 rw-p 00000000 00:00 0 
+7f605c021000-7f6060000000 ---p 00000000 00:00 0 
+7f6060000000-7f606020a000 rw-p 00000000 00:00 0 
+7f606020a000-7f6064000000 ---p 00000000 00:00 0 
+7f6064000000-7f6064021000 rw-p 00000000 00:00 0 
+7f6064021000-7f6068000000 ---p 00000000 00:00 0 
+7f6068000000-7f6068021000 rw-p 00000000 00:00 0 
+7f6068021000-7f606c000000 ---p 00000000 00:00 0 
+7f606c000000-7f606cd39000 rw-p 00000000 00:00 0 
+7f606cd39000-7f6070000000 ---p 00000000 00:00 0 
+7f6070000000-7f6070021000 rw-p 00000000 00:00 0 
+7f6070021000-7f6074000000 ---p 00000000 00:00 0 
+7f6074000000-7f6074021000 rw-p 00000000 00:00 0 
+7f6074021000-7f6078000000 ---p 00000000 00:00 0 
+7f6078000000-7f6078021000 rw-p 00000000 00:00 0 
+7f6078021000-7f607c000000 ---p 00000000 00:00 0 
+7f607c000000-7f607c021000 rw-p 00000000 00:00 0 
+7f607c021000-7f6080000000 ---p 00000000 00:00 0 
+7f6080000000-7f6080042000 rw-p 00000000 00:00 0 
+7f6080042000-7f6084000000 ---p 00000000 00:00 0 
+7f6084726000-7f6084b0e000 rw-p 00000000 00:00 0 
+7f6084b0e000-7f6084b0f000 ---p 00000000 00:00 0 
+7f6084b0f000-7f6084c0f000 rw-p 00000000 00:00 0 
+7f6084c0f000-7f6084c10000 ---p 00000000 00:00 0 
+7f6084c10000-7f6084d10000 rw-p 00000000 00:00 0 
+7f6084d10000-7f6084ef9000 rw-s 00000000 00:01 262152                     /SYSV00000000 (deleted)
+7f6084ef9000-7f6084efa000 ---p 00000000 00:00 0 
+7f6084efa000-7f6084ffa000 rw-p 00000000 00:00 0 
+7f6084ffa000-7f6084ffb000 ---p 00000000 00:00 0 
+7f6084ffb000-7f60850fb000 rw-p 00000000 00:00 0 
+7f60850fb000-7f60850fc000 ---p 00000000 00:00 0 
+7f60850fc000-7f60851fc000 rw-p 00000000 00:00 0 
+7f60851fc000-7f60851fd000 ---p 00000000 00:00 0 
+7f60851fd000-7f60852fd000 rw-p 00000000 00:00 0 
+7f60852fd000-7f60852fe000 ---p 00000000 00:00 0 
+7f60852fe000-7f60853fe000 rw-p 00000000 00:00 0 
+7f60853fe000-7f60853ff000 ---p 00000000 00:00 0 
+7f60853ff000-7f60854ff000 rw-p 00000000 00:00 0 
+7f60854ff000-7f6085500000 ---p 00000000 00:00 0 
+7f6085500000-7f6085600000 rw-p 00000000 00:00 0 
+7f6085600000-7f60856ad000 r-xp 00000000 103:07 6979906                   /home/chill/.jdks/corretto-17.0.9/lib/libfreetype.so
+7f60856ad000-7f60858ad000 ---p 000ad000 103:07 6979906                   /home/chill/.jdks/corretto-17.0.9/lib/libfreetype.so
+7f60858ad000-7f60858b3000 r--p 000ad000 103:07 6979906                   /home/chill/.jdks/corretto-17.0.9/lib/libfreetype.so
+7f60858b3000-7f60858b4000 rw-p 00000000 00:00 0 
+7f60858ff000-7f6085900000 ---p 00000000 00:00 0 
+7f6085900000-7f6085a00000 rw-p 00000000 00:00 0 
+7f6085a00000-7f6085c30000 r-xp 00000000 103:07 6979905                   /home/chill/.jdks/corretto-17.0.9/lib/libfontmanager.so
+7f6085c30000-7f6085e2f000 ---p 00230000 103:07 6979905                   /home/chill/.jdks/corretto-17.0.9/lib/libfontmanager.so
+7f6085e2f000-7f6085e31000 r--p 0022f000 103:07 6979905                   /home/chill/.jdks/corretto-17.0.9/lib/libfontmanager.so
+7f6085e31000-7f6085e32000 rw-p 00231000 103:07 6979905                   /home/chill/.jdks/corretto-17.0.9/lib/libfontmanager.so
+7f6085e32000-7f6085e33000 rw-p 00000000 00:00 0 
+7f6085eff000-7f6085f00000 ---p 00000000 00:00 0 
+7f6085f00000-7f6086000000 rw-p 00000000 00:00 0 
+7f6086000000-7f608605a000 r-xp 00000000 103:07 6979904                   /home/chill/.jdks/corretto-17.0.9/lib/libawt_xawt.so
+7f608605a000-7f608625a000 ---p 0005a000 103:07 6979904                   /home/chill/.jdks/corretto-17.0.9/lib/libawt_xawt.so
+7f608625a000-7f608625b000 r--p 0005a000 103:07 6979904                   /home/chill/.jdks/corretto-17.0.9/lib/libawt_xawt.so
+7f608625b000-7f608625d000 rw-p 0005b000 103:07 6979904                   /home/chill/.jdks/corretto-17.0.9/lib/libawt_xawt.so
+7f608625d000-7f608625f000 rw-p 00000000 00:00 0 
+7f60862ff000-7f6086300000 ---p 00000000 00:00 0 
+7f6086300000-7f6086400000 rw-p 00000000 00:00 0 
+7f6086400000-7f60864bc000 r-xp 00000000 103:07 6979902                   /home/chill/.jdks/corretto-17.0.9/lib/libawt.so
+7f60864bc000-7f60866bb000 ---p 000bc000 103:07 6979902                   /home/chill/.jdks/corretto-17.0.9/lib/libawt.so
+7f60866bb000-7f60866bc000 r--p 000bb000 103:07 6979902                   /home/chill/.jdks/corretto-17.0.9/lib/libawt.so
+7f60866bc000-7f60866c7000 rw-p 000bc000 103:07 6979902                   /home/chill/.jdks/corretto-17.0.9/lib/libawt.so
+7f60866c7000-7f60866ec000 rw-p 00000000 00:00 0 
+7f6086700000-7f6086704000 ---p 00000000 00:00 0 
+7f6086704000-7f6086800000 rw-p 00000000 00:00 0 
+7f6086800000-7f6086807000 r-xp 00000000 103:07 6979890                   /home/chill/.jdks/corretto-17.0.9/lib/libzip.so
+7f6086807000-7f6086a07000 ---p 00007000 103:07 6979890                   /home/chill/.jdks/corretto-17.0.9/lib/libzip.so
+7f6086a07000-7f6086a08000 r--p 00007000 103:07 6979890                   /home/chill/.jdks/corretto-17.0.9/lib/libzip.so
+7f6086a08000-7f6086a09000 rw-p 00000000 00:00 0 
+7f6086b00000-7f6086b04000 ---p 00000000 00:00 0 
+7f6086b04000-7f6086c00000 rw-p 00000000 00:00 0 
+7f6086c00000-7f6086c15000 r-xp 00000000 103:07 6979887                   /home/chill/.jdks/corretto-17.0.9/lib/libnet.so
+7f6086c15000-7f6086e14000 ---p 00015000 103:07 6979887                   /home/chill/.jdks/corretto-17.0.9/lib/libnet.so
+7f6086e14000-7f6086e15000 r--p 00014000 103:07 6979887                   /home/chill/.jdks/corretto-17.0.9/lib/libnet.so
+7f6086e15000-7f6086e16000 rw-p 00015000 103:07 6979887                   /home/chill/.jdks/corretto-17.0.9/lib/libnet.so
+7f6086f00000-7f6086f04000 ---p 00000000 00:00 0 
+7f6086f04000-7f6087000000 rw-p 00000000 00:00 0 
+7f6087000000-7f6087bc6000 rw-p 00001000 103:07 6979900                   /home/chill/.jdks/corretto-17.0.9/lib/server/classes.jsa
+7f6087bc6000-7f6088000000 ---p 00000000 00:00 0 
+7f6088000000-7f6088010000 rw-p 00000000 00:00 0 
+7f6088010000-7f6088030000 rw-p 00000000 00:00 0 
+7f6088030000-7f60880b0000 rw-p 00000000 00:00 0 
+7f60880b0000-7f60880d0000 rw-p 00000000 00:00 0 
+7f60880d0000-7f60c8000000 ---p 00000000 00:00 0 
+7f60c8000000-7f60c8021000 rw-p 00000000 00:00 0 
+7f60c8021000-7f60cc000000 ---p 00000000 00:00 0 
+7f60cc000000-7f60cc3f0000 rw-p 00000000 00:00 0 
+7f60cc3f0000-7f60cc470000 rw-p 00000000 00:00 0 
+7f60cc470000-7f60cc4f0000 rw-p 00000000 00:00 0 
+7f60cc4f0000-7f60cc6a0000 rw-p 00000000 00:00 0 
+7f60cc6a0000-7f60cc700000 ---p 00000000 00:00 0 
+7f60cc700000-7f60cc730000 rw-p 00000000 00:00 0 
+7f60cc730000-7f60d0000000 ---p 00000000 00:00 0 
+7f60d0000000-7f60d0021000 rw-p 00000000 00:00 0 
+7f60d0021000-7f60d4000000 ---p 00000000 00:00 0 
+7f60d4000000-7f60d4004000 ---p 00000000 00:00 0 
+7f60d4004000-7f60d4100000 rw-p 00000000 00:00 0 
+7f60d4100000-7f60d4104000 ---p 00000000 00:00 0 
+7f60d4104000-7f60d4200000 rw-p 00000000 00:00 0 
+7f60d4200000-7f60d4204000 ---p 00000000 00:00 0 
+7f60d4204000-7f60d4300000 rw-p 00000000 00:00 0 
+7f60d4300000-7f60d4304000 ---p 00000000 00:00 0 
+7f60d4304000-7f60d4400000 rw-p 00000000 00:00 0 
+7f60d4400000-7f60d4412000 r-xp 00000000 103:07 6979888                   /home/chill/.jdks/corretto-17.0.9/lib/libnio.so
+7f60d4412000-7f60d4611000 ---p 00012000 103:07 6979888                   /home/chill/.jdks/corretto-17.0.9/lib/libnio.so
+7f60d4611000-7f60d4612000 r--p 00011000 103:07 6979888                   /home/chill/.jdks/corretto-17.0.9/lib/libnio.so
+7f60d4612000-7f60d4613000 rw-p 00012000 103:07 6979888                   /home/chill/.jdks/corretto-17.0.9/lib/libnio.so
+7f60d46bf000-7f60d46d8000 r--p 00000000 103:07 5900728                   /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+7f60d46d8000-7f60d4764000 r-xp 00019000 103:07 5900728                   /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+7f60d4764000-7f60d47f9000 r--p 000a5000 103:07 5900728                   /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+7f60d47f9000-7f60d47fa000 ---p 0013a000 103:07 5900728                   /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+7f60d47fa000-7f60d47fb000 r--p 0013a000 103:07 5900728                   /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+7f60d47fb000-7f60d47ff000 rw-p 0013b000 103:07 5900728                   /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+7f60d47ff000-7f60d4803000 ---p 00000000 00:00 0 
+7f60d4803000-7f60d48ff000 rw-p 00000000 00:00 0 
+7f60d48ff000-7f60d4900000 ---p 00000000 00:00 0 
+7f60d4900000-7f60d4a00000 rw-p 00000000 00:00 0 
+7f60d4a00000-7f60d4a04000 ---p 00000000 00:00 0 
+7f60d4a04000-7f60d4b00000 rw-p 00000000 00:00 0 
+7f60d4b00000-7f60d4b04000 ---p 00000000 00:00 0 
+7f60d4b04000-7f60d4c00000 rw-p 00000000 00:00 0 
+7f60d4c00000-7f60d4c04000 ---p 00000000 00:00 0 
+7f60d4c04000-7f60d4d00000 rw-p 00000000 00:00 0 
+7f60d4d00000-7f60d4d04000 ---p 00000000 00:00 0 
+7f60d4d04000-7f60d4e00000 rw-p 00000000 00:00 0 
+7f60d4e00000-7f60d4e04000 ---p 00000000 00:00 0 
+7f60d4e04000-7f60d4f00000 rw-p 00000000 00:00 0 
+7f60d4f00000-7f60d4f04000 ---p 00000000 00:00 0 
+7f60d4f04000-7f60d5000000 rw-p 00000000 00:00 0 
+7f60d5000000-7f60d5574000 r--p 00000000 103:07 5926551                   /usr/lib/locale/locale-archive
+7f60d55de000-7f60d55e9000 r--s 00000000 103:07 3408200                   /var/cache/fontconfig/c0fa6795-5aad-4556-bb16-87d18df931fd-le64.cache-7
+7f60d55e9000-7f60d55ff000 r--s 00000000 103:07 3408250                   /var/cache/fontconfig/fcfd3d12-5003-4e1e-a040-ea57febef4b7-le64.cache-7
+7f60d55ff000-7f60d5603000 ---p 00000000 00:00 0 
+7f60d5603000-7f60d56ff000 rw-p 00000000 00:00 0 
+7f60d56ff000-7f60d5703000 ---p 00000000 00:00 0 
+7f60d5703000-7f60d57ff000 rw-p 00000000 00:00 0 
+7f60d57ff000-7f60d5803000 ---p 00000000 00:00 0 
+7f60d5803000-7f60d58ff000 rw-p 00000000 00:00 0 
+7f60d58ff000-7f60d5900000 ---p 00000000 00:00 0 
+7f60d5900000-7f60d5a00000 rw-p 00000000 00:00 0 
+7f60d5a00000-7f60d5ace000 r-xp 00000000 103:07 6979932                   /home/chill/.jdks/corretto-17.0.9/lib/libjsvml.so
+7f60d5ace000-7f60d5ccd000 ---p 000ce000 103:07 6979932                   /home/chill/.jdks/corretto-17.0.9/lib/libjsvml.so
+7f60d5ccd000-7f60d5cce000 r--p 000cd000 103:07 6979932                   /home/chill/.jdks/corretto-17.0.9/lib/libjsvml.so
+7f60d5cce000-7f60d5ccf000 rw-p 000ce000 103:07 6979932                   /home/chill/.jdks/corretto-17.0.9/lib/libjsvml.so
+7f60d5cd1000-7f60d5cd7000 r--s 00000000 103:07 3408226                   /var/cache/fontconfig/dbf34063-b0ff-442e-8b2f-babebcf30bde-le64.cache-7
+7f60d5cd7000-7f60d5cd8000 r--s 00000000 103:07 3408155                   /var/cache/fontconfig/7ddb6708-96c4-424d-a178-9299d5f8b904-le64.cache-7
+7f60d5cd8000-7f60d5cd9000 r--s 00000000 103:07 3408248                   /var/cache/fontconfig/fa9fd03a-dfec-4b5d-95c9-ec961d861d45-le64.cache-7
+7f60d5cd9000-7f60d5ce1000 r--s 00000000 103:07 3408087                   /var/cache/fontconfig/3645db27-0bd3-4fb3-95ef-d5e811d31bca-le64.cache-7
+7f60d5ce1000-7f60d5ce2000 r--s 00000000 103:07 3408128                   /var/cache/fontconfig/5a24e9bf-4f86-47df-9458-6629553fa807-le64.cache-7
+7f60d5ce2000-7f60d5ce4000 r--s 00000000 103:07 3408098                   /var/cache/fontconfig/41bb87d2-4a0a-41ba-aa5c-720d593dd3c1-le64.cache-7
+7f60d5ce4000-7f60d5ce5000 r--s 00000000 103:07 3408144                   /var/cache/fontconfig/6e13ca96-dfbc-4bcd-9ba8-f3042dd3093d-le64.cache-7
+7f60d5ce5000-7f60d5ce7000 r--s 00000000 103:07 3408086                   /var/cache/fontconfig/3576b69a-1c63-4159-853b-87958ce79bfa-le64.cache-7
+7f60d5ce7000-7f60d5ce9000 r--s 00000000 103:07 3408171                   /var/cache/fontconfig/976eca18-0baa-4f73-bbc0-e1d78f120f21-le64.cache-7
+7f60d5ce9000-7f60d5cec000 r--s 00000000 103:07 3408242                   /var/cache/fontconfig/f51ce705-421a-4fbb-b910-a07fa59e92e2-le64.cache-7
+7f60d5cec000-7f60d5cf1000 r--s 00000000 103:07 3408167                   /var/cache/fontconfig/8e5e0abb-0da7-4470-8809-bf3edd9b8a05-le64.cache-7
+7f60d5cf1000-7f60d5cf2000 r--s 00000000 103:07 3408205                   /var/cache/fontconfig/ca246f47-77f7-4c66-8314-7f31c4a28c6b-le64.cache-7
+7f60d5cf2000-7f60d5cf3000 r--s 00000000 103:07 3408048                   /var/cache/fontconfig/06612285-db84-4674-9d9c-63a66092a152-le64.cache-7
+7f60d5cf3000-7f60d5cf4000 r--s 00000000 103:07 3408191                   /var/cache/fontconfig/b6a31d45-b5e9-4ad7-891e-bfb393e466e9-le64.cache-7
+7f60d5cf4000-7f60d5cf5000 r--s 00000000 103:07 3408045                   /var/cache/fontconfig/00d52615-620f-4ad3-a984-533be227dffe-le64.cache-7
+7f60d5cf5000-7f60d5cf6000 r--s 00000000 103:07 3408101                   /var/cache/fontconfig/48e31547-bdad-4ad4-aabc-e26b62239d53-le64.cache-7
+7f60d5cf6000-7f60d5cf7000 r--s 00000000 103:07 3408090                   /var/cache/fontconfig/37d60963-ec8a-47cd-aed2-1b2ddf5037d9-le64.cache-7
+7f60d5cf7000-7f60d5cfd000 r--s 00000000 103:07 3408225                   /var/cache/fontconfig/db3be020-33aa-4564-93fa-aaee5925c08e-le64.cache-7
+7f60d5cfd000-7f60d5cfe000 ---p 00000000 00:00 0 
+7f60d5cfe000-7f60d5dfe000 rw-p 00000000 00:00 0 
+7f60d5dfe000-7f60d5dff000 ---p 00000000 00:00 0 
+7f60d5dff000-7f60d8000000 rw-p 00000000 00:00 0 
+7f60d8000000-7f60d8021000 rw-p 00000000 00:00 0 
+7f60d8021000-7f60dc000000 ---p 00000000 00:00 0 
+7f60dc000000-7f60dc021000 rw-p 00000000 00:00 0 
+7f60dc021000-7f60e0000000 ---p 00000000 00:00 0 
+7f60e0000000-7f60e0021000 rw-p 00000000 00:00 0 
+7f60e0021000-7f60e4000000 ---p 00000000 00:00 0 
+7f60e4000000-7f60e4001000 r--s 00000000 103:07 3408081                   /var/cache/fontconfig/2e78cf67-0a8c-4d96-b145-9ef7416e5d5a-le64.cache-7
+7f60e4001000-7f60e4002000 r--s 00000000 103:07 3408168                   /var/cache/fontconfig/946a7252-f764-4fc2-89c7-449f2d4d20f8-le64.cache-7
+7f60e4002000-7f60e4003000 r--s 00000000 103:07 3408180                   /var/cache/fontconfig/a0a0acdb-f0b7-458c-97a5-bd85382875ff-le64.cache-7
+7f60e4003000-7f60e400a000 r--s 00000000 103:07 3408061                   /var/cache/fontconfig/15b16c3e-11a6-4e71-8a78-5b39c35c694a-le64.cache-7
+7f60e400a000-7f60e4010000 r--s 00000000 103:07 3408166                   /var/cache/fontconfig/8b0ea116-2daf-4080-865c-6633df81efa0-le64.cache-7
+7f60e4010000-7f60e4023000 r--s 00000000 103:07 3408163                   /var/cache/fontconfig/87b3ccd2-1b14-4132-8987-da7e6697b8a1-le64.cache-7
+7f60e4023000-7f60e4031000 r--s 00000000 103:07 3408220                   /var/cache/fontconfig/d82e7bac-1b53-4371-9cc1-66f08c2a31a7-le64.cache-7
+7f60e40f9000-7f60e4ee0000 rw-p 00000000 00:00 0 
+7f60e4ee0000-7f60e8de0000 ---p 00000000 00:00 0 
+7f60e8de0000-7f60e94e0000 rw-p 00000000 00:00 0 
+7f60e94e0000-7f60ed3e0000 ---p 00000000 00:00 0 
+7f60ed3e0000-7f60ed400000 rw-p 00000000 00:00 0 
+7f60ed400000-7f60ed690000 rwxp 00000000 00:00 0 
+7f60ed690000-7f60f4937000 ---p 00000000 00:00 0 
+7f60f4937000-7f60f4ba7000 rwxp 00000000 00:00 0 
+7f60f4ba7000-7f60f4ec9000 ---p 00000000 00:00 0 
+7f60f4ec9000-7f60f5139000 rwxp 00000000 00:00 0 
+7f60f5139000-7f60fc400000 ---p 00000000 00:00 0 
+7f60fc400000-7f6103fa8000 r--s 00000000 103:07 6979877                   /home/chill/.jdks/corretto-17.0.9/lib/modules
+7f6103fa8000-7f6103fa9000 r--s 00000000 103:07 3408165                   /var/cache/fontconfig/88efff98-2618-4a24-b8f9-5f5ebfbcc1f7-le64.cache-7
+7f6103fa9000-7f6103fb5000 r--s 00000000 103:07 3410338                   /var/cache/fontconfig/7c3cfb37-32f0-4c0b-8dae-8725bbb6d53c-le64.cache-7
+7f6103fb5000-7f6103fc5000 r--s 00000000 103:07 3408173                   /var/cache/fontconfig/99864424-7aea-4e8f-919a-d4b55442e89a-le64.cache-7
+7f6104000000-7f6104383000 rw-p 00000000 00:00 0 
+7f6104383000-7f6108000000 ---p 00000000 00:00 0 
+7f6108000000-7f6108001000 r--s 00000000 103:07 3408213                   /var/cache/fontconfig/d4bd1ca3-3086-4fce-bb8f-a45fece3395e-le64.cache-7
+7f6108001000-7f6108002000 r--s 00000000 103:07 3408131                   /var/cache/fontconfig/636e39dd-4582-4fa9-ae56-e06fa08675a2-le64.cache-7
+7f6108093000-7f6108095000 r--p 00000000 103:07 5925034                   /usr/lib/x86_64-linux-gnu/libXfixes.so.3.1.0
+7f6108095000-7f6108098000 r-xp 00002000 103:07 5925034                   /usr/lib/x86_64-linux-gnu/libXfixes.so.3.1.0
+7f6108098000-7f6108099000 r--p 00005000 103:07 5925034                   /usr/lib/x86_64-linux-gnu/libXfixes.so.3.1.0
+7f6108099000-7f610809a000 r--p 00006000 103:07 5925034                   /usr/lib/x86_64-linux-gnu/libXfixes.so.3.1.0
+7f610809a000-7f610809b000 rw-p 00007000 103:07 5925034                   /usr/lib/x86_64-linux-gnu/libXfixes.so.3.1.0
+7f610809b000-7f610809d000 r--p 00000000 103:07 5925026                   /usr/lib/x86_64-linux-gnu/libXcursor.so.1.0.2
+7f610809d000-7f61080a3000 r-xp 00002000 103:07 5925026                   /usr/lib/x86_64-linux-gnu/libXcursor.so.1.0.2
+7f61080a3000-7f61080a5000 r--p 00008000 103:07 5925026                   /usr/lib/x86_64-linux-gnu/libXcursor.so.1.0.2
+7f61080a5000-7f61080a6000 r--p 00009000 103:07 5925026                   /usr/lib/x86_64-linux-gnu/libXcursor.so.1.0.2
+7f61080a6000-7f61080a7000 rw-p 0000a000 103:07 5925026                   /usr/lib/x86_64-linux-gnu/libXcursor.so.1.0.2
+7f61080b0000-7f61080b7000 r--s 00000000 103:07 5903309                   /usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache
+7f61080b7000-7f61080b8000 ---p 00000000 00:00 0 
+7f61080b8000-7f61081b8000 rw-p 00000000 00:00 0 
+7f61081b8000-7f61081b9000 ---p 00000000 00:00 0 
+7f61081b9000-7f61082b9000 rw-p 00000000 00:00 0 
+7f61082b9000-7f61082ba000 ---p 00000000 00:00 0 
+7f61082ba000-7f6108496000 rw-p 00000000 00:00 0 
+7f6108496000-7f6108c76000 ---p 00000000 00:00 0 
+7f6108c76000-7f6108d56000 rw-p 00000000 00:00 0 
+7f6108d56000-7f6109536000 ---p 00000000 00:00 0 
+7f6109536000-7f6109616000 rw-p 00000000 00:00 0 
+7f6109616000-7f6109df6000 ---p 00000000 00:00 0 
+7f6109df6000-7f610a400000 rw-p 00000000 00:00 0 
+7f610a400000-7f610a424000 r-xp 00000000 103:07 6979883                   /home/chill/.jdks/corretto-17.0.9/lib/libjava.so
+7f610a424000-7f610a624000 ---p 00024000 103:07 6979883                   /home/chill/.jdks/corretto-17.0.9/lib/libjava.so
+7f610a624000-7f610a625000 r--p 00024000 103:07 6979883                   /home/chill/.jdks/corretto-17.0.9/lib/libjava.so
+7f610a625000-7f610a626000 rw-p 00025000 103:07 6979883                   /home/chill/.jdks/corretto-17.0.9/lib/libjava.so
+7f610a626000-7f610a627000 rw-p 00000000 00:00 0 
+7f610a627000-7f610a628000 r--s 00000000 103:07 3408172                   /var/cache/fontconfig/99131556-68e3-4717-964f-c2753bca6ac0-le64.cache-7
+7f610a628000-7f610a629000 r--s 00000000 103:07 3408151                   /var/cache/fontconfig/793569ca-0608-45af-951d-42de7352957e-le64.cache-7
+7f610a629000-7f610a62f000 r--s 00000000 103:07 3408210                   /var/cache/fontconfig/d3124a7b-8bdc-4982-a9f2-494494ef2fbf-le64.cache-7
+7f610a62f000-7f610a631000 r--p 00000000 103:07 5925974                   /usr/lib/x86_64-linux-gnu/libmd.so.0.0.5
+7f610a631000-7f610a638000 r-xp 00002000 103:07 5925974                   /usr/lib/x86_64-linux-gnu/libmd.so.0.0.5
+7f610a638000-7f610a63a000 r--p 00009000 103:07 5925974                   /usr/lib/x86_64-linux-gnu/libmd.so.0.0.5
+7f610a63a000-7f610a63b000 r--p 0000a000 103:07 5925974                   /usr/lib/x86_64-linux-gnu/libmd.so.0.0.5
+7f610a63b000-7f610a63c000 rw-p 0000b000 103:07 5925974                   /usr/lib/x86_64-linux-gnu/libmd.so.0.0.5
+7f610a63c000-7f610a640000 r--p 00000000 103:07 5925310                   /usr/lib/x86_64-linux-gnu/libbsd.so.0.11.5
+7f610a640000-7f610a64d000 r-xp 00004000 103:07 5925310                   /usr/lib/x86_64-linux-gnu/libbsd.so.0.11.5
+7f610a64d000-7f610a650000 r--p 00011000 103:07 5925310                   /usr/lib/x86_64-linux-gnu/libbsd.so.0.11.5
+7f610a650000-7f610a651000 ---p 00014000 103:07 5925310                   /usr/lib/x86_64-linux-gnu/libbsd.so.0.11.5
+7f610a651000-7f610a652000 r--p 00014000 103:07 5925310                   /usr/lib/x86_64-linux-gnu/libbsd.so.0.11.5
+7f610a652000-7f610a653000 rw-p 00015000 103:07 5925310                   /usr/lib/x86_64-linux-gnu/libbsd.so.0.11.5
+7f610a653000-7f610a654000 rw-p 00000000 00:00 0 
+7f610a654000-7f610a65f000 r--p 00000000 103:07 5926619                   /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+7f610a65f000-7f610a673000 r-xp 0000b000 103:07 5926619                   /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+7f610a673000-7f610a67c000 r--p 0001f000 103:07 5926619                   /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+7f610a67c000-7f610a67d000 r--p 00027000 103:07 5926619                   /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+7f610a67d000-7f610a67e000 rw-p 00028000 103:07 5926619                   /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+7f610a67e000-7f610a800000 rw-p 00000000 00:00 0 
+7f610a800000-7f610a81b000 r-xp 00000000 103:07 6979884                   /home/chill/.jdks/corretto-17.0.9/lib/libjimage.so
+7f610a81b000-7f610aa1a000 ---p 0001b000 103:07 6979884                   /home/chill/.jdks/corretto-17.0.9/lib/libjimage.so
+7f610aa1a000-7f610aa1c000 r--p 0001a000 103:07 6979884                   /home/chill/.jdks/corretto-17.0.9/lib/libjimage.so
+7f610aa1c000-7f610aa1d000 rw-p 0001c000 103:07 6979884                   /home/chill/.jdks/corretto-17.0.9/lib/libjimage.so
+7f610aa1d000-7f610aa1e000 r--s 00000000 103:07 3408254                   /var/cache/fontconfig/ff11d28e-472a-497b-91c6-e1ed5d5334cd-le64.cache-7
+7f610aa1e000-7f610aa1f000 r--s 00000000 103:07 3408186                   /var/cache/fontconfig/a7c9ed59-d288-43ac-8bc4-61574e237b25-le64.cache-7
+7f610aa1f000-7f610aa20000 r--s 00000000 103:07 3408241                   /var/cache/fontconfig/f41a410d-a85e-4e27-ba8a-7e323e094203-le64.cache-7
+7f610aa20000-7f610aa23000 r--s 00000000 103:07 3408145                   /var/cache/fontconfig/6fcca471-462c-4f1a-9a75-7f1942129ba6-le64.cache-7
+7f610aa23000-7f610aa25000 r--s 00000000 103:07 3408064                   /var/cache/fontconfig/178b106e-9a45-49bf-bc30-170d9e9b6f30-le64.cache-7
+7f610aa25000-7f610aa27000 r--p 00000000 103:07 5925030                   /usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0
+7f610aa27000-7f610aa29000 r-xp 00002000 103:07 5925030                   /usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0
+7f610aa29000-7f610aa2b000 r--p 00004000 103:07 5925030                   /usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0
+7f610aa2b000-7f610aa2c000 r--p 00005000 103:07 5925030                   /usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0
+7f610aa2c000-7f610aa2d000 rw-p 00006000 103:07 5925030                   /usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0
+7f610aa2d000-7f610aa30000 r--p 00000000 103:07 5925040                   /usr/lib/x86_64-linux-gnu/libXi.so.6.1.0
+7f610aa30000-7f610aa3c000 r-xp 00003000 103:07 5925040                   /usr/lib/x86_64-linux-gnu/libXi.so.6.1.0
+7f610aa3c000-7f610aa3f000 r--p 0000f000 103:07 5925040                   /usr/lib/x86_64-linux-gnu/libXi.so.6.1.0
+7f610aa3f000-7f610aa40000 r--p 00011000 103:07 5925040                   /usr/lib/x86_64-linux-gnu/libXi.so.6.1.0
+7f610aa40000-7f610aa41000 rw-p 00012000 103:07 5925040                   /usr/lib/x86_64-linux-gnu/libXi.so.6.1.0
+7f610aa41000-7f610aa43000 r--p 00000000 103:07 5925052                   /usr/lib/x86_64-linux-gnu/libXrender.so.1.3.0
+7f610aa43000-7f610aa4a000 r-xp 00002000 103:07 5925052                   /usr/lib/x86_64-linux-gnu/libXrender.so.1.3.0
+7f610aa4a000-7f610aa4c000 r--p 00009000 103:07 5925052                   /usr/lib/x86_64-linux-gnu/libXrender.so.1.3.0
+7f610aa4c000-7f610aa4d000 r--p 0000a000 103:07 5925052                   /usr/lib/x86_64-linux-gnu/libXrender.so.1.3.0
+7f610aa4d000-7f610aa4e000 rw-p 0000b000 103:07 5925052                   /usr/lib/x86_64-linux-gnu/libXrender.so.1.3.0
+7f610aa4e000-7f610aa52000 r--p 00000000 103:07 5925032                   /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+7f610aa52000-7f610aa5d000 r-xp 00004000 103:07 5925032                   /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+7f610aa5d000-7f610aa61000 r--p 0000f000 103:07 5925032                   /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+7f610aa61000-7f610aa62000 r--p 00012000 103:07 5925032                   /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+7f610aa62000-7f610aa63000 rw-p 00013000 103:07 5925032                   /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+7f610aa63000-7f610ac00000 rw-p 00000000 00:00 0 
+7f610ac00000-7f610bebd000 r-xp 00000000 103:07 6979898                   /home/chill/.jdks/corretto-17.0.9/lib/server/libjvm.so
+7f610bebd000-7f610c0bc000 ---p 012bd000 103:07 6979898                   /home/chill/.jdks/corretto-17.0.9/lib/server/libjvm.so
+7f610c0bc000-7f610c175000 r--p 012bc000 103:07 6979898                   /home/chill/.jdks/corretto-17.0.9/lib/server/libjvm.so
+7f610c175000-7f610c1aa000 rw-p 01375000 103:07 6979898                   /home/chill/.jdks/corretto-17.0.9/lib/server/libjvm.so
+7f610c1aa000-7f610c204000 rw-p 00000000 00:00 0 
+7f610c204000-7f610c205000 r--s 00000000 103:07 3408142                   /var/cache/fontconfig/6d77df11-3c7c-4b12-9b38-5ae72a02b938-le64.cache-7
+7f610c205000-7f610c208000 r--s 00000000 103:07 3408199                   /var/cache/fontconfig/bbe69c57-e7b2-4724-a1f7-1027aedba838-le64.cache-7
+7f610c208000-7f610c209000 r--s 00000000 103:07 3408209                   /var/cache/fontconfig/ccd81822-fed9-40ca-a3a0-f4f4e6337b60-le64.cache-7
+7f610c209000-7f610c20a000 r--s 00000000 103:07 3408251                   /var/cache/fontconfig/fdcf79d3-836f-40c2-b9a3-491709571fee-le64.cache-7
+7f610c20a000-7f610c20b000 r--s 00000000 103:07 3408112                   /var/cache/fontconfig/53a70c2d-102f-4f7f-8afc-1a8088d99149-le64.cache-7
+7f610c20b000-7f610c20c000 r--s 00000000 103:07 3408060                   /var/cache/fontconfig/14b75086-4138-4fbb-951b-26c8392e9eb9-le64.cache-7
+7f610c20c000-7f610c20d000 r--s 00000000 103:07 3408159                   /var/cache/fontconfig/818ca402-99e7-471a-b19c-65a393d3ac0c-le64.cache-7
+7f610c20d000-7f610c20e000 r--s 00000000 103:07 3408160                   /var/cache/fontconfig/8574fcfd-6d43-41f8-aea2-a5cf58fa0f51-le64.cache-7
+7f610c20e000-7f610c20f000 r--s 00000000 103:07 3408236                   /var/cache/fontconfig/e567fb70-1592-4498-b775-97506f2a2ff0-le64.cache-7
+7f610c20f000-7f610c212000 r--s 00000000 103:07 3408146                   /var/cache/fontconfig/705899d0-19cd-40d1-90b3-617d458c590d-le64.cache-7
+7f610c212000-7f610c215000 r--s 00000000 103:07 3408174                   /var/cache/fontconfig/9a4e3151-0dfb-4835-93a9-f1e1f2ea0704-le64.cache-7
+7f610c215000-7f610c21a000 rw-p 00000000 00:00 0 
+7f610c21a000-7f610c300000 ---p 00000000 00:00 0 
+7f610c300000-7f610c304000 ---p 00000000 00:00 0 
+7f610c304000-7f610c400000 rw-p 00000000 00:00 0 
+7f610c400000-7f610c428000 r--p 00000000 103:07 5902022                   /usr/lib/x86_64-linux-gnu/libc.so.6
+7f610c428000-7f610c5bd000 r-xp 00028000 103:07 5902022                   /usr/lib/x86_64-linux-gnu/libc.so.6
+7f610c5bd000-7f610c615000 r--p 001bd000 103:07 5902022                   /usr/lib/x86_64-linux-gnu/libc.so.6
+7f610c615000-7f610c619000 r--p 00214000 103:07 5902022                   /usr/lib/x86_64-linux-gnu/libc.so.6
+7f610c619000-7f610c61b000 rw-p 00218000 103:07 5902022                   /usr/lib/x86_64-linux-gnu/libc.so.6
+7f610c61b000-7f610c628000 rw-p 00000000 00:00 0 
+7f610c628000-7f610c629000 r--s 00000000 103:07 3408069                   /var/cache/fontconfig/1c05180f-a6e4-46c4-890d-4f19c255cdda-le64.cache-7
+7f610c629000-7f610c62a000 r--p 00000000 103:07 5925042                   /usr/lib/x86_64-linux-gnu/libXinerama.so.1.0.0
+7f610c62a000-7f610c62b000 r-xp 00001000 103:07 5925042                   /usr/lib/x86_64-linux-gnu/libXinerama.so.1.0.0
+7f610c62b000-7f610c62c000 r--p 00002000 103:07 5925042                   /usr/lib/x86_64-linux-gnu/libXinerama.so.1.0.0
+7f610c62c000-7f610c62d000 r--p 00003000 103:07 5925042                   /usr/lib/x86_64-linux-gnu/libXinerama.so.1.0.0
+7f610c62d000-7f610c62e000 rw-p 00004000 103:07 5925042                   /usr/lib/x86_64-linux-gnu/libXinerama.so.1.0.0
+7f610c62e000-7f610c634000 rw-p 00000000 00:00 0 
+7f610c634000-7f610c719000 ---p 00000000 00:00 0 
+7f610c719000-7f610c727000 r--p 00000000 103:07 5902025                   /usr/lib/x86_64-linux-gnu/libm.so.6
+7f610c727000-7f610c7a3000 r-xp 0000e000 103:07 5902025                   /usr/lib/x86_64-linux-gnu/libm.so.6
+7f610c7a3000-7f610c7fe000 r--p 0008a000 103:07 5902025                   /usr/lib/x86_64-linux-gnu/libm.so.6
+7f610c7fe000-7f610c7ff000 r--p 000e4000 103:07 5902025                   /usr/lib/x86_64-linux-gnu/libm.so.6
+7f610c7ff000-7f610c800000 rw-p 000e5000 103:07 5902025                   /usr/lib/x86_64-linux-gnu/libm.so.6
+7f610c800000-7f610c80f000 r-xp 00000000 103:07 6979885                   /home/chill/.jdks/corretto-17.0.9/lib/libjli.so
+7f610c80f000-7f610ca0e000 ---p 0000f000 103:07 6979885                   /home/chill/.jdks/corretto-17.0.9/lib/libjli.so
+7f610ca0e000-7f610ca0f000 r--p 0000e000 103:07 6979885                   /home/chill/.jdks/corretto-17.0.9/lib/libjli.so
+7f610ca0f000-7f610ca10000 rw-p 0000f000 103:07 6979885                   /home/chill/.jdks/corretto-17.0.9/lib/libjli.so
+7f610ca10000-7f610ca12000 r--p 00000000 103:07 5925058                   /usr/lib/x86_64-linux-gnu/libXtst.so.6.1.0
+7f610ca12000-7f610ca15000 r-xp 00002000 103:07 5925058                   /usr/lib/x86_64-linux-gnu/libXtst.so.6.1.0
+7f610ca15000-7f610ca16000 r--p 00005000 103:07 5925058                   /usr/lib/x86_64-linux-gnu/libXtst.so.6.1.0
+7f610ca16000-7f610ca17000 r--p 00005000 103:07 5925058                   /usr/lib/x86_64-linux-gnu/libXtst.so.6.1.0
+7f610ca17000-7f610ca18000 rw-p 00006000 103:07 5925058                   /usr/lib/x86_64-linux-gnu/libXtst.so.6.1.0
+7f610ca18000-7f610cadf000 rw-p 00000000 00:00 0 
+7f610cadf000-7f610cae6000 ---p 00000000 00:00 0 
+7f610cae6000-7f610cae7000 r--p 00000000 103:07 5902037                   /usr/lib/x86_64-linux-gnu/librt.so.1
+7f610cae7000-7f610cae8000 r-xp 00001000 103:07 5902037                   /usr/lib/x86_64-linux-gnu/librt.so.1
+7f610cae8000-7f610cae9000 r--p 00002000 103:07 5902037                   /usr/lib/x86_64-linux-gnu/librt.so.1
+7f610cae9000-7f610caea000 r--p 00002000 103:07 5902037                   /usr/lib/x86_64-linux-gnu/librt.so.1
+7f610caea000-7f610caeb000 rw-p 00003000 103:07 5902037                   /usr/lib/x86_64-linux-gnu/librt.so.1
+7f610caeb000-7f610caef000 rw-p 00000000 00:00 0 
+7f610caef000-7f610caf0000 r--p 00000000 103:07 5902024                   /usr/lib/x86_64-linux-gnu/libdl.so.2
+7f610caf0000-7f610caf1000 r-xp 00001000 103:07 5902024                   /usr/lib/x86_64-linux-gnu/libdl.so.2
+7f610caf1000-7f610caf2000 r--p 00002000 103:07 5902024                   /usr/lib/x86_64-linux-gnu/libdl.so.2
+7f610caf2000-7f610caf3000 r--p 00002000 103:07 5902024                   /usr/lib/x86_64-linux-gnu/libdl.so.2
+7f610caf3000-7f610caf4000 rw-p 00003000 103:07 5902024                   /usr/lib/x86_64-linux-gnu/libdl.so.2
+7f610caf4000-7f610caf5000 r--p 00000000 103:07 5902035                   /usr/lib/x86_64-linux-gnu/libpthread.so.0
+7f610caf5000-7f610caf6000 r-xp 00001000 103:07 5902035                   /usr/lib/x86_64-linux-gnu/libpthread.so.0
+7f610caf6000-7f610caf7000 r--p 00002000 103:07 5902035                   /usr/lib/x86_64-linux-gnu/libpthread.so.0
+7f610caf7000-7f610caf8000 r--p 00002000 103:07 5902035                   /usr/lib/x86_64-linux-gnu/libpthread.so.0
+7f610caf8000-7f610caf9000 rw-p 00003000 103:07 5902035                   /usr/lib/x86_64-linux-gnu/libpthread.so.0
+7f610caf9000-7f610cafb000 r--p 00000000 103:07 5926655                   /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7f610cafb000-7f610cb0c000 r-xp 00002000 103:07 5926655                   /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7f610cb0c000-7f610cb12000 r--p 00013000 103:07 5926655                   /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7f610cb12000-7f610cb13000 ---p 00019000 103:07 5926655                   /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7f610cb13000-7f610cb14000 r--p 00019000 103:07 5926655                   /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7f610cb14000-7f610cb15000 rw-p 0001a000 103:07 5926655                   /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7f610cb15000-7f610cb16000 r--p 00000000 103:07 5925019                   /usr/lib/x86_64-linux-gnu/libXau.so.6.0.0
+7f610cb16000-7f610cb18000 r-xp 00001000 103:07 5925019                   /usr/lib/x86_64-linux-gnu/libXau.so.6.0.0
+7f610cb18000-7f610cb19000 r--p 00003000 103:07 5925019                   /usr/lib/x86_64-linux-gnu/libXau.so.6.0.0
+7f610cb19000-7f610cb1a000 r--p 00003000 103:07 5925019                   /usr/lib/x86_64-linux-gnu/libXau.so.6.0.0
+7f610cb1a000-7f610cb1b000 rw-p 00004000 103:07 5925019                   /usr/lib/x86_64-linux-gnu/libXau.so.6.0.0
+7f610cb1b000-7f610cb23000 rw-s 00000000 103:07 2228304                   /tmp/hsperfdata_chill/7976
+7f610cb23000-7f610cb24000 ---p 00000000 00:00 0 
+7f610cb24000-7f610cb25000 r--p 00000000 00:00 0 
+7f610cb25000-7f610cb27000 rw-p 00000000 00:00 0 
+7f610cb27000-7f610cb29000 r--p 00000000 103:07 5901996                   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7f610cb29000-7f610cb53000 r-xp 00002000 103:07 5901996                   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7f610cb53000-7f610cb5e000 r--p 0002c000 103:07 5901996                   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7f610cb5e000-7f610cb5f000 ---p 00000000 00:00 0 
+7f610cb5f000-7f610cb61000 r--p 00037000 103:07 5901996                   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7f610cb61000-7f610cb63000 rw-p 00039000 103:07 5901996                   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7ffd88178000-7ffd88199000 rw-p 00000000 00:00 0                          [stack]
+7ffd881f9000-7ffd881fd000 r--p 00000000 00:00 0                          [vvar]
+7ffd881fd000-7ffd881ff000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 --xp 00000000 00:00 0                  [vsyscall]
+
+
+VM Arguments:
+jvm_args: -Dfile.encoding=UTF-8 -Duser.country=US -Duser.language=en -Duser.variant 
+java_command: com.CrossingGuardJoe.Game
+java_class_path (initial): /home/chill/CodeUbuntu/project-l11gr05/build/classes/java/main:/home/chill/CodeUbuntu/project-l11gr05/build/resources/main:/home/chill/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/24.0.0/69b8b443c437fdeefa8d20c18d257b94836a92b9/annotations-24.0.0.jar:/home/chill/.gradle/caches/modules-2/files-2.1/com.googlecode.lanterna/lanterna/3.1.1/39126bdb16e424e03bd47267ba08b53fbd09f5b2/lanterna-3.1.1.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 2                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 8                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 4194304                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 293601280                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 4697620480                                {product} {ergonomic}
+   size_t MaxNewSize                               = 2818572288                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 4194304                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5839372                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122909434                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122909434                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 4697620480                             {manageable} {ergonomic}
+     bool UseCompressedClassPointers               = true                           {product lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
+USERNAME=chill
+SHELL=/bin/bash
+DISPLAY=:0
+LANG=en_US.UTF-8
+LC_CTYPE=pt_PT.UTF-8
+LC_NUMERIC=pt_PT.UTF-8
+LC_TIME=pt_PT.UTF-8
+
+Active Locale:
+LC_ALL=LC_CTYPE=pt_PT.UTF-8;LC_NUMERIC=pt_PT.UTF-8;LC_TIME=pt_PT.UTF-8;LC_COLLATE=en_US.UTF-8;LC_MONETARY=pt_PT.UTF-8;LC_MESSAGES=en_US.UTF-8;LC_PAPER=pt_PT.UTF-8;LC_NAME=pt_PT.UTF-8;LC_ADDRESS=pt_PT.UTF-8;LC_TELEPHONE=pt_PT.UTF-8;LC_MEASUREMENT=pt_PT.UTF-8;LC_IDENTIFICATION=pt_PT.UTF-8
+LC_COLLATE=en_US.UTF-8
+LC_CTYPE=pt_PT.UTF-8
+LC_MESSAGES=en_US.UTF-8
+LC_MONETARY=pt_PT.UTF-8
+LC_NUMERIC=pt_PT.UTF-8
+LC_TIME=pt_PT.UTF-8
+
+Signal Handlers:
+   SIGSEGV: crash_handler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, unblocked
+    SIGBUS: crash_handler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, unblocked
+    SIGFPE: crash_handler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, unblocked
+   SIGPIPE: javaSignalHandler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, blocked
+   SIGXFSZ: javaSignalHandler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, blocked
+    SIGILL: crash_handler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, unblocked
+   SIGUSR2: SR_handler in libjvm.so, mask=00100000000000000000000000000000, flags=SA_RESTART|SA_SIGINFO, blocked
+    SIGHUP: UserHandler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, blocked
+    SIGINT: UserHandler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, blocked
+   SIGTERM: UserHandler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, blocked
+   SIGQUIT: UserHandler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, blocked
+   SIGTRAP: crash_handler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, unblocked
+
+
+Periodic native trim disabled
+
+
+---------------  S Y S T E M  ---------------
+
+OS:
+DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=22.04
+DISTRIB_CODENAME=jammy
+DISTRIB_DESCRIPTION="Ubuntu 22.04.3 LTS"
+uname: Linux 6.2.0-37-generic #38~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Nov  2 18:01:13 UTC 2 x86_64
+OS uptime: 0 days 0:42 hours
+libc: glibc 2.35 NPTL 2.35 
+rlimit (soft/hard): STACK 8192k/infinity , CORE 0k/infinity , NPROC 71349/71349 , NOFILE 1048576/1048576 , AS infinity/infinity , CPU infinity/infinity , DATA infinity/infinity , FSIZE infinity/infinity , MEMLOCK 2292744k/2292744k
+load average: 2,13 2,22 2,15
+
+/proc/meminfo:
+MemTotal:       18341960 kB
+MemFree:         6047772 kB
+MemAvailable:   10612484 kB
+Buffers:          159976 kB
+Cached:          4689356 kB
+SwapCached:            0 kB
+Active:          1100296 kB
+Inactive:       10427052 kB
+Active(anon):       3800 kB
+Inactive(anon):  6776852 kB
+Active(file):    1096496 kB
+Inactive(file):  3650200 kB
+Unevictable:          32 kB
+Mlocked:              32 kB
+SwapTotal:      15999996 kB
+SwapFree:       15999996 kB
+Zswap:                 0 kB
+Zswapped:              0 kB
+Dirty:              4088 kB
+Writeback:             0 kB
+AnonPages:       6678156 kB
+Mapped:          1706412 kB
+Shmem:            107020 kB
+KReclaimable:     168028 kB
+Slab:             323860 kB
+SReclaimable:     168028 kB
+SUnreclaim:       155832 kB
+KernelStack:       23920 kB
+PageTables:        50900 kB
+SecPageTables:         0 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:    25170976 kB
+Committed_AS:   13095548 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:       82372 kB
+VmallocChunk:          0 kB
+Percpu:            16128 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+FileHugePages:         0 kB
+FilePmdMapped:         0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+Hugetlb:               0 kB
+DirectMap4k:      357396 kB
+DirectMap2M:     9017344 kB
+DirectMap1G:    10485760 kB
+
+/sys/kernel/mm/transparent_hugepage/enabled: always [madvise] never
+/sys/kernel/mm/transparent_hugepage/defrag (defrag/compaction efforts parameter): always defer defer+madvise [madvise] never
+
+Process Memory:
+Virtual Size: 8714552K (peak: 8714616K)
+Resident Set Size: 511284K (peak: 512332K) (anon: 483668K, file: 25696K, shmem: 1920K)
+Swapped out: 0K
+C-Heap outstanding allocations: 28332K, retained: 30375K
+glibc malloc tunables: (default)
+
+/proc/sys/kernel/threads-max (system-wide limit on the number of threads): 142699
+/proc/sys/vm/max_map_count (maximum number of memory map areas a process may have): 65530
+/proc/sys/kernel/pid_max (system-wide limit on number of process identifiers): 4194304
+
+container (cgroup) information:
+container_type: cgroupv2
+cpu_cpuset_cpus: not supported
+cpu_memory_nodes: not supported
+active_processor_count: 8
+cpu_quota: not supported
+cpu_period: not supported
+cpu_shares: not supported
+memory_limit_in_bytes: unlimited
+memory_and_swap_limit_in_bytes: unlimited
+memory_soft_limit_in_bytes: unlimited
+memory_usage_in_bytes: 6548848 k
+memory_max_usage_in_bytes: not supported
+memory_swap_current_in_bytes: unlimited
+memory_swap_max_limit_in_bytes: unlimited
+maximum number of tasks: 21404
+current number of tasks: 469
+
+Steal ticks since vm start: 0
+Steal ticks percentage since vm start:  0,000
+
+CPU: total 8 (initial active 8) (8 cores per cpu, 2 threads per core) family 23 model 24 stepping 1 microcode 0x8108109, cx8, cmov, fxsr, ht, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4a, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, clmul, bmi1, bmi2, adx, sha, fma, vzeroupper, clflush, clflushopt
+CPU Model and flags from /proc/cpuinfo:
+model name	: AMD Ryzen 5 3500U with Radeon Vega Mobile Gfx
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb hw_pstate ssbd ibpb vmmcall fsgsbase bmi1 avx2 smep bmi2 rdseed adx smap clflushopt sha_ni xsaveopt xsavec xgetbv1 clzero irperf xsaveerptr arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif overflow_recov succor smca sev sev_es
+
+Online cpus: 0-7
+Offline cpus: 8-15
+BIOS frequency limitation: 2100000
+Frequency switch latency (ns): 0
+Available cpu frequencies: 2100000 1700000 1400000 
+Current governor: schedutil
+Core performance/turbo boost: 1
+
+Memory: 4k page, physical 18341960k(6047772k free), swap 15999996k(15999996k free)
+Page Sizes: 4k
+
+vm_info: OpenJDK 64-Bit Server VM (17.0.9+8-LTS) for linux-amd64 JRE (17.0.9+8-LTS), built on Oct 12 2023 16:08:23 by "jenkins" with gcc 7.3.1 20180303 (Red Hat 7.3.1-5)
+
+END.
