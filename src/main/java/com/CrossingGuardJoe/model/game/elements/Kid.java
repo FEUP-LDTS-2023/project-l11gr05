@@ -6,7 +6,9 @@ public class Kid extends Element {
     private boolean selected = false;
     private boolean firstHalfOfMovement = true;
     private boolean deathCount = false;
+    private boolean pass = false;
     private static final int POINTS = 100;
+    private boolean countToNextLevel = false;
     private int movesInQueueLeft = 0;
 
     public Kid(int x, int y) {
@@ -67,6 +69,22 @@ public class Kid extends Element {
 
     public int getMovesInQueueLeft() {
         return this.movesInQueueLeft;
+    }
+
+    public void setPass() {
+        this.pass = true;
+    }
+
+    public boolean getPass() {
+        return this.pass;
+    }
+
+    public void setCountToNextLevel() {
+        this.countToNextLevel = true;
+    }
+
+    public boolean getCounted() {
+        return this.countToNextLevel;
     }
 
     public int getPoints() {

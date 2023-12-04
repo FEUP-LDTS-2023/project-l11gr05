@@ -38,10 +38,7 @@ public class KidController extends GameController {
         KidAction(kid, new Position(kid.getPosition().getX() - KID_STEP, kid.getPosition().getY()), 'p');
     }
 
-    public void moveKidAfterHit(Car car, Kid kid, int hitX, Iterator<Kid> kidIterator) {
-        if (kid.getPosition().getY() > MAX_Y_DISTANCE) {
-            kidIterator.remove();
-        }
+    public void moveKidAfterHit(Car car, Kid kid, int hitX) {
         kid.setPosition(new Position(hitX, car.getPosition().getY() + Y_AFTER_HIT));
     }
 
@@ -156,6 +153,7 @@ public class KidController extends GameController {
         checkCollisions();
         checkPoints();
         checkLoss(); //temporary implemented
+        checkNextLevel();
     }
 
     private void checkCollisions() {
@@ -163,16 +161,14 @@ public class KidController extends GameController {
         List<Kid> kids = getModel().getKids();
         int hitX;
 
-        Iterator<Kid> kidIterator = kids.iterator();
-        while (kidIterator.hasNext()) {
-            Kid kid = kidIterator.next();
+        for (Kid kid : kids) {
             for (Car car : cars) {
                 if (isInRangeCarKid(car, kid)) {
                     hitX = kid.getPosition().getX();
                     kid.isHit();
                     kid.setNotWalking();
                     checkDeathCount(kid);
-                    moveKidAfterHit(car, kid, hitX, kidIterator);
+                    moveKidAfterHit(car, kid, hitX);
                 }
             }
         }
@@ -186,13 +182,10 @@ public class KidController extends GameController {
     }
 
     private void checkPoints() {
-        Iterator<Kid> kidIterator = getModel().getKids().iterator();
-        while (kidIterator.hasNext()) {
-            Kid kid = kidIterator.next();
-            if (kid.getPosition().getX() < MIN_Y_DISTANCE) {
+        for (Kid kid : getModel().getKids()) {
+            if (kid.getPosition().getX() < MIN_Y_DISTANCE && !kid.getPass()) {
                 joe.addScore(kid.getPoints());
-                kidIterator.remove();
-                sentKids.remove(kid);
+                kid.setPass();
             }
         }
     }
@@ -201,6 +194,19 @@ public class KidController extends GameController {
         if (joe.getHearts() == 0) {
             //temporary
             System.out.println("loss");
+        }
+    }
+
+    private int countKidsToNextLevel = 0;
+    private void checkNextLevel() {
+        for (Kid kid : getModel().getKids()) {
+            if (!kid.getCounted()) {
+                if (kid.getPass() || kid.getDeathCounted()) {
+                    countKidsToNextLevel++;
+                    kid.setCountToNextLevel();
+                    System.out.println(countKidsToNextLevel);
+                }
+            }
         }
     }
 }
