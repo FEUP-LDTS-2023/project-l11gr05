@@ -17,7 +17,7 @@ public class KidView extends ElementViewer<Kid> {
         if (kid.isSelected()) {
             gui.drawImage(new Position(kid.getPosition().getX() + 7, kid.getPosition().getY() - 20), ToolImages.ARROW_DOWN);
         }
-        if (kid.getIsWalkingState()) {
+        if (kid.getWalkingState()) {
             if (kid.isFirstHalfOfMovement()) {
                 gui.drawImage(kid.getPosition(), KidImages.KID_WALK);
             } else {
@@ -27,6 +27,5 @@ public class KidView extends ElementViewer<Kid> {
         } else {
             gui.drawImage(kid.getPosition(), KidImages.KID_STAND);
         }
-        //kid.isNotWalking();
     }
 }

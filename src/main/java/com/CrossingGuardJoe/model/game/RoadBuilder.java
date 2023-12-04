@@ -11,6 +11,18 @@ import java.util.Random;
 
 public class RoadBuilder {
     private final Random rand = new Random();
+    private static final int JOE_INITIAL_X = 390;
+    private static final int JOE_Y = 297;
+    private static final int[] ROAD_LANES = {85, 172, 259, 346};
+    private static final int NUMBER_OF_CARS = 3;
+    private static final int DISTANCE_BETWEEN_CARS = 200;
+    private static final int RANDOM_BOUND = 500;
+    private static final int MAX_Y_DISTANCE = 500;
+    private static final int NUMBER_OF_KIDS = 5;
+    private static final int KID_SPAWN_X = 430;
+    private static final int KID_Y = 330;
+    private static final int MIN_KID_DISTANCE = 9;
+
     public Road createRoad() {
         Road road = new Road();
 
@@ -22,20 +34,19 @@ public class RoadBuilder {
     }
 
     private Joe createJoe() {
-        return new Joe(390, 297);
+        return new Joe(JOE_INITIAL_X, JOE_Y);
     }
 
     private List<Car> createCars() {
         List<Car> cars = new ArrayList<>();
 
-        int[] xValues = {85, 172, 259, 346};
         int randomY;
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < NUMBER_OF_CARS; i++) {
             do {
-                randomY = -rand.nextInt(500) - rand.nextInt(500);
-            } while (AuxCarCheck.isAnyCarOverlapping(randomY, cars, 200));
+                randomY = -rand.nextInt(RANDOM_BOUND) - rand.nextInt(RANDOM_BOUND);
+            } while (AuxCarCheck.isAnyCarOverlapping(randomY, cars, DISTANCE_BETWEEN_CARS));
 
-            Car car = new Car(xValues[rand.nextInt(xValues.length)], randomY);
+            Car car = new Car(ROAD_LANES[rand.nextInt(ROAD_LANES.length)], randomY);
             cars.add(car);
         }
 
@@ -45,15 +56,15 @@ public class RoadBuilder {
             while (true) {
                 synchronized (cars) {
                     for (Car car : cars) {
-                        if (car.getPosition().getY() > 500) {
+                        if (car.getPosition().getY() > MAX_Y_DISTANCE) {
                             int newRandomY;
 
                             do {
-                                newRandomY = -rand.nextInt(500) - rand.nextInt(500);
-                            } while (AuxCarCheck.isAnyCarOverlapping(newRandomY, cars, 200));
+                                newRandomY = -rand.nextInt(RANDOM_BOUND) - rand.nextInt(RANDOM_BOUND);
+                            } while (AuxCarCheck.isAnyCarOverlapping(newRandomY, cars, DISTANCE_BETWEEN_CARS));
 
                             car.getPosition().setY(newRandomY);
-                            car.getPosition().setX(xValues[rand.nextInt(xValues.length)]);
+                            car.getPosition().setX(ROAD_LANES[rand.nextInt(ROAD_LANES.length)]);
                         }
                     }
                 }
@@ -71,12 +82,12 @@ public class RoadBuilder {
 
     private List<Kid> createKids() {
         List<Kid> kids = new ArrayList<>();
-        int x = 400;
+        int x = KID_SPAWN_X;
 
-        for (int i = 0; i < 3; i++) {
-            Kid kid = new Kid(x, 330);
+        for (int i = 0; i < NUMBER_OF_KIDS; i++) {
+            Kid kid = new Kid(x, KID_Y);
             kids.add(kid);
-            x += 10;
+            x += MIN_KID_DISTANCE;
         }
         return kids;
     }

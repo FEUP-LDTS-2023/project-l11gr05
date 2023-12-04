@@ -4,7 +4,7 @@ public class Joe extends Element{
     private int Score;
     private final int MAX_SCORE = 99999;
     private int Hearts;
-    private final int MAX_HEARTS = 10;
+    private static final int MAX_HEARTS = 10;
     private boolean walking = false;
     private boolean isWalkingToLeft = true;
     private boolean raisingStopSign = false;
@@ -16,7 +16,7 @@ public class Joe extends Element{
     public Joe(int x, int y) {
         super(x, y);
         this.Score = 2163;
-        this.Hearts = 10;
+        this.Hearts = MAX_HEARTS;
     }
 
     public int getScore() {
