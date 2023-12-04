@@ -5,6 +5,7 @@ import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.menu.InstructionsMenu;
 import com.CrossingGuardJoe.viewer.Viewer;
 import com.CrossingGuardJoe.viewer.images.defined.JoeImages;
+import com.CrossingGuardJoe.viewer.images.defined.KidImages;
 import com.CrossingGuardJoe.viewer.images.defined.ToolImages;
 import com.CrossingGuardJoe.viewer.images.generator.Shape;
 
@@ -22,6 +23,9 @@ public class InstructionsMenuViewer extends Viewer<InstructionsMenu> implements 
 
         if (getModel().getCurrentPage() == 1) {
             drawPageOne(gui);
+        }
+        if (getModel().getCurrentPage() == 2) {
+            drawPageTwo(gui);
         }
     }
 
@@ -58,19 +62,45 @@ public class InstructionsMenuViewer extends Viewer<InstructionsMenu> implements 
     }
 
     private void drawPageOne(GUI gui) {
+        //TEXT
         gui.drawText(new Position(50 + 1, 100 + 1), "you are Joe", "#000000");
         gui.drawText(new Position(70 + 1, 120 + 1), "a crossing guard", "#000000");
 
         gui.drawText(new Position(50, 100), "you are Joe", "#FFFFFF");
         gui.drawText(new Position(70, 120), "a crossing guard", "#FFFFFF");
-        int JOE_Y = 190;
 
+        //JOE
+        int JOE_Y = 190;
         gui.drawImage(new Position(150, JOE_Y), JoeImages.JOE_STAND);
         gui.drawImage(new Position(230, JOE_Y), JoeImages.JOE_WALKLEFT);
         gui.drawImage(new Position(310, JOE_Y), JoeImages.JOE_WALKRIGHT);
 
+        //KEY
         int KEY_Y = 310;
         gui.drawImage(new Position(235, KEY_Y), ToolImages.KEY_ESC);
         gui.drawImage(new Position(315, KEY_Y), ToolImages.KEY_ESC);
+    }
+
+    private void drawPageTwo(GUI gui) {
+        //TEXT
+        gui.drawText(new Position(50 + 1, 100 + 1), "you will help", "#000000");
+        gui.drawText(new Position(70 + 1, 120 + 1), "the kids to cross the road", "#000000");
+
+        gui.drawText(new Position(50, 100), "you will help", "#FFFFFF");
+        gui.drawText(new Position(70, 120), "the kids to cross the road", "#FFFFFF");
+
+        //JOE
+        int JOE_Y = 200;
+        gui.drawImage(new Position(170, JOE_Y - 20), JoeImages.JOE_STOP);
+        gui.drawImage(new Position(290, JOE_Y - 20), JoeImages.JOE_PASS);
+
+        //KID
+        gui.drawImage(new Position(200, JOE_Y + 20), KidImages.KID_STAND);
+        gui.drawImage(new Position(280, JOE_Y + 20), KidImages.KID_WALK);
+
+        //KEY
+        int KEY_Y = 310;
+        gui.drawImage(new Position(180, KEY_Y), ToolImages.KEY_ESC);
+        gui.drawImage(new Position(295, KEY_Y), ToolImages.KEY_ESC);
     }
 }
