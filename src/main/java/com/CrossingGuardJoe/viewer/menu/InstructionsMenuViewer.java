@@ -88,8 +88,8 @@ public class InstructionsMenuViewer extends Viewer<InstructionsMenu> implements 
 
         //KEY
         int KEY_Y = 310;
-        gui.drawImage(new Position(235, KEY_Y), ToolImages.KEY_ESC);
-        gui.drawImage(new Position(315, KEY_Y), ToolImages.KEY_ESC);
+        gui.drawImage(new Position(235, KEY_Y), ToolImages.KEY_LEFT);
+        gui.drawImage(new Position(315, KEY_Y), ToolImages.KEY_RIGHT);
     }
 
     private void drawPageTwo(GUI gui) {
@@ -113,8 +113,8 @@ public class InstructionsMenuViewer extends Viewer<InstructionsMenu> implements 
 
         //KEY
         int KEY_Y = 310;
-        gui.drawImage(new Position(180, KEY_Y), ToolImages.KEY_ESC);
-        gui.drawImage(new Position(295, KEY_Y), ToolImages.KEY_ESC);
+        gui.drawImage(new Position(180, KEY_Y), ToolImages.KEY_UP);
+        gui.drawImage(new Position(295, KEY_Y), ToolImages.KEY_DOWN);
     }
 
     private void drawPageThree(GUI gui) {
