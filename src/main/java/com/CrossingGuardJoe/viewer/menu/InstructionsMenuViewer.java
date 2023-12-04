@@ -4,6 +4,7 @@ import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.menu.InstructionsMenu;
 import com.CrossingGuardJoe.viewer.Viewer;
+import com.CrossingGuardJoe.viewer.images.defined.CarImage;
 import com.CrossingGuardJoe.viewer.images.defined.JoeImages;
 import com.CrossingGuardJoe.viewer.images.defined.KidImages;
 import com.CrossingGuardJoe.viewer.images.defined.ToolImages;
@@ -26,6 +27,9 @@ public class InstructionsMenuViewer extends Viewer<InstructionsMenu> implements 
         }
         if (getModel().getCurrentPage() == 2) {
             drawPageTwo(gui);
+        }
+        if (getModel().getCurrentPage() == 3) {
+            drawPageThree(gui);
         }
     }
 
@@ -102,5 +106,25 @@ public class InstructionsMenuViewer extends Viewer<InstructionsMenu> implements 
         int KEY_Y = 310;
         gui.drawImage(new Position(180, KEY_Y), ToolImages.KEY_ESC);
         gui.drawImage(new Position(295, KEY_Y), ToolImages.KEY_ESC);
+    }
+
+    private void drawPageThree(GUI gui) {
+        //TEXT
+        gui.drawText(new Position(50 + 1, 100 + 1), "be careful", "#000000");
+        gui.drawText(new Position(70 + 1, 120 + 1), "with rude drivers", "#000000");
+
+        gui.drawText(new Position(50, 100), "be careful", "#FFFFFF");
+        gui.drawText(new Position(70, 120), "with rude drivers", "#FFFFFF");
+
+        //CAR
+        int JOE_Y = 205;
+        gui.drawImage(new Position(150, JOE_Y - 20), CarImage.CAR);
+        gui.drawImage(new Position(280, JOE_Y - 20), CarImage.CAR);
+
+        //KID
+        gui.drawImage(new Position(190, JOE_Y + 30), KidImages.KID_HIT);
+
+        //JOE
+        gui.drawImage(new Position(320, JOE_Y), JoeImages.JOE_HITRIGHT);
     }
 }
