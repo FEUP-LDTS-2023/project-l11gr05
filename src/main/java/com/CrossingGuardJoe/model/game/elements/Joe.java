@@ -4,7 +4,7 @@ public class Joe extends Element{
     private int Score;
     private final int MAX_SCORE = 99999;
     private int Hearts;
-    private static final int MAX_HEARTS = 10;
+    private static final int MAX_HEARTS = 1;
     private boolean walking = false;
     private boolean isWalkingToLeft = true;
     private boolean raisingStopSign = false;
@@ -15,7 +15,7 @@ public class Joe extends Element{
 
     public Joe(int x, int y) {
         super(x, y);
-        this.Score = 2163;
+        this.Score = 0;
         this.Hearts = MAX_HEARTS;
     }
 
@@ -32,7 +32,7 @@ public class Joe extends Element{
     }
 
     public void removeHeart() {
-        this.Hearts--;
+        if (this.Hearts > 0) this.Hearts--;
     }
 
     public void startWalkingToLeft() {

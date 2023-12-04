@@ -27,7 +27,7 @@ public class RoadController extends GameController {
         joeController.nextAction(game, action, time);
         kidController.nextAction(game, action, time);
         carController.nextAction(game, action, time);
-
+        System.out.println(getModel().getJoe().getHearts());
         if (action == GUI.ACTION.ESC) {
             game.popState();
         }

@@ -155,7 +155,6 @@ public class KidController extends GameController {
         checkLoss(); //temporary implemented
         checkNextLevel();
 
-        System.out.println(getModel().getKids().size());
         if (countKidsToNextLevel == getModel().getKids().size()) {
             countKidsToNextLevel = 0;
             System.out.println("level pass");
@@ -213,7 +212,6 @@ public class KidController extends GameController {
                 if (kid.getPass() || kid.getDeathCounted()) {
                     countKidsToNextLevel++;
                     kid.setCountToNextLevel();
-                    System.out.println(countKidsToNextLevel);
                 }
             }
         }
