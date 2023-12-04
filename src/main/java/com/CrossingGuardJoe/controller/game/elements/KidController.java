@@ -100,7 +100,6 @@ public class KidController extends GameController {
             } else {
                 stopKid(kidToMoveInQueue);
                 nextKidToMoveInQueueIndex++;
-                System.out.println(nextKidToMoveInQueueIndex);
             }
         }
     }
@@ -193,6 +192,7 @@ public class KidController extends GameController {
             if (kid.getPosition().getX() < MIN_Y_DISTANCE) {
                 joe.addScore(kid.getPoints());
                 kidIterator.remove();
+                sentKids.remove(kid);
             }
         }
     }
