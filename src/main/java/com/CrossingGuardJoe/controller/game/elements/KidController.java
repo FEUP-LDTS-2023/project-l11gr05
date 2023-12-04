@@ -154,6 +154,15 @@ public class KidController extends GameController {
         checkPoints();
         checkLoss(); //temporary implemented
         checkNextLevel();
+
+        System.out.println(getModel().getKids().size());
+        if (countKidsToNextLevel == getModel().getKids().size()) {
+            countKidsToNextLevel = 0;
+            System.out.println("level pass");
+            getModel().levelUp();
+            getModel().setKidsNextLevel(nextLevelNumberKids());
+
+        }
     }
 
     private void checkCollisions() {
@@ -208,6 +217,17 @@ public class KidController extends GameController {
                 }
             }
         }
+    }
+
+    private int nextLevelNumberKids() {
+        int currentLevel = getModel().getCurrentLevel();
+        switch (currentLevel) {
+            case 2:
+                return 4;
+            case 3:
+                return 5;
+        }
+        return 0;
     }
 }
 

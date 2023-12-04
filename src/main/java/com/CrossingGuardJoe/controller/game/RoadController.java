@@ -31,5 +31,9 @@ public class RoadController extends GameController {
         if (action == GUI.ACTION.ESC) {
             game.popState();
         }
+        if (getModel().getJoe().getHearts() == 0) {
+            System.out.println("GAME OVER");
+            game.popState();
+        }
     }
 }
