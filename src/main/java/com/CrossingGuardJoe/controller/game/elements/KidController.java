@@ -1,6 +1,5 @@
 package com.CrossingGuardJoe.controller.game.elements;
 
-import com.CrossingGuardJoe.controller.game.AuxCheckRange;
 import com.CrossingGuardJoe.controller.game.GameController;
 import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.Position;
@@ -25,9 +24,10 @@ public class KidController extends GameController {
     private static final int MAX_Y_DISTANCE = 500;
     private static final int Y_AFTER_HIT = 55;
     private long lastUpdateTime;
-    private Kid selectedKid;
     private final Joe joe = getModel().getJoe();
+    private Kid selectedKid;
     private final List<Kid> sentKids = new ArrayList<>();
+    private int nextKidToMoveIndex;
 
     public KidController(Road road) {
         super(road);
@@ -81,21 +81,23 @@ public class KidController extends GameController {
         }
         return true;
     }
-    private int movesLeft = 0;
-    private int nextKidToMoveIndex;
-
+    private boolean kidMoved = false;
     private void repositionQueue() {
         List<Kid> kids = getModel().getKids();
 
         if (nextKidToMoveIndex < kids.size()) {
             Kid kidToMove = kids.get(nextKidToMoveIndex);
-            movesLeft = kidToMove.getMovesLeft();
+            int movesLeft = kidToMove.getMovesLeft();
             if (movesLeft > 0) {
                 if (canContinueWalk(kidToMove)) {
                     moveKid(kidToMove);
+                    kidMoved = true;
                     System.out.println(kidToMove.getPosition().getX());
                 }
-                kidToMove.addMovesLeft(-1);
+                if (kidMoved) {
+                    kidToMove.addMovesLeft(-1);
+                    kidMoved = false;
+                }
             } else {
                 stopKid(kidToMove);
                 nextKidToMoveIndex++;
