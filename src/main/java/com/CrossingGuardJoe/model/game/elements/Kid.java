@@ -9,6 +9,7 @@ public class Kid extends Element {
     private static final int POINTS = 100;
     private int movesLeft = 0;
     private boolean lastSent = false;
+    private boolean isSent = false;
 
     public Kid(int x, int y) {
         super(x, y);
@@ -62,24 +63,12 @@ public class Kid extends Element {
         return this.deathCount;
     }
 
-    public void setMovesLeft(int x) {
-        this.movesLeft = x;
+    public void addMovesLeft(int x) {
+        this.movesLeft += x;
     }
 
     public int getMovesLeft() {
         return this.movesLeft;
-    }
-
-    public void setLastSent() {
-        this.lastSent = true;
-    }
-
-    public void setNotLastSent() {
-        this.lastSent = false;
-    }
-
-    public boolean getLastSent() {
-        return this.lastSent;
     }
 
     public int getPoints() {
