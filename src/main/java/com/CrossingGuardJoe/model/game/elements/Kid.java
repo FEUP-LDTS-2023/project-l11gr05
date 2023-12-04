@@ -7,24 +7,22 @@ public class Kid extends Element {
     private boolean firstHalfOfMovement = true;
     private boolean deathCount = false;
     private static final int POINTS = 100;
-    private int movesLeft = 0;
-    private boolean lastSent = false;
-    private boolean isSent = false;
+    private int movesInQueueLeft = 0;
 
     public Kid(int x, int y) {
         super(x, y);
     }
 
-    public void isWalking() {
+    public void setWalking() {
         walking = true;
     }
 
-    public void isNotWalking() {
+    public void setNotWalking() {
         this.walking = false;
         this.firstHalfOfMovement = true;
     }
 
-    public boolean getIsWalkingState() {
+    public boolean getWalkingState() {
         return this.walking;
     }
 
@@ -63,12 +61,12 @@ public class Kid extends Element {
         return this.deathCount;
     }
 
-    public void addMovesLeft(int x) {
-        this.movesLeft += x;
+    public void addMovesInQueueLeft(int x) {
+        this.movesInQueueLeft += x;
     }
 
-    public int getMovesLeft() {
-        return this.movesLeft;
+    public int getMovesInQueueLeft() {
+        return this.movesInQueueLeft;
     }
 
     public int getPoints() {
