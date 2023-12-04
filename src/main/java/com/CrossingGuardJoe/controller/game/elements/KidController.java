@@ -128,6 +128,7 @@ public class KidController extends GameController {
 
                 for (int i = nextKidToMoveInQueueIndex; i < kids.size(); i++) {
                     Kid kid = kids.get(i);
+                    stopKid(kid);
                     kid.addMovesInQueueLeft(3);
                 }
             }
