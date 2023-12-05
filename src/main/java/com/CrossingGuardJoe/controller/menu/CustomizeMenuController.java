@@ -39,6 +39,7 @@ public class CustomizeMenuController extends Controller<CustomizeMenu> {
                 case ESC:
                     SoundsController.getInstance().stop(Sounds.SFX.CUSTOMIZEBGM);
                     game.popState();
+                    SoundsController.getInstance().play(Sounds.SFX.MENUBGM);
                     break;
                 case SELECT:
                     SoundsController.getInstance().play(Sounds.SFX.ENTER);

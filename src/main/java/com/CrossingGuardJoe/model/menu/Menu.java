@@ -1,5 +1,7 @@
 package com.CrossingGuardJoe.model.menu;
 
+import com.CrossingGuardJoe.controller.Sounds;
+import com.CrossingGuardJoe.controller.SoundsController;
 import com.CrossingGuardJoe.model.Position;
 
 import java.util.Arrays;
@@ -10,7 +12,6 @@ public class Menu implements MenuNavigator{
     private int optionSelected = 0;
 
     public Menu() {
-
         this.options = Arrays.asList(
                 new Option("Start Game", new Position(203, 220), null),
                 new Option("Instructions", new Position(195, 260), null),

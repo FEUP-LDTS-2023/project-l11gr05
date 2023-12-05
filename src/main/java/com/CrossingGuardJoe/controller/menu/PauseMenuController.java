@@ -47,6 +47,7 @@ public class PauseMenuController extends Controller<PauseMenu> {
                     SoundsController.getInstance().stop(Sounds.SFX.GAMEBGM);
                     game.popState();
                     game.popState();
+                    SoundsController.getInstance().play(Sounds.SFX.MENUBGM);
                 }
         }
     }

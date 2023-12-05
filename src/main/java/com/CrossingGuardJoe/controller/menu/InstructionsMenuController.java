@@ -27,6 +27,7 @@ public class InstructionsMenuController extends Controller<InstructionsMenu> {
             case ESC:
                 SoundsController.getInstance().stop(Sounds.SFX.INSTRUCTIONSBGM);
                 game.popState();
+                SoundsController.getInstance().play(Sounds.SFX.MENUBGM);
                 break;
         }
     }

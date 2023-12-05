@@ -193,6 +193,7 @@ public class KidController extends GameController {
         for (Kid kid : getModel().getKids()) {
             if (kid.getPosition().getX() < MIN_Y_DISTANCE && !kid.getPass()) {
                 joe.addScore(kid.getPoints());
+                SoundsController.getInstance().play(Sounds.SFX.KIDSCORE);
                 kid.setPass();
             }
         }

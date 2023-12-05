@@ -18,6 +18,7 @@ import java.io.IOException;
 public class MenuController extends Controller<Menu> {
     public MenuController(Menu menu) {
         super(menu);
+        SoundsController.getInstance().play(Sounds.SFX.MENUBGM);
     }
 
     @Override
@@ -32,6 +33,7 @@ public class MenuController extends Controller<Menu> {
                 getModel().navigateDown();
                 break;
             case SELECT:
+                SoundsController.getInstance().stop(Sounds.SFX.MENUBGM);
                 SoundsController.getInstance().play(Sounds.SFX.ENTER);
                 if (getModel().isSelectedStartGame()) game.setState(new GameState(new RoadBuilder().createRoad()));
                 if (getModel().isSelectedInstructions()) game.setState(new InstructionsMenuState(new InstructionsMenu()));
