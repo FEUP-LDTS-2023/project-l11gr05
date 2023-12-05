@@ -82,14 +82,11 @@ public class CustomizeMenuViewer extends Viewer<CustomizeMenu> implements MenuIn
 
     @Override
     public void drawTitle(GUI gui) {
-        gui.drawText(new Position(181, 29),"CUSTOMIZE YOUR GAME", "#000000");
         gui.drawText(new Position(180, 28), "CUSTOMIZE YOUR GAME", "#FFFFFF");
     }
 
     @Override
     public void drawInformation(GUI gui) {
-        //gui.drawText(new Position(5, 5), "ESC", "#000000");
-        //gui.drawText(new Position(4, 4), "ESC", "#FFFFFF");
         gui.drawImage(new Position(4, 4), ToolImages.KEY_ESC);
     }
 

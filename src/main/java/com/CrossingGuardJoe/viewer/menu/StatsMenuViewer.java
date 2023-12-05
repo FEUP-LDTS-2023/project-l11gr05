@@ -18,8 +18,6 @@ public class StatsMenuViewer extends Viewer<StatsMenu> implements MenuInformatio
 
     @Override
     public void drawTitle(GUI gui) {
-        gui.drawText(new Position(208, 102), "Game stats", "#000000");
-        gui.drawText(new Position(208, 101), "Game stats", "#000000");
         gui.drawText(new Position(207, 100), "Game stats", "#FFFFFF");
     }
 

@@ -40,7 +40,6 @@ public class InstructionsMenuViewer extends Viewer<InstructionsMenu> implements 
 
     @Override
     public void drawTitle(GUI gui) {
-        gui.drawText(new Position(203, 18), "Instructions", "#000000");
         gui.drawText(new Position(202, 17), "Instructions", "#FFFFFF");
 
     }
@@ -49,12 +48,6 @@ public class InstructionsMenuViewer extends Viewer<InstructionsMenu> implements 
     public void drawInformation(GUI gui) {
         int PAGES_INI_X = 400;
         int PAGES_Y = 474;
-
-        //shadows
-        gui.drawText(new Position(PAGES_INI_X + 1, PAGES_Y + 1), "Page", "#000000");
-        gui.drawText(new Position(PAGES_INI_X + 40 + 1, PAGES_Y + 1), getModel().getCurrentPage(), "#000000");
-        gui.drawText(new Position(PAGES_INI_X + 54 + 1, PAGES_Y + 1), "of", "#000000");
-        gui.drawText(new Position(PAGES_INI_X + 74 + 1, PAGES_Y + 1), getModel().getTotalPages(), "#000000");
 
         //text
         gui.drawText(new Position(PAGES_INI_X, PAGES_Y), "Page", "#FFFFFF");
@@ -72,10 +65,6 @@ public class InstructionsMenuViewer extends Viewer<InstructionsMenu> implements 
 
     private void drawPageOne(GUI gui) {
         //TEXT
-        gui.drawText(new Position(50 + 1, 100 + 1), "you are Joe", "#000000");
-        gui.drawText(new Position(70 + 1, 120 + 1), "a crossing guard", "#000000");
-        gui.drawText(new Position(50 + 1, 400 + 1), "click once to move", "#000000");
-
         gui.drawText(new Position(50, 100), "you are Joe", "#FFFFFF");
         gui.drawText(new Position(70, 120), "a crossing guard", "#FFFFFF");
         gui.drawText(new Position(50, 400), "click once to move", "#FFFFFF");
@@ -94,10 +83,6 @@ public class InstructionsMenuViewer extends Viewer<InstructionsMenu> implements 
 
     private void drawPageTwo(GUI gui) {
         //TEXT
-        gui.drawText(new Position(50 + 1, 100 + 1), "you will help", "#000000");
-        gui.drawText(new Position(70 + 1, 120 + 1), "the kids to cross the road", "#000000");
-        gui.drawText(new Position(50 + 1, 400 + 1), "click once to order", "#000000");
-
         gui.drawText(new Position(50, 100), "you will help", "#FFFFFF");
         gui.drawText(new Position(70, 120), "the kids to cross the road", "#FFFFFF");
         gui.drawText(new Position(50, 400), "click once to order", "#FFFFFF");
@@ -119,9 +104,6 @@ public class InstructionsMenuViewer extends Viewer<InstructionsMenu> implements 
 
     private void drawPageThree(GUI gui) {
         //TEXT
-        gui.drawText(new Position(50 + 1, 100 + 1), "be careful", "#000000");
-        gui.drawText(new Position(70 + 1, 120 + 1), "with rude drivers", "#000000");
-
         gui.drawText(new Position(50, 100), "be careful", "#FFFFFF");
         gui.drawText(new Position(70, 120), "with rude drivers", "#FFFFFF");
 
@@ -139,9 +121,6 @@ public class InstructionsMenuViewer extends Viewer<InstructionsMenu> implements 
 
     private void drawPageFour(GUI gui) {
         //TEXT
-        gui.drawText(new Position(50 + 1, 100 + 1), "if you lose a kid", "#000000");
-        gui.drawText(new Position(70 + 1, 120 + 1), "you lose hp", "#000000");
-
         gui.drawText(new Position(50, 100), "if you lose a kid", "#FFFFFF");
         gui.drawText(new Position(70, 120), "you lose hp", "#FFFFFF");
 
@@ -158,9 +137,6 @@ public class InstructionsMenuViewer extends Viewer<InstructionsMenu> implements 
 
     private void drawPageFive(GUI gui) {
         //TEXT
-        gui.drawText(new Position(50 + 1, 100 + 1), "try to get", "#000000");
-        gui.drawText(new Position(70 + 1, 120 + 1), "maximum score", "#000000");
-
         gui.drawText(new Position(50, 100), "try to get", "#FFFFFF");
         gui.drawText(new Position(70, 120), "maximum score", "#FFFFFF");
 
@@ -170,7 +146,6 @@ public class InstructionsMenuViewer extends Viewer<InstructionsMenu> implements 
         gui.drawImage(new Position(SCORE_BAR_X - 1, SCORE_BAR_Y - 1), Shape.RectangleFilledGenerator(266, 39, ' ', 2, '$'));
 
         gui.drawImage(new Position(SCORE_BAR_X, SCORE_BAR_Y), HUDImages.SCORE_BAR_SLICE);
-        gui.drawText(new Position(SCORE_BAR_X + 90 + 1, SCORE_BAR_Y + 10 + 1), 2590, "#000000");
         gui.drawText(new Position(SCORE_BAR_X + 90, SCORE_BAR_Y + 10), 2590, "#FFFFFF");
     }
 

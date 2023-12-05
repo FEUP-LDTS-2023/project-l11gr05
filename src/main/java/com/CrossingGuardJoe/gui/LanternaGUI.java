@@ -118,6 +118,8 @@ public class LanternaGUI implements GUI {
     @Override
     public void drawText(Position position, Object text, String colorHexCode) {
         String[] textImage = new FontImageFactory().getImageRepresentation(text);
+        drawImageCustomColor(new Position(position.getX() + 1, position.getY() + 1),
+                            textImage, "#000000");
         drawImageCustomColor(position, textImage, colorHexCode);
     }
 

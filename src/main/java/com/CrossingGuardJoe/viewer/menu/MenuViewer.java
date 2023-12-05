@@ -19,14 +19,8 @@ public class MenuViewer extends Viewer<Menu> implements MenuInformationDrawer {
             Option option = getModel().getOption(i);
             Position optionPosition = option.position();
 
-            //options shadow
-            gui.drawText(optionPosition, option.name(), "#000000");
-            gui.drawText(new Position(optionPosition.getX() - 1, optionPosition.getY() - 1),
-                    option.name(), "#000000");
-
             //options text
-            gui.drawText(new Position(optionPosition.getX() - 2, optionPosition.getY() - 2),
-                    option.name(), "#FFFFFF");
+            gui.drawText(optionPosition, option.name(), "#FFFFFF");
 
             if (getModel().isSelectedOption(i)) {
                 gui.drawImage(new Position(optionPosition.getX() - 15, optionPosition.getY()), ToolImages.ARROW_RIGHT);
