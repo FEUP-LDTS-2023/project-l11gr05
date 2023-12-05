@@ -1,5 +1,7 @@
 package com.CrossingGuardJoe.model.menu;
 
+import com.CrossingGuardJoe.controller.game.Sounds;
+import com.CrossingGuardJoe.controller.game.SoundsController;
 import com.CrossingGuardJoe.model.Position;
 
 import java.util.Arrays;
@@ -23,6 +25,7 @@ public class InstructionsMenu implements MenuNavigator {
     public void navigateRight() {
         if (currentPage < LAST_PAGE) {
             currentPage++;
+            SoundsController.getInstance().play(Sounds.SFX.FLIPPAGE);
         }
     }
 
@@ -30,6 +33,7 @@ public class InstructionsMenu implements MenuNavigator {
     public void navigateLeft() {
         if (currentPage > 1) {
             currentPage--;
+            SoundsController.getInstance().play(Sounds.SFX.FLIPPAGE);
         }
     }
 

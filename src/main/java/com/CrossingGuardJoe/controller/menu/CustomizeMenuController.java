@@ -2,6 +2,8 @@ package com.CrossingGuardJoe.controller.menu;
 
 import com.CrossingGuardJoe.Game;
 import com.CrossingGuardJoe.controller.Controller;
+import com.CrossingGuardJoe.controller.game.Sounds;
+import com.CrossingGuardJoe.controller.game.SoundsController;
 import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.menu.CustomizeMenu;
 
@@ -18,21 +20,27 @@ public class CustomizeMenuController extends Controller<CustomizeMenu> {
         if (!getModel().isColorPaletteSelected()) {
             switch (action) {
                 case LEFT:
+                    SoundsController.getInstance().play(Sounds.SFX.SELECT);
                     getModel().navigateLeft();
                     break;
                 case RIGHT:
+                    SoundsController.getInstance().play(Sounds.SFX.SELECT);
                     getModel().navigateRight();
                     break;
                 case UP:
+                    SoundsController.getInstance().play(Sounds.SFX.SELECT);
                     getModel().navigateUp();
                     break;
                 case DOWN:
+                    SoundsController.getInstance().play(Sounds.SFX.SELECT);
                     getModel().navigateDown();
                     break;
                 case ESC:
+                    SoundsController.getInstance().stop(Sounds.SFX.CUSTOMIZEBGM);
                     game.popState();
                     break;
                 case SELECT:
+                    SoundsController.getInstance().play(Sounds.SFX.ENTER);
                     oldColor = getModel().getSelectedColorChar();
                     getModel().setColorPaletteSelected(true);
                     break;
@@ -41,15 +49,18 @@ public class CustomizeMenuController extends Controller<CustomizeMenu> {
         else {
             switch (action) {
                 case LEFT:
+                    SoundsController.getInstance().play(Sounds.SFX.SELECT);
                     getModel().getColorPaletteMenu().navigateLeft();
                     break;
                 case RIGHT:
+                    SoundsController.getInstance().play(Sounds.SFX.SELECT);
                     getModel().getColorPaletteMenu().navigateRight();
                     break;
                 case ESC:
                     getModel().setColorPaletteSelected(false);
                     break;
                 case SELECT:
+                    SoundsController.getInstance().play(Sounds.SFX.ENTER);
                     char newColor = getModel().getColorPaletteMenu().getColorPalette().get(getModel().getColorPaletteMenu().getSelectedColorIndex()).getCharacter();
                     getModel().setColorChange(oldColor, newColor);
                     getModel().setColorPaletteSelected(false);

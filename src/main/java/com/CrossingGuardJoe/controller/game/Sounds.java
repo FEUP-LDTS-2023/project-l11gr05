@@ -5,13 +5,13 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.FloatControl;
 import java.io.InputStream;
-import java.util.Random;
 
 public class Sounds {
-    private Clip sound;
+    private final Clip sound;
 
     public enum SFX {
-        JOEPASS1, JOEPASS2, KIDWALK1, KIDSTOP1, KIDSTOP2, KIDHIT, CARBREAK, ENTER, SELECT, BGM;
+        JOEPASS1, JOEPASS2, JOESTOP, KIDWALK1, KIDSTOP1, KIDSTOP2, KIDHIT, CARBREAK, ENTER, SELECT, GAMEBGM, LEVELUP, CUSTOMIZEBGM, INSTRUCTIONSBGM,
+        FLIPPAGE;
     }
 
     public Sounds(String sound) {
@@ -43,9 +43,10 @@ public class Sounds {
         sound.stop();
     }
 
-    public void loop() {
+
+    public void loop(float volume) {
+        setVolume(sound, volume);
         sound.setFramePosition(0);
-        sound.start();
         sound.loop(Clip.LOOP_CONTINUOUSLY);
     }
 

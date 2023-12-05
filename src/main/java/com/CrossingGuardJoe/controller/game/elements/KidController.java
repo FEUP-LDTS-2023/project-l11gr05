@@ -20,7 +20,7 @@ public class KidController extends GameController {
     private static final int KID_STEP = 3;
     private static final double KID_SPEED = 0.005;
     private static final int MIN_KID_DISTANCE = 9;
-    private static final int PASS_POINT = 80;
+    private static final int PASS_POINT = 90;
     private static final int MIN_Y_DISTANCE = 0;
     private static final int MAX_Y_DISTANCE = 500;
     private static final int Y_AFTER_HIT = 55;
@@ -133,7 +133,7 @@ public class KidController extends GameController {
                 for (int i = nextKidToMoveInQueueIndex; i < kids.size(); i++) {
                     Kid kid = kids.get(i);
                     stopKid(kid);
-                    kid.addMovesInQueueLeft(3);
+                    kid.addMovesInQueueLeft(MIN_KID_DISTANCE / KID_STEP);
                 }
             }
         }
@@ -149,7 +149,7 @@ public class KidController extends GameController {
                 if (kid.getWalkingState() && canContinueWalk(kid)) {
                     moveKid(kid);
                 }
-                if (isInRangeJoeKid(joe, kid) && joe.getIsRaisingStopSign() && kid.getPosition().getX() > PASS_POINT + 10) {
+                if (isInRangeJoeKid(joe, kid) && joe.getIsRaisingStopSign() && kid.getPosition().getX() > PASS_POINT) {
                     stopKid(kid);
                 }
             }
@@ -229,9 +229,9 @@ public class KidController extends GameController {
             countKidsToNextLevel = 0;
             sentKids.clear();
             getModel().levelUp();
+            SoundsController.getInstance().play(Sounds.SFX.LEVELUP);
             getModel().setKidsNextLevel(nextLevelNumberKids());
             nextKidToMoveInQueueIndex = 0;
-            System.out.println("level pass");
         }
     }
 }

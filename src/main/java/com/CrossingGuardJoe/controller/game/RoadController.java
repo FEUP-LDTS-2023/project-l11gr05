@@ -39,7 +39,7 @@ public class RoadController extends GameController {
 
 
         if (action == GUI.ACTION.ESC) {
-            SoundsController.getInstance().stop(Sounds.SFX.BGM);
+            SoundsController.getInstance().stop(Sounds.SFX.GAMEBGM);
             game.setState(new PauseMenuState(new PauseMenu(getModel())));
         }
         if (getModel().getJoe().getHearts() == 0) {

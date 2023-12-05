@@ -107,6 +107,8 @@ public class JoeController extends GameController {
         else if (!action.equals(lastAction) && action != GUI.ACTION.NONE) {
             if (action == GUI.ACTION.DOWN) {
                 SoundsController.playRandom(Sounds.SFX.JOEPASS1, Sounds.SFX.JOEPASS2);
+            } else if (action == GUI.ACTION.UP) {
+                SoundsController.getInstance().play(Sounds.SFX.JOESTOP);
             }
             lastAction = action;
         }
