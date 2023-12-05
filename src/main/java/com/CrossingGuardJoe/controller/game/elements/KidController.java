@@ -130,7 +130,7 @@ public class KidController extends GameController {
             selectedKid.setSelected();
         }
 
-        if (action == GUI.ACTION.DOWN && joeInRange && !selectedKid.getIsHit()) {
+        if (action == GUI.ACTION.DOWN && joeInRange && !selectedKid.getIsHit() && canContinueWalk(selectedKid)) {
             selectedKid.setWalking();
             kidWalk1.play();
             if (!sentKids.contains(selectedKid)) {
@@ -145,7 +145,7 @@ public class KidController extends GameController {
             }
         }
 
-        if (action == GUI.ACTION.UP && joeInRange) {
+        if (action == GUI.ACTION.UP && joeInRange && selectedKid.getWalkingState()) {
             selectedKid.setNotWalking();
             playRandomSound(kidStop1, kidStop2);
         }
