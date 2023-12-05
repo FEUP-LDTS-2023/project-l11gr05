@@ -4,6 +4,7 @@ import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.menu.StatsMenu;
 import com.CrossingGuardJoe.viewer.Viewer;
+import com.CrossingGuardJoe.viewer.images.defined.ToolImages;
 
 public class StatsMenuViewer extends Viewer<StatsMenu> implements MenuInformationDrawer {
     public StatsMenuViewer(StatsMenu model) {
@@ -33,5 +34,6 @@ public class StatsMenuViewer extends Viewer<StatsMenu> implements MenuInformatio
         gui.drawText(new Position(275, 300), getModel().getHighestScore(), "#FFFFFF");
         gui.drawText(new Position(275, 340), getModel().getHighestLevel(), "#FFFFFF");
 
+        gui.drawImage(new Position(4, 4), ToolImages.KEY_ESC);
     }
 }

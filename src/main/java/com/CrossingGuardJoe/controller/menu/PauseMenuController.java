@@ -27,9 +27,6 @@ public class PauseMenuController extends Controller<PauseMenu> {
                 SoundsController.getInstance().play(Sounds.SFX.SELECT);
                 getModel().navigateDown();
                 break;
-            case ESC:
-                game.popState();
-                break;
             case SELECT:
                 SoundsController.getInstance().play(Sounds.SFX.ENTER);
                 if (getModel().isSelectedResume()) {

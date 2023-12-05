@@ -15,7 +15,7 @@ public class Joe extends Element{
 
     public Joe(int x, int y) {
         super(x, y);
-        this.Score = 200;
+        this.Score = 0;
         this.Hearts = MAX_HEARTS;
     }
 
