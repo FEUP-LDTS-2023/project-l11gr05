@@ -28,7 +28,6 @@ public class JoeController extends GameController {
         super(road);
         joePass1 = new Sounds("sounds/joe/JOEPASS1.wav");
         joePass2 = new Sounds("sounds/joe/JOEPASS2.wav");
-        //playRandomSound(joePass1, joePass2);
     }
 
     private void moveJoe(int x, char direction) {
@@ -109,6 +108,9 @@ public class JoeController extends GameController {
         }
 
         else if (!action.equals(lastAction) && action != GUI.ACTION.NONE) {
+            if (action == GUI.ACTION.DOWN) {
+                playRandomSound(joePass1, joePass2);
+            }
             lastAction = action;
         }
 
