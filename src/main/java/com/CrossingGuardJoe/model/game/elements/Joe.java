@@ -10,11 +10,12 @@ public class Joe extends Element{
     private boolean passSign = false;
     private boolean firstHalfOfMovement = true;
     private boolean hit = false;
+    public static final int HITPOINTS = -2;
     private boolean hitLeft = true;
 
     public Joe(int x, int y) {
         super(x, y);
-        this.Score = 0;
+        this.Score = 200;
         this.Hearts = MAX_HEARTS;
     }
 
@@ -109,5 +110,11 @@ public class Joe extends Element{
 
     public void setFirstHalfOfMovement(boolean firstHalfOfMovement) {
         this.firstHalfOfMovement = firstHalfOfMovement;
+    }
+
+    public void countHitPoints() {
+        if (this.getScore() > 0) {
+            addScore(HITPOINTS);
+        }
     }
 }

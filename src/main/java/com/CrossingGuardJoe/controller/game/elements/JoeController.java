@@ -51,12 +51,14 @@ public class JoeController extends GameController {
         setLastActionNone();
         Joe joe = getModel().getJoe();
         joe.setPosition(new Position(joe.getPosition().getX() - JOE_AFTER_HIT, joe.getPosition().getY()));
+        joe.countHitPoints();
     }
 
     public void moveJoeRightHit() {
         setLastActionNone();
         Joe joe = getModel().getJoe();
         joe.setPosition(new Position(joe.getPosition().getX() + JOE_AFTER_HIT, joe.getPosition().getY()));
+        joe.countHitPoints();
     }
 
     public void joePassSign() {
