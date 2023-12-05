@@ -1,8 +1,8 @@
 package com.CrossingGuardJoe.controller.game.elements;
 
 import com.CrossingGuardJoe.controller.game.GameController;
-import com.CrossingGuardJoe.controller.game.Sounds;
-import com.CrossingGuardJoe.controller.game.SoundsController;
+import com.CrossingGuardJoe.controller.Sounds;
+import com.CrossingGuardJoe.controller.SoundsController;
 import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.game.Road;

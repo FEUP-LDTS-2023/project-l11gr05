@@ -1,8 +1,9 @@
-package com.CrossingGuardJoe.controller.game;
+package com.CrossingGuardJoe.controller;
 
+import java.util.Objects;
 import java.util.Random;
 
-import static com.CrossingGuardJoe.controller.game.Sounds.SFX;
+import static com.CrossingGuardJoe.controller.Sounds.SFX;
 
 public class SoundsController {
     private Sounds select, enter, customizeBgm, instructionsBgm, flipPage;
@@ -59,6 +60,12 @@ public class SoundsController {
             case KIDSTOP2 -> kidStop2.play();
             case KIDHIT -> kidHit.play();
             case CARBREAK -> carBreak.play();
+        }
+    }
+
+    public void pause(SFX sfx) {
+        if (Objects.requireNonNull(sfx) == SFX.GAMEBGM) {
+            gameBgm.pause();
         }
     }
 

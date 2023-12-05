@@ -1,5 +1,7 @@
 package com.CrossingGuardJoe.controller.game;
 
+import com.CrossingGuardJoe.controller.Sounds;
+import com.CrossingGuardJoe.controller.SoundsController;
 import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.game.Road;
 import com.CrossingGuardJoe.Game;
@@ -39,16 +41,16 @@ public class RoadController extends GameController {
 
 
         if (action == GUI.ACTION.ESC) {
-            SoundsController.getInstance().stop(Sounds.SFX.GAMEBGM);
+            SoundsController.getInstance().pause(Sounds.SFX.GAMEBGM);
+            getModel().getJoe().stopWalking();
             game.setState(new PauseMenuState(new PauseMenu(getModel())));
         }
         if (getModel().getJoe().getHearts() == 0) {
             System.out.println("GAME OVER");
-
             game.popState();
         }
         if (getModel().isGameEnded()) {
-            System.out.println("YOU COMPLETE");
+            System.out.println("CONGRATULATIONS");
             game.popState();
         }
     }
