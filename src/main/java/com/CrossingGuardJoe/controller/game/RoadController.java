@@ -6,6 +6,8 @@ import com.CrossingGuardJoe.Game;
 import com.CrossingGuardJoe.controller.game.elements.CarController;
 import com.CrossingGuardJoe.controller.game.elements.JoeController;
 import com.CrossingGuardJoe.controller.game.elements.KidController;
+import com.CrossingGuardJoe.model.menu.PauseMenu;
+import com.CrossingGuardJoe.states.PauseMenuState;
 
 import java.io.IOException;
 
@@ -30,7 +32,7 @@ public class RoadController extends GameController {
 
         if (action == GUI.ACTION.ESC) {
             SoundsController.getInstance().stop(Sounds.SFX.BGM);
-            game.popState();
+            game.setState(new PauseMenuState(new PauseMenu()));
         }
         if (getModel().getJoe().getHearts() == 0) {
             System.out.println("GAME OVER");

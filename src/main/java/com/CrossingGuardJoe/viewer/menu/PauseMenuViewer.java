@@ -23,11 +23,9 @@ public class PauseMenuViewer extends Viewer<PauseMenu> implements MenuInformatio
 
             //options shadow
             gui.drawText(optionPosition, option.name(), "#000000");
-            gui.drawText(new Position(optionPosition.getX() - 1, optionPosition.getY() - 1),
-                    option.name(), "#000000");
 
             //options text
-            gui.drawText(new Position(optionPosition.getX() - 2, optionPosition.getY() - 2),
+            gui.drawText(new Position(optionPosition.getX() - 1, optionPosition.getY() - 1),
                     option.name(), "#FFFFFF");
 
             if (getModel().isSelectedOption(i)) {
@@ -38,7 +36,9 @@ public class PauseMenuViewer extends Viewer<PauseMenu> implements MenuInformatio
 
     @Override
     public void drawTitle(GUI gui) {
-        gui.drawText(new Position(130, 50), "paused", "#000000");
+        gui.drawText(new Position(208, 102), "Game paused", "#000000");
+        gui.drawText(new Position(208, 101), "Game paused", "#000000");
+        gui.drawText(new Position(207, 100), "Game paused", "#FFFFFF");
     }
 
     @Override
