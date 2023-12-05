@@ -8,10 +8,10 @@ import com.CrossingGuardJoe.model.game.RoadBuilder;
 import com.CrossingGuardJoe.model.menu.CustomizeMenu;
 import com.CrossingGuardJoe.model.menu.InstructionsMenu;
 import com.CrossingGuardJoe.model.menu.Menu;
-import com.CrossingGuardJoe.states.CustomizeMenuState;
+import com.CrossingGuardJoe.states.menu.CustomizeMenuState;
 import com.CrossingGuardJoe.states.GameState;
 import com.CrossingGuardJoe.Game;
-import com.CrossingGuardJoe.states.InstructionsMenuState;
+import com.CrossingGuardJoe.states.menu.InstructionsMenuState;
 
 import java.io.IOException;
 

@@ -1,8 +1,9 @@
-package com.CrossingGuardJoe.states;
+package com.CrossingGuardJoe.states.menu;
 
 import com.CrossingGuardJoe.controller.Controller;
 import com.CrossingGuardJoe.controller.menu.StatsMenuController;
 import com.CrossingGuardJoe.model.menu.StatsMenu;
+import com.CrossingGuardJoe.states.State;
 import com.CrossingGuardJoe.viewer.Viewer;
 import com.CrossingGuardJoe.viewer.menu.StatsMenuViewer;
 

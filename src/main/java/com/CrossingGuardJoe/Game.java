@@ -2,7 +2,7 @@ package com.CrossingGuardJoe;
 
 import com.CrossingGuardJoe.gui.LanternaGUI;
 import com.CrossingGuardJoe.model.menu.Menu;
-import com.CrossingGuardJoe.states.MenuState;
+import com.CrossingGuardJoe.states.menu.MenuState;
 import com.CrossingGuardJoe.states.State;
 
 import java.awt.*;

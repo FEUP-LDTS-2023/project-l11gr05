@@ -6,8 +6,10 @@ import com.CrossingGuardJoe.Game;
 import com.CrossingGuardJoe.controller.game.elements.CarController;
 import com.CrossingGuardJoe.controller.game.elements.JoeController;
 import com.CrossingGuardJoe.controller.game.elements.KidController;
+import com.CrossingGuardJoe.model.menu.GameOverMenu;
 import com.CrossingGuardJoe.model.menu.PauseMenu;
-import com.CrossingGuardJoe.states.PauseMenuState;
+import com.CrossingGuardJoe.states.menu.GameOverState;
+import com.CrossingGuardJoe.states.menu.PauseMenuState;
 
 import java.io.IOException;
 
@@ -43,13 +45,12 @@ public class RoadController extends GameController {
             game.setState(new PauseMenuState(new PauseMenu(getModel())));
         }
         if (getModel().getJoe().getHearts() == 0) {
-            System.out.println("GAME OVER");
-
             game.popState();
+            game.setState(new GameOverState(new GameOverMenu(false, getModel())));
         }
         if (getModel().isGameEnded()) {
-            System.out.println("YOU COMPLETE");
             game.popState();
+            game.setState(new GameOverState(new GameOverMenu(true, getModel())));
         }
     }
 }
