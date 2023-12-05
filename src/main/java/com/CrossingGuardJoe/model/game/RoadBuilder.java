@@ -20,7 +20,8 @@ public class RoadBuilder {
     private static final int RANDOM_BOUND = 500;
     private static final int MAX_Y_DISTANCE = 500;
     private static final int INITIAL_NUMBER_OF_KIDS = 3;
-    private static final int KID_SPAWN_X = 430;
+    private static final int KID_SPAWN_X = 490;
+    private static final int INITIAL_POSITION = 430;
     private static final int KID_Y = 330;
     private static final int MIN_KID_DISTANCE = 9;
 
@@ -97,6 +98,7 @@ public class RoadBuilder {
         for (int i = 0; i < numberKids; i++) {
             Kid kid = new Kid(x, KID_Y);
             kids.add(kid);
+            kid.addMovesInQueueLeft((KID_SPAWN_X - INITIAL_POSITION)/3);
             x += MIN_KID_DISTANCE;
         }
         return kids;

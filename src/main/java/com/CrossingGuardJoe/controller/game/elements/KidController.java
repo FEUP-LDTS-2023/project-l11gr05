@@ -2,6 +2,7 @@ package com.CrossingGuardJoe.controller.game.elements;
 
 import com.CrossingGuardJoe.controller.game.GameController;
 import com.CrossingGuardJoe.controller.game.Sounds;
+import com.CrossingGuardJoe.controller.game.SoundsController;
 import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.game.Road;
@@ -11,21 +12,17 @@ import com.CrossingGuardJoe.model.game.elements.Kid;
 import com.CrossingGuardJoe.Game;
 
 import java.util.*;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
 
 import static com.CrossingGuardJoe.controller.game.AuxCheckRange.isInRangeCarKid;
 import static com.CrossingGuardJoe.controller.game.AuxCheckRange.isInRangeJoeKid;
-import static com.CrossingGuardJoe.controller.game.Sounds.playRandomSound;
 
 public class KidController extends GameController {
-    private static final int INITIAL_POSITION = 430;
     private static final int KID_STEP = 3;
     private static final double KID_SPEED = 0.005;
     private static final int MIN_KID_DISTANCE = 9;
     private static final int PASS_POINT = 80;
     private static final int MIN_Y_DISTANCE = 0;
+    private static final int MAX_Y_DISTANCE = 500;
     private static final int Y_AFTER_HIT = 55;
     private long lastUpdateTime;
     private final Joe joe = getModel().getJoe();
@@ -34,17 +31,10 @@ public class KidController extends GameController {
     private int nextKidToMoveInQueueIndex;
     private boolean kidMovedInQueue = false;
     private int countKidsToNextLevel = 0;
-    private final Sounds kidWalk1, kidStop1, kidStop2, kidHit, carBreak;
 
     public KidController(Road road) {
         super(road);
         lastUpdateTime = System.currentTimeMillis();
-        kidWalk1 = new Sounds("sounds/kid/KIDWALK1.wav");
-        //kidWalk2 = new Sounds("sounds/kid/KIDWALK2.wav");
-        kidStop1 = new Sounds("sounds/kid/KIDSTOP1.wav");
-        kidStop2 = new Sounds("sounds/kid/KIDSTOP2.wav");
-        kidHit = new Sounds("sounds/kid/KIDHIT.wav");
-        carBreak = new Sounds("sounds/car/CARBREAK.wav");
     }
 
     public void moveKid(Kid kid) {
@@ -95,9 +85,10 @@ public class KidController extends GameController {
     private void repositionQueue() {
         List<Kid> kids = getModel().getKids();
 
-        if (nextKidToMoveInQueueIndex < kids.size()) {
-            Kid kidToMoveInQueue = kids.get(nextKidToMoveInQueueIndex);
+        for (int i = nextKidToMoveInQueueIndex; i < kids.size(); i++) {
+            Kid kidToMoveInQueue = kids.get(i);
             int movesLeft = kidToMoveInQueue.getMovesInQueueLeft();
+
             if (movesLeft > 0) {
                 if (canContinueWalk(kidToMoveInQueue)) {
                     moveKid(kidToMoveInQueue);
@@ -132,9 +123,9 @@ public class KidController extends GameController {
             selectedKid.setSelected();
         }
 
-        if (action == GUI.ACTION.DOWN && joeInRange && !selectedKid.getIsHit()) {
+        if (action == GUI.ACTION.DOWN && joeInRange && !selectedKid.getIsHit() && canContinueWalk(selectedKid)) {
             selectedKid.setWalking();
-            kidWalk1.play();
+            SoundsController.getInstance().play(Sounds.SFX.KIDWALK1);
             if (!sentKids.contains(selectedKid)) {
                 sentKids.add(selectedKid);
                 nextKidToMoveInQueueIndex = kids.indexOf(selectedKid) + 1;
@@ -147,9 +138,9 @@ public class KidController extends GameController {
             }
         }
 
-        if (action == GUI.ACTION.UP && joeInRange) {
+        if (action == GUI.ACTION.UP && joeInRange && selectedKid.getWalkingState()) {
             selectedKid.setNotWalking();
-            playRandomSound(kidStop1, kidStop2);
+            SoundsController.playRandom(Sounds.SFX.KIDSTOP1, Sounds.SFX.KIDSTOP2);
         }
 
         if (time - lastUpdateTime > KID_SPEED && !kids.isEmpty()) {
@@ -191,8 +182,8 @@ public class KidController extends GameController {
 
     private void checkDeathCount(Kid kid) {
         if (!kid.getDeathCounted()) {
-            carBreak.play();
-            kidHit.play();
+            SoundsController.getInstance().play(Sounds.SFX.CARBREAK);
+            SoundsController.getInstance().play(Sounds.SFX.KIDHIT);
             joe.removeHeart();
             kid.setDead();
         }
@@ -210,7 +201,7 @@ public class KidController extends GameController {
     private void checkCountToNextLevel() {
         for (Kid kid : getModel().getKids()) {
             if (!kid.getCounted()) {
-                if (kid.getPass() || kid.getDeathCounted()) {
+                if (kid.getPass() || (kid.getDeathCounted() && kid.getPosition().getY() >= MAX_Y_DISTANCE)) {
                     countKidsToNextLevel++;
                     kid.setCountToNextLevel();
                 }
@@ -237,9 +228,10 @@ public class KidController extends GameController {
         if (countKidsToNextLevel == getModel().getKids().size()) {
             countKidsToNextLevel = 0;
             sentKids.clear();
-            System.out.println("level pass");
             getModel().levelUp();
             getModel().setKidsNextLevel(nextLevelNumberKids());
+            nextKidToMoveInQueueIndex = 0;
+            System.out.println("level pass");
         }
     }
 }
