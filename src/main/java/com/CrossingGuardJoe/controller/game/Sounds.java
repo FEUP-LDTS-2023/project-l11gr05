@@ -10,6 +10,10 @@ import java.util.Random;
 public class Sounds {
     private Clip sound;
 
+    public enum SFX {
+        JOEPASS1, JOEPASS2, KIDWALK1, KIDSTOP1, KIDSTOP2, KIDHIT, CARBREAK, ENTER, SELECT, BGM;
+    }
+
     public Sounds(String sound) {
         this.sound = loadSound(sound);
     }
@@ -40,16 +44,9 @@ public class Sounds {
     }
 
     public void loop() {
+        sound.setFramePosition(0);
+        sound.start();
         sound.loop(Clip.LOOP_CONTINUOUSLY);
-    }
-
-    public static void playRandomSound(Sounds sound1, Sounds sound2) {
-        Random random = new Random();
-        if (random.nextBoolean()) {
-            sound1.play();
-        } else {
-            sound2.play();
-        }
     }
 
     public static void setVolume(Clip clip, float volume) {
