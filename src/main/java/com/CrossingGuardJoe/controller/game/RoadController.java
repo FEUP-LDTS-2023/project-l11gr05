@@ -29,7 +29,7 @@ public class RoadController extends GameController {
         carController.nextAction(game, action, time);
 
         if (action == GUI.ACTION.ESC) {
-            SoundsController.getInstance().stop(Sounds.SFX.BGM);
+            SoundsController.getInstance().stop(Sounds.SFX.GAMEBGM);
             game.popState();
         }
         if (getModel().getJoe().getHearts() == 0) {

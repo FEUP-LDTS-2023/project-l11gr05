@@ -36,7 +36,7 @@ public class CustomizeMenuController extends Controller<CustomizeMenu> {
                     getModel().navigateDown();
                     break;
                 case ESC:
-                    SoundsController.getInstance().stop(Sounds.SFX.CUSTOMIZE);
+                    SoundsController.getInstance().stop(Sounds.SFX.CUSTOMIZEBGM);
                     game.popState();
                     break;
                 case SELECT:

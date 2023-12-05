@@ -2,6 +2,8 @@ package com.CrossingGuardJoe.controller.menu;
 
 import com.CrossingGuardJoe.Game;
 import com.CrossingGuardJoe.controller.Controller;
+import com.CrossingGuardJoe.controller.game.Sounds;
+import com.CrossingGuardJoe.controller.game.SoundsController;
 import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.menu.InstructionsMenu;
 
@@ -22,6 +24,7 @@ public class InstructionsMenuController extends Controller<InstructionsMenu> {
                 getModel().navigateLeft();
                 break;
             case ESC:
+                SoundsController.getInstance().stop(Sounds.SFX.INSTRUCTIONSBGM);
                 game.popState();
                 break;
         }

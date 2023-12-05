@@ -35,12 +35,15 @@ public class MenuController extends Controller<Menu> {
                 SoundsController.getInstance().play(Sounds.SFX.ENTER);
                 if (getModel().isSelectedStartGame()) {
                     game.setState(new GameState(new RoadBuilder().createRoad()));
-                    SoundsController.getInstance().play(Sounds.SFX.BGM);
+                    SoundsController.getInstance().play(Sounds.SFX.GAMEBGM);
                 }
-                if (getModel().isSelectedInstructions()) game.setState(new InstructionsMenuState(new InstructionsMenu()));
+                if (getModel().isSelectedInstructions()) {
+                    game.setState(new InstructionsMenuState(new InstructionsMenu()));
+                    SoundsController.getInstance().play(Sounds.SFX.INSTRUCTIONSBGM);
+                }
                 if (getModel().isSelectedCustomize()) {
                     game.setState(new CustomizeMenuState(new CustomizeMenu()));
-                    SoundsController.getInstance().play(Sounds.SFX.CUSTOMIZE);
+                    SoundsController.getInstance().play(Sounds.SFX.CUSTOMIZEBGM);
                 }
                 if (getModel().isSelectedExit()) {
                     game.setState(null);
