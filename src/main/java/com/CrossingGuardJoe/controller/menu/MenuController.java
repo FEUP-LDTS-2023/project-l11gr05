@@ -38,7 +38,10 @@ public class MenuController extends Controller<Menu> {
                     SoundsController.getInstance().play(Sounds.SFX.BGM);
                 }
                 if (getModel().isSelectedInstructions()) game.setState(new InstructionsMenuState(new InstructionsMenu()));
-                if (getModel().isSelectedCustomize()) game.setState(new CustomizeMenuState(new CustomizeMenu()));
+                if (getModel().isSelectedCustomize()) {
+                    game.setState(new CustomizeMenuState(new CustomizeMenu()));
+                    SoundsController.getInstance().play(Sounds.SFX.CUSTOMIZE);
+                }
                 if (getModel().isSelectedExit()) {
                     game.setState(null);
                     System.exit(0);
