@@ -25,9 +25,15 @@ public class StatsMenuViewer extends Viewer<StatsMenu> implements MenuInformatio
 
     @Override
     public void drawInformation(GUI gui) {
-        gui.drawText(new Position(230, 210), "score", "#FFFFFF");
-        gui.drawText(new Position(230, 250), "level", "#FFFFFF");
-        gui.drawText(new Position(200, 300), "highest score", "#FFFFFF");
-        gui.drawText(new Position(200, 340), "highest level", "#FFFFFF");
+        gui.drawText(new Position(210, 210), "score", "#FFFFFF");
+        gui.drawText(new Position(210, 250), "level", "#FFFFFF");
+        gui.drawText(new Position(150, 300), "highest score", "#FFFFFF");
+        gui.drawText(new Position(150, 340), "highest level", "#FFFFFF");
+
+        gui.drawText(new Position(275, 210), getModel().getCurrentScore(), "#FFFFFF");
+        gui.drawText(new Position(275, 250), getModel().getCurrentLevel(), "#FFFFFF");
+        gui.drawText(new Position(275, 300), getModel().getHighestScore(), "#FFFFFF");
+        gui.drawText(new Position(275, 340), getModel().getHighestLevel(), "#FFFFFF");
+
     }
 }

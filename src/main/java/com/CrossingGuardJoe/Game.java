@@ -13,6 +13,8 @@ import java.util.Stack;
 public class Game {
     private LanternaGUI gui;
     private Stack<State> stateStack;
+    private int highestScore = 0;
+    private int highestLevel = 0;
 
     public Game() throws IOException, URISyntaxException, FontFormatException {
         gui = new LanternaGUI(1000, 500);
@@ -66,4 +68,19 @@ public class Game {
         System.exit(0);
     }
 
+    public int getHighestScore() {
+        return highestScore;
+    }
+
+    public int getHighestLevel() {
+        return highestLevel;
+    }
+
+    public void setHighestScore(int highestScore) {
+        this.highestScore = highestScore;
+    }
+
+    public void setHighestLevel(int highestLevel) {
+        this.highestLevel = highestLevel;
+    }
 }

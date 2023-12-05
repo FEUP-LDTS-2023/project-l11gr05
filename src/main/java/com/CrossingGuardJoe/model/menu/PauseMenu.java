@@ -1,6 +1,7 @@
 package com.CrossingGuardJoe.model.menu;
 
 import com.CrossingGuardJoe.model.Position;
+import com.CrossingGuardJoe.model.game.Road;
 
 import java.util.Arrays;
 import java.util.List;
@@ -8,13 +9,19 @@ import java.util.List;
 public class PauseMenu implements MenuNavigator{
     private final List<Option> options;
     private int optionSelected = 0;
+    private Road currentGame;
 
-    public PauseMenu() {
+    public PauseMenu(Road currentGame) {
+        this.currentGame = currentGame;
         this.options = Arrays.asList(
                 new Option("Resume", new Position(230, 220), null),
                 new Option("Stats", new Position(232, 260), null),
                 new Option("Exit", new Position(237, 300), null)
         );
+    }
+
+    public Road getCurrentGame() {
+        return this.currentGame;
     }
 
     @Override
