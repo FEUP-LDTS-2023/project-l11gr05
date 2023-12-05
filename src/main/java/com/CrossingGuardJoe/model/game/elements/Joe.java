@@ -2,7 +2,6 @@ package com.CrossingGuardJoe.model.game.elements;
 
 public class Joe extends Element{
     private int Score;
-    private final int MAX_SCORE = 99999;
     private int Hearts;
     private static final int MAX_HEARTS = 10;
     private boolean walking = false;

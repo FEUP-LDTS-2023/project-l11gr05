@@ -37,6 +37,7 @@ public class GameViewer extends Viewer<Road> implements RoadView{
         drawElements(gui, getModel().getKids(), new KidView());
 
         drawHUD(gui);
+        drawScore(gui);
     }
 
     private <T extends Element> void drawElements(GUI gui, List<T> elements, ElementViewer<T> viewer) {
@@ -100,6 +101,10 @@ public class GameViewer extends Viewer<Road> implements RoadView{
             gui.drawImage(new Position(heartIniX, 4), HUDImages.HP);
             heartIniX += 25;
         }
+    }
+
+    private void drawScore(GUI gui) {
+        gui.drawText(new Position(45, 10), getModel().getCurrentLevel(), "#FFFFFF");
     }
 
 }

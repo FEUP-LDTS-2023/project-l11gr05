@@ -27,12 +27,16 @@ public class RoadController extends GameController {
         joeController.nextAction(game, action, time);
         kidController.nextAction(game, action, time);
         carController.nextAction(game, action, time);
-        System.out.println(getModel().getJoe().getHearts());
+
         if (action == GUI.ACTION.ESC) {
             game.popState();
         }
         if (getModel().getJoe().getHearts() == 0) {
             System.out.println("GAME OVER");
+            game.popState();
+        }
+        if (getModel().getCurrentLevel() > 10) {
+            System.out.println("YOU COMPLETE");
             game.popState();
         }
     }
