@@ -15,10 +15,13 @@ import com.CrossingGuardJoe.states.InstructionsMenuState;
 import java.io.IOException;
 
 public class MenuController extends Controller<Menu> {
-    private final Sounds bgm;
+    private final Sounds bgm, select, enter;
+
     public MenuController(Menu menu) {
         super(menu);
         bgm = new Sounds("sounds/BGM.wav");
+        select = new Sounds("sounds/menu/SELECT.wav");
+        enter = new Sounds("sounds/menu/ENTER.wav");
     }
 
     @Override
@@ -26,11 +29,14 @@ public class MenuController extends Controller<Menu> {
         switch (action) {
             case UP:
                 getModel().navigateUp();
+                select.play();
                 break;
             case DOWN:
                 getModel().navigateDown();
+                select.play();
                 break;
             case SELECT:
+                enter.play();
                 if (getModel().isSelectedStartGame()) {
                     game.setState(new GameState(new RoadBuilder().createRoad()));
                     bgm.loop();
