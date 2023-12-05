@@ -2,8 +2,8 @@ package com.CrossingGuardJoe.controller.menu;
 
 import com.CrossingGuardJoe.Game;
 import com.CrossingGuardJoe.controller.Controller;
-import com.CrossingGuardJoe.controller.game.Sounds;
-import com.CrossingGuardJoe.controller.game.SoundsController;
+import com.CrossingGuardJoe.controller.Sounds;
+import com.CrossingGuardJoe.controller.SoundsController;
 import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.menu.InstructionsMenu;
 
@@ -12,6 +12,7 @@ import java.io.IOException;
 public class InstructionsMenuController extends Controller<InstructionsMenu> {
     public InstructionsMenuController(InstructionsMenu model) {
         super(model);
+        SoundsController.getInstance().play(Sounds.SFX.INSTRUCTIONSBGM);
     }
 
     @Override

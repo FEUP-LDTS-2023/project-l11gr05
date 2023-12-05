@@ -1,8 +1,9 @@
-package com.CrossingGuardJoe.controller.game;
+package com.CrossingGuardJoe.controller;
 
+import java.util.Objects;
 import java.util.Random;
 
-import static com.CrossingGuardJoe.controller.game.Sounds.SFX;
+import static com.CrossingGuardJoe.controller.Sounds.SFX;
 
 public class SoundsController {
     private Sounds select, enter, customizeBgm, instructionsBgm, flipPage;
@@ -11,6 +12,7 @@ public class SoundsController {
     private Sounds kidWalk1, kidStop1, kidStop2, kidHit;
     private Sounds carBreak;
 
+    private float defaultVolume = 0.5f;
     private static SoundsController soundsController;
 
     private SoundsController() {
@@ -44,21 +46,27 @@ public class SoundsController {
 
     public void play(SFX sfx) {
         switch (sfx) {
-            case SELECT -> select.play();
-            case ENTER -> enter.play();
-            case FLIPPAGE -> flipPage.play();
+            case SELECT -> select.play(defaultVolume);
+            case ENTER -> enter.play(defaultVolume);
+            case FLIPPAGE -> flipPage.play(defaultVolume);
             case CUSTOMIZEBGM -> customizeBgm.loop(1f);
             case INSTRUCTIONSBGM -> instructionsBgm.loop(0.2f);
-            case GAMEBGM -> gameBgm.loop(0.2f);
-            case LEVELUP -> levelUp.play();
-            case JOEPASS1 -> joePass1.play();
-            case JOEPASS2 -> joePass2.play();
-            case JOESTOP -> joeStop.play();
-            case KIDWALK1 -> kidWalk1.play();
-            case KIDSTOP1 -> kidStop1.play();
-            case KIDSTOP2 -> kidStop2.play();
-            case KIDHIT -> kidHit.play();
-            case CARBREAK -> carBreak.play();
+            case GAMEBGM -> gameBgm.loop(0.15f);
+            case LEVELUP -> levelUp.play(1f);
+            case JOEPASS1 -> joePass1.play(defaultVolume);
+            case JOEPASS2 -> joePass2.play(defaultVolume);
+            case JOESTOP -> joeStop.play(defaultVolume);
+            case KIDWALK1 -> kidWalk1.play(defaultVolume);
+            case KIDSTOP1 -> kidStop1.play(defaultVolume);
+            case KIDSTOP2 -> kidStop2.play(defaultVolume);
+            case KIDHIT -> kidHit.play(defaultVolume);
+            case CARBREAK -> carBreak.play(defaultVolume);
+        }
+    }
+
+    public void pause(SFX sfx) {
+        if (Objects.requireNonNull(sfx) == SFX.GAMEBGM) {
+            gameBgm.pause();
         }
     }
 

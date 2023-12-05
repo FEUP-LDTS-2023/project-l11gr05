@@ -1,5 +1,7 @@
 package com.CrossingGuardJoe.controller.game;
 
+import com.CrossingGuardJoe.controller.Sounds;
+import com.CrossingGuardJoe.controller.SoundsController;
 import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.game.Road;
 import com.CrossingGuardJoe.Game;
@@ -39,9 +41,9 @@ public class RoadController extends GameController {
             game.setHighestLevel(getModel().getCurrentLevel());
         }
 
-
         if (action == GUI.ACTION.ESC) {
-            SoundsController.getInstance().stop(Sounds.SFX.GAMEBGM);
+            SoundsController.getInstance().pause(Sounds.SFX.GAMEBGM);
+            getModel().getJoe().stopWalking();
             game.setState(new PauseMenuState(new PauseMenu(getModel())));
         }
         if (getModel().getJoe().getHearts() == 0) {

@@ -1,5 +1,7 @@
 package com.CrossingGuardJoe.model.menu;
 
+import com.CrossingGuardJoe.controller.Sounds;
+import com.CrossingGuardJoe.controller.SoundsController;
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.viewer.images.Font.FontImageFactory;
 import com.CrossingGuardJoe.viewer.images.generator.Shape;

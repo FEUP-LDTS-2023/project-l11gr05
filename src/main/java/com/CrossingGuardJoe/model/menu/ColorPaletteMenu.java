@@ -1,5 +1,7 @@
 package com.CrossingGuardJoe.model.menu;
 
+import com.CrossingGuardJoe.controller.Sounds;
+import com.CrossingGuardJoe.controller.SoundsController;
 import com.CrossingGuardJoe.viewer.Color;
 
 import java.util.ArrayList;
@@ -21,11 +23,13 @@ public class ColorPaletteMenu implements MenuNavigator{
 
     @Override
     public void navigateLeft() {
+        SoundsController.getInstance().play(Sounds.SFX.SELECT);
         selectedColorIndex = (selectedColorIndex - 1 + colorPalette.size()) % colorPalette.size();
     }
 
     @Override
     public void navigateRight() {
+        SoundsController.getInstance().play(Sounds.SFX.SELECT);
         selectedColorIndex = (selectedColorIndex + 1) % colorPalette.size();
     }
 

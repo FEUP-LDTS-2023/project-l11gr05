@@ -1,4 +1,6 @@
-package com.CrossingGuardJoe.controller.game;
+package com.CrossingGuardJoe.controller;
+
+import com.CrossingGuardJoe.model.Position;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -24,7 +26,6 @@ public class Sounds {
             Clip clip = AudioSystem.getClip();
             AudioInputStream ais = AudioSystem.getAudioInputStream(audioInputStream);
             clip.open(ais);
-            setVolume(clip, 0.5f);
             return clip;
         } catch (Exception e) {
             e.printStackTrace();
@@ -32,21 +33,25 @@ public class Sounds {
         }
     }
 
-    public void play() {
+    public void play(float volume) {
         if (!sound.isRunning()) {
+            setVolume(sound, volume);
             sound.setFramePosition(0);
             sound.start();
         }
     }
 
-    public void stop() {
+    public void pause() {
         sound.stop();
     }
 
+    public void stop() {
+        sound.setFramePosition(0);
+        sound.stop();
+    }
 
     public void loop(float volume) {
         setVolume(sound, volume);
-        sound.setFramePosition(0);
         sound.loop(Clip.LOOP_CONTINUOUSLY);
     }
 
