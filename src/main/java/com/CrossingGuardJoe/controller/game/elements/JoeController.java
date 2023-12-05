@@ -1,6 +1,7 @@
 package com.CrossingGuardJoe.controller.game.elements;
 
 import com.CrossingGuardJoe.controller.game.GameController;
+import com.CrossingGuardJoe.controller.game.Sounds;
 import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.game.Road;
@@ -12,6 +13,7 @@ import java.util.List;
 
 import static com.CrossingGuardJoe.controller.game.AuxCheckRange.isInRangeLeftCarJoe;
 import static com.CrossingGuardJoe.controller.game.AuxCheckRange.isInRangeRightCarJoe;
+import static com.CrossingGuardJoe.controller.game.Sounds.playRandomSound;
 
 
 public class JoeController extends GameController {
@@ -20,9 +22,13 @@ public class JoeController extends GameController {
     private static final int JOE_MAX_X_DISTANCE = 414;
     private static final int JOE_STEP = 6;
     private static final int JOE_AFTER_HIT = 10;
+    private Sounds joePass1, joePass2;
 
     public JoeController(Road road) {
         super(road);
+        joePass1 = new Sounds("sounds/joe/JOEPASS1.wav");
+        joePass2 = new Sounds("sounds/joe/JOEPASS2.wav");
+        //playRandomSound(joePass1, joePass2);
     }
 
     private void moveJoe(int x, char direction) {
