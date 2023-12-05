@@ -43,8 +43,10 @@ public class MenuController extends Controller<Menu> {
                 }
                 if (getModel().isSelectedInstructions()) game.setState(new InstructionsMenuState(new InstructionsMenu()));
                 if (getModel().isSelectedCustomize()) game.setState(new CustomizeMenuState(new CustomizeMenu()));
-                if (getModel().isSelectedExit()) game.setState(null);
-
+                if (getModel().isSelectedExit()) {
+                    game.setState(null);
+                    System.exit(0);
+                }
         }
 
     }
