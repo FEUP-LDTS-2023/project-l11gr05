@@ -26,7 +26,6 @@ public class Sounds {
             Clip clip = AudioSystem.getClip();
             AudioInputStream ais = AudioSystem.getAudioInputStream(audioInputStream);
             clip.open(ais);
-            setVolume(clip, 0.5f);
             return clip;
         } catch (Exception e) {
             e.printStackTrace();
@@ -34,8 +33,9 @@ public class Sounds {
         }
     }
 
-    public void play() {
+    public void play(float volume) {
         if (!sound.isRunning()) {
+            setVolume(sound, volume);
             sound.setFramePosition(0);
             sound.start();
         }
