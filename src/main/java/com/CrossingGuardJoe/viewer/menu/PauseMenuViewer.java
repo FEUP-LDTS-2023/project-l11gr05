@@ -22,8 +22,7 @@ public class PauseMenuViewer extends Viewer<PauseMenu> implements MenuInformatio
             Position optionPosition = option.position();
 
             //options text
-            gui.drawText(new Position(optionPosition.getX(), optionPosition.getY()),
-                    option.name(), "#FFFFFF");
+            gui.drawText(optionPosition, option.name(), "#FFFFFF");
 
             if (getModel().isSelectedOption(i)) {
                 gui.drawImage(new Position(optionPosition.getX() - 15, optionPosition.getY()), ToolImages.ARROW_RIGHT);

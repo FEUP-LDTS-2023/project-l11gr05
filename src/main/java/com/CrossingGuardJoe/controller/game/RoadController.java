@@ -47,12 +47,17 @@ public class RoadController extends GameController {
             game.setState(new PauseMenuState(new PauseMenu(getModel())));
         }
         if (getModel().getJoe().getHearts() == 0) {
+            SoundsController.getInstance().stop(Sounds.SFX.GAMEBGM);
+            SoundsController.getInstance().stop(Sounds.SFX.CARBREAK);
             game.popState();
             game.setState(new GameOverState(new GameOverMenu(false, getModel())));
+            SoundsController.getInstance().play(Sounds.SFX.GAMEOVER);
         }
         if (getModel().isGameEnded()) {
+            SoundsController.getInstance().stop(Sounds.SFX.GAMEBGM);
             game.popState();
             game.setState(new GameOverState(new GameOverMenu(true, getModel())));
+            SoundsController.getInstance().play(Sounds.SFX.VICTORYBGM);
         }
     }
 }

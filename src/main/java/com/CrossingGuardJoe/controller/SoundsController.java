@@ -1,6 +1,5 @@
 package com.CrossingGuardJoe.controller;
 
-import java.util.Objects;
 import java.util.Random;
 
 import static com.CrossingGuardJoe.controller.Sounds.SFX;
@@ -12,6 +11,7 @@ public class SoundsController {
     private Sounds joePass1, joePass2, joeStop, joeHit;
     private Sounds kidWalk1, kidStop1, kidStop2, kidHit, kidScore;
     private Sounds carBreak;
+    private Sounds gameOver, victoryBgm;
 
     private float defaultVolume = 0.5f;
     private static SoundsController soundsController;
@@ -40,6 +40,9 @@ public class SoundsController {
         kidScore = new Sounds("sounds/game/kid/KIDSCORE.wav");
 
         carBreak = new Sounds("sounds/game/car/CARBREAK.wav");
+
+        gameOver = new Sounds("sounds/game/GAMEOVER.wav");
+        victoryBgm = new Sounds("sounds/bgm/VICTORYBGM.wav");
     }
 
     public static SoundsController getInstance() {
@@ -69,12 +72,15 @@ public class SoundsController {
             case KIDHIT -> kidHit.play(defaultVolume);
             case KIDSCORE -> kidScore.play(0.8f);
             case CARBREAK -> carBreak.play(defaultVolume);
+            case GAMEOVER -> gameOver.play(1f);
+            case VICTORYBGM -> victoryBgm.loop(1f);
         }
     }
 
     public void pause(SFX sfx) {
-        if (Objects.requireNonNull(sfx) == SFX.GAMEBGM) {
-            gameBgm.pause();
+        switch (sfx) {
+            case GAMEBGM -> gameBgm.pause();
+            case VICTORYBGM -> victoryBgm.pause();
         }
     }
 
@@ -84,6 +90,8 @@ public class SoundsController {
             case GAMEBGM -> gameBgm.stop();
             case CUSTOMIZEBGM -> customizeBgm.stop();
             case INSTRUCTIONSBGM -> instructionsBgm.stop();
+            case CARBREAK -> carBreak.stop();
+            case VICTORYBGM -> victoryBgm.stop();
         }
     }
 

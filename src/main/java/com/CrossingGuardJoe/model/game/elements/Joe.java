@@ -3,6 +3,7 @@ package com.CrossingGuardJoe.model.game.elements;
 public class Joe extends Element{
     private int Score;
     private int Hearts;
+    private static final int INITIAL_SCORE = 0;
     private static final int MAX_HEARTS = 10;
     private boolean walking = false;
     private boolean isWalkingToLeft = true;
@@ -15,7 +16,11 @@ public class Joe extends Element{
 
     public Joe(int x, int y) {
         super(x, y);
+<<<<<<< HEAD
         this.Score = 0;
+=======
+        this.Score = INITIAL_SCORE;
+>>>>>>> aca1e3d (added more sounds and refactored some code)
         this.Hearts = MAX_HEARTS;
     }
 

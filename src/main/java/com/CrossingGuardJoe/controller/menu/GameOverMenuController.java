@@ -2,6 +2,8 @@ package com.CrossingGuardJoe.controller.menu;
 
 import com.CrossingGuardJoe.Game;
 import com.CrossingGuardJoe.controller.Controller;
+import com.CrossingGuardJoe.controller.Sounds;
+import com.CrossingGuardJoe.controller.SoundsController;
 import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.menu.GameOverMenu;
 import com.CrossingGuardJoe.model.menu.PauseMenu;
@@ -19,12 +21,15 @@ public class GameOverMenuController extends Controller<GameOverMenu> {
     public void nextAction(Game game, GUI.ACTION action, long time) throws IOException {
         switch (action) {
             case UP:
+                SoundsController.getInstance().play(Sounds.SFX.SELECT);
                 getModel().navigateUp();
                 break;
             case DOWN:
+                SoundsController.getInstance().play(Sounds.SFX.SELECT);
                 getModel().navigateDown();
                 break;
             case SELECT:
+                SoundsController.getInstance().play(Sounds.SFX.ENTER);
                 if (getModel().isSelectedStats()) {
                     game.setState(new StatsMenuStates(new StatsMenu(
                                     getModel().getCurrentGame().getJoe().getScore(),
@@ -36,7 +41,14 @@ public class GameOverMenuController extends Controller<GameOverMenu> {
                     );
                 }
                 if (getModel().isSelectedExit()) {
-                    game.popState();
+                    if (getModel().isWin()) {
+                        SoundsController.getInstance().pause(Sounds.SFX.VICTORYBGM);
+                        game.popState();
+                        SoundsController.getInstance().play(Sounds.SFX.VICTORYBGM);
+                    } else {
+                        game.popState();
+                        SoundsController.getInstance().play(Sounds.SFX.MENUBGM);
+                    }
                 }
         }
     }
