@@ -30,18 +30,21 @@ public class RoadController extends GameController {
         kidController.nextAction(game, action, time);
         carController.nextAction(game, action, time);
 
+        if (getModel().getJoe().getScore() > game.getHighestScore()) {
+            game.setHighestScore(getModel().getJoe().getScore());
+        }
+        if (getModel().getCurrentLevel() > game.getHighestLevel()) {
+            game.setHighestLevel(getModel().getCurrentLevel());
+        }
+
+
         if (action == GUI.ACTION.ESC) {
             SoundsController.getInstance().stop(Sounds.SFX.BGM);
             game.setState(new PauseMenuState(new PauseMenu(getModel())));
         }
         if (getModel().getJoe().getHearts() == 0) {
             System.out.println("GAME OVER");
-            if (getModel().getJoe().getScore() < game.getHighestScore()) {
-                game.setHighestScore(getModel().getJoe().getScore());
-            }
-            if (getModel().getCurrentLevel() < game.getHighestLevel()) {
-                game.setHighestLevel(getModel().getCurrentLevel());
-            }
+
             game.popState();
         }
         if (getModel().isGameEnded()) {
