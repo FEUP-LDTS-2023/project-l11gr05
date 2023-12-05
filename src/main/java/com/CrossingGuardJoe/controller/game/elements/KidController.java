@@ -11,21 +11,18 @@ import com.CrossingGuardJoe.model.game.elements.Kid;
 import com.CrossingGuardJoe.Game;
 
 import java.util.*;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
 
 import static com.CrossingGuardJoe.controller.game.AuxCheckRange.isInRangeCarKid;
 import static com.CrossingGuardJoe.controller.game.AuxCheckRange.isInRangeJoeKid;
 import static com.CrossingGuardJoe.controller.game.Sounds.playRandomSound;
 
 public class KidController extends GameController {
-    private static final int INITIAL_POSITION = 430;
     private static final int KID_STEP = 3;
     private static final double KID_SPEED = 0.005;
     private static final int MIN_KID_DISTANCE = 9;
     private static final int PASS_POINT = 80;
     private static final int MIN_Y_DISTANCE = 0;
+    private static final int MAX_Y_DISTANCE = 500;
     private static final int Y_AFTER_HIT = 55;
     private long lastUpdateTime;
     private final Joe joe = getModel().getJoe();
@@ -95,9 +92,10 @@ public class KidController extends GameController {
     private void repositionQueue() {
         List<Kid> kids = getModel().getKids();
 
-        if (nextKidToMoveInQueueIndex < kids.size()) {
-            Kid kidToMoveInQueue = kids.get(nextKidToMoveInQueueIndex);
+        for (int i = nextKidToMoveInQueueIndex; i < kids.size(); i++) {
+            Kid kidToMoveInQueue = kids.get(i);
             int movesLeft = kidToMoveInQueue.getMovesInQueueLeft();
+
             if (movesLeft > 0) {
                 if (canContinueWalk(kidToMoveInQueue)) {
                     moveKid(kidToMoveInQueue);
@@ -219,7 +217,7 @@ public class KidController extends GameController {
     private void checkCountToNextLevel() {
         for (Kid kid : getModel().getKids()) {
             if (!kid.getCounted()) {
-                if (kid.getPass() || kid.getDeathCounted()) {
+                if (kid.getPass() || (kid.getDeathCounted() && kid.getPosition().getY() >= MAX_Y_DISTANCE)) {
                     countKidsToNextLevel++;
                     kid.setCountToNextLevel();
                 }
