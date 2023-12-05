@@ -11,18 +11,21 @@ import com.CrossingGuardJoe.model.game.elements.Kid;
 import com.CrossingGuardJoe.Game;
 
 import java.util.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 import static com.CrossingGuardJoe.controller.game.AuxCheckRange.isInRangeCarKid;
 import static com.CrossingGuardJoe.controller.game.AuxCheckRange.isInRangeJoeKid;
 import static com.CrossingGuardJoe.controller.game.Sounds.playRandomSound;
 
 public class KidController extends GameController {
+    private static final int INITIAL_POSITION = 430;
     private static final int KID_STEP = 3;
     private static final double KID_SPEED = 0.005;
     private static final int MIN_KID_DISTANCE = 9;
     private static final int PASS_POINT = 80;
     private static final int MIN_Y_DISTANCE = 0;
-    private static final int MAX_Y_DISTANCE = 500;
     private static final int Y_AFTER_HIT = 55;
     private long lastUpdateTime;
     private final Joe joe = getModel().getJoe();
@@ -30,7 +33,8 @@ public class KidController extends GameController {
     private final List<Kid> sentKids = new ArrayList<>();
     private int nextKidToMoveInQueueIndex;
     private boolean kidMovedInQueue = false;
-    private Sounds kidWalk1, kidWalk2, kidStop1, kidStop2, kidHit, carBreak;
+    private int countKidsToNextLevel = 0;
+    private final Sounds kidWalk1, kidStop1, kidStop2, kidHit, carBreak;
 
     public KidController(Road road) {
         super(road);
@@ -128,7 +132,7 @@ public class KidController extends GameController {
             selectedKid.setSelected();
         }
 
-        if (action == GUI.ACTION.DOWN && joeInRange) {
+        if (action == GUI.ACTION.DOWN && joeInRange && !selectedKid.getIsHit()) {
             selectedKid.setWalking();
             kidWalk1.play();
             if (!sentKids.contains(selectedKid)) {
@@ -164,15 +168,8 @@ public class KidController extends GameController {
         checkCollisions();
         checkPoints();
         checkLoss(); //temporary implemented
-        checkNextLevel();
-
-        if (countKidsToNextLevel == getModel().getKids().size()) {
-            countKidsToNextLevel = 0;
-            System.out.println("level pass");
-            getModel().levelUp();
-            getModel().setKidsNextLevel(nextLevelNumberKids());
-
-        }
+        checkCountToNextLevel();
+        checkLevelUp();
     }
 
     private void checkCollisions() {
@@ -213,13 +210,13 @@ public class KidController extends GameController {
 
     private void checkLoss() {
         if (joe.getHearts() == 0) {
+
             //temporary
             System.out.println("loss");
         }
     }
 
-    private int countKidsToNextLevel = 0;
-    private void checkNextLevel() {
+    private void checkCountToNextLevel() {
         for (Kid kid : getModel().getKids()) {
             if (!kid.getCounted()) {
                 if (kid.getPass() || kid.getDeathCounted()) {
@@ -232,13 +229,28 @@ public class KidController extends GameController {
 
     private int nextLevelNumberKids() {
         int currentLevel = getModel().getCurrentLevel();
-        switch (currentLevel) {
-            case 2:
-                return 4;
-            case 3:
-                return 5;
+        return switch (currentLevel) {
+            case 2 -> 4;
+            case 3 -> 5;
+            case 4 -> 6;
+            case 5 -> 7;
+            case 6 -> 8;
+            case 7 -> 9;
+            case 8 -> 10;
+            case 9 -> 11;
+            case 10 -> 12;
+            default -> 0;
+        };
+    }
+
+    private void checkLevelUp() {
+        if (countKidsToNextLevel == getModel().getKids().size()) {
+            countKidsToNextLevel = 0;
+            sentKids.clear();
+            System.out.println("level pass");
+            getModel().levelUp();
+            getModel().setKidsNextLevel(nextLevelNumberKids());
         }
-        return 0;
     }
 }
 

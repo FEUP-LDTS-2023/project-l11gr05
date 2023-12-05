@@ -4,6 +4,7 @@ import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.game.elements.Car;
 import com.CrossingGuardJoe.model.game.elements.Joe;
 import com.CrossingGuardJoe.model.game.elements.Kid;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,7 @@ public class RoadBuilder {
     private static final int DISTANCE_BETWEEN_CARS = 200;
     private static final int RANDOM_BOUND = 500;
     private static final int MAX_Y_DISTANCE = 500;
-    private static final int NUMBER_OF_KIDS = 3;
+    private static final int INITIAL_NUMBER_OF_KIDS = 3;
     private static final int KID_SPAWN_X = 430;
     private static final int KID_Y = 330;
     private static final int MIN_KID_DISTANCE = 9;
@@ -81,18 +82,15 @@ public class RoadBuilder {
     }
 
     private List<Kid> createKids() {
-        List<Kid> kids = new ArrayList<>();
-        int x = KID_SPAWN_X;
-
-        for (int i = 0; i < NUMBER_OF_KIDS; i++) {
-            Kid kid = new Kid(x, KID_Y);
-            kids.add(kid);
-            x += MIN_KID_DISTANCE;
-        }
-        return kids;
+        return getKids(INITIAL_NUMBER_OF_KIDS);
     }
 
     public List<Kid> createKidsNextLevel(int numberKids) {
+        return getKids(numberKids);
+    }
+
+    @NotNull
+    private List<Kid> getKids(int numberKids) {
         List<Kid> kids = new ArrayList<>();
         int x = KID_SPAWN_X;
 
