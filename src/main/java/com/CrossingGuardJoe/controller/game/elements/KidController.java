@@ -1,6 +1,7 @@
 package com.CrossingGuardJoe.controller.game.elements;
 
 import com.CrossingGuardJoe.controller.game.GameController;
+import com.CrossingGuardJoe.controller.game.Sounds;
 import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.game.Road;
@@ -13,6 +14,7 @@ import java.util.*;
 
 import static com.CrossingGuardJoe.controller.game.AuxCheckRange.isInRangeCarKid;
 import static com.CrossingGuardJoe.controller.game.AuxCheckRange.isInRangeJoeKid;
+import static com.CrossingGuardJoe.controller.game.Sounds.playRandomSound;
 
 public class KidController extends GameController {
     private static final int KID_STEP = 3;
@@ -28,10 +30,17 @@ public class KidController extends GameController {
     private final List<Kid> sentKids = new ArrayList<>();
     private int nextKidToMoveInQueueIndex;
     private boolean kidMovedInQueue = false;
+    private Sounds kidWalk1, kidWalk2, kidStop1, kidStop2, kidHit, carBreak;
 
     public KidController(Road road) {
         super(road);
         lastUpdateTime = System.currentTimeMillis();
+        kidWalk1 = new Sounds("sounds/kid/KIDWALK1.wav");
+        //kidWalk2 = new Sounds("sounds/kid/KIDWALK2.wav");
+        kidStop1 = new Sounds("sounds/kid/KIDSTOP1.wav");
+        kidStop2 = new Sounds("sounds/kid/KIDSTOP2.wav");
+        kidHit = new Sounds("sounds/kid/KIDHIT.wav");
+        carBreak = new Sounds("sounds/car/CARBREAK.wav");
     }
 
     public void moveKid(Kid kid) {
@@ -121,13 +130,14 @@ public class KidController extends GameController {
 
         if (action == GUI.ACTION.DOWN && joeInRange) {
             selectedKid.setWalking();
-
+            kidWalk1.play();
             if (!sentKids.contains(selectedKid)) {
                 sentKids.add(selectedKid);
                 nextKidToMoveInQueueIndex = kids.indexOf(selectedKid) + 1;
 
                 for (int i = nextKidToMoveInQueueIndex; i < kids.size(); i++) {
                     Kid kid = kids.get(i);
+                    stopKid(kid);
                     kid.addMovesInQueueLeft(3);
                 }
             }
@@ -135,6 +145,7 @@ public class KidController extends GameController {
 
         if (action == GUI.ACTION.UP && joeInRange) {
             selectedKid.setNotWalking();
+            playRandomSound(kidStop1, kidStop2);
         }
 
         if (time - lastUpdateTime > KID_SPEED && !kids.isEmpty()) {
@@ -184,6 +195,8 @@ public class KidController extends GameController {
 
     private void checkDeathCount(Kid kid) {
         if (!kid.getDeathCounted()) {
+            carBreak.play();
+            kidHit.play();
             joe.removeHeart();
             kid.setDead();
         }
