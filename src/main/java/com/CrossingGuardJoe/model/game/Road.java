@@ -11,12 +11,21 @@ public class Road {
     private List<Kid> kids;
     private List<Car> cars;
     private int currentLevel = 1;
+    private boolean gameEnded = false;
+
+    public boolean isGameEnded() {
+        return this.gameEnded;
+    }
 
     public int getCurrentLevel() { return this.currentLevel; }
 
     public void levelUp() {
         if (this.currentLevel < 10) {
             currentLevel++;
+        }
+
+        if (this.currentLevel == 10) {
+            gameEnded = true;
         }
     }
 

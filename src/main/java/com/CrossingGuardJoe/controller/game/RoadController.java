@@ -35,7 +35,7 @@ public class RoadController extends GameController {
             System.out.println("GAME OVER");
             game.popState();
         }
-        if (getModel().getCurrentLevel() > 10) {
+        if (getModel().isGameEnded()) {
             System.out.println("YOU COMPLETE");
             game.popState();
         }

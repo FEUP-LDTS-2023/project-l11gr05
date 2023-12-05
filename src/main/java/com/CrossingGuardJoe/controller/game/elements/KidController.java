@@ -167,7 +167,6 @@ public class KidController extends GameController {
 
         checkCollisions();
         checkPoints();
-        //checkLoss(); //temporary implemented
         checkCountToNextLevel();
         checkLevelUp();
     }
@@ -208,14 +207,6 @@ public class KidController extends GameController {
         }
     }
 
-    /*private void checkLoss() {
-        if (joe.getHearts() == 0) {
-
-            //temporary
-            System.out.println("loss");
-        }
-    }*/
-
     private void checkCountToNextLevel() {
         for (Kid kid : getModel().getKids()) {
             if (!kid.getCounted()) {
@@ -238,8 +229,7 @@ public class KidController extends GameController {
             case 7 -> 9;
             case 8 -> 10;
             case 9 -> 11;
-            case 10 -> 12;
-            default -> 0;
+            default -> 12;
         };
     }
 
