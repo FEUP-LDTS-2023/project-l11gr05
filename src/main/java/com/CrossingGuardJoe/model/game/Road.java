@@ -11,7 +11,7 @@ public class Road {
     private List<Kid> kids;
     private List<Car> cars;
     private int currentLevel = 1;
-    private boolean gameEnded = false;
+    private boolean gameEnded = true;
 
     public boolean isGameEnded() {
         return this.gameEnded;

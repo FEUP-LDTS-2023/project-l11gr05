@@ -14,7 +14,7 @@ public class PauseMenu implements MenuNavigator{
     public PauseMenu(Road currentGame) {
         this.currentGame = currentGame;
         this.options = Arrays.asList(
-                new Option("Resume", new Position(230, 220), null),
+                new Option("Resume", new Position(228, 220), null),
                 new Option("Stats", new Position(232, 260), null),
                 new Option("Exit", new Position(237, 300), null)
         );

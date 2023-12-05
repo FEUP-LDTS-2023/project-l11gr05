@@ -16,8 +16,8 @@ public class GameOverMenu implements MenuNavigator {
         this.isWin = isWin;
         this.currentGame = currentGame;
         this.options = Arrays.asList(
-                new Option("Stats", new Position(232, 260), null),
-                new Option("Exit", new Position(236, 300), null)
+                new Option("Stats", new Position(232, 270), null),
+                new Option("Exit", new Position(236, 310), null)
         );
     }
 
