@@ -7,8 +7,9 @@ import com.CrossingGuardJoe.model.game.elements.Joe;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class RoadBuilderTest {
@@ -22,4 +23,5 @@ public class RoadBuilderTest {
         assertNotNull(road.getKids());
         assertNotNull(road.getCars());
     }
+
 }

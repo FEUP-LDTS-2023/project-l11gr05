@@ -34,7 +34,7 @@ public class KidControllerTest {
 
         kidController.moveKid(kidMock);
 
-        verify(kidMock).isWalking();
+        verify(kidMock).setWalking();
         verify(kidMock).setPosition(new Position(3, 20));
     }
 
@@ -46,7 +46,7 @@ public class KidControllerTest {
 
         kidController.stopKid(kidMock);
 
-        verify(kidMock).isNotWalking();
+        verify(kidMock).setNotWalking();
         verify(kidMock, never()).setPosition(any(Position.class));
     }
 
@@ -57,7 +57,7 @@ public class KidControllerTest {
 
         kidController.KidAction(kidMock, initialPos, 'p');
 
-        verify(kidMock).isWalking();
+        verify(kidMock).setWalking();
         verify(kidMock).setPosition(initialPos);
     }
 
@@ -68,7 +68,7 @@ public class KidControllerTest {
 
         kidController.KidAction(kidMock, initialPos, 's');
 
-        verify(kidMock).isNotWalking();
+        verify(kidMock).setNotWalking();
         verify(kidMock, never()).setPosition(any(Position.class));
     }
 

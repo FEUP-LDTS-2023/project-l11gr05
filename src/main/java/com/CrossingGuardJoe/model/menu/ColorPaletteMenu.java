@@ -33,10 +33,6 @@ public class ColorPaletteMenu implements MenuNavigator{
         selectedColorIndex = (selectedColorIndex + 1) % colorPalette.size();
     }
 
-    public Color getSelectedColor() {
-        return colorPalette.get(selectedColorIndex);
-    }
-
     public boolean isColorSelected(int index) {
         return this.selectedColorIndex == index;
     }

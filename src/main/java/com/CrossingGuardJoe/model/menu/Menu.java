@@ -1,7 +1,5 @@
 package com.CrossingGuardJoe.model.menu;
 
-import com.CrossingGuardJoe.controller.Sounds;
-import com.CrossingGuardJoe.controller.SoundsController;
 import com.CrossingGuardJoe.model.Position;
 
 import java.util.Arrays;
@@ -48,12 +46,7 @@ public class Menu implements MenuNavigator{
 
     public boolean isSelectedCustomize() { return isSelectedOption(2); }
 
-
     public boolean isSelectedExit() { return isSelectedOption(3); }
-
-    public int getOptionSelected() {
-        return optionSelected;
-    }
 
     @Override
     public void navigateRight() {}
