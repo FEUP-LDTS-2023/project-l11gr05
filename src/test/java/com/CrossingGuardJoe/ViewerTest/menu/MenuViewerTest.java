@@ -1,4 +1,4 @@
-package com.CrossingGuardJoe.ViewerTest;
+package com.CrossingGuardJoe.ViewerTest.menu;
 
 import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.Position;

@@ -1,4 +1,4 @@
-package com.CrossingGuardJoe.ViewerTest;
+package com.CrossingGuardJoe.ViewerTest.menu;
 
 import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.Position;
@@ -10,9 +10,9 @@ import org.junit.jupiter.api.Test;
 import static org.mockito.Mockito.*;
 
 public class StatsMenuViewerTest {
-    private StatsMenu statsMenuMock;
-    private GUI guiMock;
-    private StatsMenuViewer statsMenuViewer;
+    StatsMenu statsMenuMock;
+    GUI guiMock;
+    StatsMenuViewer statsMenuViewer;
 
     String[] KEY_ESC = {
             "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
@@ -62,7 +62,6 @@ public class StatsMenuViewerTest {
 
     @Test
     void drawInformation() {
-        // Set up mock data for StatsMenu
         when(statsMenuMock.getCurrentScore()).thenReturn(500);
         when(statsMenuMock.getCurrentLevel()).thenReturn(3);
         when(statsMenuMock.getHighestScore()).thenReturn(1000);
@@ -85,7 +84,6 @@ public class StatsMenuViewerTest {
 
     @Test
     void drawElements() {
-        // Set up mock data for StatsMenu
         when(statsMenuMock.getCurrentScore()).thenReturn(500);
         when(statsMenuMock.getCurrentLevel()).thenReturn(3);
         when(statsMenuMock.getHighestScore()).thenReturn(1000);
