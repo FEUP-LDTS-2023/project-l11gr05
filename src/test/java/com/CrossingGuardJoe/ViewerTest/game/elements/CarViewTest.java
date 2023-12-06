@@ -19,9 +19,9 @@ import static org.mockito.Mockito.verify;
 
 public class CarViewTest {
 
-    Car car;
-    GUI gui;
-    Position position;
+    Car carMock;
+    GUI guiMock;
+    Position positionMock;
     CarView carView;
 
     String[] CAR_image = new String[]{
@@ -133,19 +133,19 @@ public class CarViewTest {
 
     @BeforeEach
     void init() {
-        car = Mockito.mock(Car.class);
-        position = Mockito.mock(Position.class);
-        Mockito.when(position.getX()).thenReturn(10);
-        Mockito.when(position.getY()).thenReturn(20);
-        Mockito.when(car.getPosition()).thenReturn(position);
-        gui = Mockito.mock(GUI.class);
+        carMock = Mockito.mock(Car.class);
+        positionMock = Mockito.mock(Position.class);
+        Mockito.when(positionMock.getX()).thenReturn(10);
+        Mockito.when(positionMock.getY()).thenReturn(20);
+        Mockito.when(carMock.getPosition()).thenReturn(positionMock);
+        guiMock = Mockito.mock(GUI.class);
         carView = Mockito.spy(CarView.class);
     }
 
     @Test
-    void testCarViewDraw() {
-        carView.draw(car, gui);
-        Mockito.verify(gui).drawImage(Mockito.any(Position.class), Mockito.eq(CAR_image));
+    void draw() {
+        carView.draw(carMock, guiMock);
+        Mockito.verify(guiMock).drawImage(Mockito.any(Position.class), Mockito.eq(CAR_image));
     }
 
 }

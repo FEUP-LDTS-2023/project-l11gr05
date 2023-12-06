@@ -18,9 +18,9 @@ import static org.mockito.Mockito.verify;
 
 public class KidViewTest {
 
-    Kid kid;
-    GUI gui;
-    Position position;
+    Kid kidMock;
+    GUI guiMock;
+    Position positionMock;
     KidView kidView;
 
     String[] KIDSTAND_IMAGE = new String[]{
@@ -225,60 +225,60 @@ public class KidViewTest {
 
     @BeforeEach
     void init() {
-        kid = Mockito.mock(Kid.class);
-        position = Mockito.mock(Position.class);
-        Mockito.when(position.getX()).thenReturn(10);
-        Mockito.when(position.getY()).thenReturn(20);
-        Mockito.when(kid.getPosition()).thenReturn(position);
-        gui = Mockito.mock(GUI.class);
+        kidMock = Mockito.mock(Kid.class);
+        positionMock = Mockito.mock(Position.class);
+        Mockito.when(positionMock.getX()).thenReturn(10);
+        Mockito.when(positionMock.getY()).thenReturn(20);
+        Mockito.when(kidMock.getPosition()).thenReturn(positionMock);
+        guiMock = Mockito.mock(GUI.class);
         kidView = Mockito.spy(KidView.class);
     }
 
     @Test
     void drawStand() {
-        Mockito.when(kid.getWalkingState()).thenReturn(false);
+        Mockito.when(kidMock.getWalkingState()).thenReturn(false);
 
-        kidView.draw(kid, gui);
+        kidView.draw(kidMock, guiMock);
 
-        Mockito.verify(gui).drawImage(Mockito.any(Position.class), Mockito.eq(KIDSTAND_IMAGE));
+        Mockito.verify(guiMock).drawImage(Mockito.any(Position.class), Mockito.eq(KIDSTAND_IMAGE));
     }
 
     @Test
     void drawWalkFirstHalf() {
-        Mockito.when(kid.getWalkingState()).thenReturn(true);
-        Mockito.when(kid.isFirstHalfOfMovement()).thenReturn(true);
+        Mockito.when(kidMock.getWalkingState()).thenReturn(true);
+        Mockito.when(kidMock.isFirstHalfOfMovement()).thenReturn(true);
 
-        kidView.draw(kid, gui);
+        kidView.draw(kidMock, guiMock);
 
-        Mockito.verify(gui).drawImage(Mockito.any(Position.class), Mockito.eq(KIDWALK_IMAGE));
+        Mockito.verify(guiMock).drawImage(Mockito.any(Position.class), Mockito.eq(KIDWALK_IMAGE));
     }
 
     @Test
     void drawWalkSecondHalf() {
-        Mockito.when(kid.getWalkingState()).thenReturn(true);
-        Mockito.when(kid.isFirstHalfOfMovement()).thenReturn(false);
+        Mockito.when(kidMock.getWalkingState()).thenReturn(true);
+        Mockito.when(kidMock.isFirstHalfOfMovement()).thenReturn(false);
 
-        kidView.draw(kid, gui);
+        kidView.draw(kidMock, guiMock);
 
-        Mockito.verify(gui).drawImage(Mockito.any(Position.class), Mockito.eq(KIDSTAND_IMAGE));
+        Mockito.verify(guiMock).drawImage(Mockito.any(Position.class), Mockito.eq(KIDSTAND_IMAGE));
     }
 
     @Test
     void drawHit() {
-        Mockito.when(kid.getIsHit()).thenReturn(true);
+        Mockito.when(kidMock.getIsHit()).thenReturn(true);
 
-        kidView.draw(kid, gui);
+        kidView.draw(kidMock, guiMock);
 
-        Mockito.verify(gui).drawImage(Mockito.any(Position.class), Mockito.eq(KIDHIT_IMAGE));
+        Mockito.verify(guiMock).drawImage(Mockito.any(Position.class), Mockito.eq(KIDHIT_IMAGE));
     }
 
     @Test
     void drawSelected() {
-        Mockito.when(kid.isSelected()).thenReturn(true);
+        Mockito.when(kidMock.isSelected()).thenReturn(true);
 
-        kidView.draw(kid, gui);
+        kidView.draw(kidMock, guiMock);
 
-        Mockito.verify(gui).drawImage(Mockito.any(Position.class), Mockito.eq(ARROWDOWN_IMAGE));
+        Mockito.verify(guiMock).drawImage(Mockito.any(Position.class), Mockito.eq(ARROWDOWN_IMAGE));
     }
 
 }
