@@ -90,7 +90,7 @@ public class CustomizeMenuViewer extends Viewer<CustomizeMenu> implements MenuIn
         gui.drawImage(new Position(4, 4), ToolImages.KEY_ESC);
     }
 
-    private void drawSelectionBox(GUI gui) {
+    public void drawSelectionBox(GUI gui) {
         gui.drawImage(new Position(40, 70), Shape.RectangleFilledGenerator(SELECTION_BOX_WIDTH, SELECTION_BOX_HEIGHT, 'K', 2, '$'));
         gui.drawImage(new Position(195, 70), Shape.RectangleFilledGenerator(SELECTION_BOX_WIDTH, SELECTION_BOX_HEIGHT, 'K', 2, '$'));
         gui.drawImage(new Position(350, 70), Shape.RectangleFilledGenerator(SELECTION_BOX_WIDTH, SELECTION_BOX_HEIGHT, 'K', 2, '$'));

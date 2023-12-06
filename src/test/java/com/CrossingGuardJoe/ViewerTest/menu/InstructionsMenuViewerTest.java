@@ -11,7 +11,6 @@ import com.CrossingGuardJoe.viewer.images.generator.Shape;
 import com.CrossingGuardJoe.viewer.menu.InstructionsMenuViewer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import static org.mockito.Mockito.*;
@@ -20,24 +19,6 @@ public class InstructionsMenuViewerTest {
     InstructionsMenu instructionsMenuMock;
     GUI guiMock;
     InstructionsMenuViewer instructionsMenuViewer;
-
-    String[] ARROW_DOWN = {
-            "$$$$$$$$$$$$$$$$",
-            "$$GGGGGGGGGGGG$$",
-            " $GGGGGGGGGGGG$ ",
-            " $$GGGGGGGGGG$$ ",
-            "  $$GGGGGGGG$$  ",
-            "   $GGGGGGGG$   ",
-            "   $$GGGGGG$$   ",
-            "    $GGGGGG$    ",
-            "    $$GGGG$$    ",
-            "     $GGGG$     ",
-            "     $$GG$$     ",
-            "      $GG$      ",
-            "      $$$$      ",
-            "       $$       ",
-            "       $$       ",
-    };
 
     String[] KEY_UP = {
             "  $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$  ",
@@ -253,38 +234,6 @@ public class InstructionsMenuViewerTest {
             "$$$$KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK$$$$",
             "  $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$  ",
             "  $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$  ",
-    };
-
-    String[] KEY_ESC = {
-            "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
-            "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
-            "$$KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK$$",
-            "$$KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK$$",
-            "$$KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK$$",
-            "$$KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK$$",
-            "$$KKKK$$$$$$$$KKKKKKKKKKKKKKKKKKKKKKK$$",
-            "$$KKKK$$$$$$$$KKKKKKKKKKKKKKKKKKKKKKK$$",
-            "$$KKKK$$KKKKKKKKKKKKKKKKKKKKKKKKKKKKK$$",
-            "$$KKKK$$KKKKKKKKKKKKKKKKKKKKKKKKKKKKK$$",
-            "$$KKKK$$KKKKKKKKKKKKKKKKKKKKKKKKKKKKK$$",
-            "$$KKKK$$KKKKKKKK$$$$$$$KK$$$$$$$$KKKK$$",
-            "$$KKKK$$KKKKKKKK$$$$$$$KK$$$$$$$$KKKK$$",
-            "$$KKKK$$$$$$$KKK$$KKKKKKK$$KKKKKKKKKK$$",
-            "$$KKKK$$$$$$$KKK$$KKKKKKK$$KKKKKKKKKK$$",
-            "$$KKKK$$KKKKKKKK$$KKKKKKK$$KKKKKKKKKK$$",
-            "$$KKKK$$KKKKKKKK$$$$$$$KK$$KKKKKKKKKK$$",
-            "$$KKKK$$KKKKKKKK$$$$$$$KK$$KKKKKKKKKK$$",
-            "$$KKKK$$KKKKKKKKKKKKK$$KK$$KKKKKKKKKK$$",
-            "$$KKKK$$KKKKKKKKKKKKK$$KK$$KKKKKKKKKK$$",
-            "$$KKKK$$KKKKKKKKKKKKK$$KK$$KKKKKKKKKK$$",
-            "$$KKKK$$$$$$$$KK$$$$$$$KK$$$$$$$$KKKK$$",
-            "$$KKKK$$$$$$$$KK$$$$$$$KK$$$$$$$$KKKK$$",
-            "$$KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK$$",
-            "$$KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK$$",
-            "$$KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK$$",
-            "$$KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK$$",
-            "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
-            "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
     };
 
     @BeforeEach
