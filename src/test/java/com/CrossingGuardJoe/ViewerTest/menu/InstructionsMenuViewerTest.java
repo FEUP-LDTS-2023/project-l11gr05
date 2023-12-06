@@ -3,7 +3,11 @@ package com.CrossingGuardJoe.ViewerTest.menu;
 import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.menu.InstructionsMenu;
+import com.CrossingGuardJoe.viewer.images.defined.CarImage;
+import com.CrossingGuardJoe.viewer.images.defined.HUDImages;
 import com.CrossingGuardJoe.viewer.images.defined.JoeImages;
+import com.CrossingGuardJoe.viewer.images.defined.KidImages;
+import com.CrossingGuardJoe.viewer.images.generator.Shape;
 import com.CrossingGuardJoe.viewer.menu.InstructionsMenuViewer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -292,29 +296,6 @@ public class InstructionsMenuViewerTest {
     }
 
     @Test
-    void elementsDraw() {
-        instructionsMenuViewer.drawTitle(guiMock);
-        verify(guiMock).drawText(Mockito.any(), Mockito.eq("Instructions"), Mockito.eq("#FFFFFF"));
-
-        for (int i = 0; i <= 5; i++) {
-
-            Mockito.when(instructionsMenuMock.getCurrentPage()).thenReturn(i);
-
-            instructionsMenuViewer.drawInformation(guiMock);
-
-            verify(guiMock).drawText(Mockito.any(), Mockito.eq("Page"), Mockito.eq("#FFFFFF"));
-            verify(guiMock).drawText(Mockito.any(), Mockito.eq("of"), Mockito.eq("#FFFFFF"));
-            verify(guiMock).drawText(Mockito.any(), Mockito.eq(5), Mockito.eq("#FFFFFF"));
-
-            if (i == 5) {
-                verify(guiMock).drawText(Mockito.any(), Mockito.eq(i), Mockito.eq("#D30000"));
-            } else {
-                verify(guiMock).drawText(Mockito.any(), Mockito.eq(i), Mockito.eq("#FFFFFF"));
-            }
-        }
-    }
-
-    @Test
     void titleDraw() {
         instructionsMenuViewer.drawTitle(guiMock);
 
@@ -335,39 +316,105 @@ public class InstructionsMenuViewerTest {
 
     @Test
     void informationLastPageDraw() {
-        Mockito.when(instructionsMenuMock.getCurrentPage()).thenReturn(3);
+        Mockito.when(instructionsMenuMock.getCurrentPage()).thenReturn(5);
 
         instructionsMenuViewer.drawInformation(guiMock);
 
         verify(guiMock).drawText(Mockito.any(), Mockito.eq("Page"), Mockito.eq("#FFFFFF"));
         verify(guiMock).drawText(Mockito.any(), Mockito.eq("of"), Mockito.eq("#FFFFFF"));
         verify(guiMock).drawText(Mockito.any(), Mockito.eq(5), Mockito.eq("#FFFFFF"));
-        verify(guiMock).drawText(Mockito.any(), Mockito.eq(3), Mockito.eq("#FFFFFF"));
+        verify(guiMock).drawText(Mockito.any(), Mockito.eq(5), Mockito.eq("#D30000"));
     }
 
     @Test
     void testDrawPageOne() {
-        Mockito.when(instructionsMenuMock.getCurrentPage()).thenReturn(1);
-        instructionsMenuViewer.drawElements(guiMock);
+        when(instructionsMenuMock.getCurrentPage()).thenReturn(1);
 
         instructionsMenuViewer.drawElements(guiMock);
 
-        // Verify text drawing at specific positions
-        Mockito.verify(guiMock, times(2)).drawText(Mockito.any(), eq("you are Joe"), eq("#FFFFFF"));
-        Mockito.verify(guiMock, times(2)).drawText(Mockito.any(), eq("a crossing guard"), eq("#FFFFFF"));
-        Mockito.verify(guiMock, times(2)).drawText(Mockito.any(), eq("click once to move"), eq("#FFFFFF"));
+        verify(guiMock).drawText(new Position(50, 100), "you are Joe", "#FFFFFF");
+        verify(guiMock).drawText(new Position(70, 120), "a crossing guard", "#FFFFFF");
+        verify(guiMock).drawText(new Position(50, 400), "click once to move", "#FFFFFF");
 
-        // Verify Joe images drawing
-        Mockito.verify(guiMock).drawImage(new Position(150, 190), JoeImages.JOE_STAND);
-        Mockito.verify(guiMock).drawImage(new Position(230, 190), JoeImages.JOE_WALKLEFT);
-        Mockito.verify(guiMock).drawImage(new Position(310, 190), JoeImages.JOE_WALKRIGHT);
+        verify(guiMock).drawImage(new Position(150, 190), JoeImages.JOE_STAND);
+        verify(guiMock).drawImage(new Position(230, 190), JoeImages.JOE_WALKLEFT);
+        verify(guiMock).drawImage(new Position(310, 190), JoeImages.JOE_WALKRIGHT);
 
-        // Verify key images drawing
-        Mockito.verify(guiMock).drawImage(new Position(235, 310), KEY_LEFT);
-        Mockito.verify(guiMock).drawImage(new Position(315, 310), KEY_RIGHT);
-
-        // Verify that no other methods are called on the GUI mock
-        Mockito.verifyNoMoreInteractions(guiMock);
+        verify(guiMock).drawImage(new Position(235, 310), KEY_LEFT);
+        verify(guiMock).drawImage(new Position(315, 310), KEY_RIGHT);
     }
+
+    @Test
+    void testDrawPageTwo() {
+        when(instructionsMenuMock.getCurrentPage()).thenReturn(2);
+
+        instructionsMenuViewer.drawElements(guiMock);
+
+        verify(guiMock).drawText(new Position(50, 100), "you will help", "#FFFFFF");
+        verify(guiMock).drawText(new Position(70, 120), "the kids to cross the road", "#FFFFFF");
+        verify(guiMock).drawText(new Position(50, 400), "click once to order", "#FFFFFF");
+
+        verify(guiMock).drawImage(new Position(170, 180), JoeImages.JOE_STOP);
+        verify(guiMock).drawImage(new Position(290, 180), JoeImages.JOE_PASS);
+
+        verify(guiMock).drawImage(new Position(200, 220), KidImages.KID_STAND);
+        verify(guiMock).drawImage(new Position(280, 220), KidImages.KID_WALK);
+
+        verify(guiMock).drawImage(new Position(180, 310), KEY_UP);
+        verify(guiMock).drawImage(new Position(295, 310), KEY_DOWN);
+    }
+
+    @Test
+    void testDrawPageThree() {
+        when(instructionsMenuMock.getCurrentPage()).thenReturn(3);
+
+        instructionsMenuViewer.drawElements(guiMock);
+
+        verify(guiMock).drawText(new Position(50, 100), "be careful", "#FFFFFF");
+        verify(guiMock).drawText(new Position(70, 120), "with rude drivers", "#FFFFFF");
+
+        verify(guiMock).drawImage(new Position(150, 195), CarImage.CAR);
+        verify(guiMock).drawImage(new Position(280, 195), CarImage.CAR);
+
+        verify(guiMock).drawImage(new Position(190, 245), KidImages.KID_HIT);
+        verify(guiMock).drawImage(new Position(320, 215), JoeImages.JOE_HITRIGHT);
+    }
+
+    @Test
+    void testDrawPageFour() {
+        when(instructionsMenuMock.getCurrentPage()).thenReturn(4);
+
+        instructionsMenuViewer.drawElements(guiMock);
+
+        verify(guiMock).drawText(new Position(50, 100), "if you lose a kid", "#FFFFFF");
+        verify(guiMock).drawText(new Position(70, 120), "you lose hp", "#FFFFFF");
+
+        verify(guiMock).drawImage(new Position(199, 229), Shape.RectangleFilledGenerator(202, 39, ' ', 2, '$'));
+        verify(guiMock).drawImage(new Position(200, 230), HUDImages.HP_BAR_SLICE);
+
+        int expectedX = 208;
+        for (int i = 0; i < 3; i++) {
+            verify(guiMock).drawImage(new Position(expectedX, 234), HUDImages.HP);
+            expectedX += 25;
+        }
+    }
+
+    @Test
+    void testDrawPageFive() {
+        when(instructionsMenuMock.getCurrentPage()).thenReturn(5);
+
+        instructionsMenuViewer.drawElements(guiMock);
+
+        verify(guiMock).drawText(new Position(50, 100), "try to get", "#FFFFFF");
+        verify(guiMock).drawText(new Position(70, 120), "maximum score", "#FFFFFF");
+
+        int SCORE_BAR_X = 185;
+        int SCORE_BAR_Y = 230;
+
+        verify(guiMock).drawImage(new Position(SCORE_BAR_X - 1, SCORE_BAR_Y - 1), Shape.RectangleFilledGenerator(266, 39, ' ', 2, '$'));
+        verify(guiMock).drawImage(new Position(SCORE_BAR_X, SCORE_BAR_Y), HUDImages.SCORE_BAR_SLICE);
+        verify(guiMock).drawText(new Position(SCORE_BAR_X + 90, SCORE_BAR_Y + 10), 2590, "#FFFFFF");
+    }
+
 
 }
