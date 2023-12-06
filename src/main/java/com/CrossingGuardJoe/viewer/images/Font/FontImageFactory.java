@@ -46,7 +46,7 @@ public class FontImageFactory {
         return output;
     }
 
-    public String[] getNumberImage(int number) {
+    private String[] getNumberImage(int number) {
         String numberString = Integer.toString(number);
 
         StringBuilder[] result = new StringBuilder[16];
