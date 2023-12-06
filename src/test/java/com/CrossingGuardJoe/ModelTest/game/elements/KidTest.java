@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class KidTest {
+
     @Test
     public void testSetWalking() {
         Kid kid = new Kid(0, 0);
