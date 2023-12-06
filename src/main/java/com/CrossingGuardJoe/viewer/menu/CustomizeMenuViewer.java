@@ -18,7 +18,7 @@ public class CustomizeMenuViewer extends Viewer<CustomizeMenu> implements MenuIn
     }
 
     @Override
-    protected void drawElements(GUI gui) {
+    public void drawElements(GUI gui) {
         drawTitle(gui);
         drawInformation(gui);
         drawSelectionBox(gui);

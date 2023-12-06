@@ -12,7 +12,7 @@ public class StatsMenuViewer extends Viewer<StatsMenu> implements MenuInformatio
     }
 
     @Override
-    protected void drawElements(GUI gui) {
+    public void drawElements(GUI gui) {
         drawTitle(gui);
         drawInformation(gui);
     }
