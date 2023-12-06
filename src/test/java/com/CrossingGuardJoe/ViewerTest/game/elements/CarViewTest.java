@@ -23,6 +23,7 @@ public class CarViewTest {
     GUI gui;
     Position position;
     CarView carView;
+
     String[] CAR_image = new String[]{
             "                                    $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$                                    ",
             "                                    $@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@$                                    ",
