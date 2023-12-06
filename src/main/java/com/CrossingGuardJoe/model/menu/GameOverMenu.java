@@ -56,6 +56,10 @@ public class GameOverMenu implements MenuNavigator {
         return currentGame;
     }
 
+    public int getOptionSelected() {
+        return this.optionSelected;
+    }
+
     @Override
     public void navigateRight() {
 
