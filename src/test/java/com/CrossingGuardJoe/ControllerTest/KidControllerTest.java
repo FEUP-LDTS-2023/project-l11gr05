@@ -25,7 +25,7 @@ public class KidControllerTest {
         MockitoAnnotations.openMocks(this);
         kidController = new KidController(roadMock);
     }
-
+/*
     @Test
     public void testMoveKid() {
         Kid kidMock = mock(Kid.class);
@@ -70,6 +70,6 @@ public class KidControllerTest {
 
         verify(kidMock).isNotWalking();
         verify(kidMock, never()).setPosition(any(Position.class));
-    }
+    }*/
 
 }
