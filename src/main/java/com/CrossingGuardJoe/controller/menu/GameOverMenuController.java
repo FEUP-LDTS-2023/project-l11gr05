@@ -42,13 +42,10 @@ public class GameOverMenuController extends Controller<GameOverMenu> {
                 }
                 if (getModel().isSelectedExit()) {
                     if (getModel().isWin()) {
-                        SoundsController.getInstance().pause(Sounds.SFX.VICTORYBGM);
-                        game.popState();
-                        SoundsController.getInstance().play(Sounds.SFX.VICTORYBGM);
-                    } else {
-                        game.popState();
-                        SoundsController.getInstance().play(Sounds.SFX.MENUBGM);
+                        SoundsController.getInstance().stop(Sounds.SFX.VICTORYBGM);
                     }
+                    game.popState();
+                    SoundsController.getInstance().play(Sounds.SFX.MENUBGM);
                 }
         }
     }
