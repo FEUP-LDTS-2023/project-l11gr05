@@ -12,7 +12,7 @@ public class MenuViewer extends Viewer<Menu> implements MenuInformationDrawer {
     public MenuViewer(Menu menu) { super(menu); }
 
     @Override
-    protected void drawElements(GUI gui) {
+    public void drawElements(GUI gui) {
         drawTitle(gui);
 
         for (int i = 0; i < getModel().getNumberOptions(); i++) {
