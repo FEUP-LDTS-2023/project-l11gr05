@@ -14,7 +14,7 @@ public class PauseMenuViewer extends Viewer<PauseMenu> implements MenuInformatio
     }
 
     @Override
-    protected void drawElements(GUI gui) {
+    public void drawElements(GUI gui) {
         drawTitle(gui);
 
         for (int i = 0; i < getModel().getNumberOptions(); i++) {

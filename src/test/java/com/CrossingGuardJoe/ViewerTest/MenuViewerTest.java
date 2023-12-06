@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.mockito.Mockito.*;
 
-public class MenuViewTest {
+public class MenuViewerTest {
     Menu menuMock;
     GUI guiMock;
     Position positionMock;
