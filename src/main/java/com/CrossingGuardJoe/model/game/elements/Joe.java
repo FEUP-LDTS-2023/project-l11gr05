@@ -19,11 +19,7 @@ public class Joe extends Element{
 
     public Joe(int x, int y) {
         super(x, y);
-<<<<<<< HEAD
-        this.Score = 0;
-=======
         this.Score = INITIAL_SCORE;
->>>>>>> aca1e3d (added more sounds and refactored some code)
         this.Hearts = MAX_HEARTS;
     }
 
