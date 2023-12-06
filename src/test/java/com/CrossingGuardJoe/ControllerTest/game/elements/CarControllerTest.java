@@ -1,4 +1,4 @@
-package com.CrossingGuardJoe.ControllerTest;
+package com.CrossingGuardJoe.ControllerTest.game.elements;
 
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.game.Road;
