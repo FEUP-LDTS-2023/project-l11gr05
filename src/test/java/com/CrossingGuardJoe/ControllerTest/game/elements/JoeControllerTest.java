@@ -3,6 +3,7 @@ package com.CrossingGuardJoe.ControllerTest.game.elements;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+import com.CrossingGuardJoe.Game;
 import com.CrossingGuardJoe.controller.Sounds;
 import com.CrossingGuardJoe.controller.SoundsController;
 import com.CrossingGuardJoe.controller.game.GameController;
@@ -31,19 +32,18 @@ public class JoeControllerTest {
     private Car car;
     private RoadBuilder roadBuilder;
     private RoadController roadController;
-    private GameController gameController;
+    private Position position;
 
     @BeforeEach
     void setUp() {
-        gameController = Mockito.mock(GameController.class);
         roadBuilder = Mockito.mock(RoadBuilder.class);
         road = Mockito.mock(Road.class);
         roadController = Mockito.mock(RoadController.class);
-        joeController = new JoeController(road);
         joe = Mockito.mock(Joe.class);
-
+        joe.setPosition(new Position(390, 297));
+        road.setJoe(joe);
         when(road.getJoe()).thenReturn(joe);
-
+        joeController = new JoeController(road);
     }
 
 
@@ -55,22 +55,22 @@ public class JoeControllerTest {
 
         // Test action UP
         joeController.nextAction(null, GUI.ACTION.UP, 0);
-        verify(joe, times(1)).startRaisingStopSign();
+        verify(joeController.getModel().getJoe(), times(1)).startRaisingStopSign();
 
         // Reset mock
-        reset(joe);
+        reset(joeController.getModel().getJoe());
 
         // Test action DOWN
         joeController.nextAction(null, GUI.ACTION.DOWN, 0);
-        verify(joe, times(1)).startRaisingPassSign();
+        verify(joeController.getModel().getJoe(), times(1)).startRaisingPassSign();
 
         // Reset mock
-        reset(joe);
+        reset(joeController.getModel().getJoe());
 
-        /*// Test action LEFT
+        // Test action LEFT
         joeController.nextAction(null, GUI.ACTION.LEFT, 0);
-        verify(joe, times(1)).startWalkingToLeft();
-        verify(joe, times(1)).setPosition(any());
+        verify(joeController.getModel().getJoe(), times(1)).startWalkingToLeft();
+        verify(joeController.getModel().getJoe(), times(1)).setPosition(any());
 
         // Reset mock
         reset(joe);
@@ -81,6 +81,6 @@ public class JoeControllerTest {
         verify(joe, times(1)).setPosition(any());
 
         // Reset mock
-        reset(joe);*/
+        reset(joe);
     }
 }
