@@ -21,5 +21,5 @@ public abstract class Viewer<T> {
         gui.refreshScreen();
     }
 
-    protected abstract void drawElements(GUI gui);
+    public abstract void drawElements(GUI gui);
 }

@@ -16,7 +16,7 @@ public class GameOverViewer extends Viewer<GameOverMenu> implements MenuInformat
     }
 
     @Override
-    protected void drawElements(GUI gui) {
+    public void drawElements(GUI gui) {
         drawTitle(gui);
         drawInformation(gui);
 

@@ -13,7 +13,7 @@ public class InstructionsMenuViewer extends Viewer<InstructionsMenu> implements 
     }
 
     @Override
-    protected void drawElements(GUI gui) {
+    public void drawElements(GUI gui) {
         drawTitle(gui);
         drawInformation(gui);
 

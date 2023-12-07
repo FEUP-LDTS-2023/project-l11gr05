@@ -1,4 +1,4 @@
-package com.CrossingGuardJoe.ViewerTest;
+package com.CrossingGuardJoe.ViewerTest.menu;
 
 import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.Position;
@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.mockito.Mockito.*;
 
-public class MenuViewTest {
+public class MenuViewerTest {
     Menu menuMock;
     GUI guiMock;
     Position positionMock;
