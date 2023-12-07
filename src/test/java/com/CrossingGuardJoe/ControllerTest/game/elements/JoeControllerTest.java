@@ -22,7 +22,7 @@ public class JoeControllerTest {
     private Car car;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         road = new Road();
         joe = Mockito.mock(Joe.class);
         road.setJoe(joe);
@@ -35,7 +35,7 @@ public class JoeControllerTest {
 
 
     @Test
-    void nextActionTest() {
+    public void nextActionTest() {
         Position initialPosition = new Position(390, 297);
         joe.setPosition(initialPosition);
         when(joe.getPosition()).thenReturn(initialPosition);
@@ -71,7 +71,7 @@ public class JoeControllerTest {
         long initialTime = System.currentTimeMillis();
         Position initialPosition = new Position(54, 297);
         joe.setPosition(initialPosition);
-        when(joe.getPosition()).thenReturn(initialPosition);;
+        when(joe.getPosition()).thenReturn(initialPosition);
         when(car.getPosition()).thenReturn(new Position(400, 297));
         joeController.nextAction(null, GUI.ACTION.LEFT, initialTime);
     }
