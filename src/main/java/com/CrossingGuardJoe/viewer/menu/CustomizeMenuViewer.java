@@ -33,16 +33,14 @@ public class CustomizeMenuViewer extends Viewer<CustomizeMenu> implements MenuIn
                 Position optionPosition = option.position();
 
                 // Column selected box drawer (green)
-                if (getModel().isSelectedElement(i)) {
-                    if (getModel().isSelectedJoeCustomize()) {
-                        gui.drawImage(new Position(40, 70), Shape.RectangleFilledGenerator(SELECTION_BOX_WIDTH, SELECTION_BOX_HEIGHT, ' ', 2, 'G'));
-                    }
-                    else if (getModel().isSelectedKidsCustomize()) {
-                        gui.drawImage(new Position(195, 70), Shape.RectangleFilledGenerator(SELECTION_BOX_WIDTH, SELECTION_BOX_HEIGHT, ' ', 2, 'G'));
-                    }
-                    else if (getModel().isSelectedCarsCustomize()) {
-                        gui.drawImage(new Position(350, 70), Shape.RectangleFilledGenerator(SELECTION_BOX_WIDTH, SELECTION_BOX_HEIGHT, ' ', 2, 'G'));
-                    }
+                if (getModel().isSelectedJoeCustomize()) {
+                    gui.drawImage(new Position(40, 70), Shape.RectangleFilledGenerator(SELECTION_BOX_WIDTH, SELECTION_BOX_HEIGHT, ' ', 2, 'G'));
+                }
+                else if (getModel().isSelectedKidsCustomize()) {
+                    gui.drawImage(new Position(195, 70), Shape.RectangleFilledGenerator(SELECTION_BOX_WIDTH, SELECTION_BOX_HEIGHT, ' ', 2, 'G'));
+                }
+                else if (getModel().isSelectedCarsCustomize()) {
+                    gui.drawImage(new Position(350, 70), Shape.RectangleFilledGenerator(SELECTION_BOX_WIDTH, SELECTION_BOX_HEIGHT, ' ', 2, 'G'));
                 }
 
                 // Draw the options images (Joe, Kid and Car) and the text shadows (black)
@@ -63,21 +61,7 @@ public class CustomizeMenuViewer extends Viewer<CustomizeMenu> implements MenuIn
 
         drawElementsColorSquare(gui);
         drawColorsPalette(gui);
-
-        if (getModel().isColorPaletteSelected()) {
-            for (int i = 0; i < getModel().getColorPaletteMenu().getColorPalette().size(); i++) {
-                if (getModel().getColorPaletteMenu().isColorSelected(i)) {
-                    gui.drawImage(new Position(15 * i + 55, 405), ToolImages.ARROW_DOWN);
-                }
-            }
-        }
-
-        char oldColor = getModel().getOldColor();
-        char newColor = getModel().getNewColor();
-        if (oldColor != '\uFFFF') {
-            gui.addColorMapping(oldColor, newColor);
-        }
-
+        addColorMap(gui);
     }
 
     @Override
@@ -90,7 +74,7 @@ public class CustomizeMenuViewer extends Viewer<CustomizeMenu> implements MenuIn
         gui.drawImage(new Position(4, 4), ToolImages.KEY_ESC);
     }
 
-    public void drawSelectionBox(GUI gui) {
+    private void drawSelectionBox(GUI gui) {
         gui.drawImage(new Position(40, 70), Shape.RectangleFilledGenerator(SELECTION_BOX_WIDTH, SELECTION_BOX_HEIGHT, 'K', 2, '$'));
         gui.drawImage(new Position(195, 70), Shape.RectangleFilledGenerator(SELECTION_BOX_WIDTH, SELECTION_BOX_HEIGHT, 'K', 2, '$'));
         gui.drawImage(new Position(350, 70), Shape.RectangleFilledGenerator(SELECTION_BOX_WIDTH, SELECTION_BOX_HEIGHT, 'K', 2, '$'));
@@ -113,6 +97,22 @@ public class CustomizeMenuViewer extends Viewer<CustomizeMenu> implements MenuIn
 
             initialXBoard += 15;
             iniitialXFill += 30;
+        }
+
+        if (getModel().isColorPaletteSelected()) {
+            for (int i = 0; i < getModel().getColorPaletteMenu().getColorPalette().size(); i++) {
+                if (getModel().getColorPaletteMenu().isColorSelected(i)) {
+                    gui.drawImage(new Position(15 * i + 55, 405), ToolImages.ARROW_DOWN);
+                }
+            }
+        }
+    }
+
+    private void addColorMap(GUI gui) {
+        char oldColor = getModel().getOldColor();
+        char newColor = getModel().getNewColor();
+        if (oldColor != '\uFFFF') {
+            gui.addColorMapping(oldColor, newColor);
         }
     }
 
