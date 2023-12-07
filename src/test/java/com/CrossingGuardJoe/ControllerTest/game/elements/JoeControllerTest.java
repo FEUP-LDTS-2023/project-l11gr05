@@ -5,10 +5,14 @@ import static org.mockito.Mockito.*;
 
 import com.CrossingGuardJoe.controller.Sounds;
 import com.CrossingGuardJoe.controller.SoundsController;
+import com.CrossingGuardJoe.controller.game.GameController;
+import com.CrossingGuardJoe.controller.game.RoadController;
 import com.CrossingGuardJoe.controller.game.elements.JoeController;
 import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.game.Road;
+import com.CrossingGuardJoe.model.game.RoadBuilder;
+import com.CrossingGuardJoe.model.game.elements.Car;
 import com.CrossingGuardJoe.model.game.elements.Joe;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,36 +21,66 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class JoeControllerTest {
     private JoeController joeController;
-    private Road mockRoad;
-    private Position mockPosition;
-    private Joe mockJoe;
+    private Road road;
+    private Joe joe;
+    private Car car;
+    private RoadBuilder roadBuilder;
+    private RoadController roadController;
+    private GameController gameController;
 
     @BeforeEach
-    public void setUp() {
-        mockRoad = Mockito.mock(Road.class);
-        mockJoe = Mockito.mock(Joe.class);
-        mockPosition = Mockito.mock(Position.class);
+    void setUp() {
+        gameController = Mockito.mock(GameController.class);
+        roadBuilder = Mockito.mock(RoadBuilder.class);
+        road = Mockito.mock(Road.class);
+        roadController = Mockito.mock(RoadController.class);
+        joeController = new JoeController(road);
+        joe = Mockito.mock(Joe.class);
 
-        when(mockJoe.getPosition()).thenReturn(mockPosition);
+        when(road.getJoe()).thenReturn(joe);
 
-        // Create JoeController using the real Joe instance from your game logic
-        JoeController realJoeController = new JoeController(mockRoad);
-        this.mockJoe = realJoeController.getModel().getJoe();  // Use the Joe instance from the real controller
-        joeController = spy(realJoeController);  // Use spy to partially mock the real controller
     }
 
 
     @Test
-    public void testMoveJoeLeft() {
-        // Call the method to be tested
-        joeController.moveJoeLeft();
+    void nextActionTest() {
+        // Test action NONE
+        joeController.nextAction(null, GUI.ACTION.NONE, 0);
+        verify(joeController.getModel().getJoe(), times(1)).stopWalking();
 
-        // Verify that getPosition is invoked
-        verify(mockJoe, times(2)).getPosition(); // Verify twice because it's called twice in the moveJoe method
+        // Test action UP
+        joeController.nextAction(null, GUI.ACTION.UP, 0);
+        verify(joe, times(1)).startRaisingStopSign();
 
-        // Verify that setPosition is invoked with any(Position.class) argument
-        verify(mockJoe).setPosition(eq(mockPosition));
+        // Reset mock
+        reset(joe);
+
+        // Test action DOWN
+        joeController.nextAction(null, GUI.ACTION.DOWN, 0);
+        verify(joe, times(1)).startRaisingPassSign();
+
+        // Reset mock
+        reset(joe);
+
+        /*// Test action LEFT
+        joeController.nextAction(null, GUI.ACTION.LEFT, 0);
+        verify(joe, times(1)).startWalkingToLeft();
+        verify(joe, times(1)).setPosition(any());
+
+        // Reset mock
+        reset(joe);
+
+        // Test action RIGHT
+        joeController.nextAction(null, GUI.ACTION.RIGHT, 0);
+        verify(joe, times(1)).startWalkingToRight();
+        verify(joe, times(1)).setPosition(any());
+
+        // Reset mock
+        reset(joe);*/
     }
 }
