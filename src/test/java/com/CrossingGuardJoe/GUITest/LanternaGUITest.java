@@ -3,6 +3,7 @@ package com.CrossingGuardJoe.GUITest;
 import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.gui.LanternaGUI;
 import com.CrossingGuardJoe.model.Position;
+import com.CrossingGuardJoe.viewer.images.Font.FontImageFactory;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
