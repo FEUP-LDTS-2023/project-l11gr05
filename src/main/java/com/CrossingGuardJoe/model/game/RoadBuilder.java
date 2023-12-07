@@ -1,6 +1,5 @@
 package com.CrossingGuardJoe.model.game;
 
-import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.game.elements.Car;
 import com.CrossingGuardJoe.model.game.elements.Joe;
 import com.CrossingGuardJoe.model.game.elements.Kid;
