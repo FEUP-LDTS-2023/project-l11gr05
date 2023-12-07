@@ -1,4 +1,4 @@
-package com.CrossingGuardJoe.ViewerTest;
+package com.CrossingGuardJoe.ViewerTest.elements;
 
 import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.gui.LanternaGUI;
