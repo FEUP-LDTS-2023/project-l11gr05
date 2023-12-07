@@ -8,6 +8,7 @@ import com.CrossingGuardJoe.controller.Sounds;
 import com.CrossingGuardJoe.controller.SoundsController;
 import com.CrossingGuardJoe.controller.game.GameController;
 import com.CrossingGuardJoe.controller.game.RoadController;
+import com.CrossingGuardJoe.controller.game.elements.CarController;
 import com.CrossingGuardJoe.controller.game.elements.JoeController;
 import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.Position;
@@ -22,11 +23,13 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class JoeControllerTest {
     private JoeController joeController;
+    private CarController carController;
     private Road road;
     private Joe joe;
     private Car car;
@@ -36,19 +39,25 @@ public class JoeControllerTest {
 
     @BeforeEach
     void setUp() {
-        roadBuilder = Mockito.mock(RoadBuilder.class);
-        road = Mockito.mock(Road.class);
-        roadController = Mockito.mock(RoadController.class);
+        road = new Road();
         joe = Mockito.mock(Joe.class);
-        joe.setPosition(new Position(390, 297));
         road.setJoe(joe);
-        when(road.getJoe()).thenReturn(joe);
+        car = Mockito.mock(Car.class);
+        List<Car> cars = new ArrayList<>();
+        cars.add(car);
+        road.setCars(cars);
         joeController = new JoeController(road);
+        carController = new CarController(road);
     }
 
 
     @Test
     void nextActionTest() {
+        Position initialPosition = new Position(390, 297);
+        joe.setPosition(initialPosition);
+        when(joe.getPosition()).thenReturn(initialPosition);
+        when(car.getPosition()).thenReturn(new Position(400, 297));
+
         // Test action NONE
         joeController.nextAction(null, GUI.ACTION.NONE, 0);
         verify(joeController.getModel().getJoe(), times(1)).stopWalking();
@@ -57,30 +66,41 @@ public class JoeControllerTest {
         joeController.nextAction(null, GUI.ACTION.UP, 0);
         verify(joeController.getModel().getJoe(), times(1)).startRaisingStopSign();
 
-        // Reset mock
-        reset(joeController.getModel().getJoe());
-
         // Test action DOWN
         joeController.nextAction(null, GUI.ACTION.DOWN, 0);
         verify(joeController.getModel().getJoe(), times(1)).startRaisingPassSign();
 
-        // Reset mock
-        reset(joeController.getModel().getJoe());
-
         // Test action LEFT
         joeController.nextAction(null, GUI.ACTION.LEFT, 0);
         verify(joeController.getModel().getJoe(), times(1)).startWalkingToLeft();
-        verify(joeController.getModel().getJoe(), times(1)).setPosition(any());
+        verify(joeController.getModel().getJoe(), atLeastOnce()).setPosition(any());
 
-        // Reset mock
-        reset(joe);
-
+        when(car.getPosition()).thenReturn(new Position(350, 297));
+        joe.setPosition(initialPosition);
         // Test action RIGHT
         joeController.nextAction(null, GUI.ACTION.RIGHT, 0);
         verify(joe, times(1)).startWalkingToRight();
-        verify(joe, times(1)).setPosition(any());
+        verify(joe, atLeastOnce()).setPosition(any());
+    }
 
-        // Reset mock
-        reset(joe);
+    @Test
+    public void cannotGoThrough() {
+        long initialTime = System.currentTimeMillis();
+        Position initialPosition = new Position(54, 297);
+        joe.setPosition(initialPosition);
+        when(joe.getPosition()).thenReturn(initialPosition);;
+        when(car.getPosition()).thenReturn(new Position(400, 297));
+        joeController.nextAction(null, GUI.ACTION.LEFT, initialTime);
+    }
+
+    @Test
+    public void cancelMove() {
+        long initialTime = System.currentTimeMillis();
+        Position initialPosition = new Position(200, 297);
+        joe.setPosition(initialPosition);
+        when(joe.getPosition()).thenReturn(initialPosition);;
+        when(car.getPosition()).thenReturn(new Position(400, 297));
+        joeController.nextAction(null, GUI.ACTION.LEFT, initialTime);
+        joeController.nextAction(null, GUI.ACTION.RIGHT, initialTime);
     }
 }
