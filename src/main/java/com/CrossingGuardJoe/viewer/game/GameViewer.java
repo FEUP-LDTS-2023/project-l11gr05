@@ -17,15 +17,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GameViewer extends Viewer<Road> implements RoadView{
-    private GUI gui;
     public GameViewer(Road model) {
         super(model);
     }
 
     @Override
     public void drawElements(GUI gui) {
-        this.gui = gui;
-        drawRoad();
+        drawRoad(gui);
 
         List<Car> carsCopy;
         synchronized (getModel().getCars()) {
@@ -50,32 +48,28 @@ public class GameViewer extends Viewer<Road> implements RoadView{
     }
 
     @Override
-    public void drawRoad() {
-        drawRoadLines();
-        drawRoadItems();
+    public void drawRoad(GUI gui) {
+        drawRoadLines(gui);
+        drawRoadItems(gui);
     }
 
     @Override
-    public void drawRoadLines() {
+    public void drawRoadLines(GUI gui) {
         int ROAD_START_Y = 38;
 
-        //boards
         gui.setColorHexaCode("#C0BBB1");
         gui.fillRectangle(new Position(0, ROAD_START_Y),150, 500 - ROAD_START_Y);
         gui.fillRectangle(new Position(850, ROAD_START_Y), 150, 500 - ROAD_START_Y);
 
-        //crossing line
         int iniX = 167;
         for (int i = 0; i < 834 - iniX - 15; i += 24) {
             gui.fillRectangle(new Position(iniX + i, 368), 16, 50);
         }
 
-        //road middle lines
         gui.fillRectangle(new Position(326, ROAD_START_Y), 4, 302);
         gui.fillRectangle(new Position(500, ROAD_START_Y), 4, 302);
         gui.fillRectangle(new Position(674, ROAD_START_Y), 4, 302);
 
-        //details (line boards)
         gui.setColorHexaCode("#3D3638");
         gui.fillRectangle(new Position(150, ROAD_START_Y), 2, 500 - ROAD_START_Y);
         gui.fillRectangle(new Position(154, ROAD_START_Y), 2, 500 - ROAD_START_Y);
@@ -85,12 +79,12 @@ public class GameViewer extends Viewer<Road> implements RoadView{
     }
 
     @Override
-    public void drawRoadItems() {
+    public void drawRoadItems(GUI gui) {
         gui.drawImage(new Position(426, 258), RoadItemsImages.SIGNAL);
         gui.drawImage(new Position(55, 258), RoadItemsImages.SIGNAL);
     }
 
-    private void drawHUD(GUI gui) {
+   private void drawHUD(GUI gui) {
         gui.drawImage(new Position(0, 0), HUDImages.GAME_HUD);
 
         gui.drawText(new Position(164, 10), getModel().getJoe().getScore(), "#FFFFFF");
