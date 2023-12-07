@@ -1,41 +1,25 @@
 package com.CrossingGuardJoe.ControllerTest.game.elements;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-import com.CrossingGuardJoe.Game;
-import com.CrossingGuardJoe.controller.Sounds;
-import com.CrossingGuardJoe.controller.SoundsController;
-import com.CrossingGuardJoe.controller.game.GameController;
-import com.CrossingGuardJoe.controller.game.RoadController;
-import com.CrossingGuardJoe.controller.game.elements.CarController;
 import com.CrossingGuardJoe.controller.game.elements.JoeController;
 import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.game.Road;
-import com.CrossingGuardJoe.model.game.RoadBuilder;
 import com.CrossingGuardJoe.model.game.elements.Car;
 import com.CrossingGuardJoe.model.game.elements.Joe;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class JoeControllerTest {
     private JoeController joeController;
-    private CarController carController;
     private Road road;
     private Joe joe;
     private Car car;
-    private RoadBuilder roadBuilder;
-    private RoadController roadController;
-    private Position position;
 
     @BeforeEach
     void setUp() {
@@ -47,7 +31,6 @@ public class JoeControllerTest {
         cars.add(car);
         road.setCars(cars);
         joeController = new JoeController(road);
-        carController = new CarController(road);
     }
 
 
