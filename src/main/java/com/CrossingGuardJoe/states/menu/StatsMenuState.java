@@ -7,8 +7,8 @@ import com.CrossingGuardJoe.states.State;
 import com.CrossingGuardJoe.viewer.Viewer;
 import com.CrossingGuardJoe.viewer.menu.StatsMenuViewer;
 
-public class StatsMenuStates extends State<StatsMenu> {
-    public StatsMenuStates(StatsMenu model) {
+public class StatsMenuState extends State<StatsMenu> {
+    public StatsMenuState(StatsMenu model) {
         super(model);
     }
 

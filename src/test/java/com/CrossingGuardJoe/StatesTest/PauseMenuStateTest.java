@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 
-public class PauseMenuTest {
+public class PauseMenuStateTest {
     private PauseMenu pauseMenu;
     private PauseMenuState pauseMenuState;
 

@@ -6,7 +6,7 @@ import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.game.Road;
 import com.CrossingGuardJoe.model.game.elements.Joe;
 import com.CrossingGuardJoe.model.menu.PauseMenu;
-import com.CrossingGuardJoe.states.menu.StatsMenuStates;
+import com.CrossingGuardJoe.states.menu.StatsMenuState;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -75,7 +75,7 @@ public class PauseMenuControllerTest {
         verify(pauseMenu, times(2)).getCurrentGame();
         verify(game).getHighestScore();
         verify(game).getHighestLevel();
-        verify(game).setState(any(StatsMenuStates.class));
+        verify(game).setState(any(StatsMenuState.class));
     }
 
     @Test

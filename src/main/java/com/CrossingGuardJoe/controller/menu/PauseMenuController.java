@@ -7,7 +7,7 @@ import com.CrossingGuardJoe.controller.SoundsController;
 import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.menu.PauseMenu;
 import com.CrossingGuardJoe.model.menu.StatsMenu;
-import com.CrossingGuardJoe.states.menu.StatsMenuStates;
+import com.CrossingGuardJoe.states.menu.StatsMenuState;
 
 import java.io.IOException;
 
@@ -34,7 +34,7 @@ public class PauseMenuController extends Controller<PauseMenu> {
                     game.popState();
                 }
                 if (getModel().isSelectedStats()) {
-                    game.setState(new StatsMenuStates(new StatsMenu(
+                    game.setState(new StatsMenuState(new StatsMenu(
                                 getModel().getCurrentGame().getJoe().getScore(),
                                 getModel().getCurrentGame().getCurrentLevel(),
                                 game.getHighestScore(),
