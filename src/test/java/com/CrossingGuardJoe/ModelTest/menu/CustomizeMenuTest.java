@@ -88,6 +88,7 @@ public class CustomizeMenuTest {
         List<List<Option>> menuLevels = customizeMenu.getMenuLevels();
 
         assertNotNull(menuLevels);
+        assertFalse(menuLevels.isEmpty());
     }
 
     @Test

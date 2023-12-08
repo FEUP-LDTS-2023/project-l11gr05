@@ -33,6 +33,7 @@ public class MenuTest {
         menu.navigateUp();
         assertTrue(menu.isSelectedStartGame());
         menu.navigateUp();
+        assertFalse(menu.isSelectedStartGame());
         assertTrue(menu.isSelectedExit());
     }
 
@@ -49,6 +50,7 @@ public class MenuTest {
         menu.navigateDown();
         assertTrue(menu.isSelectedStartGame());
         menu.navigateDown();
+        assertFalse(menu.isSelectedStartGame());
         assertTrue(menu.isSelectedInstructions());
     }
 
