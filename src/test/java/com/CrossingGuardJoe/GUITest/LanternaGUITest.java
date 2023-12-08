@@ -15,7 +15,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -31,11 +30,9 @@ public class LanternaGUITest {
 
     @BeforeEach
     public void setUp() throws IOException, URISyntaxException, FontFormatException {
-        lanternaGUI = new LanternaGUI(80, 24);
-
         textGraphicsMock = Mockito.mock(TextGraphics.class);
         screenMock = Mockito.mock(Screen.class);
-
+        lanternaGUI = new LanternaGUI(10, 20);
         lanternaGUI.setGraphics(textGraphicsMock);
         lanternaGUI.setScreen(screenMock);
     }

@@ -20,6 +20,7 @@ public class Game {
 
     public Game() throws IOException, URISyntaxException, FontFormatException {
         gui = new LanternaGUI(1000, 500);
+        gui.createTerminal();
         stateStack = new Stack<>();
         stateStack.push(new MenuState(new Menu()));
     }

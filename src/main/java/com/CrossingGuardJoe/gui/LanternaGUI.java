@@ -16,6 +16,7 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
+import org.w3c.dom.Text;
 
 import java.awt.*;
 import java.io.File;
@@ -33,7 +34,14 @@ public class LanternaGUI implements GUI {
     public LanternaGUI(int width, int height) throws IOException, URISyntaxException, FontFormatException {
         this.width = width;
         this.height = height;
-        createTerminal();
+    }
+
+    public TextGraphics getGraphics() {
+        return this.graphics;
+    }
+
+    public Screen getScreen() {
+        return this.screen;
     }
 
     public void setGraphics(TextGraphics graphics) {
@@ -44,7 +52,7 @@ public class LanternaGUI implements GUI {
         this.screen = screen;
     }
 
-    private void createTerminal() throws IOException, URISyntaxException, FontFormatException {
+    public void createTerminal() throws IOException, URISyntaxException, FontFormatException {
         AWTTerminalFontConfiguration fontConfig = loadSquareFont();
 
         TerminalSize terminalSize = new TerminalSize(width, height);
