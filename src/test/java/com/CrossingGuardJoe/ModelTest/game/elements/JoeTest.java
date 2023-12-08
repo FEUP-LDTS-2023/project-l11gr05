@@ -25,6 +25,10 @@ public class JoeTest {
         Joe joe = new Joe(0, 0);
         joe.removeHeart();
         assertEquals(9, joe.getHearts());
+        for (int i = 9; i >= 0; i--) {
+            joe.removeHeart();
+        }
+        assertEquals(0, joe.getHearts());
     }
 
     @Test
@@ -96,9 +100,11 @@ public class JoeTest {
     @Test
     public void testCountHitPoints() {
         Joe joe = new Joe(0, 0);
-        joe.addScore(50);
+        joe.addScore(2);
         joe.countHitPoints();
-        assertEquals(48, joe.getScore());
+        assertEquals(0, joe.getScore());
+        joe.countHitPoints();
+        assertEquals(0, joe.getScore());
     }
 
     @Test
