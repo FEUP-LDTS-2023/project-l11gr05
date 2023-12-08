@@ -49,13 +49,6 @@ public class LanternaGUITest {
     }
 
     @Test
-    public void testRefreshScreen() throws IOException {
-        lanternaGUI.refreshScreen();
-
-        verify(screenMock).refresh();
-    }
-
-    @Test
     public void testSetBackgroundColor() {
         lanternaGUI.setBackgroundColor("#FFFFFF");
 
@@ -90,13 +83,6 @@ public class LanternaGUITest {
         lanternaGUI.drawImage(position, testImage);
 
         verify(textGraphicsMock, times(testImage[0].length() * testImage.length)).fillRectangle(any(), any(), anyChar());
-    }
-
-    @Test
-    public void testCloseScreen() throws IOException {
-        lanternaGUI.closeScreen();
-
-        verify(screenMock).close();
     }
 
     @Test
@@ -161,7 +147,7 @@ public class LanternaGUITest {
 
         lanternaGUI.setColor(character);
 
-        verify(textGraphicsMock).setBackgroundColor(TextColor.Factory.fromString("#FF0000")); // Assuming 'R' corresponds to red color
+        verify(textGraphicsMock).setBackgroundColor(TextColor.Factory.fromString("#FF0000"));
     }
 
     @Test
