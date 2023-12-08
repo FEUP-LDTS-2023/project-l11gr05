@@ -6,6 +6,7 @@ import com.CrossingGuardJoe.viewer.images.generator.Shape;
 import com.CrossingGuardJoe.viewer.images.defined.CarImage;
 import com.CrossingGuardJoe.viewer.images.defined.JoeImages;
 import com.CrossingGuardJoe.viewer.images.defined.KidImages;
+import com.groupcdg.pitest.annotations.DoNotMutate;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,7 +23,7 @@ public class CustomizeMenu implements MenuNavigator{
     private char oldColor;
     private char newColor;
 
-
+    @DoNotMutate
     public CustomizeMenu() {
         this.menuLevels = new ArrayList<>();
         this.colorPaletteMenu = new ColorPaletteMenu();

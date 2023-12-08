@@ -17,6 +17,7 @@ public class CustomizeMenuTest {
         customizeMenu.navigateLeft(); // Move to Joe submenu
         assertTrue(customizeMenu.isSelectedJoeCustomize());
 
+        customizeMenu.navigateUp();
         assertTrue(customizeMenu.isSelectedJoeCap());
 
         customizeMenu.navigateDown(); // Move to Joe Clothes
@@ -46,8 +47,10 @@ public class CustomizeMenuTest {
 
         // Select Cars submenu options
         customizeMenu.navigateRight(); // Move to Cars submenu
+        customizeMenu.navigateRight();
         assertTrue(customizeMenu.isSelectedCarsCustomize());
 
+        customizeMenu.navigateDown();
         assertTrue(customizeMenu.isSelectedCarsBody());
     }
 
