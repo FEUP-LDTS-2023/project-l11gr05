@@ -15,7 +15,17 @@ public class AuxCheckRangeTest {
         Joe joe = new Joe(10, 20);
         Kid kid = new Kid(15, 25);
 
-        assertTrue(AuxCheckRange.isInRangeJoeKid(joe, kid), "Joe should be in range of Kid");
+        assertTrue(AuxCheckRange.isInRangeJoeKid(joe, kid));
+
+        joe = new Joe(100, 20);
+        kid = new Kid(15, 25);
+
+        assertFalse(AuxCheckRange.isInRangeJoeKid(joe, kid));
+
+        joe = new Joe(10, 20);
+        kid = new Kid(150, 25);
+
+        assertFalse(AuxCheckRange.isInRangeJoeKid(joe, kid));
     }
 
     @Test
@@ -23,7 +33,12 @@ public class AuxCheckRangeTest {
         Car car = new Car(10, 20);
         Kid kid = new Kid(15, 25);
 
-        assertTrue(AuxCheckRange.isInRangeCarKid(car, kid), "Car should be in range of Kid");
+        assertTrue(AuxCheckRange.isInRangeCarKid(car, kid));
+
+        car = new Car(100, 20);
+        kid = new Kid(15, 25);
+
+        assertFalse(AuxCheckRange.isInRangeCarKid(car, kid));
     }
 
     @Test
@@ -31,7 +46,12 @@ public class AuxCheckRangeTest {
         Car car = new Car(10, 20);
         Joe joe = new Joe(15, 25);
 
-        assertTrue(AuxCheckRange.isInRangeLeftCarJoe(car, joe), "Car should be in range of Joe on the left side");
+        assertTrue(AuxCheckRange.isInRangeLeftCarJoe(car, joe));
+
+        car = new Car(10, 20);
+        joe = new Joe(150, 25);
+
+        assertFalse(AuxCheckRange.isInRangeLeftCarJoe(car, joe));
     }
 
     @Test
@@ -39,6 +59,11 @@ public class AuxCheckRangeTest {
         Car car = new Car(30, 20);
         Joe joe = new Joe(25, 25);
 
-        assertTrue(AuxCheckRange.isInRangeRightCarJoe(car, joe), "Car should be in range of Joe on the right side");
+        assertTrue(AuxCheckRange.isInRangeRightCarJoe(car, joe));
+
+        car = new Car(300, 20);
+        joe = new Joe(25, 25);
+
+        assertFalse(AuxCheckRange.isInRangeRightCarJoe(car, joe));
     }
 }
