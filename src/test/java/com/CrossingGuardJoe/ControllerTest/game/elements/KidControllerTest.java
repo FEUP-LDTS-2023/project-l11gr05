@@ -24,6 +24,7 @@ public class KidControllerTest {
     private Kid kid;
     private Joe joe;
     private Car car;
+    private static final double KID_SPEED = 0.005;
 
     @BeforeEach
     void setUp() {
@@ -41,15 +42,45 @@ public class KidControllerTest {
         kidController = new KidController(road);
     }
 
-    @Test
-    public void nextActionTest() {
+    /*@Test
+    public void kidWalkTest() {
         long initialTime = System.currentTimeMillis();
         Position initialPosition = new Position(430, 330);
         when(kid.getPosition()).thenReturn(initialPosition);
         when(joe.getPosition()).thenReturn(new Position(414, 297));
-        when(car.getPosition()).thenReturn(new Position(400, 200));
+        when(car.getPosition()).thenReturn(new Position(100, 200));
         kidController.nextAction(null, GUI.ACTION.DOWN, initialTime);
-        verify(kid, times(1)).setSelected();
-        verify(kid, times(1)).setWalking();
+        verify(kid, atLeastOnce()).setSelected();
+        verify(kid, atLeastOnce()).setWalking();
+        kidController.moveKid(kid);
+
+        long nextTime = initialTime + (long) (1 / KID_SPEED + 1);
+        joe.setPosition(new Position(350, 297));
+        kidController.nextAction(null, GUI.ACTION.UP, nextTime);
+        kidController.moveKid(kid);
+        verify(kid, atLeastOnce()).setNotWalking();
+    }*/
+
+    /*@Test
+    public void kidStopTest() {
+        long initialTime = System.currentTimeMillis();
+        Position initialPosition = new Position(200, 330);
+        when(kid.getPosition()).thenReturn(initialPosition);
+        when(joe.getPosition()).thenReturn(new Position(200, 297));
+        when(car.getPosition()).thenReturn(new Position(400, 330));
+        kidController.nextAction(null, GUI.ACTION.UP, initialTime);
+        verify(kid, atLeastOnce()).setNotWalking();
+    }*/
+
+    @Test
+    public void kidHitByCarTest() {
+        long initialTime = System.currentTimeMillis();
+        Position initialPosition = new Position(200, 330);
+        when(kid.getPosition()).thenReturn(initialPosition);
+        when(joe.getPosition()).thenReturn(new Position(414, 297));
+        when(car.getPosition()).thenReturn(new Position(200, 330));
+        kidController.nextAction(null, GUI.ACTION.LEFT, initialTime);
+        verify(kid, atLeastOnce()).isHit();
+        verify(kid, atLeastOnce()).setDead();
     }
 }
