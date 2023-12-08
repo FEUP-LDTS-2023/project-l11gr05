@@ -102,29 +102,4 @@ public class CustomizeMenuViewerTest {
         verify(guiMock).drawImage(new Position(4, 4), KEY_ESC);
     }
 
-    /*@Test
-    public void testDrawElements() {
-        when(optionMock.name()).thenReturn("");
-        when(optionMock.position()).thenReturn(new Position(10, 20));
-        when(optionMock.image()).thenReturn(JoeImages.JOE_PASS);
-        when(customizeMenuMock.getMenuLevels().get(0)).thenReturn(Arrays.asList(optionMock));
-        when(customizeMenuMock.isSelectedJoeCustomize()).thenReturn(true);
-
-
-        int SELECTION_BOX_WIDTH = 235;
-        int SELECTION_BOX_HEIGHT = 300;
-
-        customizeMenuViewer.drawElements(guiMock);
-
-
-        verify(guiMock).drawImage(new Position(40, 70), Shape.RectangleFilledGenerator(SELECTION_BOX_WIDTH, SELECTION_BOX_HEIGHT, ' ', 2, 'G'));
-
-
-        verify(guiMock).drawImage(new Position(40, 70), Shape.RectangleFilledGenerator(SELECTION_BOX_WIDTH, SELECTION_BOX_HEIGHT, 'K', 2, '$'));
-        verify(guiMock).drawImage(new Position(195, 70), Shape.RectangleFilledGenerator(SELECTION_BOX_WIDTH, SELECTION_BOX_HEIGHT, 'K', 2, '$'));
-        verify(guiMock).drawImage(new Position(350, 70), Shape.RectangleFilledGenerator(SELECTION_BOX_WIDTH, SELECTION_BOX_HEIGHT, 'K', 2, '$'));
-
-    }*/
-
-
 }
