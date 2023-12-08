@@ -2,11 +2,8 @@ package com.CrossingGuardJoe.ControllerTest.menu;
 
 import com.CrossingGuardJoe.Game;
 import com.CrossingGuardJoe.controller.menu.InstructionsMenuController;
-import com.CrossingGuardJoe.controller.menu.MenuController;
 import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.menu.InstructionsMenu;
-import com.CrossingGuardJoe.model.menu.Menu;
-import com.CrossingGuardJoe.states.menu.MenuState;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
