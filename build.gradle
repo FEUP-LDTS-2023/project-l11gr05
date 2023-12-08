@@ -17,6 +17,7 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter'
     implementation group: 'com.googlecode.lanterna', name: 'lanterna', version: '3.1.1'
     testImplementation 'org.mockito:mockito-core:3.7.7'
+    implementation 'com.groupcdg:pitest-annotations:1.1.2'
 }
 
 test {
@@ -29,5 +30,6 @@ application {
 
 pitest {
     junit5PluginVersion = '1.2.0'
+    excludedClasses = ['com.CrossingGuardJoe.Game', 'com.CrossingGuardJoe.controller.Sounds', 'com.CrossingGuardJoe.controller.SoundsController']
 }
 

@@ -16,6 +16,7 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
+import com.groupcdg.pitest.annotations.DoNotMutate;
 import org.w3c.dom.Text;
 
 import java.awt.*;
@@ -44,6 +45,7 @@ public class LanternaGUI implements GUI {
         this.screen = screen;
     }
 
+    @DoNotMutate
     public void createTerminal() throws IOException, URISyntaxException, FontFormatException {
         AWTTerminalFontConfiguration fontConfig = loadSquareFont();
 
@@ -65,6 +67,7 @@ public class LanternaGUI implements GUI {
         refreshScreen();
     }
 
+    @DoNotMutate
     private AWTTerminalFontConfiguration loadSquareFont() throws URISyntaxException, FontFormatException, IOException {
         URL resource = getClass().getClassLoader().getResource("fonts/VCR_OSD_MONO_1.001.ttf");
         File fontFile = new File(resource.toURI());
