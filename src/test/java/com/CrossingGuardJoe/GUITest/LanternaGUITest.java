@@ -197,7 +197,8 @@ public class LanternaGUITest {
                 .thenReturn(arrowDown)
                 .thenReturn(enter)
                 .thenReturn(escape)
-                .thenReturn(eof);
+                .thenReturn(eof)
+                .thenReturn(null);
 
         assertEquals(GUI.ACTION.LEFT, lanternaGUI.getNextAction());
         assertEquals(GUI.ACTION.RIGHT, lanternaGUI.getNextAction());
@@ -206,8 +207,9 @@ public class LanternaGUITest {
         assertEquals(GUI.ACTION.SELECT, lanternaGUI.getNextAction());
         assertEquals(GUI.ACTION.ESC, lanternaGUI.getNextAction());
         assertEquals(GUI.ACTION.QUIT, lanternaGUI.getNextAction());
+        assertEquals(GUI.ACTION.NONE, lanternaGUI.getNextAction());
 
-        verify(screenMock, times(7)).pollInput();
+        verify(screenMock, times(8)).pollInput();
     }
 
 }
