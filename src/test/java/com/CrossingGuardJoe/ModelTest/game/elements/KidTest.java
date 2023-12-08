@@ -13,6 +13,10 @@ public class KidTest {
         Kid kid = new Kid(0, 0);
         kid.setWalking();
         assertTrue(kid.getWalkingState());
+        assertFalse(kid.getIsHit());
+        assertFalse(kid.getDeathCounted());
+        assertFalse(kid.getCounted());
+        assertFalse(kid.getPass());
     }
 
     @Test
@@ -22,6 +26,10 @@ public class KidTest {
         kid.setNotWalking();
         assertFalse(kid.getWalkingState());
         assertTrue(kid.isFirstHalfOfMovement());
+        assertFalse(kid.getIsHit());
+        assertFalse(kid.getDeathCounted());
+        assertFalse(kid.getCounted());
+        assertFalse(kid.getPass());
     }
 
     @Test
@@ -29,6 +37,10 @@ public class KidTest {
         Kid kid = new Kid(0, 0);
         kid.setSelected();
         assertTrue(kid.isSelected());
+        assertFalse(kid.getIsHit());
+        assertFalse(kid.getDeathCounted());
+        assertFalse(kid.getCounted());
+        assertFalse(kid.getPass());
     }
 
     @Test
@@ -37,6 +49,10 @@ public class KidTest {
         kid.setSelected();
         kid.setNotSelected();
         assertFalse(kid.isSelected());
+        assertFalse(kid.getIsHit());
+        assertFalse(kid.getDeathCounted());
+        assertFalse(kid.getCounted());
+        assertFalse(kid.getPass());
     }
 
     @Test
@@ -45,6 +61,7 @@ public class KidTest {
         kid.isHit();
         assertTrue(kid.getIsHit());
         assertFalse(kid.isSelected());
+        assertFalse(kid.getCounted());
     }
 
     @Test
@@ -52,6 +69,7 @@ public class KidTest {
         Kid kid = new Kid(0, 0);
         kid.setDead();
         assertTrue(kid.getDeathCounted());
+        assertFalse(kid.getCounted());
     }
 
     @Test
@@ -66,6 +84,8 @@ public class KidTest {
         Kid kid = new Kid(0, 0);
         kid.setPass();
         assertTrue(kid.getPass());
+        assertFalse(kid.getIsHit());
+        assertFalse(kid.getDeathCounted());
     }
 
     @Test
@@ -73,6 +93,8 @@ public class KidTest {
         Kid kid = new Kid(0, 0);
         kid.setCountToNextLevel();
         assertTrue(kid.getCounted());
+        assertFalse(kid.getIsHit());
+        assertFalse(kid.getDeathCounted());
     }
 
     @Test
