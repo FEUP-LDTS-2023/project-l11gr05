@@ -14,7 +14,6 @@ import com.googlecode.lanterna.screen.Screen;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import org.mockito.stubbing.OngoingStubbing;
 
 import javax.swing.*;
 import java.awt.*;
@@ -163,6 +162,52 @@ public class LanternaGUITest {
         lanternaGUI.setColor(character);
 
         verify(textGraphicsMock).setBackgroundColor(TextColor.Factory.fromString("#FF0000")); // Assuming 'R' corresponds to red color
+    }
+
+    @Test
+    public void testGetNextAction() throws IOException {
+        Screen screenMock = mock(Screen.class);
+        lanternaGUI.setScreen(screenMock);
+
+        KeyStroke arrowLeft = mock(KeyStroke.class);
+        when(arrowLeft.getKeyType()).thenReturn(KeyType.ArrowLeft);
+
+        KeyStroke arrowRight = mock(KeyStroke.class);
+        when(arrowRight.getKeyType()).thenReturn(KeyType.ArrowRight);
+
+        KeyStroke arrowUp = mock(KeyStroke.class);
+        when(arrowUp.getKeyType()).thenReturn(KeyType.ArrowUp);
+
+        KeyStroke arrowDown = mock(KeyStroke.class);
+        when(arrowDown.getKeyType()).thenReturn(KeyType.ArrowDown);
+
+        KeyStroke enter = mock(KeyStroke.class);
+        when(enter.getKeyType()).thenReturn(KeyType.Enter);
+
+        KeyStroke escape = mock(KeyStroke.class);
+        when(escape.getKeyType()).thenReturn(KeyType.Escape);
+
+        KeyStroke eof = mock(KeyStroke.class);
+        when(eof.getKeyType()).thenReturn(KeyType.EOF);
+
+        when(screenMock.pollInput())
+                .thenReturn(arrowLeft)
+                .thenReturn(arrowRight)
+                .thenReturn(arrowUp)
+                .thenReturn(arrowDown)
+                .thenReturn(enter)
+                .thenReturn(escape)
+                .thenReturn(eof);
+
+        assertEquals(GUI.ACTION.LEFT, lanternaGUI.getNextAction());
+        assertEquals(GUI.ACTION.RIGHT, lanternaGUI.getNextAction());
+        assertEquals(GUI.ACTION.UP, lanternaGUI.getNextAction());
+        assertEquals(GUI.ACTION.DOWN, lanternaGUI.getNextAction());
+        assertEquals(GUI.ACTION.SELECT, lanternaGUI.getNextAction());
+        assertEquals(GUI.ACTION.ESC, lanternaGUI.getNextAction());
+        assertEquals(GUI.ACTION.QUIT, lanternaGUI.getNextAction());
+
+        verify(screenMock, times(7)).pollInput();
     }
 
 }
