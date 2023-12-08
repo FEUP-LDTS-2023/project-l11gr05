@@ -1,7 +1,7 @@
 plugins {
     id 'java'
     id 'application'
-    id 'info.solidsoft.pitest' version '1.6.0'
+    id 'info.solidsoft.pitest' version '1.15.0'
 }
 
 group = 'com.CrossingGuardJoe'
@@ -17,7 +17,6 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter'
     implementation group: 'com.googlecode.lanterna', name: 'lanterna', version: '3.1.1'
     testImplementation 'org.mockito:mockito-core:3.7.7'
-    testImplementation 'junit:junit:4.13.1'
 }
 
 test {
@@ -30,5 +29,5 @@ application {
 
 pitest {
     junit5PluginVersion = '1.2.0'
-    pitestVersion = '1.15.0'
 }
+
