@@ -18,7 +18,7 @@ public class InstructionsMenuControllerTest {
     private InstructionsMenuController controller;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         instructionsMenu = mock(InstructionsMenu.class);
         gui = mock(GUI.class);
         game = mock(Game.class);
@@ -26,7 +26,7 @@ public class InstructionsMenuControllerTest {
     }
 
     @Test
-    void testNextActionRight() throws IOException {
+    public void testNextActionRight() throws IOException {
         when(gui.getNextAction()).thenReturn(GUI.ACTION.RIGHT);
         controller.nextAction(game, GUI.ACTION.RIGHT, System.currentTimeMillis());
 
@@ -34,7 +34,7 @@ public class InstructionsMenuControllerTest {
     }
 
     @Test
-    void testNextActionLeft() throws IOException {
+    public void testNextActionLeft() throws IOException {
         when(gui.getNextAction()).thenReturn(GUI.ACTION.LEFT);
         controller.nextAction(game, GUI.ACTION.LEFT, System.currentTimeMillis());
 
@@ -42,7 +42,7 @@ public class InstructionsMenuControllerTest {
     }
 
     @Test
-    void testEsc() throws IOException {
+    public void testEsc() throws IOException {
         when(gui.getNextAction()).thenReturn(GUI.ACTION.ESC);
         controller.nextAction(game, GUI.ACTION.ESC, System.currentTimeMillis());
 

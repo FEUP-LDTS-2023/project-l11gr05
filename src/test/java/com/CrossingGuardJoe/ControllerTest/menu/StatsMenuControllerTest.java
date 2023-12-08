@@ -18,7 +18,7 @@ public class StatsMenuControllerTest {
     private StatsMenuController controller;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         statsMenu = mock(StatsMenu.class);
         gui = mock(GUI.class);
         game = mock(Game.class);
@@ -26,7 +26,7 @@ public class StatsMenuControllerTest {
     }
 
     @Test
-    void testEsc() throws IOException {
+    public void testEsc() throws IOException {
         when(gui.getNextAction()).thenReturn(GUI.ACTION.ESC);
         controller.nextAction(game, GUI.ACTION.ESC, System.currentTimeMillis());
 

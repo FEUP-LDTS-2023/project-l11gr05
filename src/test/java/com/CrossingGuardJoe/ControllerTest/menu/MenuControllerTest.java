@@ -22,7 +22,7 @@ public class MenuControllerTest {
     private MenuController menuController;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         mockMenu = mock(Menu.class);
         mockGUI = mock(GUI.class);
         game = mock(Game.class);
@@ -30,7 +30,7 @@ public class MenuControllerTest {
     }
 
     @Test
-    void testNextActionUp() throws IOException {
+    public void testNextActionUp() throws IOException {
         when(mockGUI.getNextAction()).thenReturn(GUI.ACTION.UP);
         menuController.nextAction(game, GUI.ACTION.UP, System.currentTimeMillis());
 
@@ -38,7 +38,7 @@ public class MenuControllerTest {
     }
 
     @Test
-    void testNextActionDown() throws IOException {
+    public void testNextActionDown() throws IOException {
         when(mockGUI.getNextAction()).thenReturn(GUI.ACTION.DOWN);
         menuController.nextAction(game, GUI.ACTION.DOWN, System.currentTimeMillis());
 
@@ -46,7 +46,7 @@ public class MenuControllerTest {
     }
 
     @Test
-    void testNextActionSelectStartGame() throws IOException {
+    public void testNextActionSelectStartGame() throws IOException {
         when(mockGUI.getNextAction()).thenReturn(GUI.ACTION.SELECT);
         when(mockMenu.isSelectedStartGame()).thenReturn(true);
 
@@ -57,7 +57,7 @@ public class MenuControllerTest {
     }
 
     @Test
-    void testNextActionSelectInstructions() throws IOException {
+    public void testNextActionSelectInstructions() throws IOException {
         when(mockGUI.getNextAction()).thenReturn(GUI.ACTION.SELECT);
         when(mockMenu.isSelectedInstructions()).thenReturn(true);
 
@@ -67,7 +67,7 @@ public class MenuControllerTest {
     }
 
     @Test
-    void testNextActionSelectCustomize() throws IOException {
+    public void testNextActionSelectCustomize() throws IOException {
         when(mockGUI.getNextAction()).thenReturn(GUI.ACTION.SELECT);
         when(mockMenu.isSelectedCustomize()).thenReturn(true);
 
@@ -77,7 +77,7 @@ public class MenuControllerTest {
     }
 
     /*@Test
-    void testNextActionSelectExit() throws IOException {
+    public void testNextActionSelectExit() throws IOException {
         when(mockGUI.getNextAction()).thenReturn(GUI.ACTION.SELECT);
         when(mockMenu.isSelectedExit()).thenReturn(true);
 
