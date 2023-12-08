@@ -11,6 +11,7 @@ import com.CrossingGuardJoe.model.game.Road;
 import com.CrossingGuardJoe.model.game.elements.Car;
 import com.CrossingGuardJoe.model.game.elements.Joe;
 import com.CrossingGuardJoe.model.game.elements.Kid;
+import com.CrossingGuardJoe.states.GameState;
 import com.CrossingGuardJoe.states.menu.GameOverState;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,8 +20,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 public class RoadControllerTest {
@@ -56,30 +56,87 @@ public class RoadControllerTest {
     }
 
     @Test
-    public void nexActionTest() throws IOException {
+    public void nexActionScoreTest() throws IOException {
         long initialTime = System.currentTimeMillis();
         when(road.getJoe()).thenReturn(joe);
+
         when(joe.getScore()).thenReturn(10);
         when(game.getHighestScore()).thenReturn(0);
+        roadController.nextAction(game, GUI.ACTION.NONE, initialTime);
+        verify(game).setHighestScore(joe.getScore());
+    }
+
+    @Test
+    public void nexActionNotScoreTest() throws IOException {
+        long initialTime = System.currentTimeMillis();
+        when(road.getJoe()).thenReturn(joe);
+
+        when(joe.getScore()).thenReturn(0);
+        when(game.getHighestScore()).thenReturn(10);
+        roadController.nextAction(game, GUI.ACTION.NONE, initialTime);
+
+        assertEquals(10, game.getHighestScore());
+        verify(game, times(0)).setHighestScore(joe.getScore());
+    }
+
+    @Test
+    public void nextActionLevelTest() throws IOException {
+        long initialTime = System.currentTimeMillis();
+        when(road.getJoe()).thenReturn(joe);
 
         when(road.getCurrentLevel()).thenReturn(2);
         when(game.getHighestLevel()).thenReturn(1);
-
         roadController.nextAction(game, GUI.ACTION.NONE, initialTime);
 
-        verify(game).setHighestScore(joe.getScore());
         verify(game).setHighestLevel(road.getCurrentLevel());
+    }
+
+    @Test
+    public void nextActionNotLevelTest() throws IOException {
+        long initialTime = System.currentTimeMillis();
+        when(road.getJoe()).thenReturn(joe);
+
+        when(road.getCurrentLevel()).thenReturn(1);
+        when(game.getHighestLevel()).thenReturn(2);
+        roadController.nextAction(game, GUI.ACTION.NONE, initialTime);
+
+        assertEquals(2, game.getHighestLevel());
+        verify(game, times(0)).setHighestLevel(road.getCurrentLevel());
+    }
+
+    @Test
+    public void nextActionEscTest() throws IOException {
+        long initialTime = System.currentTimeMillis();
+        when(road.getJoe()).thenReturn(joe);
 
         when(gui.getNextAction()).thenReturn(GUI.ACTION.LEFT);
         when(joe.getPosition()).thenReturn(new Position(100, 100));
         roadController.nextAction(game, GUI.ACTION.LEFT, initialTime);
+
         when(joe.getIsWalkingState()).thenReturn(true);
         assertTrue(joe.getIsWalkingState());
 
-        when(gui.getNextAction()).thenReturn(GUI.ACTION.ESC);
         when(joe.getIsWalkingState()).thenReturn(false);
-        assertFalse(joe.getIsWalkingState());
+        when(gui.getNextAction()).thenReturn(GUI.ACTION.ESC);
         roadController.nextAction(game, GUI.ACTION.ESC, initialTime);
+        assertFalse(joe.getIsWalkingState());
+    }
+
+    /*@Test
+    public void nextActionNotEscTest() throws IOException {
+        long initialTime = System.currentTimeMillis();
+        when(road.getJoe()).thenReturn(joe);
+
+        when(gui.getNextAction()).thenReturn(GUI.ACTION.LEFT);
+        when(joe.getPosition()).thenReturn(new Position(100, 100));
+        roadController.nextAction(game, GUI.ACTION.LEFT, initialTime);
+
+    }*/
+
+    @Test
+    public void nextActionGameEndedTest() throws IOException {
+        long initialTime = System.currentTimeMillis();
+        when(road.getJoe()).thenReturn(joe);
 
         when(joe.getHearts()).thenReturn(0);
         roadController.nextAction(game, GUI.ACTION.NONE, initialTime);
@@ -90,5 +147,9 @@ public class RoadControllerTest {
         roadController.nextAction(game, GUI.ACTION.NONE, initialTime);
         verify(game, atLeastOnce()).popState();
         verify(game, atLeastOnce()).setState(any(GameOverState.class));
+
+        when(road.isGameEnded()).thenReturn(false);
+        roadController.nextAction(game, GUI.ACTION.NONE, initialTime);
+        verify(game, atLeastOnce()).popState();
     }
 }
