@@ -85,5 +85,7 @@ public class JoeControllerTest {
         when(car.getPosition()).thenReturn(new Position(400, 297));
         joeController.nextAction(null, GUI.ACTION.LEFT, initialTime);
         joeController.nextAction(null, GUI.ACTION.RIGHT, initialTime);
+        joeController.nextAction(null, GUI.ACTION.RIGHT, initialTime);
+        joeController.nextAction(null, GUI.ACTION.LEFT, initialTime);
     }
 }
