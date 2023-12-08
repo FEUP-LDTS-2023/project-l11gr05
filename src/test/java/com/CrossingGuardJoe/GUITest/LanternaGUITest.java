@@ -130,5 +130,39 @@ public class LanternaGUITest {
         verify(textGraphicsMock, times(testImage[0].length() * testImage.length)).fillRectangle(any(), any(), anyChar());
     }
 
+    @Test
+    public void testDrawText() {
+        TextGraphics textGraphicsMock = mock(TextGraphics.class);
+
+        lanternaGUI.setGraphics(textGraphicsMock);
+
+        Position position = new Position(5, 5);
+        String[] testImage = {
+                "#####",
+                "#####",
+                "#####"
+        };
+        Object text = "hello";
+
+        FontImageFactory fontImageFactoryMock = mock(FontImageFactory.class);
+        when(fontImageFactoryMock.getImageRepresentation(text)).thenReturn(testImage);
+
+        lanternaGUI.drawText(position, text, "#FFFFFF");
+
+        verify(textGraphicsMock, atLeastOnce())
+                .setBackgroundColor(TextColor.Factory.fromString("#FFFFFF"));
+
+        verify(textGraphicsMock, atLeastOnce())
+                .fillRectangle(any(), any(), anyChar());
+    }
+
+    @Test
+    public void testSetColor() {
+        char character = 'R';
+
+        lanternaGUI.setColor(character);
+
+        verify(textGraphicsMock).setBackgroundColor(TextColor.Factory.fromString("#FF0000")); // Assuming 'R' corresponds to red color
+    }
 
 }
