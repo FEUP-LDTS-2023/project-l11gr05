@@ -93,6 +93,12 @@ public class PauseMenuTest {
     @Test
     public void testIsSelectedResume() {
         assertTrue(pauseMenu.isSelectedResume(), "Resume option should be selected initially");
+        pauseMenu.navigateDown();
+        assertFalse(pauseMenu.isSelectedResume());
+        assertTrue(pauseMenu.isSelectedStats());
+        pauseMenu.navigateDown();
+        assertFalse(pauseMenu.isSelectedStats());
+        assertTrue(pauseMenu.isSelectedExit());
     }
 
     @Test
