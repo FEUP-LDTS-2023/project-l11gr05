@@ -6,7 +6,6 @@ import com.CrossingGuardJoe.controller.Sounds;
 import com.CrossingGuardJoe.controller.SoundsController;
 import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.menu.GameOverMenu;
-import com.CrossingGuardJoe.model.menu.PauseMenu;
 import com.CrossingGuardJoe.model.menu.StatsMenu;
 import com.CrossingGuardJoe.states.menu.StatsMenuStates;
 
@@ -41,9 +40,7 @@ public class GameOverMenuController extends Controller<GameOverMenu> {
                     );
                 }
                 if (getModel().isSelectedExit()) {
-                    if (getModel().isWin()) {
-                        SoundsController.getInstance().stop(Sounds.SFX.VICTORYBGM);
-                    }
+                    SoundsController.getInstance().stop(Sounds.SFX.VICTORYBGM);
                     game.popState();
                     SoundsController.getInstance().play(Sounds.SFX.MENUBGM);
                 }
