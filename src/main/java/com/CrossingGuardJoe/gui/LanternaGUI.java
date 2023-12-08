@@ -36,14 +36,6 @@ public class LanternaGUI implements GUI {
         this.height = height;
     }
 
-    public TextGraphics getGraphics() {
-        return this.graphics;
-    }
-
-    public Screen getScreen() {
-        return this.screen;
-    }
-
     public void setGraphics(TextGraphics graphics) {
         this.graphics = graphics;
     }

@@ -195,4 +195,18 @@ public class LanternaGUITest {
         verify(screenMock, times(8)).pollInput();
     }
 
+    @Test
+    public void testRefreshScreen() throws IOException {
+        lanternaGUI.refreshScreen();
+
+        verify(screenMock).refresh();
+    }
+
+    @Test
+    public void testCloseScreen() throws IOException {
+        lanternaGUI.closeScreen();
+
+        verify(screenMock).close();
+    }
+
 }
