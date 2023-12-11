@@ -8,7 +8,6 @@ import com.CrossingGuardJoe.model.game.elements.Car;
 import com.CrossingGuardJoe.model.game.elements.Joe;
 import com.CrossingGuardJoe.model.game.elements.Kid;
 import com.CrossingGuardJoe.controller.game.elements.KidController;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

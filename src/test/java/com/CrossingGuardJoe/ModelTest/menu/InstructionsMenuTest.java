@@ -1,6 +1,5 @@
 package com.CrossingGuardJoe.ModelTest.menu;
 
-import com.CrossingGuardJoe.model.menu.ColorPaletteMenu;
 import com.CrossingGuardJoe.model.menu.InstructionsMenu;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

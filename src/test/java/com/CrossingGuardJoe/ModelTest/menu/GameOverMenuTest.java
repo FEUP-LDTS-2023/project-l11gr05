@@ -3,7 +3,6 @@ package com.CrossingGuardJoe.ModelTest.menu;
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.game.Road;
 import com.CrossingGuardJoe.model.menu.GameOverMenu;
-import com.CrossingGuardJoe.model.menu.Menu;
 import com.CrossingGuardJoe.model.menu.Option;
 import org.junit.jupiter.api.Test;
 

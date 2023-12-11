@@ -1,8 +1,6 @@
 package com.CrossingGuardJoe.ModelTest.menu;
 
 import com.CrossingGuardJoe.model.menu.ColorPaletteMenu;
-import com.CrossingGuardJoe.model.menu.Menu;
-import com.CrossingGuardJoe.viewer.Color;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

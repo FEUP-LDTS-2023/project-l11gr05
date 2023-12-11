@@ -11,7 +11,6 @@ import com.CrossingGuardJoe.model.game.Road;
 import com.CrossingGuardJoe.model.game.elements.Car;
 import com.CrossingGuardJoe.model.game.elements.Joe;
 import com.CrossingGuardJoe.model.game.elements.Kid;
-import com.CrossingGuardJoe.states.GameState;
 import com.CrossingGuardJoe.states.menu.GameOverState;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

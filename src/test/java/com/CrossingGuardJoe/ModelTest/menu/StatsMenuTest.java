@@ -1,7 +1,6 @@
 package com.CrossingGuardJoe.ModelTest.menu;
 
 import com.CrossingGuardJoe.model.menu.StatsMenu;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
