@@ -58,12 +58,12 @@ public class KidController extends GameController {
         }
     }
 
-    private boolean isFirstKid(Kid kid) {
+    public boolean isFirstKid(Kid kid) {
         List<Kid> kids = getModel().getKids();
         return kids.indexOf(kid) == 0;
     }
 
-    private boolean inMinDistance(Kid kid) {
+    public boolean inMinDistance(Kid kid) {
         List<Kid> kids = getModel().getKids();
         if (!isFirstKid(kid)) {
             Kid kidInFront = kids.get(kids.indexOf(kid) - 1);
@@ -74,7 +74,7 @@ public class KidController extends GameController {
         return false;
     }
 
-    private boolean canContinueWalk(Kid kid) {
+    public boolean canContinueWalk(Kid kid) {
         if (!isFirstKid(kid) && inMinDistance(kid)) {
             stopKid(kid);
             return false;
@@ -82,7 +82,7 @@ public class KidController extends GameController {
         return true;
     }
 
-    private void repositionQueue() {
+    public void repositionQueue() {
         List<Kid> kids = getModel().getKids();
 
         for (int i = nextKidToMoveInQueueIndex; i < kids.size(); i++) {
@@ -189,7 +189,7 @@ public class KidController extends GameController {
         }
     }
 
-    private void checkPoints() {
+    public void checkPoints() {
         for (Kid kid : getModel().getKids()) {
             if (kid.getPosition().getX() < MIN_Y_DISTANCE && !kid.getPass()) {
                 kid.setPass();
@@ -199,7 +199,7 @@ public class KidController extends GameController {
         }
     }
 
-    private void checkCountToNextLevel() {
+    public void checkCountToNextLevel() {
         for (Kid kid : getModel().getKids()) {
             if (!kid.getCounted()) {
                 if (kid.getPass() || (kid.getDeathCounted() && kid.getPosition().getY() >= MAX_Y_DISTANCE)) {
@@ -210,8 +210,7 @@ public class KidController extends GameController {
         }
     }
 
-    private int nextLevelNumberKids() {
-        int currentLevel = getModel().getCurrentLevel();
+    public int nextLevelNumberKids(int currentLevel) {
         return switch (currentLevel) {
             case 2 -> 4;
             case 3 -> 5;
@@ -231,7 +230,7 @@ public class KidController extends GameController {
             sentKids.clear();
             getModel().levelUp();
             SoundsController.getInstance().play(Sounds.SFX.LEVELUP);
-            getModel().setKidsNextLevel(nextLevelNumberKids());
+            getModel().setKidsNextLevel(nextLevelNumberKids(getModel().getCurrentLevel()));
             nextKidToMoveInQueueIndex = 0;
         }
     }
