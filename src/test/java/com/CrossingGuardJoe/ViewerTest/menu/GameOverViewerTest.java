@@ -6,14 +6,11 @@ import com.CrossingGuardJoe.model.game.Road;
 import com.CrossingGuardJoe.model.game.elements.Joe;
 import com.CrossingGuardJoe.model.menu.GameOverMenu;
 import com.CrossingGuardJoe.model.menu.Option;
-import com.CrossingGuardJoe.viewer.images.generator.Shape;
 import com.CrossingGuardJoe.viewer.menu.GameOverViewer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.*;
 
 public class GameOverViewerTest {

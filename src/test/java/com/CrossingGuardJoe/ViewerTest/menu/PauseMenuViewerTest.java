@@ -2,10 +2,8 @@ package com.CrossingGuardJoe.ViewerTest.menu;
 
 import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.Position;
-import com.CrossingGuardJoe.model.menu.Menu;
 import com.CrossingGuardJoe.model.menu.Option;
 import com.CrossingGuardJoe.model.menu.PauseMenu;
-import com.CrossingGuardJoe.viewer.menu.MenuViewer;
 import com.CrossingGuardJoe.viewer.menu.PauseMenuViewer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

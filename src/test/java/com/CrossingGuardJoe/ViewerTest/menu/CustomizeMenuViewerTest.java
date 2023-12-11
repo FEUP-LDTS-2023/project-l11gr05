@@ -5,15 +5,12 @@ import com.CrossingGuardJoe.model.menu.ColorPaletteMenu;
 import com.CrossingGuardJoe.model.menu.CustomizeMenu;
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.menu.Option;
-import com.CrossingGuardJoe.viewer.Color;
 import com.CrossingGuardJoe.viewer.images.Font.FontImageFactory;
 import com.CrossingGuardJoe.viewer.images.defined.*;
-import com.CrossingGuardJoe.viewer.images.generator.Shape;
 import com.CrossingGuardJoe.viewer.menu.CustomizeMenuViewer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -25,27 +22,6 @@ public class CustomizeMenuViewerTest {
     CustomizeMenuViewer customizeMenuViewer;
     CustomizeMenu customizeMenuMock;
     ColorPaletteMenu colorPaletteMenuMock;
-    int SELECTION_BOX_WIDTH = 235;
-    int SELECTION_BOX_HEIGHT = 300;
-
-    String[] ARROW_RIGHT = {
-            "$$",
-            "$$$$",
-            "$GG$$",
-            "$GGG$$$",
-            "$GGGGG$$$",
-            "$GGGGGGG$$$",
-            "$GGGGGGGGG$$$",
-            "$GGGGGGGGGGG$$$",
-            "$GGGGGGGGGGG$$$",
-            "$GGGGGGGGG$$$",
-            "$GGGGGGG$$$",
-            "$GGGGG$$$",
-            "$GGG$$$",
-            "$GG$$",
-            "$$$$",
-            "$$",
-    };
 
     String[] KEY_ESC = {
             "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
