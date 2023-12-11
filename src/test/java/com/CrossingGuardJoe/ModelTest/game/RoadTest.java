@@ -37,12 +37,15 @@ public class RoadTest {
             road.levelUp();
         }
         assertEquals(5, road.getCurrentLevel());
+        assertNotEquals(10, road.getCurrentLevel());
+        assertFalse(road.isGameEnded());
 
         // Level up to 10
         for (int i = 5; i <= 9; i++) {
             road.levelUp();
         }
         assertEquals(10, road.getCurrentLevel());
+        assertTrue(road.isGameEnded());
     }
 
     @Test

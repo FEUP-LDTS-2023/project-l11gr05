@@ -48,10 +48,6 @@ public class RoadControllerTest {
         kids.add(kid);
         gui = mock(GUI.class);
 
-        joeController = mock(JoeController.class);
-        kidController = mock(KidController.class);
-        carController = mock(CarController.class);
-
         roadController = new RoadController(road);
     }
 
@@ -64,6 +60,10 @@ public class RoadControllerTest {
         when(game.getHighestScore()).thenReturn(0);
         roadController.nextAction(game, GUI.ACTION.NONE, initialTime);
         verify(game).setHighestScore(joe.getScore());
+
+        when(joe.getScore()).thenReturn(10);
+        when(game.getHighestScore()).thenReturn(10);
+        assertEquals(joe.getScore(), game.getHighestScore());
     }
 
     @Test
@@ -89,6 +89,10 @@ public class RoadControllerTest {
         roadController.nextAction(game, GUI.ACTION.NONE, initialTime);
 
         verify(game).setHighestLevel(road.getCurrentLevel());
+
+        when(road.getCurrentLevel()).thenReturn(2);
+        when(game.getHighestLevel()).thenReturn(2);
+        assertEquals(road.getCurrentLevel(), game.getHighestLevel());
     }
 
     @Test
