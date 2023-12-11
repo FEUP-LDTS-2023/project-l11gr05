@@ -85,6 +85,9 @@ public class RoadControllerTest {
 
         when(road.getCurrentLevel()).thenReturn(2);
         when(game.getHighestLevel()).thenReturn(1);
+
+        when(joe.getScore()).thenReturn(0);
+        when(game.getHighestScore()).thenReturn(10);
         roadController.nextAction(game, GUI.ACTION.NONE, initialTime);
 
         verify(game).setHighestLevel(road.getCurrentLevel());
