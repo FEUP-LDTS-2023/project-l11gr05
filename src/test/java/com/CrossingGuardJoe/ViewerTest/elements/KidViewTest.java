@@ -2,19 +2,11 @@ package com.CrossingGuardJoe.ViewerTest.elements;
 
 import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.Position;
-import com.CrossingGuardJoe.model.game.elements.Car;
 import com.CrossingGuardJoe.model.game.elements.Kid;
-import com.CrossingGuardJoe.viewer.game.elements.CarView;
 import com.CrossingGuardJoe.viewer.game.elements.KidView;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
-
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
 
 public class KidViewTest {
 

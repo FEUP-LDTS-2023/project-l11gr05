@@ -7,17 +7,10 @@ import com.CrossingGuardJoe.model.game.elements.Car;
 import com.CrossingGuardJoe.model.game.elements.Joe;
 import com.CrossingGuardJoe.model.game.elements.Kid;
 import com.CrossingGuardJoe.viewer.game.GameViewer;
-import com.CrossingGuardJoe.viewer.game.elements.CarView;
-import com.CrossingGuardJoe.viewer.game.elements.JoeView;
-import com.CrossingGuardJoe.viewer.game.elements.KidView;
-import com.CrossingGuardJoe.viewer.images.defined.HUDImages;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import static org.mockito.Mockito.*;
 
