@@ -1,9 +1,10 @@
 ## LDTS_1105 - CrossingGuardJoe
 
 > Get ready for the ultimate adrenaline rush in this action-packed arcade adventure as Crossing Guard Joe!  
-> Brace yourself for the chaotic streets of Gotham City, where you'll battle unruly drivers.  
+> Brace yourself for the chaotic street where you'll battle unruly drivers.  
 > This game demands lightning-fast reflexes and razor-sharp decision-making. The drivers show no mercy—they won't stop for anything, putting your quick thinking to the ultimate test as you navigate the kids to safety.  
-> Your score? It's all about how many kids you guide across the street. Master each level, fine-tune your strategies, and race to claim the top spot on the pulsating LEADERBOARD.  
+> Your score? It's all about how many kids you guide across the street. Master each level, fine-tune your strategies, and dive into the customization options!
+> You can personalize Crossing Guard Joe's outfit color, the kids' attire, and even the color of the cars. Express your style and make Joe stand out as you tackle the challenges of the busy streets.
 > Ready to push your crossing guard skills to the limit?  
 > Enter the game and show 'em who's the boss!
 
@@ -11,11 +12,23 @@ This project was developed by Bruno Huang (up202207517@fe.up.pt) and Ricardo Yan
 
 ### IMPLEMENTED FEATURES
 
+- **Menu** - Upon launching the application, a menu will be displayed presenting "START GAME", "INSTRUCTIONS", "CUSTOMIZE" and "EXIT".
+- **Instructions** - 5 pages illustrated that show how you can play the game.
+- **Customize** - Menu where user can change Joe's, kid's outfit color or car's color.
+- **Exit** - Exit game.
+- **Sound** - Plenty of SFX and BGM implemented in game.
+- **Pause** - User can press 'ESC' mid-game to pause the game, then it's possible to resume, see stats, or exit.
+- **Stats** - User/player can see the current level, score and highest level, score.
 - **Player movement** - The game character (Joe) is able to move left or right when corresponding arrow key is pressed.
-- **Player control** - A kid will start to move when Joe is near it (an arrow will appear pointing to the kid) and presses 'arrowUp' key, when 'arrowDown' key is pressed the kid stops moving.
-- **Car** - Cars are instantiated in a random road lane at the top side of the street, and they traverse the road in a unidirectional downward trajectory, the speed of a car increases by level.
-- **Kid** - Kids are instantiated in a queue at the right sidewalk of the street, and they walk at a defined speed when Joe lets them walk.
-- **Game over** - When hp reaches 0 game ends.
+- **Player control** - A kid will start to move when Joe is near it (an arrow will appear pointing to the kid) and presses 'arrowDown' key, when 'arrowUp' key is pressed the kid stops moving.
+- **Player collision** - When Joe gets hit by a car, he is projected to either left or right side of the car.
+- **Kid** - Kids are instantiated in a queue at the right sidewalk of the street, and they walk at a constant defined speed when Joe lets them walk.
+- **Kid collision** - When a kid is hit, it goes with the car.
+- **Car** - Cars are instantiated in a random road lane at the top side of the street, and they traverse the road in a unidirectional downward trajectory, the speed of a car is constant.
+- **Score** - For every kid passing to the left sidewalk of the street player gets 100 points. If Joe gets hit by a car points are taken (quantity defined by hit spot);
+- **Lives** - When a kid is hit by a car, player loses one hp. The amount of hp starts as 10.
+- **Game over (Lose)** - When hp reaches 0 game ends.
+- **Game over (Win)** - When level 10 is reached user wins the game.
 
 ![](images/gameImage1.png)
 ![](images/gameImage2.png)
@@ -25,13 +38,7 @@ This project was developed by Bruno Huang (up202207517@fe.up.pt) and Ricardo Yan
 
 ### PLANNED FEATURES
 
-- **Menu** - Upon launching the application, a menu will be displayed presenting "START GAME", "LEADERBOARD", "INSTRUCTIONS" and "EXIT". When player selects "START GAME" it's shown difficulty options for it (e.g. "EASY", "MEDIUM", "HARD").
-- **Player collision** - When Joe gets hit by a car, he is projected to either left or right side of the car.
-- **Kid collision** - When a kid is hit, it goes with the car.
-- **Lives** - When a kid is hit by a car, player loses one hp. The amount of hp is decided when player chooses difficulty at the start of the game.
-- **Score** - For every kid passing to the left sidewalk of the street player gets 100 points. If Joe gets hit by a car points are taken (quantity to be determined);
-- **Leaderboard** - Players score and name are stored in a leaderboard file.
-- **Power-ups** - Power-ups are generated at random intervals within the game environment. Upon Joe's acquisition of these power-ups, their effects are immediately manifested (e.g. "Freeze cars", "Kids speedup", "Double points", "Get 1 hp", etc).
+- **NONE** - All features implemented.
 
 ![Menu MockUp](images/menuMockup.png)
 ![Some planned features](images/somePlansExample.png)
