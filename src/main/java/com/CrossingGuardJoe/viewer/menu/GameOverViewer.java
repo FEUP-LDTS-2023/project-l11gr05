@@ -1,7 +1,5 @@
 package com.CrossingGuardJoe.viewer.menu;
 
-import com.CrossingGuardJoe.controller.Sounds;
-import com.CrossingGuardJoe.controller.SoundsController;
 import com.CrossingGuardJoe.gui.GUI;
 import com.CrossingGuardJoe.model.Position;
 import com.CrossingGuardJoe.model.menu.GameOverMenu;

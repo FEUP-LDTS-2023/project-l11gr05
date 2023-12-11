@@ -17,7 +17,6 @@ import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
 import com.groupcdg.pitest.annotations.DoNotMutate;
-import org.w3c.dom.Text;
 
 import java.awt.*;
 import java.io.File;

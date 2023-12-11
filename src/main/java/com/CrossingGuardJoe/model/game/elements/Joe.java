@@ -1,8 +1,5 @@
 package com.CrossingGuardJoe.model.game.elements;
 
-import com.CrossingGuardJoe.controller.Sounds;
-import com.CrossingGuardJoe.controller.SoundsController;
-
 public class Joe extends Element{
     private int Score;
     private int Hearts;

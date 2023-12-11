@@ -1,7 +1,6 @@
 package com.CrossingGuardJoe.viewer.images.generator;
 
 public class Shape {
-
     public static String[] RectangleFilledGenerator(int width, int height, char character, int boardWidth, char boardChar) {
         String[] result = new String[height];
 

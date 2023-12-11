@@ -41,11 +41,12 @@ public class InstructionsMenuViewer extends Viewer<InstructionsMenu> implements 
     @Override
     public void drawTitle(GUI gui) {
         gui.drawText(new Position(202, 17), "Instructions", "#FFFFFF");
-
     }
 
     @Override
     public void drawInformation(GUI gui) {
+        gui.drawImage(new Position(4, 4), ToolImages.KEY_ESC);
+
         int PAGES_INI_X = 400;
         int PAGES_Y = 474;
 
@@ -59,8 +60,6 @@ public class InstructionsMenuViewer extends Viewer<InstructionsMenu> implements 
         } else {
             gui.drawText(new Position(PAGES_INI_X + 40, PAGES_Y), getModel().getCurrentPage(), "#FFFFFF");
         }
-
-
     }
 
     private void drawPageOne(GUI gui) {
@@ -148,6 +147,4 @@ public class InstructionsMenuViewer extends Viewer<InstructionsMenu> implements 
         gui.drawImage(new Position(SCORE_BAR_X, SCORE_BAR_Y), HUDImages.SCORE_BAR_SLICE);
         gui.drawText(new Position(SCORE_BAR_X + 90, SCORE_BAR_Y + 10), 2590, "#FFFFFF");
     }
-
-
 }
