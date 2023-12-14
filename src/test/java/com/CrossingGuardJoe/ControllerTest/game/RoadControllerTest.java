@@ -85,6 +85,9 @@ public class RoadControllerTest {
 
         when(road.getCurrentLevel()).thenReturn(2);
         when(game.getHighestLevel()).thenReturn(1);
+
+        when(joe.getScore()).thenReturn(0);
+        when(game.getHighestScore()).thenReturn(10);
         roadController.nextAction(game, GUI.ACTION.NONE, initialTime);
 
         verify(game).setHighestLevel(road.getCurrentLevel());
@@ -137,7 +140,7 @@ public class RoadControllerTest {
     }*/
 
     @Test
-    public void nextActionGameEndedTest() throws IOException {
+    public void nextActionHearts0Test() throws IOException {
         long initialTime = System.currentTimeMillis();
         when(road.getJoe()).thenReturn(joe);
 
@@ -145,11 +148,23 @@ public class RoadControllerTest {
         roadController.nextAction(game, GUI.ACTION.NONE, initialTime);
         verify(game, atLeastOnce()).popState();
         verify(game, atLeastOnce()).setState(any(GameOverState.class));
+    }
+
+    @Test
+    public void nextActionGameEndedTest() throws IOException {
+        long initialTime = System.currentTimeMillis();
+        when(road.getJoe()).thenReturn(joe);
 
         when(road.isGameEnded()).thenReturn(true);
         roadController.nextAction(game, GUI.ACTION.NONE, initialTime);
         verify(game, atLeastOnce()).popState();
         verify(game, atLeastOnce()).setState(any(GameOverState.class));
+    }
+
+    @Test
+    public void nextActionGameNotEndedTest() throws IOException {
+        long initialTime = System.currentTimeMillis();
+        when(road.getJoe()).thenReturn(joe);
 
         when(road.isGameEnded()).thenReturn(false);
         roadController.nextAction(game, GUI.ACTION.NONE, initialTime);

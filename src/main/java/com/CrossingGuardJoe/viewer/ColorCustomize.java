@@ -5,6 +5,7 @@ import java.util.Map;
 
 public class ColorCustomize {
     private static final ColorCustomize instance = new ColorCustomize();
+
     private final Map<Character, Character> characterMap;
 
     private ColorCustomize() {

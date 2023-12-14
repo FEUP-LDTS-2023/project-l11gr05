@@ -21,7 +21,6 @@ public class GameOverMenu implements MenuNavigator {
         );
     }
 
-
     @Override
     public void navigateUp() {
         optionSelected = (optionSelected - 1 + options.size()) % options.size();
@@ -61,12 +60,8 @@ public class GameOverMenu implements MenuNavigator {
     }
 
     @Override
-    public void navigateRight() {
-
-    }
+    public void navigateRight() {}
 
     @Override
-    public void navigateLeft() {
-
-    }
+    public void navigateLeft() {}
 }

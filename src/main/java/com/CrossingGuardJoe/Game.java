@@ -1,7 +1,5 @@
 package com.CrossingGuardJoe;
 
-import com.CrossingGuardJoe.controller.Sounds;
-import com.CrossingGuardJoe.controller.SoundsController;
 import com.CrossingGuardJoe.gui.LanternaGUI;
 import com.CrossingGuardJoe.model.menu.Menu;
 import com.CrossingGuardJoe.states.menu.MenuState;

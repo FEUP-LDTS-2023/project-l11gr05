@@ -7,7 +7,6 @@ import com.CrossingGuardJoe.viewer.images.defined.ToolImages;
 import com.CrossingGuardJoe.viewer.images.defined.KidImages;
 
 public class KidView extends ElementViewer<Kid> {
-
     @Override
     public void draw(Kid kid, GUI gui) {
         if (kid.getIsHit()) {

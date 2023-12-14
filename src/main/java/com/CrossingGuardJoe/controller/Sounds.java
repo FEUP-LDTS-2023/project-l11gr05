@@ -1,7 +1,5 @@
 package com.CrossingGuardJoe.controller;
 
-import com.CrossingGuardJoe.model.Position;
-
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;

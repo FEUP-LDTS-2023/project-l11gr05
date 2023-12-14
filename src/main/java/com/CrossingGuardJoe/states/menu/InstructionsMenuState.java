@@ -2,7 +2,6 @@ package com.CrossingGuardJoe.states.menu;
 
 import com.CrossingGuardJoe.controller.Controller;
 import com.CrossingGuardJoe.controller.menu.InstructionsMenuController;
-import com.CrossingGuardJoe.model.menu.CustomizeMenu;
 import com.CrossingGuardJoe.model.menu.InstructionsMenu;
 import com.CrossingGuardJoe.states.State;
 import com.CrossingGuardJoe.viewer.Viewer;
