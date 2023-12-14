@@ -1,4 +1,4 @@
 .gradle
 .idea
-.build/
+build/
 hs_err_pid7976.log
