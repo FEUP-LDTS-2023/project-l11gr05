@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.CrossingGuardJoe.ControllerTest.menu.StatsMenuControllerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-12-14T23:15:35" hostname="chill" time="0.024">
-  <properties/>
-  <testcase name="testEsc()" classname="com.CrossingGuardJoe.ControllerTest.menu.StatsMenuControllerTest" time="0.024"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

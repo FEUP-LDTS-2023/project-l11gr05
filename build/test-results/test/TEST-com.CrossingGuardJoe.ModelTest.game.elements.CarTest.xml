@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.CrossingGuardJoe.ModelTest.game.elements.CarTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-12-14T23:15:35" hostname="chill" time="0.014">
-  <properties/>
-  <testcase name="testCarConstruction()" classname="com.CrossingGuardJoe.ModelTest.game.elements.CarTest" time="0.0"/>
-  <testcase name="testSetPosition()" classname="com.CrossingGuardJoe.ModelTest.game.elements.CarTest" time="0.001"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

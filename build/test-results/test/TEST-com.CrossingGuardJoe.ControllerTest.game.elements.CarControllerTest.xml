@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.CrossingGuardJoe.ControllerTest.game.elements.CarControllerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-12-14T23:15:34" hostname="chill" time="0.01">
-  <properties/>
-  <testcase name="nextActionTest()" classname="com.CrossingGuardJoe.ControllerTest.game.elements.CarControllerTest" time="0.01"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
