@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.CrossingGuardJoe.ControllerTest.menu.InstructionsMenuControllerTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-12-14T23:15:35" hostname="chill" time="0.059">
+  <properties/>
+  <testcase name="testEsc()" classname="com.CrossingGuardJoe.ControllerTest.menu.InstructionsMenuControllerTest" time="0.048"/>
+  <testcase name="testNextActionRight()" classname="com.CrossingGuardJoe.ControllerTest.menu.InstructionsMenuControllerTest" time="0.003"/>
+  <testcase name="testNextActionLeft()" classname="com.CrossingGuardJoe.ControllerTest.menu.InstructionsMenuControllerTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

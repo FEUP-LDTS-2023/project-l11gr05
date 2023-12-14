@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.CrossingGuardJoe.ControllerTest.menu.PauseMenuControllerTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2023-12-14T23:15:35" hostname="chill" time="0.117">
+  <properties/>
+  <testcase name="testNextActionUp()" classname="com.CrossingGuardJoe.ControllerTest.menu.PauseMenuControllerTest" time="0.055"/>
+  <testcase name="testSelectResume()" classname="com.CrossingGuardJoe.ControllerTest.menu.PauseMenuControllerTest" time="0.006"/>
+  <testcase name="testNextActionDown()" classname="com.CrossingGuardJoe.ControllerTest.menu.PauseMenuControllerTest" time="0.002"/>
+  <testcase name="testSelectedExit()" classname="com.CrossingGuardJoe.ControllerTest.menu.PauseMenuControllerTest" time="0.039"/>
+  <testcase name="testSelectStats()" classname="com.CrossingGuardJoe.ControllerTest.menu.PauseMenuControllerTest" time="0.009"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

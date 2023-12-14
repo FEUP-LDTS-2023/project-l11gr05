@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.CrossingGuardJoe.ModelTest.game.elements.KidTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2023-12-14T23:15:35" hostname="chill" time="0.05">
+  <properties/>
+  <testcase name="testSetNotSelected()" classname="com.CrossingGuardJoe.ModelTest.game.elements.KidTest" time="0.001"/>
+  <testcase name="testSetNotWalking()" classname="com.CrossingGuardJoe.ModelTest.game.elements.KidTest" time="0.001"/>
+  <testcase name="testSetSelected()" classname="com.CrossingGuardJoe.ModelTest.game.elements.KidTest" time="0.002"/>
+  <testcase name="testIsHit()" classname="com.CrossingGuardJoe.ModelTest.game.elements.KidTest" time="0.002"/>
+  <testcase name="testAddMovesInQueueLeft()" classname="com.CrossingGuardJoe.ModelTest.game.elements.KidTest" time="0.006"/>
+  <testcase name="testSetWalking()" classname="com.CrossingGuardJoe.ModelTest.game.elements.KidTest" time="0.001"/>
+  <testcase name="testSetCountToNextLevel()" classname="com.CrossingGuardJoe.ModelTest.game.elements.KidTest" time="0.002"/>
+  <testcase name="testSetFirstHalfOfMovement()" classname="com.CrossingGuardJoe.ModelTest.game.elements.KidTest" time="0.002"/>
+  <testcase name="testGetPoints()" classname="com.CrossingGuardJoe.ModelTest.game.elements.KidTest" time="0.001"/>
+  <testcase name="testSetDead()" classname="com.CrossingGuardJoe.ModelTest.game.elements.KidTest" time="0.001"/>
+  <testcase name="testSetPass()" classname="com.CrossingGuardJoe.ModelTest.game.elements.KidTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

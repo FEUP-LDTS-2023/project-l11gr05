@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.CrossingGuardJoe.ViewerTest.elements.KidViewTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2023-12-14T23:15:36" hostname="chill" time="0.041">
+  <properties/>
+  <testcase name="drawStand()" classname="com.CrossingGuardJoe.ViewerTest.elements.KidViewTest" time="0.018"/>
+  <testcase name="drawSelected()" classname="com.CrossingGuardJoe.ViewerTest.elements.KidViewTest" time="0.006"/>
+  <testcase name="drawWalkSecondHalf()" classname="com.CrossingGuardJoe.ViewerTest.elements.KidViewTest" time="0.005"/>
+  <testcase name="drawWalkFirstHalf()" classname="com.CrossingGuardJoe.ViewerTest.elements.KidViewTest" time="0.005"/>
+  <testcase name="drawHit()" classname="com.CrossingGuardJoe.ViewerTest.elements.KidViewTest" time="0.004"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

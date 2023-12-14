@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.CrossingGuardJoe.ControllerTest.game.RoadControllerTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2023-12-14T23:15:31" hostname="chill" time="2.605">
+  <properties/>
+  <testcase name="nextActionHearts0Test()" classname="com.CrossingGuardJoe.ControllerTest.game.RoadControllerTest" time="1.961"/>
+  <testcase name="nextActionNotLevelTest()" classname="com.CrossingGuardJoe.ControllerTest.game.RoadControllerTest" time="0.056"/>
+  <testcase name="nexActionScoreTest()" classname="com.CrossingGuardJoe.ControllerTest.game.RoadControllerTest" time="0.095"/>
+  <testcase name="nextActionGameEndedTest()" classname="com.CrossingGuardJoe.ControllerTest.game.RoadControllerTest" time="0.076"/>
+  <testcase name="nextActionLevelTest()" classname="com.CrossingGuardJoe.ControllerTest.game.RoadControllerTest" time="0.095"/>
+  <testcase name="nextActionEscTest()" classname="com.CrossingGuardJoe.ControllerTest.game.RoadControllerTest" time="0.08"/>
+  <testcase name="nexActionNotScoreTest()" classname="com.CrossingGuardJoe.ControllerTest.game.RoadControllerTest" time="0.155"/>
+  <testcase name="nextActionGameNotEndedTest()" classname="com.CrossingGuardJoe.ControllerTest.game.RoadControllerTest" time="0.065"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

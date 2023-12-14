@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.CrossingGuardJoe.ControllerTest.menu.CustomizeMenuControllerTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2023-12-14T23:15:34" hostname="chill" time="0.221">
+  <properties/>
+  <testcase name="testNextActionUp()" classname="com.CrossingGuardJoe.ControllerTest.menu.CustomizeMenuControllerTest" time="0.098"/>
+  <testcase name="testNextActionLeft1()" classname="com.CrossingGuardJoe.ControllerTest.menu.CustomizeMenuControllerTest" time="0.003"/>
+  <testcase name="testNextActionLeft2()" classname="com.CrossingGuardJoe.ControllerTest.menu.CustomizeMenuControllerTest" time="0.004"/>
+  <testcase name="testEsc1()" classname="com.CrossingGuardJoe.ControllerTest.menu.CustomizeMenuControllerTest" time="0.041"/>
+  <testcase name="testEsc2()" classname="com.CrossingGuardJoe.ControllerTest.menu.CustomizeMenuControllerTest" time="0.045"/>
+  <testcase name="testNextActionDown()" classname="com.CrossingGuardJoe.ControllerTest.menu.CustomizeMenuControllerTest" time="0.004"/>
+  <testcase name="testSelect1()" classname="com.CrossingGuardJoe.ControllerTest.menu.CustomizeMenuControllerTest" time="0.005"/>
+  <testcase name="testNextActionRight1()" classname="com.CrossingGuardJoe.ControllerTest.menu.CustomizeMenuControllerTest" time="0.003"/>
+  <testcase name="testNextActionRight2()" classname="com.CrossingGuardJoe.ControllerTest.menu.CustomizeMenuControllerTest" time="0.006"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

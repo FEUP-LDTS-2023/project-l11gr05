@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-12-14T23:15:31" hostname="chill" time="0.062">
+  <properties/>
+  <testcase name="testIsInRangeCarKid()" classname="com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest" time="0.051"/>
+  <testcase name="testIsInRangeLeftCarJoe()" classname="com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest" time="0.002"/>
+  <testcase name="testIsInRangeJoeKid()" classname="com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest" time="0.001"/>
+  <testcase name="testIsInRangeRightCarJoe()" classname="com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

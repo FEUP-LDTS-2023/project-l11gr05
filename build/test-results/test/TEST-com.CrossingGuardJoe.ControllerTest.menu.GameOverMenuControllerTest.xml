@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.CrossingGuardJoe.ControllerTest.menu.GameOverMenuControllerTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-12-14T23:15:34" hostname="chill" time="0.157">
+  <properties/>
+  <testcase name="testNextActionUp()" classname="com.CrossingGuardJoe.ControllerTest.menu.GameOverMenuControllerTest" time="0.042"/>
+  <testcase name="testNextActionDown()" classname="com.CrossingGuardJoe.ControllerTest.menu.GameOverMenuControllerTest" time="0.003"/>
+  <testcase name="testSelectedExit()" classname="com.CrossingGuardJoe.ControllerTest.menu.GameOverMenuControllerTest" time="0.096"/>
+  <testcase name="testSelectStats()" classname="com.CrossingGuardJoe.ControllerTest.menu.GameOverMenuControllerTest" time="0.009"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

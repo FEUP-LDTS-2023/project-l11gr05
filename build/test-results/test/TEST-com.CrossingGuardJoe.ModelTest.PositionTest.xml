@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.CrossingGuardJoe.ModelTest.PositionTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2023-12-14T23:15:35" hostname="chill" time="0.028">
+  <properties/>
+  <testcase name="testGetX()" classname="com.CrossingGuardJoe.ModelTest.PositionTest" time="0.001"/>
+  <testcase name="testGetY()" classname="com.CrossingGuardJoe.ModelTest.PositionTest" time="0.001"/>
+  <testcase name="testSetX()" classname="com.CrossingGuardJoe.ModelTest.PositionTest" time="0.001"/>
+  <testcase name="testSetY()" classname="com.CrossingGuardJoe.ModelTest.PositionTest" time="0.001"/>
+  <testcase name="testEqualsEqualPositions()" classname="com.CrossingGuardJoe.ModelTest.PositionTest" time="0.001"/>
+  <testcase name="testEqualsDifferentClassObject()" classname="com.CrossingGuardJoe.ModelTest.PositionTest" time="0.0"/>
+  <testcase name="testHashCodeEqualPositions()" classname="com.CrossingGuardJoe.ModelTest.PositionTest" time="0.001"/>
+  <testcase name="testEqualsNullObject()" classname="com.CrossingGuardJoe.ModelTest.PositionTest" time="0.001"/>
+  <testcase name="testHashCodeUnequalPositions()" classname="com.CrossingGuardJoe.ModelTest.PositionTest" time="0.002"/>
+  <testcase name="testEqualsSameObject()" classname="com.CrossingGuardJoe.ModelTest.PositionTest" time="0.001"/>
+  <testcase name="testEqualsUnequalPositions()" classname="com.CrossingGuardJoe.ModelTest.PositionTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

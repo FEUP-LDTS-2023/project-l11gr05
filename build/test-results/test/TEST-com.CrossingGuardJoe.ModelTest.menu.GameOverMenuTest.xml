@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.CrossingGuardJoe.ModelTest.menu.GameOverMenuTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2023-12-14T23:15:36" hostname="chill" time="0.061">
+  <properties/>
+  <testcase name="testGetCurrentGame()" classname="com.CrossingGuardJoe.ModelTest.menu.GameOverMenuTest" time="0.001"/>
+  <testcase name="testIsWin()" classname="com.CrossingGuardJoe.ModelTest.menu.GameOverMenuTest" time="0.002"/>
+  <testcase name="testIsSelectedStats()" classname="com.CrossingGuardJoe.ModelTest.menu.GameOverMenuTest" time="0.001"/>
+  <testcase name="testIsSelectedOption()" classname="com.CrossingGuardJoe.ModelTest.menu.GameOverMenuTest" time="0.001"/>
+  <testcase name="testNavigateDown()" classname="com.CrossingGuardJoe.ModelTest.menu.GameOverMenuTest" time="0.001"/>
+  <testcase name="testIsSelectedExit()" classname="com.CrossingGuardJoe.ModelTest.menu.GameOverMenuTest" time="0.001"/>
+  <testcase name="testGetNumberOptions()" classname="com.CrossingGuardJoe.ModelTest.menu.GameOverMenuTest" time="0.003"/>
+  <testcase name="testNavigateUp()" classname="com.CrossingGuardJoe.ModelTest.menu.GameOverMenuTest" time="0.001"/>
+  <testcase name="testGetOption()" classname="com.CrossingGuardJoe.ModelTest.menu.GameOverMenuTest" time="0.036"/>
+  <testcase name="testNavigateRightAndLeft()" classname="com.CrossingGuardJoe.ModelTest.menu.GameOverMenuTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

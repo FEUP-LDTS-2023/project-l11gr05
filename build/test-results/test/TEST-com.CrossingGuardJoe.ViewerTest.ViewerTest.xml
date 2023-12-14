@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.CrossingGuardJoe.ViewerTest.ViewerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-12-14T23:15:36" hostname="chill" time="0.003">
+  <properties/>
+  <testcase name="testViewerDraw()" classname="com.CrossingGuardJoe.ViewerTest.ViewerTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

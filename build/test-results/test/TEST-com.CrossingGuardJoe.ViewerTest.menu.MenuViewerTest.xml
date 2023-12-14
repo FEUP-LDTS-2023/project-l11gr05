@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.CrossingGuardJoe.ViewerTest.menu.MenuViewerTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-12-14T23:15:36" hostname="chill" time="0.018">
+  <properties/>
+  <testcase name="drawElements()" classname="com.CrossingGuardJoe.ViewerTest.menu.MenuViewerTest" time="0.011"/>
+  <testcase name="drawTitle()" classname="com.CrossingGuardJoe.ViewerTest.menu.MenuViewerTest" time="0.003"/>
+  <testcase name="drawInformation()" classname="com.CrossingGuardJoe.ViewerTest.menu.MenuViewerTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
