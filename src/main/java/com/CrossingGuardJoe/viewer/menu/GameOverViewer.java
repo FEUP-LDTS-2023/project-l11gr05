@@ -49,7 +49,7 @@ public class GameOverViewer extends Viewer<GameOverMenu> implements MenuInformat
         gui.drawText(new Position(275, 165), getModel().getCurrentGame().getJoe().getScore(), "#FFFFFF");
 
         if (getModel().getCurrentGame().getCurrentLevel() == 10) {
-            gui.drawText(new Position(275, 195), getModel().getCurrentGame().getCurrentLevel(), "#D30000");
+            gui.drawText(new Position(275, 195), getModel().getCurrentGame().getCurrentLevel() - 1, "#D30000");
         } else {
             gui.drawText(new Position(275, 195), getModel().getCurrentGame().getCurrentLevel(), "#FFFFFF");
         }
