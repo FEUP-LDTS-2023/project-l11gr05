@@ -109,7 +109,7 @@ public class GameOverViewerTest {
         verify(guiMock).drawText(any(), eq("score"), eq("#FFFFFF"));
         verify(guiMock).drawText(any(), eq("level"), eq("#FFFFFF"));
         verify(guiMock).drawText(any(), eq(1234), eq("#FFFFFF"));
-        verify(guiMock).drawText(any(), eq(10), eq("#D30000"));
+        verify(guiMock).drawText(any(), eq(9), eq("#D30000"));
     }
 
     @Test

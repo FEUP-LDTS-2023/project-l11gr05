@@ -28,7 +28,7 @@ This project was developed by Bruno Huang (up202207517@fe.up.pt) and Ricardo Yan
 - **Score** - For every kid passing to the left sidewalk of the street player gets 100 points. If Joe gets hit by a car points are taken (quantity defined by hit spot);
 - **Lives** - When a kid is hit by a car, player loses one hp. The amount of hp starts as 10.
 - **Game over (Lose)** - When hp reaches 0 game ends.
-- **Game over (Win)** - When level 10 is reached user wins the game.
+- **Game over (Win)** - When level 9 is completed user wins the game.
 
 ![](images/gameImage1.png)
 ![](images/gameImage2.png)
@@ -40,17 +40,10 @@ This project was developed by Bruno Huang (up202207517@fe.up.pt) and Ricardo Yan
 
 - **NONE** - All features implemented.
 
-![Menu MockUp](images/menuMockup.png)
-![Some planned features](images/somePlansExample.png)
-
 ### DESIGN
 
-> This section should be organized in different subsections, each describing a different design problem that you had to solve during the project. Each subsection should be organized in four different parts:
-
-- **Problem in Context.** The description of the design context and the concrete problem that motivated the instantiation of the pattern. Someone else other than the original developer should be able to read and understand all the motivations for the decisions made. When refering to the implementation before the pattern was applied, don’t forget to [link to the relevant lines of code](https://help.github.com/en/articles/creating-a-permanent-link-to-a-code-snippet) in the appropriate version.
-- **The Pattern.** Identify the design pattern to be applied, why it was selected and how it is a good fit considering the existing design context and the problem at hand.
-- **Implementation.** Show how the pattern roles, operations and associations were mapped to the concrete design classes. Illustrate it with a UML class diagram, and refer to the corresponding source code with links to the relevant lines (these should be [relative links](https://help.github.com/en/articles/about-readmes#relative-links-and-image-paths-in-readme-files). When doing this, always point to the latest version of the code.
-- **Consequences.** Benefits and liabilities of the design after the pattern instantiation, eventually comparing these consequences with those of alternative solutions.
+**UML**
+![UML](images/UML.png)
 
 #### CODE ORGANIZATION
 
@@ -64,6 +57,8 @@ We have applied the **MVC** pattern. To enhance readability and improve programm
 
 **Implementation**
 
+![](images/MVC.png)
+
 We organized the code into three distinct sections:
 
 Model: Manages data related to image properties and movements.
@@ -72,9 +67,7 @@ View: Handles the drawing of images on the screen.
 
 Controller: Manages user input and orchestrates the interaction between the Model and View for smooth image rendering and movement.
 
-![UML](images/CrossingGuardJoeUML.png)
-
-These classes can be found in the following files:
+These classes can be found below:
 
 - [Model](https://github.com/FEUP-LDTS-2023/project-l11gr05/tree/master/src/main/java/com/aor/CrossingGuardJoe/model)
 - [View](https://github.com/FEUP-LDTS-2023/project-l11gr05/tree/master/src/main/java/com/aor/CrossingGuardJoe/view)
@@ -88,26 +81,67 @@ The use of the MVC architectural pattern in the current design allows the follow
 - increased code reusability. Models and views can be reused across different parts of the application, reducing redundancy.
 - the separation of concerns makes it easier to test individual components.
 
+#### Key inputs
+
+**Problem in Context**
+
+To make elements move and change the animations according to user inputs, we had the need to read the key and make actions according to it.
+
+**The Pattern**
+
+We have applied the **Observer** pattern. So elements could "know" what action to do next.
+
+**Implementation**
+
+![](images/Observer.png)
+
+We implemented **nextAction** method in Controller class so when GUI class gets next action we could update the control of the elements and also
+the view immediately after.
+
+These classes can be found below:
+
+- [Controller](../src/main/java/com/CrossingGuardJoe/controller/Controller.java)
+- [CustomizeMenuController](../src/main/java/com/CrossingGuardJoe/controller/menu/CustomizeMenuController.java)
+- [GameOverMenuController](../src/main/java/com/CrossingGuardJoe/controller/menu/GameOverMenuController.java)
+- [InstructionsMenuController](../src/main/java/com/CrossingGuardJoe/controller/menu/InstructionsMenuController.java)
+- [MenuController](../src/main/java/com/CrossingGuardJoe/controller/menu/MenuController.java)
+- [PauseMenuController](../src/main/java/com/CrossingGuardJoe/controller/menu/PauseMenuController.java)
+- [StatsMenuController](../src/main/java/com/CrossingGuardJoe/controller/menu/StatsMenuController.java)
+- [GameController](../src/main/java/com/CrossingGuardJoe/controller/game/GameController.java)
+- [RoadController](../src/main/java/com/CrossingGuardJoe/controller/game/RoadController.java)
+- [CarController](../src/main/java/com/CrossingGuardJoe/controller/game/elements/CarController.java)
+- [JoeController](../src/main/java/com/CrossingGuardJoe/controller/game/elements/JoeController.java)
+- [KidController](../src/main/java/com/CrossingGuardJoe/controller/game/elements/KidController.java)
+
+**Consequences**
+
+This implementation provided distributed event handling and reduced coupling between components.
+
 #### KNOWN CODE SMELLS
 
-> 1. Cars are currently generated in a wrong way, we think we should limit them to a certain number and do a deletion and regeneration as the cars move out of screen.  
-> 2. Kids are currently not being controlled in a correct way, we need to change the way Joe controls them.  
-> 3. Menu isn't shown as we expected to, so we need to find another way to draw the menu.  
-> 4. We think we still need to implement a "collide checker" to write the code for car collision with either Joe or kids.  
-> 5. Some parts of the code aren't in correct place.
-
-![Point 2](images/codeSmellKidSelection.png)
+> 1. In 'Menu Viewer' classes we have repeated blocks of code to draw a certain repeated image for each class that uses it.
+> 2. Some classes are too tightly coupled, maybe we could reduce dependencies and use proper encapsulation to make classes more independent.
+> 3. In viewer classes we use magic numbers without explanation to position the images on screen.
 
 ### TESTING
 
-- Screenshot of coverage report.
-- Link to mutation testing report.
+> There were three classes that we didn't mutate (Sounds, SoundsController, Game) because we found it really hard to make tests
+> for the sounds to kill the mutations, and we were sure that the sounds were working well, also the Game class because it's the class
+> that has the run() method and initiates the game.
+> 
+> Also in the 29% of mutation coverage, some were the sound instances that were inserted through the code that we couldn't make it to
+> not mutate, some were codes related to the positioning of the images and the movement of the characters (e.g. 'Kids' only walk to left
+> so the update of position would be 'position - x' from a call to a method 'MoveKid()', but the mutation would turn '-' to '+', also the 
+> positioning of images, because our game uses large images, we had the need to draw in a specified position and the pit test would mutate
+> the value of that position), other mutations were related with methods and lines of code that would update with the running of the game
+> and so we couldn't write tests to kill the mutations in those parts.
+
+![](images/Pit_Test.png)
+
+### Link to mutation testing report
+- [Pit Test Coverage Report](pitest/index.html)
 
 ### SELF-EVALUATION
 
-> In this section describe how the work regarding the project was divided between the students. In the event that members of the group do not agree on a work distribution, the group should send an email to the teacher explaining the disagreement.
-
-**Example**:
-
-- John Doe: 40%
-- Jane Doe: 60%
+- Bruno Huang: 50%
+- Ricardo Yang: 50%
