@@ -29,15 +29,6 @@ This project was developed by Bruno Huang (up202207517@fe.up.pt) and Ricardo Yan
 - **Lives** - When a kid is hit by a car, player loses one hp. The amount of hp starts as 10.
 - **Game over (Lose)** - When hp reaches 0 game ends.
 - **Game over (Win)** - When level 9 is completed user wins the game.
-<<<<<<< HEAD
-
-![](images/gameImage1.png)
-![](images/gameImage2.png)
-![](images/gameImage3.png)
-![](images/gameImage4.png)
-![](Crossing%20Guard%20Joe%20Gameplay.gif)
-=======
->>>>>>> readmefile
 
 ### PLANNED FEATURES
 
@@ -46,11 +37,7 @@ This project was developed by Bruno Huang (up202207517@fe.up.pt) and Ricardo Yan
 ### DESIGN
 
 **UML**
-<<<<<<< HEAD
-![UML](images/UML.png)
-=======
 ![UML](images/UMLs/UML.png)
->>>>>>> readmefile
 
 #### CODE ORGANIZATION
 
@@ -64,11 +51,7 @@ We have applied the **MVC** pattern. To enhance readability and improve programm
 
 **Implementation**
 
-<<<<<<< HEAD
-![](images/MVC.png)
-=======
 ![](images/UMLs/MVC.png)
->>>>>>> readmefile
 
 We organized the code into three distinct sections:
 
@@ -93,48 +76,6 @@ The use of the MVC architectural pattern in the current design allows the follow
 - the separation of concerns makes it easier to test individual components.
 
 #### Key inputs
-<<<<<<< HEAD
-
-**Problem in Context**
-
-To make elements move and change the animations according to user inputs, we had the need to read the key and make actions according to it.
-
-**The Pattern**
-
-We have applied the **Observer** pattern. So elements could "know" what action to do next.
-
-**Implementation**
-
-![](images/Observer.png)
-
-We implemented **nextAction** method in Controller class so when GUI class gets next action we could update the control of the elements and also
-the view immediately after.
-
-These classes can be found below:
-
-- [Controller](../src/main/java/com/CrossingGuardJoe/controller/Controller.java)
-- [CustomizeMenuController](../src/main/java/com/CrossingGuardJoe/controller/menu/CustomizeMenuController.java)
-- [GameOverMenuController](../src/main/java/com/CrossingGuardJoe/controller/menu/GameOverMenuController.java)
-- [InstructionsMenuController](../src/main/java/com/CrossingGuardJoe/controller/menu/InstructionsMenuController.java)
-- [MenuController](../src/main/java/com/CrossingGuardJoe/controller/menu/MenuController.java)
-- [PauseMenuController](../src/main/java/com/CrossingGuardJoe/controller/menu/PauseMenuController.java)
-- [StatsMenuController](../src/main/java/com/CrossingGuardJoe/controller/menu/StatsMenuController.java)
-- [GameController](../src/main/java/com/CrossingGuardJoe/controller/game/GameController.java)
-- [RoadController](../src/main/java/com/CrossingGuardJoe/controller/game/RoadController.java)
-- [CarController](../src/main/java/com/CrossingGuardJoe/controller/game/elements/CarController.java)
-- [JoeController](../src/main/java/com/CrossingGuardJoe/controller/game/elements/JoeController.java)
-- [KidController](../src/main/java/com/CrossingGuardJoe/controller/game/elements/KidController.java)
-
-**Consequences**
-
-This implementation provided distributed event handling and reduced coupling between components.
-
-#### KNOWN CODE SMELLS
-
-> 1. In 'Menu Viewer' classes we have repeated blocks of code to draw a certain repeated image for each class that uses it.
-> 2. Some classes are too tightly coupled, maybe we could reduce dependencies and use proper encapsulation to make classes more independent.
-> 3. In viewer classes we use magic numbers without explanation to position the images on screen.
-=======
 
 **Problem in Context**
 
