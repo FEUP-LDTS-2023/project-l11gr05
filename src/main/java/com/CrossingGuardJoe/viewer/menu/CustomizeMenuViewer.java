@@ -54,7 +54,7 @@ public class CustomizeMenuViewer extends Viewer<CustomizeMenu> implements MenuIn
 
                 // Draw the selection arrow (green)
                 if (getModel().isSelectedOption(i, j)) {
-                    gui.drawImage(new Position(optionPosition.getX() - 30, optionPosition.getY()), ToolImages.ARROW_RIGHT);
+                    gui.drawImage(new Position(optionPosition.getX() - 30, optionPosition.getY()), ToolImages.getArrowRightImage());
                 }
             }
         }
@@ -71,7 +71,7 @@ public class CustomizeMenuViewer extends Viewer<CustomizeMenu> implements MenuIn
 
     @Override
     public void drawInformation(GUI gui) {
-        gui.drawImage(new Position(4, 4), ToolImages.KEY_ESC);
+        gui.drawImage(new Position(4, 4), ToolImages.getKeyEscImage());
     }
 
     private void drawSelectionBox(GUI gui) {
@@ -102,7 +102,7 @@ public class CustomizeMenuViewer extends Viewer<CustomizeMenu> implements MenuIn
         if (getModel().isColorPaletteSelected()) {
             for (int i = 0; i < getModel().getColorPaletteMenu().getColorPalette().size(); i++) {
                 if (getModel().getColorPaletteMenu().isColorSelected(i)) {
-                    gui.drawImage(new Position(15 * i + 55, 405), ToolImages.ARROW_DOWN);
+                    gui.drawImage(new Position(15 * i + 55, 405), ToolImages.getArrowDownImage());
                 }
             }
         }

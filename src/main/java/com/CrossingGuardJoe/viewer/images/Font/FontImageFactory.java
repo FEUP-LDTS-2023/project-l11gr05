@@ -23,12 +23,12 @@ public class FontImageFactory {
         for (Character character : text.toCharArray()) {
             String[] characterToAppend;
             if (character == ' ') {
-                characterToAppend = FontImages.SPACE;
+                characterToAppend = FontImages.getSpaceImage();
             } else {
                 characterToAppend = new String[16];
                 int characterIndex = getAlphabetIndex(character);
                 for (int i = characterIndex * 16; i < (characterIndex + 1) * 16; i++) {
-                    String line = FontImages.ALPHABET[i % FontImages.ALPHABET.length];
+                    String line = FontImages.getAlphabetImage()[i % FontImages.getAlphabetImage().length];
                     characterToAppend[i - characterIndex * 16] = line;
                 }
             }
@@ -61,7 +61,7 @@ public class FontImageFactory {
             characterToAppend = new String[16];
             int characterIndex = Character.getNumericValue(character);
             for (int i = characterIndex * 16; i < (characterIndex + 1) * 16; i++) {
-                String line = FontImages.NUMBERS[i % FontImages.NUMBERS.length];
+                String line = FontImages.getNumbersImage()[i % FontImages.getNumbersImage().length];
                 characterToAppend[i - characterIndex * 16] = line;
             }
 

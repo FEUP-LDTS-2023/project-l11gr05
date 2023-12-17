@@ -1,7 +1,7 @@
 package com.CrossingGuardJoe.viewer.images.defined;
 
 public class JoeImages {
-    public static final String[] JOE_STAND = new String[]{
+    private static final String[] JOE_STAND = new String[]{
             "                                                                                ",
             "                                                                                ",
             "                                                                                ",
@@ -98,7 +98,7 @@ public class JoeImages {
             "                           $$$$$$$$$        $$$$$$$$$                           "
     };
 
-    public static final String[] JOE_WALKLEFT = new String[]{
+    private static final String[] JOE_WALKLEFT = new String[]{
             "                                                                                ",
             "                                                                                ",
             "                                                                                ",
@@ -182,7 +182,7 @@ public class JoeImages {
             "              $$$$$$                                                            "
     };
 
-    public static final String[] JOE_WALKRIGHT = new String[]{
+    private static final String[] JOE_WALKRIGHT = new String[]{
             "                                                                                ",
             "                                                                                ",
             "                                                                                ",
@@ -267,7 +267,7 @@ public class JoeImages {
 
     };
 
-    public static final String[] JOE_WALKSECONDHALF = new String[]{
+    private static final String[] JOE_WALKSECONDHALF = new String[]{
             "                                                                                ",
             "                                                                                ",
             "                                                                                ",
@@ -364,7 +364,7 @@ public class JoeImages {
             "                           $$$$$$$$$        $$$$$$$$$                           "
     };
 
-    public static final String[] JOE_PASS = new String[]{
+    private static final String[] JOE_PASS = new String[]{
             "                                                                                ",
             "                                                                                ",
             "                                                                                ",
@@ -461,7 +461,7 @@ public class JoeImages {
             "                           $$$$$$$$$        $$$$$$$$$                           "
     };
 
-    public static final String[] JOE_STOP = new String[]{
+    private static final String[] JOE_STOP = new String[]{
             "                                                              $$$$$$$$          ",
             "                                                            $$RRRRRRRR$$        ",
             "                                                           $RRRRRRRRRRRR$       ",
@@ -558,7 +558,7 @@ public class JoeImages {
             "                           $$$$$$$$$        $$$$$$$$$                           "
     };
 
-    public static final String[] JOE_HITLEFT = {
+    private static final String[] JOE_HITLEFT = {
             "                                                                                  ",
             "                                                                                  ",
             "                                                                                  ",
@@ -637,7 +637,7 @@ public class JoeImages {
             "                                      $$$$$$$$$         $$$$$$                    ",
     };
 
-    public static final String[] JOE_HITRIGHT = {
+    private static final String[] JOE_HITRIGHT = {
             "                                                                                  ",
             "                                                                                  ",
             "                                                                                  ",
@@ -715,4 +715,20 @@ public class JoeImages {
             "                   $$****$$    $$$$$!!!!!!!$$                                     ",
             "                    $$$$$$         $$$$$$$$$                                      ",
     };
+
+    public static String[] getJoeStandImage() { return JOE_STAND.clone(); }
+
+    public static String[] getJoeWalkleftImage() { return JOE_WALKLEFT.clone(); }
+
+    public static String[] getJoeWalkrightImage() { return JOE_WALKRIGHT.clone(); }
+
+    public static String[] getJoeWalksecondhalfImage() { return JOE_WALKSECONDHALF.clone(); }
+
+    public static String[] getJoePassImage() { return JOE_PASS.clone(); }
+
+    public static String[] getJoeStopImage() { return JOE_STOP.clone(); }
+
+    public static String[] getJoeHitleftImage() { return JOE_HITLEFT.clone(); }
+
+    public static String[] getJoeHitrightImage() { return JOE_HITRIGHT.clone(); }
 }

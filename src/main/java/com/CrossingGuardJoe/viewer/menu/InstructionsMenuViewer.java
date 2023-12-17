@@ -45,12 +45,12 @@ public class InstructionsMenuViewer extends Viewer<InstructionsMenu> implements 
 
     @Override
     public void drawInformation(GUI gui) {
-        gui.drawImage(new Position(4, 4), ToolImages.KEY_ESC);
+        gui.drawImage(new Position(4, 4), ToolImages.getKeyEscImage());
 
         int PAGES_INI_X = 400;
         int PAGES_Y = 474;
 
-        gui.drawImage(new Position(4, 4), ToolImages.KEY_ESC);
+        gui.drawImage(new Position(4, 4), ToolImages.getKeyEscImage());
 
         //text
         gui.drawText(new Position(PAGES_INI_X, PAGES_Y), "Page", "#FFFFFF");
@@ -72,14 +72,14 @@ public class InstructionsMenuViewer extends Viewer<InstructionsMenu> implements 
 
         //JOE
         int JOE_Y = 190;
-        gui.drawImage(new Position(150, JOE_Y), JoeImages.JOE_STAND);
-        gui.drawImage(new Position(230, JOE_Y), JoeImages.JOE_WALKLEFT);
-        gui.drawImage(new Position(310, JOE_Y), JoeImages.JOE_WALKRIGHT);
+        gui.drawImage(new Position(150, JOE_Y), JoeImages.getJoeStandImage());
+        gui.drawImage(new Position(230, JOE_Y), JoeImages.getJoeWalkleftImage());
+        gui.drawImage(new Position(310, JOE_Y), JoeImages.getJoeWalkrightImage());
 
         //KEY
         int KEY_Y = 310;
-        gui.drawImage(new Position(235, KEY_Y), ToolImages.KEY_LEFT);
-        gui.drawImage(new Position(315, KEY_Y), ToolImages.KEY_RIGHT);
+        gui.drawImage(new Position(235, KEY_Y), ToolImages.getKeyLeftImage());
+        gui.drawImage(new Position(315, KEY_Y), ToolImages.getKeyRightImage());
     }
 
     private void drawPageTwo(GUI gui) {
@@ -90,17 +90,17 @@ public class InstructionsMenuViewer extends Viewer<InstructionsMenu> implements 
 
         //JOE
         int JOE_Y = 200;
-        gui.drawImage(new Position(170, JOE_Y - 20), JoeImages.JOE_STOP);
-        gui.drawImage(new Position(290, JOE_Y - 20), JoeImages.JOE_PASS);
+        gui.drawImage(new Position(170, JOE_Y - 20), JoeImages.getJoeStopImage());
+        gui.drawImage(new Position(290, JOE_Y - 20), JoeImages.getJoePassImage());
 
         //KID
-        gui.drawImage(new Position(200, JOE_Y + 20), KidImages.KID_STAND);
-        gui.drawImage(new Position(280, JOE_Y + 20), KidImages.KID_WALK);
+        gui.drawImage(new Position(200, JOE_Y + 20), KidImages.getKidStandImage());
+        gui.drawImage(new Position(280, JOE_Y + 20), KidImages.getKidWalkImage());
 
         //KEY
         int KEY_Y = 310;
-        gui.drawImage(new Position(180, KEY_Y), ToolImages.KEY_UP);
-        gui.drawImage(new Position(295, KEY_Y), ToolImages.KEY_DOWN);
+        gui.drawImage(new Position(180, KEY_Y), ToolImages.getKeyUpImage());
+        gui.drawImage(new Position(295, KEY_Y), ToolImages.getKeyDownImage());
     }
 
     private void drawPageThree(GUI gui) {
@@ -110,14 +110,14 @@ public class InstructionsMenuViewer extends Viewer<InstructionsMenu> implements 
 
         //CAR
         int JOE_Y = 215;
-        gui.drawImage(new Position(150, JOE_Y - 20), CarImage.CAR);
-        gui.drawImage(new Position(280, JOE_Y - 20), CarImage.CAR);
+        gui.drawImage(new Position(150, JOE_Y - 20), CarImage.getCarImage());
+        gui.drawImage(new Position(280, JOE_Y - 20), CarImage.getCarImage());
 
         //KID
-        gui.drawImage(new Position(190, JOE_Y + 30), KidImages.KID_HIT);
+        gui.drawImage(new Position(190, JOE_Y + 30), KidImages.getKidHitImage());
 
         //JOE
-        gui.drawImage(new Position(320, JOE_Y), JoeImages.JOE_HITRIGHT);
+        gui.drawImage(new Position(320, JOE_Y), JoeImages.getJoeHitrightImage());
     }
 
     private void drawPageFour(GUI gui) {
@@ -127,11 +127,11 @@ public class InstructionsMenuViewer extends Viewer<InstructionsMenu> implements 
 
         int HP_BAR_Y = 230;
         gui.drawImage(new Position(199, HP_BAR_Y - 1), Shape.RectangleFilledGenerator(202, 39, ' ', 2, '$'));
-        gui.drawImage(new Position(200, HP_BAR_Y), HUDImages.HP_BAR_SLICE);
+        gui.drawImage(new Position(200, HP_BAR_Y), HUDImages.getHpBarSliceImage());
 
         int HP_iniX = 208;
         for (int i = 0; i < 3; i++) {
-            gui.drawImage(new Position(HP_iniX, HP_BAR_Y + 4), HUDImages.HP);
+            gui.drawImage(new Position(HP_iniX, HP_BAR_Y + 4), HUDImages.getHPImage());
             HP_iniX += 25;
         }
     }
@@ -146,7 +146,7 @@ public class InstructionsMenuViewer extends Viewer<InstructionsMenu> implements 
 
         gui.drawImage(new Position(SCORE_BAR_X - 1, SCORE_BAR_Y - 1), Shape.RectangleFilledGenerator(266, 39, ' ', 2, '$'));
 
-        gui.drawImage(new Position(SCORE_BAR_X, SCORE_BAR_Y), HUDImages.SCORE_BAR_SLICE);
+        gui.drawImage(new Position(SCORE_BAR_X, SCORE_BAR_Y), HUDImages.getScoreBarSliceImage());
         gui.drawText(new Position(SCORE_BAR_X + 90, SCORE_BAR_Y + 10), 2590, "#FFFFFF");
     }
 }

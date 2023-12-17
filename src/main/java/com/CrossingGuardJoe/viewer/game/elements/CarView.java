@@ -7,6 +7,6 @@ import com.CrossingGuardJoe.viewer.images.defined.CarImage;
 public class CarView extends ElementViewer<Car> {
     @Override
     public void draw(Car car, GUI gui) {
-        gui.drawImage(car.getPosition(), CarImage.CAR);
+        gui.drawImage(car.getPosition(), CarImage.getCarImage());
     }
 }

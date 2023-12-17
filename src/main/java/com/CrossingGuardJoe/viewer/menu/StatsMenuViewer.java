@@ -41,6 +41,6 @@ public class StatsMenuViewer extends Viewer<StatsMenu> implements MenuInformatio
         } else {
             gui.drawText(new Position(275, 340), getModel().getHighestLevel(), "#FFFFFF");
         }
-        gui.drawImage(new Position(4, 4), ToolImages.KEY_ESC);
+        gui.drawImage(new Position(4, 4), ToolImages.getKeyEscImage());
     }
 }

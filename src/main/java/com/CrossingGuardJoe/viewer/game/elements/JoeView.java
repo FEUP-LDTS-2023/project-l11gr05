@@ -9,33 +9,33 @@ public class JoeView extends ElementViewer<Joe> {
     public void draw(Joe joe, GUI gui) {
         if (joe.getIsHit()) {
             if (joe.getHitLeft()) {
-                gui.drawImage(joe.getPosition(), JoeImages.JOE_HITLEFT);
+                gui.drawImage(joe.getPosition(), JoeImages.getJoeHitleftImage());
             } else {
-                gui.drawImage(joe.getPosition(), JoeImages.JOE_HITRIGHT);
+                gui.drawImage(joe.getPosition(), JoeImages.getJoeHitrightImage());
             }
             joe.isNotHit();
         }
         else if (joe.getIsWalkingState()) {
             if (joe.isFirstHalfOfMovement()) {
                 if (joe.getIsWalkingToLeft()) {
-                    gui.drawImage(joe.getPosition(), JoeImages.JOE_WALKLEFT);
+                    gui.drawImage(joe.getPosition(), JoeImages.getJoeWalkleftImage());
                 } else {
-                    gui.drawImage(joe.getPosition(), JoeImages.JOE_WALKRIGHT);
+                    gui.drawImage(joe.getPosition(), JoeImages.getJoeWalkrightImage());
                 }
             }
             else {
-                gui.drawImage(joe.getPosition(), JoeImages.JOE_WALKSECONDHALF);
+                gui.drawImage(joe.getPosition(), JoeImages.getJoeWalksecondhalfImage());
             }
             joe.setFirstHalfOfMovement(!joe.isFirstHalfOfMovement());
         }
         else if (joe.getIsRaisingStopSign()) {
-            gui.drawImage(joe.getPosition(), JoeImages.JOE_STOP);
+            gui.drawImage(joe.getPosition(), JoeImages.getJoeStopImage());
         }
         else if (joe.getIsPassSign()) {
-            gui.drawImage(joe.getPosition(), JoeImages.JOE_PASS);
+            gui.drawImage(joe.getPosition(), JoeImages.getJoePassImage());
         }
         else {
-            gui.drawImage(joe.getPosition(), JoeImages.JOE_STAND);
+            gui.drawImage(joe.getPosition(), JoeImages.getJoeStandImage());
         }
     }
 }

@@ -66,7 +66,7 @@ public class CustomizeMenuViewerTest {
         int JOE_X = 80;
         int OPTIONS_Y = 230;
         List<Option> Joe = Arrays.asList(
-                new Option("", new Position(JOE_X - 2, 95), JoeImages.JOE_STAND),
+                new Option("", new Position(JOE_X - 2, 95), JoeImages.getJoeStandImage()),
                 new Option("Cap", new Position(JOE_X, OPTIONS_Y), new FontImageFactory().getImageRepresentation("Cap")),
                 new Option("Clothes", new Position(JOE_X, OPTIONS_Y + 30), new FontImageFactory().getImageRepresentation("Clothes")),
                 new Option("Vest", new Position(JOE_X, OPTIONS_Y + 60), new FontImageFactory().getImageRepresentation("Vest")),
@@ -75,7 +75,7 @@ public class CustomizeMenuViewerTest {
 
         int KIDS_X = 235;
         List<Option> Kids = Arrays.asList(
-                new Option("", new Position(KIDS_X + 5, 115), KidImages.KID_STAND),
+                new Option("", new Position(KIDS_X + 5, 115), KidImages.getKidStandImage()),
                 new Option("Shirt", new Position(KIDS_X, OPTIONS_Y), new FontImageFactory().getImageRepresentation("Shirt")),
                 new Option("Pants", new Position(KIDS_X, OPTIONS_Y + 30), new FontImageFactory().getImageRepresentation("Pants")),
                 new Option("BackPack", new Position(KIDS_X, OPTIONS_Y + 60), new FontImageFactory().getImageRepresentation("Backpack")),
@@ -84,7 +84,7 @@ public class CustomizeMenuViewerTest {
 
         int CARS_X = 403;
         List<Option> Cars = Arrays.asList(
-                new Option("", new Position(CARS_X - 27, 100), CarImage.CAR),
+                new Option("", new Position(CARS_X - 27, 100), CarImage.getCarImage()),
                 new Option("Car", new Position(CARS_X, OPTIONS_Y + 30), new FontImageFactory().getImageRepresentation("CAR"))
         );
 

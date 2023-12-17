@@ -1,7 +1,7 @@
 package com.CrossingGuardJoe.viewer.images.Font;
 
 public class FontImages {
-    public static final String[] SPACE = {
+    private static final String[] SPACE = {
             "                ",
             "                ",
             "                ",
@@ -20,7 +20,7 @@ public class FontImages {
             "                "
     };
 
-    public static final String[] NUMBERS = {
+    private static final String[] NUMBERS = {
             "  $$$$$$$$$     ",
             " $$$$$$$$$$$    ",
             "$$$$$$$$$$$$$   ",
@@ -183,7 +183,7 @@ public class FontImages {
             "  $$$$$$$$$     "
     };
 
-    public static final String[] ALPHABET = {
+    private static final String[] ALPHABET = {
             "   $$$$$$$      ",
             "  $$$$ $$$$     ",
             " $$$$   $$$$    ",
@@ -601,4 +601,10 @@ public class FontImages {
             "$$$$$$$$$$$$    ",
             "$$$$$$$$$$$$    "
     };
+
+    public static String[] getSpaceImage() { return SPACE.clone(); }
+
+    public static String[] getNumbersImage() { return NUMBERS.clone(); }
+
+    public static String[] getAlphabetImage() { return ALPHABET.clone(); }
 }

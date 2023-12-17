@@ -80,18 +80,18 @@ public class GameViewer extends Viewer<Road> implements RoadView{
 
     @Override
     public void drawRoadItems(GUI gui) {
-        gui.drawImage(new Position(426, 258), RoadItemsImages.SIGNAL);
-        gui.drawImage(new Position(55, 258), RoadItemsImages.SIGNAL);
+        gui.drawImage(new Position(426, 258), RoadItemsImages.getSignalImage());
+        gui.drawImage(new Position(55, 258), RoadItemsImages.getSignalImage());
     }
 
    private void drawHUD(GUI gui) {
-        gui.drawImage(new Position(0, 0), HUDImages.GAME_HUD);
+        gui.drawImage(new Position(0, 0), HUDImages.getGameHudImage());
 
         gui.drawText(new Position(164, 10), getModel().getJoe().getScore(), "#FFFFFF");
 
         int heartIniX = 246;
         for (int i = 0; i < getModel().getJoe().getHearts(); i++) {
-            gui.drawImage(new Position(heartIniX, 4), HUDImages.HP);
+            gui.drawImage(new Position(heartIniX, 4), HUDImages.getHPImage());
             heartIniX += 25;
         }
     }

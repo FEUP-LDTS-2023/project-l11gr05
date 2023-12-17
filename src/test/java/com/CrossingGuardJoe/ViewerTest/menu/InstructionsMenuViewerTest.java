@@ -285,9 +285,9 @@ public class InstructionsMenuViewerTest {
         verify(guiMock).drawText(new Position(70, 120), "a crossing guard", "#FFFFFF");
         verify(guiMock).drawText(new Position(50, 400), "click once to move", "#FFFFFF");
 
-        verify(guiMock).drawImage(new Position(150, 190), JoeImages.JOE_STAND);
-        verify(guiMock).drawImage(new Position(230, 190), JoeImages.JOE_WALKLEFT);
-        verify(guiMock).drawImage(new Position(310, 190), JoeImages.JOE_WALKRIGHT);
+        verify(guiMock).drawImage(new Position(150, 190), JoeImages.getJoeStandImage());
+        verify(guiMock).drawImage(new Position(230, 190), JoeImages.getJoeWalkleftImage());
+        verify(guiMock).drawImage(new Position(310, 190), JoeImages.getJoeWalkrightImage());
 
         verify(guiMock).drawImage(new Position(235, 310), KEY_LEFT);
         verify(guiMock).drawImage(new Position(315, 310), KEY_RIGHT);
@@ -303,11 +303,11 @@ public class InstructionsMenuViewerTest {
         verify(guiMock).drawText(new Position(70, 120), "the kids to cross the road", "#FFFFFF");
         verify(guiMock).drawText(new Position(50, 400), "click once to order", "#FFFFFF");
 
-        verify(guiMock).drawImage(new Position(170, 180), JoeImages.JOE_STOP);
-        verify(guiMock).drawImage(new Position(290, 180), JoeImages.JOE_PASS);
+        verify(guiMock).drawImage(new Position(170, 180), JoeImages.getJoeStopImage());
+        verify(guiMock).drawImage(new Position(290, 180), JoeImages.getJoePassImage());
 
-        verify(guiMock).drawImage(new Position(200, 220), KidImages.KID_STAND);
-        verify(guiMock).drawImage(new Position(280, 220), KidImages.KID_WALK);
+        verify(guiMock).drawImage(new Position(200, 220), KidImages.getKidStandImage());
+        verify(guiMock).drawImage(new Position(280, 220), KidImages.getKidWalkImage());
 
         verify(guiMock).drawImage(new Position(180, 310), KEY_UP);
         verify(guiMock).drawImage(new Position(295, 310), KEY_DOWN);
@@ -322,11 +322,11 @@ public class InstructionsMenuViewerTest {
         verify(guiMock).drawText(new Position(50, 100), "be careful", "#FFFFFF");
         verify(guiMock).drawText(new Position(70, 120), "with rude drivers", "#FFFFFF");
 
-        verify(guiMock).drawImage(new Position(150, 195), CarImage.CAR);
-        verify(guiMock).drawImage(new Position(280, 195), CarImage.CAR);
+        verify(guiMock).drawImage(new Position(150, 195), CarImage.getCarImage());
+        verify(guiMock).drawImage(new Position(280, 195), CarImage.getCarImage());
 
-        verify(guiMock).drawImage(new Position(190, 245), KidImages.KID_HIT);
-        verify(guiMock).drawImage(new Position(320, 215), JoeImages.JOE_HITRIGHT);
+        verify(guiMock).drawImage(new Position(190, 245), KidImages.getKidHitImage());
+        verify(guiMock).drawImage(new Position(320, 215), JoeImages.getJoeHitrightImage());
     }
 
     @Test
@@ -339,11 +339,11 @@ public class InstructionsMenuViewerTest {
         verify(guiMock).drawText(new Position(70, 120), "you lose hp", "#FFFFFF");
 
         verify(guiMock).drawImage(new Position(199, 229), Shape.RectangleFilledGenerator(202, 39, ' ', 2, '$'));
-        verify(guiMock).drawImage(new Position(200, 230), HUDImages.HP_BAR_SLICE);
+        verify(guiMock).drawImage(new Position(200, 230), HUDImages.getHpBarSliceImage());
 
         int expectedX = 208;
         for (int i = 0; i < 3; i++) {
-            verify(guiMock).drawImage(new Position(expectedX, 234), HUDImages.HP);
+            verify(guiMock).drawImage(new Position(expectedX, 234), HUDImages.getHPImage());
             expectedX += 25;
         }
     }
@@ -361,7 +361,7 @@ public class InstructionsMenuViewerTest {
         int SCORE_BAR_Y = 230;
 
         verify(guiMock).drawImage(new Position(SCORE_BAR_X - 1, SCORE_BAR_Y - 1), Shape.RectangleFilledGenerator(266, 39, ' ', 2, '$'));
-        verify(guiMock).drawImage(new Position(SCORE_BAR_X, SCORE_BAR_Y), HUDImages.SCORE_BAR_SLICE);
+        verify(guiMock).drawImage(new Position(SCORE_BAR_X, SCORE_BAR_Y), HUDImages.getScoreBarSliceImage());
         verify(guiMock).drawText(new Position(SCORE_BAR_X + 90, SCORE_BAR_Y + 10), 2590, "#FFFFFF");
     }
 

@@ -1,7 +1,7 @@
 package com.CrossingGuardJoe.viewer.images.defined;
 
 public class CarImage {
-    public static final String[] CAR = new String[]{
+    private static final String[] CAR = new String[]{
             "                                    $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$                                    ",
             "                                    $@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@$                                    ",
             "                                   $$@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@$$                                   ",
@@ -108,4 +108,6 @@ public class CarImage {
             "                      $$$$$$$$$$$$$                                                                      $$$$$$$$$$$$$                      "
 
     };
+
+    public static String[] getCarImage() { return CAR.clone(); }
 }

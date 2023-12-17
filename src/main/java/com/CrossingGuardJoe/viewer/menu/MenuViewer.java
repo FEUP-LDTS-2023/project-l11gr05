@@ -23,14 +23,14 @@ public class MenuViewer extends Viewer<Menu> implements MenuInformationDrawer {
             gui.drawText(optionPosition, option.name(), "#FFFFFF");
 
             if (getModel().isSelectedOption(i)) {
-                gui.drawImage(new Position(optionPosition.getX() - 15, optionPosition.getY()), ToolImages.ARROW_RIGHT);
+                gui.drawImage(new Position(optionPosition.getX() - 15, optionPosition.getY()), ToolImages.getArrowRightImage());
             }
         }
     }
 
     @Override
     public void drawTitle(GUI gui) {
-        gui.drawImage(new Position(130, 50), LogoImages.LOGO_GAME);
+        gui.drawImage(new Position(130, 50), LogoImages.getLogoGameImage());
     }
 
     @Override

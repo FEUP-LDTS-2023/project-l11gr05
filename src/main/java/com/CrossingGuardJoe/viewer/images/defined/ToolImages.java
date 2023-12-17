@@ -1,7 +1,7 @@
 package com.CrossingGuardJoe.viewer.images.defined;
 
 public class ToolImages {
-    public static final String[] ARROW_DOWN = {
+    private static final String[] ARROW_DOWN = {
             "$$$$$$$$$$$$$$$$",
             "$$GGGGGGGGGGGG$$",
             " $GGGGGGGGGGGG$ ",
@@ -19,7 +19,7 @@ public class ToolImages {
             "       $$       ",
     };
 
-    public static final String[] ARROW_RIGHT = {
+    private static final String[] ARROW_RIGHT = {
             "$$",
             "$$$$",
             "$GG$$",
@@ -39,7 +39,7 @@ public class ToolImages {
 
     };
 
-    public static final String[] KEY_UP = {
+    private static final String[] KEY_UP = {
             "  $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$  ",
             "  $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$  ",
             "$$$$KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK$$$$",
@@ -93,7 +93,7 @@ public class ToolImages {
             "  $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$  ",
     };
 
-    public static final String[] KEY_DOWN = {
+    private static final String[] KEY_DOWN = {
             "  $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$  ",
             "  $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$  ",
             "$$$$KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK$$$$",
@@ -147,7 +147,7 @@ public class ToolImages {
             "  $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$  ",
     };
 
-    public static final String[] KEY_RIGHT = {
+    private static final String[] KEY_RIGHT = {
             "  $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$  ",
             "  $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$  ",
             "$$$$KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK$$$$",
@@ -201,7 +201,7 @@ public class ToolImages {
             "  $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$  ",
     };
 
-    public static final String[] KEY_LEFT = {
+    private static final String[] KEY_LEFT = {
             "  $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$  ",
             "  $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$  ",
             "$$$$KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK$$$$",
@@ -255,7 +255,7 @@ public class ToolImages {
             "  $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$  ",
     };
 
-    public static final String[] KEY_ESC = {
+    private static final String[] KEY_ESC = {
         "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
         "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
         "$$KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK$$",
@@ -286,4 +286,18 @@ public class ToolImages {
         "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
         "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
     };
+
+    public static String[] getArrowDownImage() { return ARROW_DOWN.clone(); }
+
+    public static String[] getArrowRightImage() { return ARROW_RIGHT.clone(); }
+
+    public static String[] getKeyUpImage() { return KEY_UP.clone(); }
+
+    public static String[] getKeyDownImage() { return KEY_DOWN.clone(); }
+
+    public static String[] getKeyRightImage() { return KEY_RIGHT.clone(); }
+
+    public static String[] getKeyLeftImage() { return KEY_LEFT.clone(); }
+
+    public static String[] getKeyEscImage() { return KEY_ESC.clone(); }
 }

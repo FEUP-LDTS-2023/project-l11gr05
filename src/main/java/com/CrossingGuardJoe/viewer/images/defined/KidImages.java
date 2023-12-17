@@ -1,7 +1,7 @@
 package com.CrossingGuardJoe.viewer.images.defined;
 
 public class KidImages {
-    public static final String[] KID_STAND = new String[]{
+    private static final String[] KID_STAND = new String[]{
             "                    $$$$$                         ",
             "                 $$$$$$$$$                        ",
             "                $$$$$$$$$$$$                      ",
@@ -71,7 +71,7 @@ public class KidImages {
             "                $$$$$$$$$$$$$$$                   ",
     };
 
-    public static final String[] KID_WALK = new String[] {
+    private static final String[] KID_WALK = new String[] {
             "                    $$$$$                         ",
             "                 $$$$$$$$$                        ",
             "                $$$$$$$$$$$$                      ",
@@ -140,7 +140,7 @@ public class KidImages {
             "                                     $$$$$        ",
     };
 
-    public static final String[] KID_HIT = {
+    private static final String[] KID_HIT = {
             "                         $$$$$$$$                         ",
             "                        $$$$$$$$$$                        ",
             "                       $$$$$$$$$$$$                       ",
@@ -182,4 +182,10 @@ public class KidImages {
             " $&&&$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$&&&$ ",
             "  $$$                                                $$$  ",
     };
+
+    public static String[] getKidStandImage() { return KID_STAND.clone(); }
+
+    public static String[] getKidWalkImage() { return KID_WALK.clone(); }
+
+    public static String[] getKidHitImage() { return KID_HIT.clone(); }
 }

@@ -26,7 +26,7 @@ public class GameOverViewer extends Viewer<GameOverMenu> implements MenuInformat
             gui.drawText(optionPosition, option.name(), "#FFFFFF");
 
             if (getModel().isSelectedOption(i)) {
-                gui.drawImage(new Position(optionPosition.getX() - 15, optionPosition.getY()), ToolImages.ARROW_RIGHT);
+                gui.drawImage(new Position(optionPosition.getX() - 15, optionPosition.getY()), ToolImages.getArrowRightImage());
             }
         }
     }

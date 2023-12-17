@@ -1,7 +1,7 @@
 package com.CrossingGuardJoe.viewer.images.defined;
 
 public class RoadItemsImages {
-    public static final String[] SIGNAL = {
+    private static final String[] SIGNAL = {
             "                 $$$$$                 ",
             "                $$qqq$$                ",
             "               $$qqqqq$$               ",
@@ -101,4 +101,6 @@ public class RoadItemsImages {
             "                $$$$$$$                ",
             "                 $$$$$                 ",
     };
+
+    public static String[] getSignalImage() { return SIGNAL.clone(); }
 }
