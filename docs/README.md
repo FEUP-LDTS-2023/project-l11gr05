@@ -123,6 +123,172 @@ This implementation provided distributed event handling and reduced coupling bet
 > 2. Some classes are too tightly coupled, maybe we could reduce dependencies and use proper encapsulation to make classes more independent.
 > 3. In viewer classes we use magic numbers without explanation to position the images on screen.
 
+#### ERROR-PRONE WARNINGS
+
+> src\main\java\com\CrossingGuardJoe\Game.java:22:
+[JdkObsolete] Stack is a nonstandard class that predates the Java Collections Framework; prefer ArrayDeque. Note that the Stack methods push/pop/peek correspond to the Deque methods addFirst/removeFirst/peekFirst.
+stateStack = new Stack<>();
+
+> src\main\java\com\CrossingGuardJoe\Game.java:61:
+[EmptyCatch] Caught exceptions should not be ignored
+} catch (InterruptedException e) {
+
+> src\main\java\com\CrossingGuardJoe\model\Position.java:31:
+[EqualsGetClass] Prefer instanceof to getClass when implementing Object#equals.
+public boolean equals(Object o) {
+
+> src\main\java\com\CrossingGuardJoe\gui\LanternaGUI.java:155:
+[LoopOverCharArray] toCharArray allocates a new array, using charAt is more efficient
+for (char character : imageLine.toCharArray()) {
+
+> src\main\java\com\CrossingGuardJoe\gui\LanternaGUI.java:167:
+[LoopOverCharArray] toCharArray allocates a new array, using charAt is more efficient
+for (char character : imageLine.toCharArray()) {
+
+> src\main\java\com\CrossingGuardJoe\gui\LanternaGUI.java:180:
+[MissingOverride] getNextAction implements method in GUI; expected @Override
+public ACTION getNextAction() throws IOException {
+
+> src\main\java\com\CrossingGuardJoe\controller\game\elements\JoeController.java:107:
+[OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+if (action == GUI.ACTION.LEFT && lastAction == GUI.ACTION.RIGHT || action == GUI.ACTION.RIGHT && lastAction == GUI.ACTION.LEFT) {
+
+> src\main\java\com\CrossingGuardJoe\controller\menu\CustomizeMenuController.java:22:
+[MissingCasesInEnumSwitch] Non-exhaustive switch; either add a default or handle the rining cases: NONE, QUIT
+switch (action) {
+
+> src\main\java\com\CrossingGuardJoe\controller\menu\InstructionsMenuController.java:20:
+[MissingCasesInEnumSwitch] Non-exhaustive switch; either add a default or handle the remaining cases: UP, DOWN, NONE, QUIT
+switch (action) {
+
+> src\main\java\com\CrossingGuardJoe\controller\menu\GameOverMenuController.java:21:
+[MissingCasesInEnumSwitch] Non-exhaustive switch; either add a default or handle the rening cases: LEFT, RIGHT, NONE, QUIT, ESC
+switch (action) {
+
+> src\main\java\com\CrossingGuardJoe\controller\menu\InstructionsMenuController.java:20:
+[MissingCasesInEnumSwitch] Non-exhaustive switch; either add a default or handle the remaining cases: LEFT, RIGHT, NONE, QUIT, ESC
+switch (action) {
+
+> src\main\java\com\CrossingGuardJoe\controller\SoundsController.java:81:
+[MissingCasesInEnumSwitch] Non-exhaustive switch; either add a default or handle the remaining cas MENUBGM, CUSTOMIZEBGM, INSTRUCTIONSBGM, and 15 others
+switch (sfx) {
+
+> src\main\java\com\CrossingGuardJoe\controller\SoundsController.java:88:
+[MissingCasesInEnumSwitch] Non-exhaustive switch; either add a default or handle the remaining cases: SELECT, ENTER, FLIPPAGE, and 11 others
+switch(sfx) {
+
+> src\main\java\com\CrossingGuardJoe\model\game\RoadBuilder.java:76:
+[CatchAndPrintStackTrace] Logging or rethrowing exceptions should usually be preferred to catching and calling printStackTrace
+e.printStackTrace();
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\defined\CarImage.java:4:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a stant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] CAR = new String[]{
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\defined\JoeImages.java:4:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] JOE_STAND = new String[]{
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\defined\JoeImages.java:101:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] JOE_WALKLEFT = new String[]{
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\defined\JoeImages.java:185:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] JOE_WALKRIGHT = new String[]{
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\defined\JoeImages.java:270:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] JOE_WALKSECONDHALF = new String[]{
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\defined\JoeImages.java:367:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] JOE_PASS = new String[]{
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\defined\JoeImages.java:464:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is notconstant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] JOE_STOP = new String[]{
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\defined\JoeImages.java:561:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] JOE_HITLEFT = {
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\defined\JoeImages.java:640:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] JOE_HITRIGHT = {
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\defined\KidImages.java:4:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] KID_STAND = new String[]{
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\defined\KidImages.java:74:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] KID_WALK = new String[] {
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\defined\KidImages.java:143:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] KID_HIT = {
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\defined\LogoImages.java:4:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] LOGO_GAME = {
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\defined\RoadItemsImages.java:4:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] SIGNAL = {
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\defined\ToolImages.java:4:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] ARROW_DOWN = {
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\defined\ToolImages.java:22:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] ARROW_RIGHT = {
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\defined\ToolImages.java:42:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] KEY_UP = {
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\defined\ToolImages.java:96:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] KEY_DOWN = {
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\defined\ToolImages.java:150:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] KEY_RIGHT = {
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\defined\ToolImages.java:204:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] KEY_LEFT = {
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\defined\ToolImages.java:258:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] KEY_ESC = {
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\Font\FontImageFactory.java:23:
+[LoopOverCharArray] toCharArray allocates a new array, using charAt is more efficient     
+for (Character character : text.toCharArray()) {
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\Font\FontImageFactory.java:58:
+[LoopOverCharArray] toCharArray allocates a new array, using charAt is more efficient     
+for (Character character : numberString.toCharArray()) {
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\Font\FontImageFactory.java:62:
+[CharacterGetNumericValue] getNumericValue has unexpected behaviour: it interprets A-Z as base-36 digits with values 10-35, but also supports non-arabic numerals and miscellaneous numeric unicode characters like 銑? consider using Character.digit or UCharacter.getUnicodeNumericValue instead
+int characterIndex = Character.getNumericValue(character);
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\Font\FontImages.java:4:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] SPACE = {
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\Font\FontImages.java:223:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] NUMBERS = {
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\Font\FontImages.java:186:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] ALPHABET = {
+
 ### TESTING
 
 > There were three classes that we didn't mutate (Sounds, SoundsController, Game) because we found it really hard to make tests
