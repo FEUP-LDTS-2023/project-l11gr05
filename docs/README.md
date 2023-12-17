@@ -357,8 +357,8 @@ we had to change it, we would need to make changes in almost every class and res
 
 > For [MissingCasesInEnumSwitch] warnings, we didn't correct it because the missing cases aren't needed because they are never called.
 
-> For [JdkObsolete] warnings, we didn't change to ArrayDequeue because, first, we never learned about how to use ArrayDequeue (although it says it works exactly the same way), second, 
-we don't think there's a special need to change it, in the worst case, it could make our game not operative with errors in code.
+> For [JdkObsolete] warnings, we didn't change to ArrayDequeue because after putting states in ArrayDequeue we faced the problem of nullpointer when exiting the game, and since we didn't learn about this data structure we didn't know how to fix it
+and we were afraid of further problems given by it.
 
 > For [CharacterGetNumericValue] warnings, we didn't correct it because we only need a method that correctly gets the respective image, if any other char is input the code won't read it and won't get an image (we won't even have it drawn).
 

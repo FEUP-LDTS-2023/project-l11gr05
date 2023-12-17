@@ -81,6 +81,7 @@ public class SoundsController {
         switch (sfx) {
             case GAMEBGM -> gameBgm.pause();
             case VICTORYBGM -> victoryBgm.pause();
+            default -> {}
         }
     }
 
@@ -92,6 +93,7 @@ public class SoundsController {
             case INSTRUCTIONSBGM -> instructionsBgm.stop();
             case CARBREAK -> carBreak.stop();
             case VICTORYBGM -> victoryBgm.stop();
+            default -> {}
         }
     }
 

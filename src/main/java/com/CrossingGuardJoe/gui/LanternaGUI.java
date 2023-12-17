@@ -152,7 +152,8 @@ public class LanternaGUI implements GUI {
 
     public void drawLine(int x, int y, String imageLine) {
         int xPos = x;
-        for (char character : imageLine.toCharArray()) {
+        for (int i = 0; i < imageLine.length(); i++) {
+            char character = imageLine.charAt(i);
             if (character != ' ') {
                 char colorCharacter = getMappedCharacter(character);
                 setColor(colorCharacter);
@@ -164,7 +165,8 @@ public class LanternaGUI implements GUI {
 
     public void drawLineCustomColor(int x, int y, String imageLine, String colorHexCode) {
         int xPos = x;
-        for (char character : imageLine.toCharArray()) {
+        for (int i = 0; i < imageLine.length(); i++) {
+            char character = imageLine.charAt(i);
             if (character != ' ') {
                 setColorHexaCode(colorHexCode);
                 fillRectangle(new Position(x + xPos, y), 1, 1);

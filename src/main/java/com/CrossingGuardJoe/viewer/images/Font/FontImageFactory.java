@@ -20,21 +20,22 @@ public class FontImageFactory {
             result[i] = new StringBuilder();
         }
 
-        for (Character character : text.toCharArray()) {
+        for (int i = 0; i < text.length(); i++) {
+            Character character = text.charAt(i);
             String[] characterToAppend;
             if (character == ' ') {
                 characterToAppend = FontImages.getSpaceImage();
             } else {
                 characterToAppend = new String[16];
                 int characterIndex = getAlphabetIndex(character);
-                for (int i = characterIndex * 16; i < (characterIndex + 1) * 16; i++) {
-                    String line = FontImages.getAlphabetImage()[i % FontImages.getAlphabetImage().length];
-                    characterToAppend[i - characterIndex * 16] = line;
+                for (int j = characterIndex * 16; j < (characterIndex + 1) * 16; j++) {
+                    String line = FontImages.getAlphabetImage()[j % FontImages.getAlphabetImage().length];
+                    characterToAppend[j - characterIndex * 16] = line;
                 }
             }
 
-            for (int i = 0; i < characterToAppend.length; i++) {
-                result[i].append(characterToAppend[i]);
+            for (int j = 0; j < characterToAppend.length; j++) {
+                result[j].append(characterToAppend[j]);
             }
         }
 
@@ -55,18 +56,19 @@ public class FontImageFactory {
             result[i] = new StringBuilder();
         }
 
-        for (Character character : numberString.toCharArray()) {
+        for (int i = 0; i < numberString.length(); i++) {
+            Character character = numberString.charAt(i);
             String[] characterToAppend;
 
             characterToAppend = new String[16];
             int characterIndex = Character.getNumericValue(character);
-            for (int i = characterIndex * 16; i < (characterIndex + 1) * 16; i++) {
-                String line = FontImages.getNumbersImage()[i % FontImages.getNumbersImage().length];
-                characterToAppend[i - characterIndex * 16] = line;
+            for (int j = characterIndex * 16; j < (characterIndex + 1) * 16; j++) {
+                String line = FontImages.getNumbersImage()[j % FontImages.getNumbersImage().length];
+                characterToAppend[j - characterIndex * 16] = line;
             }
 
-            for (int i = 0; i < characterToAppend.length; i++) {
-                result[i].append(characterToAppend[i]);
+            for (int j = 0; j < characterToAppend.length; j++) {
+                result[j].append(characterToAppend[j]);
             }
         }
 
