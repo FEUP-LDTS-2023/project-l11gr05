@@ -42,7 +42,9 @@ public class MenuController extends Controller<Menu> {
                     game.setState(null);
                     System.exit(0);
                 }
+                break;
+            default:
+                break;
         }
-
     }
 }

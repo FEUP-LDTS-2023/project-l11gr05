@@ -73,7 +73,7 @@ public class RoadBuilder {
                 try {
                     Thread.sleep(100);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    System.out.println("ERROR: " + e.getMessage());
                 }
             }
         }).start();
