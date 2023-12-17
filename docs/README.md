@@ -43,7 +43,7 @@ This project was developed by Bruno Huang (up202207517@fe.up.pt) and Ricardo Yan
 ### DESIGN
 
 **UML**
-![UML](images/UML.png)
+![UML](images/UMLs/UML.png)
 
 #### CODE ORGANIZATION
 
@@ -57,7 +57,7 @@ We have applied the **MVC** pattern. To enhance readability and improve programm
 
 **Implementation**
 
-![](images/MVC.png)
+![](images/UMLs/MVC.png)
 
 We organized the code into three distinct sections:
 
@@ -93,7 +93,7 @@ We have applied the **Observer** pattern. So elements could "know" what action t
 
 **Implementation**
 
-![](images/Observer.png)
+![](images/UMLs/Observer.png)
 
 We implemented **nextAction** method in Controller class so when GUI class gets next action we could update the control of the elements and also
 the view immediately after.
@@ -116,6 +116,41 @@ These classes can be found below:
 **Consequences**
 
 This implementation provided distributed event handling and reduced coupling between components.
+
+#### DIFFERENT GAME STATES
+
+**Problem in Context**
+
+When writing the code we realised that we need something to distinguish in game state from menu state (for example).
+
+**The Pattern**
+
+We have applied the **State** pattern. This allows the program to alter its behavior when its internal state changes.
+
+**Implementation**
+
+![](images/UMLs/State.png)
+
+We implemented the State abstract class that has the methods "getController()" and "getViewer()" and also implemented a state stack
+to be able to pause the game, we only need to pop the pause state when we resume the game. The states are controlled in Game class 
+by the method "step()".
+
+These classes can be found below:
+
+- [State](../src/main/java/com/CrossingGuardJoe/states/State.java)
+- [Game](../src/main/java/com/CrossingGuardJoe/Game.java)
+- [MenuState](../src/main/java/com/CrossingGuardJoe/states/menu/MenuState.java)
+- [GameState](../src/main/java/com/CrossingGuardJoe/states/GameState.java)
+- [InstructionsMenuState](../src/main/java/com/CrossingGuardJoe/states/menu/InstructionsMenuState.java)
+- [CustomizeMenuState](../src/main/java/com/CrossingGuardJoe/states/menu/CustomizeMenuState.java)
+- [GameOverState](../src/main/java/com/CrossingGuardJoe/states/menu/GameOverState.java)
+- [PauseMenuState](../src/main/java/com/CrossingGuardJoe/states/menu/PauseMenuState.java)
+- [StatsMenuState](../src/main/java/com/CrossingGuardJoe/states/menu/StatsMenuState.java)
+
+**Consequences**
+
+The implementation of this pattern promotes cleaner code by encapsulating the state-specific behavior in separate classes.
+It showed particularly useful because game's behavior depends on its state and transitions between states.
 
 #### KNOWN CODE SMELLS
 

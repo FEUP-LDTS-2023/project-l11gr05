@@ -47,7 +47,6 @@ public class Game {
     }
 
     private void run() throws IOException {
-        //i think manipulating that values can improve the lag problem
         int FPS = 100;
         int frameTime = 100 / FPS;
 
