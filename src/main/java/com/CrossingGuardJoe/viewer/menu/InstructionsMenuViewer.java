@@ -50,6 +50,8 @@ public class InstructionsMenuViewer extends Viewer<InstructionsMenu> implements 
         int PAGES_INI_X = 400;
         int PAGES_Y = 474;
 
+        gui.drawImage(new Position(4, 4), ToolImages.KEY_ESC);
+
         //text
         gui.drawText(new Position(PAGES_INI_X, PAGES_Y), "Page", "#FFFFFF");
         gui.drawText(new Position(PAGES_INI_X + 54, PAGES_Y), "of", "#FFFFFF");

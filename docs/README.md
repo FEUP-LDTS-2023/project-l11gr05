@@ -29,12 +29,15 @@ This project was developed by Bruno Huang (up202207517@fe.up.pt) and Ricardo Yan
 - **Lives** - When a kid is hit by a car, player loses one hp. The amount of hp starts as 10.
 - **Game over (Lose)** - When hp reaches 0 game ends.
 - **Game over (Win)** - When level 9 is completed user wins the game.
+<<<<<<< HEAD
 
 ![](images/gameImage1.png)
 ![](images/gameImage2.png)
 ![](images/gameImage3.png)
 ![](images/gameImage4.png)
 ![](Crossing%20Guard%20Joe%20Gameplay.gif)
+=======
+>>>>>>> readmefile
 
 ### PLANNED FEATURES
 
@@ -43,7 +46,11 @@ This project was developed by Bruno Huang (up202207517@fe.up.pt) and Ricardo Yan
 ### DESIGN
 
 **UML**
+<<<<<<< HEAD
 ![UML](images/UML.png)
+=======
+![UML](images/UMLs/UML.png)
+>>>>>>> readmefile
 
 #### CODE ORGANIZATION
 
@@ -57,7 +64,11 @@ We have applied the **MVC** pattern. To enhance readability and improve programm
 
 **Implementation**
 
+<<<<<<< HEAD
 ![](images/MVC.png)
+=======
+![](images/UMLs/MVC.png)
+>>>>>>> readmefile
 
 We organized the code into three distinct sections:
 
@@ -82,6 +93,7 @@ The use of the MVC architectural pattern in the current design allows the follow
 - the separation of concerns makes it easier to test individual components.
 
 #### Key inputs
+<<<<<<< HEAD
 
 **Problem in Context**
 
@@ -122,6 +134,315 @@ This implementation provided distributed event handling and reduced coupling bet
 > 1. In 'Menu Viewer' classes we have repeated blocks of code to draw a certain repeated image for each class that uses it.
 > 2. Some classes are too tightly coupled, maybe we could reduce dependencies and use proper encapsulation to make classes more independent.
 > 3. In viewer classes we use magic numbers without explanation to position the images on screen.
+=======
+
+**Problem in Context**
+
+To make elements move and change the animations according to user inputs, we had the need to read the key and make actions according to it.
+
+**The Pattern**
+
+We have applied the **Observer** pattern. So elements could "know" what action to do next.
+
+**Implementation**
+
+![](images/UMLs/Observer.png)
+
+We implemented **nextAction** method in Controller class so when GUI class gets next action we could update the control of the elements and also
+the view immediately after.
+
+These classes can be found below:
+
+- [Controller](../src/main/java/com/CrossingGuardJoe/controller/Controller.java)
+- [CustomizeMenuController](../src/main/java/com/CrossingGuardJoe/controller/menu/CustomizeMenuController.java)
+- [GameOverMenuController](../src/main/java/com/CrossingGuardJoe/controller/menu/GameOverMenuController.java)
+- [InstructionsMenuController](../src/main/java/com/CrossingGuardJoe/controller/menu/InstructionsMenuController.java)
+- [MenuController](../src/main/java/com/CrossingGuardJoe/controller/menu/MenuController.java)
+- [PauseMenuController](../src/main/java/com/CrossingGuardJoe/controller/menu/PauseMenuController.java)
+- [StatsMenuController](../src/main/java/com/CrossingGuardJoe/controller/menu/StatsMenuController.java)
+- [GameController](../src/main/java/com/CrossingGuardJoe/controller/game/GameController.java)
+- [RoadController](../src/main/java/com/CrossingGuardJoe/controller/game/RoadController.java)
+- [CarController](../src/main/java/com/CrossingGuardJoe/controller/game/elements/CarController.java)
+- [JoeController](../src/main/java/com/CrossingGuardJoe/controller/game/elements/JoeController.java)
+- [KidController](../src/main/java/com/CrossingGuardJoe/controller/game/elements/KidController.java)
+
+**Consequences**
+
+This implementation provided distributed event handling and reduced coupling between components.
+
+#### DIFFERENT GAME STATES
+
+**Problem in Context**
+
+When writing the code we realised that we need something to distinguish in game state from menu state (for example).
+
+**The Pattern**
+
+We have applied the **State** pattern. This allows the program to alter its behavior when its internal state changes.
+
+**Implementation**
+
+![](images/UMLs/State.png)
+
+We implemented the State abstract class that has the methods "getController()" and "getViewer()" and also implemented a state stack
+to be able to pause the game, we only need to pop the pause state when we resume the game. The states are controlled in Game class 
+by the method "step()".
+
+These classes can be found below:
+
+- [State](../src/main/java/com/CrossingGuardJoe/states/State.java)
+- [Game](../src/main/java/com/CrossingGuardJoe/Game.java)
+- [MenuState](../src/main/java/com/CrossingGuardJoe/states/menu/MenuState.java)
+- [GameState](../src/main/java/com/CrossingGuardJoe/states/GameState.java)
+- [InstructionsMenuState](../src/main/java/com/CrossingGuardJoe/states/menu/InstructionsMenuState.java)
+- [CustomizeMenuState](../src/main/java/com/CrossingGuardJoe/states/menu/CustomizeMenuState.java)
+- [GameOverState](../src/main/java/com/CrossingGuardJoe/states/menu/GameOverState.java)
+- [PauseMenuState](../src/main/java/com/CrossingGuardJoe/states/menu/PauseMenuState.java)
+- [StatsMenuState](../src/main/java/com/CrossingGuardJoe/states/menu/StatsMenuState.java)
+
+**Consequences**
+
+The implementation of this pattern promotes cleaner code by encapsulating the state-specific behavior in separate classes.
+It showed particularly useful because game's behavior depends on its state and transitions between states.
+
+#### IMAGE FONT DEFINITION
+
+**Problem in Context**
+
+We realised that we had the need to make it easier to distinguish the number images from letter images, 
+because the whole font was drawn by ourselves so the code wouldn't be able know when to get 
+number images nor when to get letter images.
+
+**The Pattern**
+
+We have applied the **Factory** pattern. This allowed the user to be able to "draw" the respective "string image" or "int image" 
+without the need to alter a type nor code.
+
+**Implementation**
+
+![](images/UMLs/Factory.png)
+
+We implemented methods to "create images" based on user input, if user input is an integer it can automatically create a number image
+predefined in another class, the same happens to a string input.
+
+These classes can be found below:
+
+- [FontImageFactory](../src/main/java/com/CrossingGuardJoe/viewer/images/Font/FontImageFactory.java)
+- [FontImages](../src/main/java/com/CrossingGuardJoe/viewer/images/Font/FontImages.java)
+
+**Consequences**
+
+With this pattern the code only needs to deal with the input of the user, and is shielded from the details of object creation, 
+allowing for flexibility and loose coupling between the client and the created objects.
+
+#### SOUND PROBLEMS
+
+**Problem in Context**
+
+When implementing a background music to the game we realised that we had the need to control the same sound from different classes
+(to start and to stop).
+
+**The Pattern**
+
+We have applied the **Singleton** pattern. This allowed the different classes to manipulate the same instance of sound.
+
+**Implementation**
+
+![](images/UMLs/Singleton.png)
+
+We implemented the SoundsController class with a method getInstance() so we didn't need anymore to create a Sound object 
+in each class and not be able to pause/stop a sound instantiated in another class.
+
+These classes can be found below:
+
+- [Sounds](../src/main/java/com/CrossingGuardJoe/controller/Sounds.java)
+- [SoundsController](../src/main/java/com/CrossingGuardJoe/controller/SoundsController.java)
+- [RoadController](../src/main/java/com/CrossingGuardJoe/controller/game/RoadController.java)
+- [GameController](../src/main/java/com/CrossingGuardJoe/controller/game/GameController.java)
+- [KidController](../src/main/java/com/CrossingGuardJoe/controller/game/elements/KidController.java)
+- [JoeController](../src/main/java/com/CrossingGuardJoe/controller/game/elements/JoeController.java)
+- [InstructionsMenuController](../src/main/java/com/CrossingGuardJoe/controller/menu/InstructionsMenuController.java)
+- [CustomizeMenuController](../src/main/java/com/CrossingGuardJoe/controller/menu/CustomizeMenuController.java)
+- [GameOverMenuController](../src/main/java/com/CrossingGuardJoe/controller/menu/GameOverMenuController.java)
+- [PauseMenuController](../src/main/java/com/CrossingGuardJoe/controller/menu/PauseMenuController.java)
+
+**Consequences**
+
+This pattern made the code able to manage the same instance every time and not create a copy of it. 
+This helped us to stop/pause some sounds from different classes from the one it was instantiated.
+
+##### KNOWN CODE SMELLS
+
+> 1. In 'Menu Viewer' classes we have repeated blocks of code to draw a certain repeated image for each class that uses it.
+> 2. Some classes are too tightly coupled, maybe we could reduce dependencies and use proper encapsulation to make classes more independent.
+> 3. In viewer classes we use magic numbers without explanation to position the images on screen.
+
+#### ERROR-PRONE WARNINGS
+
+> src\main\java\com\CrossingGuardJoe\Game.java:22:
+[JdkObsolete] Stack is a nonstandard class that predates the Java Collections Framework; prefer ArrayDeque. Note that the Stack methods push/pop/peek correspond to the Deque methods addFirst/removeFirst/peekFirst.
+stateStack = new Stack<>();
+
+> src\main\java\com\CrossingGuardJoe\Game.java:61:
+[EmptyCatch] Caught exceptions should not be ignored
+} catch (InterruptedException e) {
+
+> src\main\java\com\CrossingGuardJoe\model\Position.java:31:
+[EqualsGetClass] Prefer instanceof to getClass when implementing Object#equals.
+public boolean equals(Object o) {
+
+> src\main\java\com\CrossingGuardJoe\gui\LanternaGUI.java:155:
+[LoopOverCharArray] toCharArray allocates a new array, using charAt is more efficient
+for (char character : imageLine.toCharArray()) {
+
+> src\main\java\com\CrossingGuardJoe\gui\LanternaGUI.java:167:
+[LoopOverCharArray] toCharArray allocates a new array, using charAt is more efficient
+for (char character : imageLine.toCharArray()) {
+
+> src\main\java\com\CrossingGuardJoe\gui\LanternaGUI.java:180:
+[MissingOverride] getNextAction implements method in GUI; expected @Override
+public ACTION getNextAction() throws IOException {
+
+> src\main\java\com\CrossingGuardJoe\controller\game\elements\JoeController.java:107:
+[OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+if (action == GUI.ACTION.LEFT && lastAction == GUI.ACTION.RIGHT || action == GUI.ACTION.RIGHT && lastAction == GUI.ACTION.LEFT) {
+
+> src\main\java\com\CrossingGuardJoe\controller\menu\CustomizeMenuController.java:22:
+[MissingCasesInEnumSwitch] Non-exhaustive switch; either add a default or handle the rining cases: NONE, QUIT
+switch (action) {
+
+> src\main\java\com\CrossingGuardJoe\controller\menu\InstructionsMenuController.java:20:
+[MissingCasesInEnumSwitch] Non-exhaustive switch; either add a default or handle the remaining cases: UP, DOWN, NONE, QUIT
+switch (action) {
+
+> src\main\java\com\CrossingGuardJoe\controller\menu\GameOverMenuController.java:21:
+[MissingCasesInEnumSwitch] Non-exhaustive switch; either add a default or handle the rening cases: LEFT, RIGHT, NONE, QUIT, ESC
+switch (action) {
+
+> src\main\java\com\CrossingGuardJoe\controller\menu\InstructionsMenuController.java:20:
+[MissingCasesInEnumSwitch] Non-exhaustive switch; either add a default or handle the remaining cases: LEFT, RIGHT, NONE, QUIT, ESC
+switch (action) {
+
+> src\main\java\com\CrossingGuardJoe\controller\SoundsController.java:81:
+[MissingCasesInEnumSwitch] Non-exhaustive switch; either add a default or handle the remaining cas MENUBGM, CUSTOMIZEBGM, INSTRUCTIONSBGM, and 15 others
+switch (sfx) {
+
+> src\main\java\com\CrossingGuardJoe\controller\SoundsController.java:88:
+[MissingCasesInEnumSwitch] Non-exhaustive switch; either add a default or handle the remaining cases: SELECT, ENTER, FLIPPAGE, and 11 others
+switch(sfx) {
+
+> src\main\java\com\CrossingGuardJoe\model\game\RoadBuilder.java:76:
+[CatchAndPrintStackTrace] Logging or rethrowing exceptions should usually be preferred to catching and calling printStackTrace
+e.printStackTrace();
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\defined\CarImage.java:4:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a stant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] CAR = new String[]{
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\defined\JoeImages.java:4:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] JOE_STAND = new String[]{
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\defined\JoeImages.java:101:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] JOE_WALKLEFT = new String[]{
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\defined\JoeImages.java:185:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] JOE_WALKRIGHT = new String[]{
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\defined\JoeImages.java:270:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] JOE_WALKSECONDHALF = new String[]{
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\defined\JoeImages.java:367:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] JOE_PASS = new String[]{
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\defined\JoeImages.java:464:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is notconstant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] JOE_STOP = new String[]{
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\defined\JoeImages.java:561:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] JOE_HITLEFT = {
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\defined\JoeImages.java:640:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] JOE_HITRIGHT = {
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\defined\KidImages.java:4:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] KID_STAND = new String[]{
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\defined\KidImages.java:74:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] KID_WALK = new String[] {
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\defined\KidImages.java:143:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] KID_HIT = {
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\defined\LogoImages.java:4:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] LOGO_GAME = {
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\defined\RoadItemsImages.java:4:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] SIGNAL = {
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\defined\ToolImages.java:4:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] ARROW_DOWN = {
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\defined\ToolImages.java:22:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] ARROW_RIGHT = {
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\defined\ToolImages.java:42:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] KEY_UP = {
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\defined\ToolImages.java:96:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] KEY_DOWN = {
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\defined\ToolImages.java:150:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] KEY_RIGHT = {
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\defined\ToolImages.java:204:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] KEY_LEFT = {
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\defined\ToolImages.java:258:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] KEY_ESC = {
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\Font\FontImageFactory.java:23:
+[LoopOverCharArray] toCharArray allocates a new array, using charAt is more efficient     
+for (Character character : text.toCharArray()) {
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\Font\FontImageFactory.java:58:
+[LoopOverCharArray] toCharArray allocates a new array, using charAt is more efficient     
+for (Character character : numberString.toCharArray()) {
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\Font\FontImageFactory.java:62:
+[CharacterGetNumericValue] getNumericValue has unexpected behaviour: it interprets A-Z as base-36 digits with values 10-35, but also supports non-arabic numerals and miscellaneous numeric unicode characters like 銑? consider using Character.digit or UCharacter.getUnicodeNumericValue instead
+int characterIndex = Character.getNumericValue(character);
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\Font\FontImages.java:4:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] SPACE = {
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\Font\FontImages.java:223:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] NUMBERS = {
+
+> src\main\java\com\CrossingGuardJoe\viewer\images\Font\FontImages.java:186:
+[MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+public static final String[] ALPHABET = {
+>>>>>>> readmefile
 
 ### TESTING
 

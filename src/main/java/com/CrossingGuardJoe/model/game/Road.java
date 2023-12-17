@@ -42,6 +42,4 @@ public class Road {
     public void setKidsNextLevel(int numberKids) {
         this.kids = new RoadBuilder().createKidsNextLevel(numberKids);
     }
-
-
 }
