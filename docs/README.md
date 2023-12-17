@@ -152,7 +152,73 @@ These classes can be found below:
 The implementation of this pattern promotes cleaner code by encapsulating the state-specific behavior in separate classes.
 It showed particularly useful because game's behavior depends on its state and transitions between states.
 
-#### KNOWN CODE SMELLS
+#### IMAGE FONT DEFINITION
+
+**Problem in Context**
+
+We realised that we had the need to make it easier to distinguish the number images from letter images, 
+because the whole font was drawn by ourselves so the code wouldn't be able know when to get 
+number images nor when to get letter images.
+
+**The Pattern**
+
+We have applied the **Factory** pattern. This allowed the user to be able to "draw" the respective "string image" or "int image" 
+without the need to alter a type nor code.
+
+**Implementation**
+
+![](images/UMLs/Factory.png)
+
+We implemented methods to "create images" based on user input, if user input is an integer it can automatically create a number image
+predefined in another class, the same happens to a string input.
+
+These classes can be found below:
+
+- [FontImageFactory](../src/main/java/com/CrossingGuardJoe/viewer/images/Font/FontImageFactory.java)
+- [FontImages](../src/main/java/com/CrossingGuardJoe/viewer/images/Font/FontImages.java)
+
+**Consequences**
+
+With this pattern the code only needs to deal with the input of the user, and is shielded from the details of object creation, 
+allowing for flexibility and loose coupling between the client and the created objects.
+
+#### SOUND PROBLEMS
+
+**Problem in Context**
+
+When implementing a background music to the game we realised that we had the need to control the same sound from different classes
+(to start and to stop).
+
+**The Pattern**
+
+We have applied the **Singleton** pattern. This allowed the different classes to manipulate the same instance of sound.
+
+**Implementation**
+
+![](images/UMLs/Singleton.png)
+
+We implemented the SoundsController class with a method getInstance() so we didn't need anymore to create a Sound object 
+in each class and not be able to pause/stop a sound instantiated in another class.
+
+These classes can be found below:
+
+- [Sounds](../src/main/java/com/CrossingGuardJoe/controller/Sounds.java)
+- [SoundsController](../src/main/java/com/CrossingGuardJoe/controller/SoundsController.java)
+- [RoadController](../src/main/java/com/CrossingGuardJoe/controller/game/RoadController.java)
+- [GameController](../src/main/java/com/CrossingGuardJoe/controller/game/GameController.java)
+- [KidController](../src/main/java/com/CrossingGuardJoe/controller/game/elements/KidController.java)
+- [JoeController](../src/main/java/com/CrossingGuardJoe/controller/game/elements/JoeController.java)
+- [InstructionsMenuController](../src/main/java/com/CrossingGuardJoe/controller/menu/InstructionsMenuController.java)
+- [CustomizeMenuController](../src/main/java/com/CrossingGuardJoe/controller/menu/CustomizeMenuController.java)
+- [GameOverMenuController](../src/main/java/com/CrossingGuardJoe/controller/menu/GameOverMenuController.java)
+- [PauseMenuController](../src/main/java/com/CrossingGuardJoe/controller/menu/PauseMenuController.java)
+
+**Consequences**
+
+This pattern made the code able to manage the same instance every time and not create a copy of it. 
+This helped us to stop/pause some sounds from different classes from the one it was instantiated.
+
+##### KNOWN CODE SMELLS
 
 > 1. In 'Menu Viewer' classes we have repeated blocks of code to draw a certain repeated image for each class that uses it.
 > 2. Some classes are too tightly coupled, maybe we could reduce dependencies and use proper encapsulation to make classes more independent.
