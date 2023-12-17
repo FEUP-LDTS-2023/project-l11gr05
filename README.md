@@ -10,11 +10,34 @@
 
 This project was developed by Bruno Huang (up202207517@fe.up.pt) and Ricardo Yang (up202208465@fe.up.pt) for LDTS 2023⁄24.
 
-## Beta Test
-![](docs/Crossing%20Guard%20Joe%20Gameplay.gif)
+For a more detailed version of this description click [here](./docs/README.md).
 
-## Screenshots 
-![](docs/images/gameImage1.png)
-![](docs/images/gameImage2.png)
-![](docs/images/gameImage3.png)
-![](docs/images/gameImage4.png)
+## Screenshots
+
+The following screenshots illustrate the general look of our game, as well as the divergent functionalities:
+
+### Game preview
+![](docs/images/Game_Preview.gif)
+<p align="center" justify="center">
+<b><i>Gif 1. Sneak peek into CrossingGuardJoe</i></b>
+<br>
+<br />
+
+### Menus
+![](docs/images/Menu.png)
+<p align="center" justify="center">
+<b><i>Fig 1. Main Menu</i></b>
+<br>
+<br />
+
+![](docs/images/Instructions.gif)
+<p align="center" justify="center">
+<b><i>Gif 2. Instructions Menu</i></b>
+<br>
+<br />
+
+![](docs/images/Customize.gif)
+<p align="center" justify="center">
+<b><i>Gif 3. Customize Menu</i></b>
+<br>
+<br />

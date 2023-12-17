@@ -30,12 +30,6 @@ This project was developed by Bruno Huang (up202207517@fe.up.pt) and Ricardo Yan
 - **Game over (Lose)** - When hp reaches 0 game ends.
 - **Game over (Win)** - When level 9 is completed user wins the game.
 
-![](images/gameImage1.png)
-![](images/gameImage2.png)
-![](images/gameImage3.png)
-![](images/gameImage4.png)
-![](Crossing%20Guard%20Joe%20Gameplay.gif)
-
 ### PLANNED FEATURES
 
 - **NONE** - All features implemented.
