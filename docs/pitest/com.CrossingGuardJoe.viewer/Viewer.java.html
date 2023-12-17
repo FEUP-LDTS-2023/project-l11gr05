@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>Viewer.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3056a6_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3056a6_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package com.CrossingGuardJoe.viewer;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3056a6_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3056a6_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3056a6_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3056a6_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.CrossingGuardJoe.gui.GUI;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3056a6_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3056a6_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3056a6_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3056a6_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.io.IOException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3056a6_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3056a6_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3056a6_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3056a6_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public abstract class Viewer&#60;T&#62; {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3056a6_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3056a6_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final T model;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3056a6_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3056a6_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3056a6_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3056a6_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public Viewer(T model) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3056a6_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3056a6_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.model = model;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3056a6_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3056a6_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3056a6_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3056a6_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3056a6_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3056a6_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public T getModel() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3056a6_15'/>
+15
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3056a6_15'>1</a>
+<span>
+
+1. getModel : replaced return value with null for com/CrossingGuardJoe/viewer/Viewer::getModel &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return this.model;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3056a6_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3056a6_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3056a6_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3056a6_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3056a6_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3056a6_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void draw(GUI gui) throws IOException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3056a6_19'/>
+19
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3056a6_19'>1</a>
+<span>
+
+1. draw : removed call to com/CrossingGuardJoe/gui/GUI::clearScreen &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        gui.clearScreen();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3056a6_20'/>
+20
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3056a6_20'>1</a>
+<span>
+
+1. draw : removed call to com/CrossingGuardJoe/viewer/Viewer::drawElements &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        drawElements(gui);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3056a6_21'/>
+21
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3056a6_21'>1</a>
+<span>
+
+1. draw : removed call to com/CrossingGuardJoe/gui/GUI::refreshScreen &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        gui.refreshScreen();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3056a6_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3056a6_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3056a6_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3056a6_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3056a6_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3056a6_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public abstract void drawElements(GUI gui);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3056a6_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3056a6_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3056a6_15'>15</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3056a6_15'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getModel<br/><b>Killed by : </b>com.CrossingGuardJoe.StatesTest.StatsMenuStateTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.StatesTest.StatsMenuStateTest]/[method:testGetViewer()]</span></span> replaced return value with null for com/CrossingGuardJoe/viewer/Viewer::getModel &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3056a6_19'>19</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3056a6_19'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>draw<br/><b>Killed by : </b>com.CrossingGuardJoe.ViewerTest.ViewerTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ViewerTest.ViewerTest]/[method:testViewerDraw()]</span></span> removed call to com/CrossingGuardJoe/gui/GUI::clearScreen &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3056a6_20'>20</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3056a6_20'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>draw<br/><b>Killed by : </b>none</span></span> removed call to com/CrossingGuardJoe/viewer/Viewer::drawElements &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3056a6_21'>21</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3056a6_21'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>draw<br/><b>Killed by : </b>com.CrossingGuardJoe.ViewerTest.ViewerTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ViewerTest.ViewerTest]/[method:testViewerDraw()]</span></span> removed call to com/CrossingGuardJoe/gui/GUI::refreshScreen &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>com.CrossingGuardJoe.ViewerTest.ViewerTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ViewerTest.ViewerTest]/[method:testViewerDraw()] (0 ms)</li><li>com.CrossingGuardJoe.StatesTest.StatsMenuStateTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.StatesTest.StatsMenuStateTest]/[method:testGetViewer()] (0 ms)</li><li>com.CrossingGuardJoe.StatesTest.PauseMenuStateTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.StatesTest.PauseMenuStateTest]/[method:testGetViewer()] (0 ms)</li><li>com.CrossingGuardJoe.StatesTest.GameOverStateTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.StatesTest.GameOverStateTest]/[method:testGetViewer()] (0 ms)</li><li>com.CrossingGuardJoe.StatesTest.InstructionsMenuStateTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.StatesTest.InstructionsMenuStateTest]/[method:testGetViewer()] (0 ms)</li><li>com.CrossingGuardJoe.StatesTest.CustomizeMenuStateTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.StatesTest.CustomizeMenuStateTest]/[method:testGetViewer()] (0 ms)</li><li>com.CrossingGuardJoe.StatesTest.GameStateTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.StatesTest.GameStateTest]/[method:testGetViewer()] (0 ms)</li><li>com.CrossingGuardJoe.StatesTest.MenuStateTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.StatesTest.MenuStateTest]/[method:testGetViewer()] (0 ms)</li><li>com.CrossingGuardJoe.ViewerTest.menu.GameOverViewerTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ViewerTest.menu.GameOverViewerTest]/[method:lose()] (1 ms)</li><li>com.CrossingGuardJoe.ViewerTest.menu.GameOverViewerTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ViewerTest.menu.GameOverViewerTest]/[method:win()] (1 ms)</li><li>com.CrossingGuardJoe.ViewerTest.menu.InstructionsMenuViewerTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ViewerTest.menu.InstructionsMenuViewerTest]/[method:informationDraw()] (1 ms)</li><li>com.CrossingGuardJoe.ViewerTest.menu.InstructionsMenuViewerTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ViewerTest.menu.InstructionsMenuViewerTest]/[method:informationLastPageDraw()] (2 ms)</li><li>com.CrossingGuardJoe.ViewerTest.menu.MenuViewerTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ViewerTest.menu.MenuViewerTest]/[method:drawElements()] (1 ms)</li><li>com.CrossingGuardJoe.ViewerTest.menu.PauseMenuViewerTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ViewerTest.menu.PauseMenuViewerTest]/[method:drawElements()] (3 ms)</li><li>com.CrossingGuardJoe.ViewerTest.menu.StatsMenuViewerTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ViewerTest.menu.StatsMenuViewerTest]/[method:drawInformation()] (1 ms)</li><li>com.CrossingGuardJoe.ViewerTest.menu.InstructionsMenuViewerTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ViewerTest.menu.InstructionsMenuViewerTest]/[method:testDrawPageFive()] (1 ms)</li><li>com.CrossingGuardJoe.ViewerTest.menu.GameOverViewerTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ViewerTest.menu.GameOverViewerTest]/[method:informationWinDraw()] (2 ms)</li><li>com.CrossingGuardJoe.ViewerTest.menu.GameOverViewerTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ViewerTest.menu.GameOverViewerTest]/[method:informationLoseDraw()] (3 ms)</li><li>com.CrossingGuardJoe.ViewerTest.menu.InstructionsMenuViewerTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ViewerTest.menu.InstructionsMenuViewerTest]/[method:testDrawPageFour()] (1 ms)</li><li>com.CrossingGuardJoe.ViewerTest.menu.InstructionsMenuViewerTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ViewerTest.menu.InstructionsMenuViewerTest]/[method:testDrawPageThree()] (1 ms)</li><li>com.CrossingGuardJoe.ViewerTest.menu.InstructionsMenuViewerTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ViewerTest.menu.InstructionsMenuViewerTest]/[method:testDrawPageOne()] (1 ms)</li><li>com.CrossingGuardJoe.ViewerTest.menu.InstructionsMenuViewerTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ViewerTest.menu.InstructionsMenuViewerTest]/[method:testDrawPageTwo()] (2 ms)</li><li>com.CrossingGuardJoe.ViewerTest.menu.StatsMenuViewerTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ViewerTest.menu.StatsMenuViewerTest]/[method:drawElements()] (3 ms)</li><li>com.CrossingGuardJoe.ViewerTest.menu.GameOverViewerTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ViewerTest.menu.GameOverViewerTest]/[method:drawElements()] (3 ms)</li><li>com.CrossingGuardJoe.ViewerTest.GameViewerTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ViewerTest.GameViewerTest]/[method:HUD()] (3 ms)</li><li>com.CrossingGuardJoe.ViewerTest.GameViewerTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ViewerTest.GameViewerTest]/[method:drawElements()] (7 ms)</li><li>com.CrossingGuardJoe.ViewerTest.menu.CustomizeMenuViewerTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ViewerTest.menu.CustomizeMenuViewerTest]/[method:testDrawElementsKids()] (7 ms)</li><li>com.CrossingGuardJoe.ViewerTest.menu.CustomizeMenuViewerTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ViewerTest.menu.CustomizeMenuViewerTest]/[method:testDrawElementsJoe()] (8 ms)</li><li>com.CrossingGuardJoe.ViewerTest.menu.CustomizeMenuViewerTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ViewerTest.menu.CustomizeMenuViewerTest]/[method:testDrawElementsCars()] (9 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.15.0
+
+</body>
+</html>

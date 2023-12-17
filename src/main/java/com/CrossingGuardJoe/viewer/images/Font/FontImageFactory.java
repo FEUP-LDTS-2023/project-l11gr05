@@ -61,7 +61,7 @@ public class FontImageFactory {
             String[] characterToAppend;
 
             characterToAppend = new String[16];
-            int characterIndex = Character.getNumericValue(character);
+            int characterIndex = Character.digit(character, 10);
             for (int j = characterIndex * 16; j < (characterIndex + 1) * 16; j++) {
                 String line = FontImages.getNumbersImage()[j % FontImages.getNumbersImage().length];
                 characterToAppend[j - characterIndex * 16] = line;
