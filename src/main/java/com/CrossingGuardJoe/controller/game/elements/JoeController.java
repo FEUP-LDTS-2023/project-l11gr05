@@ -104,7 +104,7 @@ public class JoeController extends GameController {
 
     @Override
     public void nextAction(Game game, GUI.ACTION action, long time) {
-        if (action == GUI.ACTION.LEFT && lastAction == GUI.ACTION.RIGHT || action == GUI.ACTION.RIGHT && lastAction == GUI.ACTION.LEFT) {
+        if ((action == GUI.ACTION.LEFT && lastAction == GUI.ACTION.RIGHT) || (action == GUI.ACTION.RIGHT && lastAction == GUI.ACTION.LEFT)) {
             setLastActionNone();
         }
 

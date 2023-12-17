@@ -283,14 +283,6 @@ This helped us to stop/pause some sounds from different classes from the one it 
 [JdkObsolete] Stack is a nonstandard class that predates the Java Collections Framework; prefer ArrayDeque. Note that the Stack methods push/pop/peek correspond to the Deque methods addFirst/removeFirst/peekFirst.
 stateStack = new Stack<>();
 
-> src\main\java\com\CrossingGuardJoe\Game.java:61:
-[EmptyCatch] Caught exceptions should not be ignored
-} catch (InterruptedException e) {
-
-> src\main\java\com\CrossingGuardJoe\model\Position.java:31:
-[EqualsGetClass] Prefer instanceof to getClass when implementing Object#equals.
-public boolean equals(Object o) {
-
 > src\main\java\com\CrossingGuardJoe\gui\LanternaGUI.java:155:
 [LoopOverCharArray] toCharArray allocates a new array, using charAt is more efficient
 for (char character : imageLine.toCharArray()) {
@@ -299,30 +291,6 @@ for (char character : imageLine.toCharArray()) {
 [LoopOverCharArray] toCharArray allocates a new array, using charAt is more efficient
 for (char character : imageLine.toCharArray()) {
 
-> src\main\java\com\CrossingGuardJoe\gui\LanternaGUI.java:180:
-[MissingOverride] getNextAction implements method in GUI; expected @Override
-public ACTION getNextAction() throws IOException {
-
-> src\main\java\com\CrossingGuardJoe\controller\game\elements\JoeController.java:107:
-[OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
-if (action == GUI.ACTION.LEFT && lastAction == GUI.ACTION.RIGHT || action == GUI.ACTION.RIGHT && lastAction == GUI.ACTION.LEFT) {
-
-> src\main\java\com\CrossingGuardJoe\controller\menu\CustomizeMenuController.java:22:
-[MissingCasesInEnumSwitch] Non-exhaustive switch; either add a default or handle the rining cases: NONE, QUIT
-switch (action) {
-
-> src\main\java\com\CrossingGuardJoe\controller\menu\InstructionsMenuController.java:20:
-[MissingCasesInEnumSwitch] Non-exhaustive switch; either add a default or handle the remaining cases: UP, DOWN, NONE, QUIT
-switch (action) {
-
-> src\main\java\com\CrossingGuardJoe\controller\menu\GameOverMenuController.java:21:
-[MissingCasesInEnumSwitch] Non-exhaustive switch; either add a default or handle the rening cases: LEFT, RIGHT, NONE, QUIT, ESC
-switch (action) {
-
-> src\main\java\com\CrossingGuardJoe\controller\menu\InstructionsMenuController.java:20:
-[MissingCasesInEnumSwitch] Non-exhaustive switch; either add a default or handle the remaining cases: LEFT, RIGHT, NONE, QUIT, ESC
-switch (action) {
-
 > src\main\java\com\CrossingGuardJoe\controller\SoundsController.java:81:
 [MissingCasesInEnumSwitch] Non-exhaustive switch; either add a default or handle the remaining cas MENUBGM, CUSTOMIZEBGM, INSTRUCTIONSBGM, and 15 others
 switch (sfx) {
@@ -330,10 +298,6 @@ switch (sfx) {
 > src\main\java\com\CrossingGuardJoe\controller\SoundsController.java:88:
 [MissingCasesInEnumSwitch] Non-exhaustive switch; either add a default or handle the remaining cases: SELECT, ENTER, FLIPPAGE, and 11 others
 switch(sfx) {
-
-> src\main\java\com\CrossingGuardJoe\model\game\RoadBuilder.java:76:
-[CatchAndPrintStackTrace] Logging or rethrowing exceptions should usually be preferred to catching and calling printStackTrace
-e.printStackTrace();
 
 > src\main\java\com\CrossingGuardJoe\viewer\images\defined\CarImage.java:4:
 [MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a stant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
@@ -442,7 +406,20 @@ public static final String[] NUMBERS = {
 > src\main\java\com\CrossingGuardJoe\viewer\images\Font\FontImages.java:186:
 [MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
 public static final String[] ALPHABET = {
->>>>>>> readmefile
+
+#### Justification
+
+> For [MutablePublicArray] warnings, we didn't correct it because we never make changes to the arrays, we only call them, because they represent elements images in our game, if 
+we had to change it, we would need to make changes in almost every class and respective tests and those changes could bring unnecessary errors to our working code.
+
+> For [LoopOverCharArray] warnings, we didn't correct it because we only intended to loop through the whole array, without worrying about efficiency.
+
+> For [MissingCasesInEnumSwitch] warnings, we didn't correct it because the missing cases aren't needed because they are never called.
+
+> For [JdkObsolete] warnings, we didn't change to ArrayDequeue because, first, we never learned about how to use ArrayDequeue (although it says it works exactly the same way), second, 
+we don't think there's a special need to change it, in the worst case, it could make our game not operative with errors in code.
+
+> For [CharacterGetNumericValue] warnings, we didn't correct it because we only need a method that correctly gets the respective image, if any other char is input the code won't read it and won't get an image (we won't even have it drawn).
 
 ### TESTING
 

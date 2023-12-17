@@ -29,6 +29,8 @@ public class InstructionsMenuController extends Controller<InstructionsMenu> {
                 game.popState();
                 SoundsController.getInstance().play(Sounds.SFX.MENUBGM);
                 break;
+            default:
+                break;
         }
     }
 }

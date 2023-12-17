@@ -177,6 +177,7 @@ public class LanternaGUI implements GUI {
         return colorCustomize.getMappedCharacter(character);
     }
 
+    @Override
     public ACTION getNextAction() throws IOException {
         KeyStroke keyStroke = screen.pollInput();
 

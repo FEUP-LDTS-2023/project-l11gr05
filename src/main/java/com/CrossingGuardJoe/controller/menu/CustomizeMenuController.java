@@ -46,6 +46,8 @@ public class CustomizeMenuController extends Controller<CustomizeMenu> {
                     oldColor = getModel().getSelectedColorChar();
                     getModel().setColorPaletteSelected(true);
                     break;
+                default:
+                    break;
             }
         }
         else {
@@ -66,6 +68,8 @@ public class CustomizeMenuController extends Controller<CustomizeMenu> {
                     char newColor = getModel().getColorPaletteMenu().getColorPalette().get(getModel().getColorPaletteMenu().getSelectedColorIndex()).getCharacter();
                     getModel().setColorChange(oldColor, newColor);
                     getModel().setColorPaletteSelected(false);
+                    break;
+                default:
                     break;
             }
         }

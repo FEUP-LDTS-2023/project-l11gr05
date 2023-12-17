@@ -44,6 +44,9 @@ public class GameOverMenuController extends Controller<GameOverMenu> {
                     game.popState();
                     SoundsController.getInstance().play(Sounds.SFX.MENUBGM);
                 }
+                break;
+            default:
+                break;
         }
     }
 }
