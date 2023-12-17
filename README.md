@@ -24,20 +24,60 @@ The following screenshots illustrate the general look of our game, as well as th
 <br />
 
 ### Menus
-![](docs/images/Menu.png)
+![](docs/images/menu/Menu.png)
 <p align="center" justify="center">
 <b><i>Fig 1. Main Menu</i></b>
 <br>
 <br />
 
-![](docs/images/Instructions.gif)
+![](docs/images/menu/Instructions.gif)
 <p align="center" justify="center">
 <b><i>Gif 2. Instructions Menu</i></b>
 <br>
 <br />
 
-![](docs/images/Customize.gif)
+![](docs/images/menu/Customize.gif)
 <p align="center" justify="center">
 <b><i>Gif 3. Customize Menu</i></b>
+<br>
+<br />
+
+![](docs/images/menu/Pause.png)
+<p align="center" justify="center">
+<b><i>Fig 2. Pause Menu</i></b>
+<br>
+<br />
+
+![](docs/images/menu/Stats.png)
+<p align="center" justify="center">
+<b><i>Fig 3. Stats Menu</i></b>
+<br>
+<br />
+
+### Animations
+
+![](docs/images/ingame/Joe.gif)
+<p align="center" justify="center">
+<b><i>Gif 4. Joe Movements</i></b>
+<br>
+<br />
+
+![](docs/images/ingame/Kid.gif)
+<p align="center" justify="center">
+<b><i>Gif 5. Kid Movements</i></b>
+<br>
+<br />
+
+### End Game
+
+![](docs/images/menu/Win.png)
+<p align="center" justify="center">
+<b><i>Fig 4. Win message</i></b>
+<br>
+<br />
+
+![](docs/images/menu/Lose.png)
+<p align="center" justify="center">
+<b><i>Fig 5. Lose message</i></b>
 <br>
 <br />

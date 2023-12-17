@@ -12,7 +12,7 @@ public class Road {
     private Joe joe;
     private List<Kid> kids;
     private List<Car> cars;
-    private int currentLevel = 9;
+    private int currentLevel = 1;
     private boolean gameEnded = false;
 
     public boolean isGameEnded() {

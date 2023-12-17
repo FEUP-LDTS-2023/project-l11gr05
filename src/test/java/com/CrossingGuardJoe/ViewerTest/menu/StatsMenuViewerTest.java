@@ -103,5 +103,11 @@ public class StatsMenuViewerTest {
         verify(guiMock).drawText(new Position(275, 340), 5, "#FFFFFF");
 
         verify(guiMock).drawImage(new Position(4, 4), KEY_ESC);
+
+        when(statsMenuMock.getCurrentLevel()).thenReturn(10);
+        when(statsMenuMock.getHighestLevel()).thenReturn(10);
+        statsMenuViewer.drawElements(guiMock);
+        verify(guiMock).drawText(new Position(275, 250), 9, "#FFFFFF");
+        verify(guiMock).drawText(new Position(275, 340), 9, "#FFFFFF");
     }
 }

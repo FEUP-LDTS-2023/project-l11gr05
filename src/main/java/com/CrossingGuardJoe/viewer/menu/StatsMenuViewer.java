@@ -30,10 +30,17 @@ public class StatsMenuViewer extends Viewer<StatsMenu> implements MenuInformatio
         gui.drawText(new Position(150, 340), "highest level", "#FFFFFF");
 
         gui.drawText(new Position(275, 210), getModel().getCurrentScore(), "#FFFFFF");
-        gui.drawText(new Position(275, 250), getModel().getCurrentLevel(), "#FFFFFF");
+        if (getModel().getCurrentLevel() == 10) {
+            gui.drawText(new Position(275, 250), 9, "#FFFFFF");
+        } else {
+            gui.drawText(new Position(275, 250), getModel().getCurrentLevel(), "#FFFFFF");
+        }
         gui.drawText(new Position(275, 300), getModel().getHighestScore(), "#FFFFFF");
-        gui.drawText(new Position(275, 340), getModel().getHighestLevel(), "#FFFFFF");
-
+        if (getModel().getHighestLevel() == 10) {
+            gui.drawText(new Position(275, 340), 9, "#FFFFFF");
+        } else {
+            gui.drawText(new Position(275, 340), getModel().getHighestLevel(), "#FFFFFF");
+        }
         gui.drawImage(new Position(4, 4), ToolImages.KEY_ESC);
     }
 }
