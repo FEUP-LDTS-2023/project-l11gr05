@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>AuxCheckRange.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package com.CrossingGuardJoe.controller.game;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.CrossingGuardJoe.model.game.elements.Car;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.CrossingGuardJoe.model.game.elements.Joe;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.CrossingGuardJoe.model.game.elements.Kid;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>public class AuxCheckRange {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private static final int JOE_AT_KID_RIGHT = 9;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private static final int JOE_AT_KID_LEFT = 21;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private static final int KID_AT_CAR_LEFT = 10;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private static final int KID_AT_CAR_RIGHT = 52;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private static final int CAR_FRONT = 15;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private static final int CAR_REAR = 65;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private static final int CAR_MIDDLE = 21;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private static final int JOE_AT_CAR_LEFTSIDE = 18;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private static final int JOE_AT_CAR_RIGHTSIDE = 52;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static boolean isInRangeJoeKid(Joe joe, Kid kid) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_19'/>
+19
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_19'>4</a>
+<span>
+
+1. isInRangeJoeKid : changed conditional boundary &rarr; SURVIVED<br/>
+
+2. isInRangeJoeKid : negated conditional &rarr; KILLED<br/>
+
+3. isInRangeJoeKid : Replaced integer addition with subtraction &rarr; KILLED<br/>
+
+4. isInRangeJoeKid : replaced boolean return with true for com/CrossingGuardJoe/controller/game/AuxCheckRange::isInRangeJoeKid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return joe.getPosition().getX() &#60;= kid.getPosition().getX() + JOE_AT_KID_RIGHT &#38;&#38;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_20'/>
+20
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_20'>3</a>
+<span>
+
+1. isInRangeJoeKid : changed conditional boundary &rarr; SURVIVED<br/>
+
+2. isInRangeJoeKid : negated conditional &rarr; KILLED<br/>
+
+3. isInRangeJoeKid : Replaced integer subtraction with addition &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                joe.getPosition().getX() &#62;= kid.getPosition().getX() - JOE_AT_KID_LEFT;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static boolean isInRangeCarKid(Car car, Kid kid) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_24'/>
+24
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_24'>4</a>
+<span>
+
+1. isInRangeCarKid : changed conditional boundary &rarr; SURVIVED<br/>
+
+2. isInRangeCarKid : replaced boolean return with true for com/CrossingGuardJoe/controller/game/AuxCheckRange::isInRangeCarKid &rarr; KILLED<br/>
+
+3. isInRangeCarKid : negated conditional &rarr; KILLED<br/>
+
+4. isInRangeCarKid : Replaced integer addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return car.getPosition().getX() &#60;= kid.getPosition().getX() + KID_AT_CAR_LEFT &#38;&#38;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_25'/>
+25
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_25'>3</a>
+<span>
+
+1. isInRangeCarKid : changed conditional boundary &rarr; SURVIVED<br/>
+
+2. isInRangeCarKid : negated conditional &rarr; KILLED<br/>
+
+3. isInRangeCarKid : Replaced integer subtraction with addition &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                car.getPosition().getX() &#62;= kid.getPosition().getX() - KID_AT_CAR_RIGHT &#38;&#38;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_26'/>
+26
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_26'>3</a>
+<span>
+
+1. isInRangeCarKid : changed conditional boundary &rarr; SURVIVED<br/>
+
+2. isInRangeCarKid : negated conditional &rarr; KILLED<br/>
+
+3. isInRangeCarKid : Replaced integer addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                car.getPosition().getY() &#60;= kid.getPosition().getY() + CAR_FRONT &#38;&#38;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_27'/>
+27
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_27'>3</a>
+<span>
+
+1. isInRangeCarKid : changed conditional boundary &rarr; SURVIVED<br/>
+
+2. isInRangeCarKid : Replaced integer subtraction with addition &rarr; KILLED<br/>
+
+3. isInRangeCarKid : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                car.getPosition().getY() &#62;= kid.getPosition().getY() - CAR_REAR;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static boolean isInRangeLeftCarJoe(Car car, Joe joe) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_31'/>
+31
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_31'>4</a>
+<span>
+
+1. isInRangeLeftCarJoe : changed conditional boundary &rarr; SURVIVED<br/>
+
+2. isInRangeLeftCarJoe : negated conditional &rarr; KILLED<br/>
+
+3. isInRangeLeftCarJoe : replaced boolean return with true for com/CrossingGuardJoe/controller/game/AuxCheckRange::isInRangeLeftCarJoe &rarr; KILLED<br/>
+
+4. isInRangeLeftCarJoe : Replaced integer addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return car.getPosition().getX() &#60;= joe.getPosition().getX() + CAR_MIDDLE &#38;&#38;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_32'/>
+32
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_32'>3</a>
+<span>
+
+1. isInRangeLeftCarJoe : changed conditional boundary &rarr; SURVIVED<br/>
+
+2. isInRangeLeftCarJoe : Replaced integer subtraction with addition &rarr; KILLED<br/>
+
+3. isInRangeLeftCarJoe : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                car.getPosition().getX() &#62;= joe.getPosition().getX() - JOE_AT_CAR_LEFTSIDE &#38;&#38;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_33'/>
+33
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_33'>3</a>
+<span>
+
+1. isInRangeLeftCarJoe : changed conditional boundary &rarr; SURVIVED<br/>
+
+2. isInRangeLeftCarJoe : Replaced integer addition with subtraction &rarr; KILLED<br/>
+
+3. isInRangeLeftCarJoe : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                car.getPosition().getY() &#60;= joe.getPosition().getY() + CAR_FRONT &#38;&#38;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_34'/>
+34
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_34'>3</a>
+<span>
+
+1. isInRangeLeftCarJoe : changed conditional boundary &rarr; SURVIVED<br/>
+
+2. isInRangeLeftCarJoe : negated conditional &rarr; KILLED<br/>
+
+3. isInRangeLeftCarJoe : Replaced integer subtraction with addition &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                car.getPosition().getY() &#62;= joe.getPosition().getY() - CAR_REAR;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static boolean isInRangeRightCarJoe(Car car, Joe joe) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_38'/>
+38
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_38'>4</a>
+<span>
+
+1. isInRangeRightCarJoe : changed conditional boundary &rarr; SURVIVED<br/>
+
+2. isInRangeRightCarJoe : Replaced integer addition with subtraction &rarr; KILLED<br/>
+
+3. isInRangeRightCarJoe : replaced boolean return with true for com/CrossingGuardJoe/controller/game/AuxCheckRange::isInRangeRightCarJoe &rarr; KILLED<br/>
+
+4. isInRangeRightCarJoe : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return car.getPosition().getX() &#60; joe.getPosition().getX() + CAR_MIDDLE &#38;&#38;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_39'/>
+39
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_39'>3</a>
+<span>
+
+1. isInRangeRightCarJoe : changed conditional boundary &rarr; SURVIVED<br/>
+
+2. isInRangeRightCarJoe : negated conditional &rarr; KILLED<br/>
+
+3. isInRangeRightCarJoe : Replaced integer subtraction with addition &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                car.getPosition().getX() &#62;= joe.getPosition().getX() - JOE_AT_CAR_RIGHTSIDE &#38;&#38;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_40'/>
+40
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_40'>3</a>
+<span>
+
+1. isInRangeRightCarJoe : changed conditional boundary &rarr; SURVIVED<br/>
+
+2. isInRangeRightCarJoe : negated conditional &rarr; KILLED<br/>
+
+3. isInRangeRightCarJoe : Replaced integer addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                car.getPosition().getY() &#60;= joe.getPosition().getY() + CAR_FRONT &#38;&#38;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_41'/>
+41
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_41'>3</a>
+<span>
+
+1. isInRangeRightCarJoe : changed conditional boundary &rarr; SURVIVED<br/>
+
+2. isInRangeRightCarJoe : Replaced integer subtraction with addition &rarr; KILLED<br/>
+
+3. isInRangeRightCarJoe : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                car.getPosition().getY() &#62;= joe.getPosition().getY() - CAR_REAR;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_19'>19</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_19'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isInRangeJoeKid<br/><b>Killed by : </b>com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest]/[method:testIsInRangeJoeKid()]</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isInRangeJoeKid<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isInRangeJoeKid<br/><b>Killed by : </b>com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest]/[method:testIsInRangeJoeKid()]</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>isInRangeJoeKid<br/><b>Killed by : </b>com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest]/[method:testIsInRangeJoeKid()]</span></span> replaced boolean return with true for com/CrossingGuardJoe/controller/game/AuxCheckRange::isInRangeJoeKid &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_20'>20</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_20'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isInRangeJoeKid<br/><b>Killed by : </b>com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest]/[method:testIsInRangeJoeKid()]</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isInRangeJoeKid<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isInRangeJoeKid<br/><b>Killed by : </b>com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest]/[method:testIsInRangeJoeKid()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_24'>24</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_24'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isInRangeCarKid<br/><b>Killed by : </b>com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest]/[method:testIsInRangeCarKid()]</span></span> replaced boolean return with true for com/CrossingGuardJoe/controller/game/AuxCheckRange::isInRangeCarKid &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isInRangeCarKid<br/><b>Killed by : </b>com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest]/[method:testIsInRangeCarKid()]</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isInRangeCarKid<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>isInRangeCarKid<br/><b>Killed by : </b>com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest]/[method:testIsInRangeCarKid()]</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_25'>25</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_25'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isInRangeCarKid<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isInRangeCarKid<br/><b>Killed by : </b>com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest]/[method:testIsInRangeCarKid()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isInRangeCarKid<br/><b>Killed by : </b>com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest]/[method:testIsInRangeCarKid()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_26'>26</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_26'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isInRangeCarKid<br/><b>Killed by : </b>com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest]/[method:testIsInRangeCarKid()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isInRangeCarKid<br/><b>Killed by : </b>com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest]/[method:testIsInRangeCarKid()]</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isInRangeCarKid<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_27'>27</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_27'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isInRangeCarKid<br/><b>Killed by : </b>com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest]/[method:testIsInRangeCarKid()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isInRangeCarKid<br/><b>Killed by : </b>com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest]/[method:testIsInRangeCarKid()]</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isInRangeCarKid<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_31'>31</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_31'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isInRangeLeftCarJoe<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isInRangeLeftCarJoe<br/><b>Killed by : </b>com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest]/[method:testIsInRangeLeftCarJoe()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isInRangeLeftCarJoe<br/><b>Killed by : </b>com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest]/[method:testIsInRangeLeftCarJoe()]</span></span> replaced boolean return with true for com/CrossingGuardJoe/controller/game/AuxCheckRange::isInRangeLeftCarJoe &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>isInRangeLeftCarJoe<br/><b>Killed by : </b>com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest]/[method:testIsInRangeLeftCarJoe()]</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_32'>32</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_32'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isInRangeLeftCarJoe<br/><b>Killed by : </b>com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest]/[method:testIsInRangeLeftCarJoe()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isInRangeLeftCarJoe<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isInRangeLeftCarJoe<br/><b>Killed by : </b>com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest]/[method:testIsInRangeLeftCarJoe()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_33'>33</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_33'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isInRangeLeftCarJoe<br/><b>Killed by : </b>com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest]/[method:testIsInRangeLeftCarJoe()]</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isInRangeLeftCarJoe<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isInRangeLeftCarJoe<br/><b>Killed by : </b>com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest]/[method:testIsInRangeLeftCarJoe()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_34'>34</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_34'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isInRangeLeftCarJoe<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isInRangeLeftCarJoe<br/><b>Killed by : </b>com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest]/[method:testIsInRangeLeftCarJoe()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isInRangeLeftCarJoe<br/><b>Killed by : </b>com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest]/[method:testIsInRangeLeftCarJoe()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_38'>38</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_38'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isInRangeRightCarJoe<br/><b>Killed by : </b>com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest]/[method:testIsInRangeRightCarJoe()]</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isInRangeRightCarJoe<br/><b>Killed by : </b>com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest]/[method:testIsInRangeRightCarJoe()]</span></span> replaced boolean return with true for com/CrossingGuardJoe/controller/game/AuxCheckRange::isInRangeRightCarJoe &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isInRangeRightCarJoe<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>isInRangeRightCarJoe<br/><b>Killed by : </b>com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest]/[method:testIsInRangeRightCarJoe()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_39'>39</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_39'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isInRangeRightCarJoe<br/><b>Killed by : </b>com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest]/[method:testIsInRangeRightCarJoe()]</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isInRangeRightCarJoe<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isInRangeRightCarJoe<br/><b>Killed by : </b>com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest]/[method:testIsInRangeRightCarJoe()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_40'>40</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_40'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isInRangeRightCarJoe<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isInRangeRightCarJoe<br/><b>Killed by : </b>com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest]/[method:testIsInRangeRightCarJoe()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isInRangeRightCarJoe<br/><b>Killed by : </b>com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest]/[method:testIsInRangeRightCarJoe()]</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b9e69fb_41'>41</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b9e69fb_41'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isInRangeRightCarJoe<br/><b>Killed by : </b>com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest]/[method:testIsInRangeRightCarJoe()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isInRangeRightCarJoe<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isInRangeRightCarJoe<br/><b>Killed by : </b>com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest]/[method:testIsInRangeRightCarJoe()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest]/[method:testIsInRangeCarKid()] (22 ms)</li><li>com.CrossingGuardJoe.ControllerTest.game.elements.KidControllerTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.elements.KidControllerTest]/[method:stopKidWhenNearJoeTest()] (6 ms)</li><li>com.CrossingGuardJoe.ControllerTest.game.elements.KidControllerTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.elements.KidControllerTest]/[method:checkPointsTest()] (7 ms)</li><li>com.CrossingGuardJoe.ControllerTest.game.elements.KidControllerTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.elements.KidControllerTest]/[method:kidPassTest()] (7 ms)</li><li>com.CrossingGuardJoe.ControllerTest.game.elements.KidControllerTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.elements.KidControllerTest]/[method:nextLevelNumberKidsTest()] (5 ms)</li><li>com.CrossingGuardJoe.ControllerTest.game.elements.KidControllerTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.elements.KidControllerTest]/[method:kidHitByCarTest()] (5 ms)</li><li>com.CrossingGuardJoe.ControllerTest.game.elements.KidControllerTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.elements.KidControllerTest]/[method:kidStopTest()] (7 ms)</li><li>com.CrossingGuardJoe.ControllerTest.game.elements.KidControllerTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.elements.KidControllerTest]/[method:inMinDistanceTest()] (6 ms)</li><li>com.CrossingGuardJoe.ControllerTest.game.elements.KidControllerTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.elements.KidControllerTest]/[method:canContinueWalkTest()] (5 ms)</li><li>com.CrossingGuardJoe.ControllerTest.game.elements.KidControllerTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.elements.KidControllerTest]/[method:repositionQueueTest()] (6 ms)</li><li>com.CrossingGuardJoe.ControllerTest.game.elements.KidControllerTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.elements.KidControllerTest]/[method:kidWalkTest()] (13 ms)</li><li>com.CrossingGuardJoe.ControllerTest.game.elements.KidControllerTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.elements.KidControllerTest]/[method:checkCountToNextLevel()] (28 ms)</li><li>com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest]/[method:testIsInRangeRightCarJoe()] (0 ms)</li><li>com.CrossingGuardJoe.ControllerTest.game.elements.JoeControllerTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.elements.JoeControllerTest]/[method:cannotGoThrough()] (1 ms)</li><li>com.CrossingGuardJoe.ControllerTest.game.elements.JoeControllerTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.elements.JoeControllerTest]/[method:cancelMove()] (1 ms)</li><li>com.CrossingGuardJoe.ControllerTest.game.elements.JoeControllerTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.elements.JoeControllerTest]/[method:nextActionTest()] (7 ms)</li><li>com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest]/[method:testIsInRangeLeftCarJoe()] (0 ms)</li><li>com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest.[engine:junit-jupiter]/[class:com.CrossingGuardJoe.ControllerTest.game.AuxCheckRangeTest]/[method:testIsInRangeJoeKid()] (0 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.15.0
+
+</body>
+</html>

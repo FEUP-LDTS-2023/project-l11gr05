@@ -2,11 +2,7 @@ plugins {
     id 'java'
     id 'application'
     id 'info.solidsoft.pitest' version '1.15.0'
-<<<<<<< HEAD
     //id "org.kordamp.gradle.errorprone" version "2.21.1"
-=======
-    id "org.kordamp.gradle.errorprone" version "0.53.0"
->>>>>>> readmefile
 }
 
 group = 'com.CrossingGuardJoe'
