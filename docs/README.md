@@ -14,13 +14,13 @@ This project was developed by Bruno Huang (up202207517@fe.up.pt) and Ricardo Yan
 
 - **Menu** - Upon launching the application, a menu will be displayed presenting "START GAME", "INSTRUCTIONS", "CUSTOMIZE" and "EXIT".
 - **Instructions** - 5 pages illustrated that show how you can play the game.
-- **Customize** - Menu where user can change Joe's, kid's outfit color or car's color.
+- **Customize** - Menu where user can change Joe's, kid's outfit color and car's color.
 - **Exit** - Exit game.
 - **Sound** - Plenty of SFX and BGM implemented in game.
-- **Pause** - User can press 'ESC' mid-game to pause the game, then it's possible to resume, see stats, or exit.
+- **Pause** - User can press 'ESC' mid-game to pause the game, then it's possible to resume, see game stats, or exit.
 - **Stats** - User/player can see the current level, score and highest level, score.
 - **Player movement** - The game character (Joe) is able to move left or right when corresponding arrow key is pressed.
-- **Player control** - A kid will start to move when Joe is near it (an arrow will appear pointing to the kid) and presses 'arrowDown' key, when 'arrowUp' key is pressed the kid stops moving.
+- **Player control** - A kid will start to move when Joe is near it (an arrow will appear pointing to the kid) and presses 'arrowDown' key, or the kid will stop when 'arrowUp' key is pressed.
 - **Player collision** - When Joe gets hit by a car, he is projected to either left or right side of the car.
 - **Kid** - Kids are instantiated in a queue at the right sidewalk of the street, and they walk at a constant defined speed when Joe lets them walk.
 - **Kid collision** - When a kid is hit, it goes with the car.
