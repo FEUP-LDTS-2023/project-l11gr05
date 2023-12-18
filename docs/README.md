@@ -61,11 +61,11 @@ View: Handles the drawing of images on the screen.
 
 Controller: Manages user input and orchestrates the interaction between the Model and View for smooth image rendering and movement.
 
-These classes can be found below:
+These directories can be found below:
 
-- [Model](https://github.com/FEUP-LDTS-2023/project-l11gr05/tree/master/src/main/java/com/aor/CrossingGuardJoe/model)
-- [View](https://github.com/FEUP-LDTS-2023/project-l11gr05/tree/master/src/main/java/com/aor/CrossingGuardJoe/view)
-- [Controller](https://github.com/FEUP-LDTS-2023/project-l11gr05/tree/master/src/main/java/com/aor/CrossingGuardJoe/controller)
+- [Model](../src/main/java/com/CrossingGuardJoe/model)
+- [View](../src/main/java/com/CrossingGuardJoe/viewer)
+- [Controller](../src/main/java/com/CrossingGuardJoe/controller)
 
 **Consequences**
 
@@ -175,6 +175,27 @@ These classes can be found below:
 
 With this pattern the code only needs to deal with the input of the user, and is shielded from the details of object creation, 
 allowing for flexibility and loose coupling between the client and the created objects.
+
+#### COLOR MATCH
+
+**Problem in Context**
+
+When drawing the images we thought that with a certain color matching to a certain character would facilitate our coding and readability of the images.
+
+**The Pattern**
+
+We have applied the **Singleton** pattern. This allowed us to be able to use getInstance() method and make use of a single instance of character (color) through the
+entire code, for e.g. '$' matches color black (#000000), whenever we needed to use a color, we could simply get it from the "map of colors" that we created.
+
+**Implementation**
+
+![](images/UMLs/Singleton2.png)
+
+With ColorCustomize class, every viewer class could make use of the same single object of color.
+
+**Consequences**
+
+With this pattern, we made the code more maintainable and readable without the need to create an instance of color every single time we used it in a different class.
 
 #### SOUND PROBLEMS
 
