@@ -5,15 +5,14 @@ import java.util.Random;
 import static com.CrossingGuardJoe.controller.Sounds.SFX;
 
 public class SoundsController {
-    private Sounds menuBgm, gameBgm, customizeBgm, instructionsBgm;
-    private Sounds select, enter, flipPage;
-    private Sounds levelUp;
-    private Sounds joePass1, joePass2, joeStop, joeHit;
-    private Sounds kidWalk1, kidStop1, kidStop2, kidHit, kidScore;
-    private Sounds carBreak;
-    private Sounds gameOver, victoryBgm;
-
-    private float defaultVolume = 0.5f;
+    private final Sounds menuBgm, gameBgm, customizeBgm, instructionsBgm;
+    private final Sounds select, enter, flipPage;
+    private final Sounds levelUp;
+    private final Sounds joePass1, joePass2, joeStop, joeHit;
+    private final Sounds kidWalk1, kidStop1, kidStop2, kidHit, kidScore;
+    private final Sounds carBreak;
+    private final Sounds gameOver, victoryBgm;
+    private static final float defaultVolume = 0.5f;
     private static SoundsController soundsController;
 
     private SoundsController() {

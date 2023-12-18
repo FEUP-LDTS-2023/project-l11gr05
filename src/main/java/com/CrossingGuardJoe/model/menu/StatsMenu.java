@@ -1,10 +1,10 @@
 package com.CrossingGuardJoe.model.menu;
 
 public class StatsMenu {
-    private int currentScore;
-    private int currentLevel;
-    private int highestScore;
-    private int highestLevel;
+    private final int currentScore;
+    private final int currentLevel;
+    private final int highestScore;
+    private final int highestLevel;
 
     public StatsMenu(int currentScore, int currentLevel, int highestScore, int highestLevel) {
         this.currentScore = currentScore;

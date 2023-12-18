@@ -8,7 +8,7 @@ import java.util.List;
 
 public class GameOverMenu implements MenuNavigator {
     private final boolean isWin;
-    private Road currentGame;
+    private final Road currentGame;
     private final List<Option> options;
     private int optionSelected = 0;
 

@@ -21,7 +21,7 @@ public class FontImageFactory {
         }
 
         for (int i = 0; i < text.length(); i++) {
-            Character character = text.charAt(i);
+            char character = text.charAt(i);
             String[] characterToAppend;
             if (character == ' ') {
                 characterToAppend = FontImages.getSpaceImage();
@@ -57,7 +57,7 @@ public class FontImageFactory {
         }
 
         for (int i = 0; i < numberString.length(); i++) {
-            Character character = numberString.charAt(i);
+            char character = numberString.charAt(i);
             String[] characterToAppend;
 
             characterToAppend = new String[16];

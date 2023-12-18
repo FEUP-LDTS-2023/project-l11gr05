@@ -9,7 +9,7 @@ import java.util.List;
 public class PauseMenu implements MenuNavigator{
     private final List<Option> options;
     private int optionSelected = 0;
-    private Road currentGame;
+    private final Road currentGame;
 
     public PauseMenu(Road currentGame) {
         this.currentGame = currentGame;

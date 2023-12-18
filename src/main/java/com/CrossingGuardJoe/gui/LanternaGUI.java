@@ -31,7 +31,7 @@ public class LanternaGUI implements GUI {
     private final int height;
     private final ColorCustomize colorCustomize = ColorCustomize.getInstance();
 
-    public LanternaGUI(int width, int height) throws IOException, URISyntaxException, FontFormatException {
+    public LanternaGUI(int width, int height) {
         this.width = width;
         this.height = height;
     }

@@ -11,8 +11,8 @@ import java.net.URISyntaxException;
 import java.util.Stack;
 
 public class Game {
-    private LanternaGUI gui;
-    private Stack<State> stateStack;
+    private final LanternaGUI gui;
+    private final Stack<State> stateStack;
     private int highestScore = 0;
     private int highestLevel = 0;
 
