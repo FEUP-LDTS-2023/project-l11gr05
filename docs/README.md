@@ -193,6 +193,13 @@ entire code, for e.g. '$' matches color black (#000000), whenever we needed to u
 
 With ColorCustomize class, every viewer class could make use of the same single object of color.
 
+These classes can be found below:
+
+- [Color](../src/main/java/com/CrossingGuardJoe/viewer/Color.java)
+- [ColorCustomize](../src/main/java/com/CrossingGuardJoe/viewer/ColorCustomize.java)
+- [LanternaGUI](../src/main/java/com/CrossingGuardJoe/gui/LanternaGUI.java)
+- [Viewer](../src/main/java/com/CrossingGuardJoe/viewer/Viewer.java)
+
 **Consequences**
 
 With this pattern, we made the code more maintainable and readable without the need to create an instance of color every single time we used it in a different class.
