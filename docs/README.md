@@ -39,10 +39,10 @@ This project was developed by Bruno Huang (up202207517@fe.up.pt) and Ricardo Yan
 
 ## DESIGN
 
-### UML
+### **UML**
 ![UML](images/UMLs/UML.png)
 
-### CODE ORGANIZATION
+### **CODE ORGANIZATION**
 
 **Problem in Context**
 
@@ -75,7 +75,7 @@ The use of the MVC architectural pattern in the current design allows the follow
 - increased code reusability. Models and views can be reused across different parts of the application, reducing redundancy.
 - the separation of concerns makes it easier to test individual components.
 
-### KEY INPUTS
+### **KEY INPUTS**
 
 **Problem in Context**
 
@@ -111,7 +111,7 @@ These classes can be found below:
 
 This implementation provided distributed event handling and reduced coupling between components.
 
-### DIFFERENT GAME STATES
+### **DIFFERENT GAME STATES**
 
 **Problem in Context**
 
@@ -146,7 +146,7 @@ These classes can be found below:
 The implementation of this pattern promotes cleaner code by encapsulating the state-specific behavior in separate classes.
 It showed particularly useful because game's behavior depends on its state and transitions between states.
 
-### IMAGE FONT DEFINITION
+### **IMAGE FONT DEFINITION**
 
 **Problem in Context**
 
@@ -176,7 +176,7 @@ These classes can be found below:
 With this pattern the code only needs to deal with the input of the user, and is shielded from the details of object creation, 
 allowing for flexibility and loose coupling between the client and the created objects.
 
-### COLOR MATCH
+### **COLOR MATCH**
 
 **Problem in Context**
 
@@ -204,7 +204,7 @@ These classes can be found below:
 
 With this pattern, we made the code more maintainable and readable without the need to create an instance of color every single time we used it in a different class.
 
-### SOUND PROBLEMS
+### **SOUND PROBLEMS**
 
 **Problem in Context**
 
