@@ -1,5 +1,6 @@
-## LDTS_1105 - CrossingGuardJoe
+# LDTS_1105 - CrossingGuardJoe
 
+## GAME DESCRIPTION
 > Get ready for the ultimate adrenaline rush in this action-packed arcade adventure as Crossing Guard Joe!  
 > Brace yourself for the chaotic street where you'll battle unruly drivers.  
 > This game demands lightning-fast reflexes and razor-sharp decision-making. The drivers show no mercy—they won't stop for anything, putting your quick thinking to the ultimate test as you navigate the kids to safety.  
@@ -9,6 +10,8 @@
 > Enter the game and show 'em who's the boss!
 
 This project was developed by Bruno Huang (up202207517@fe.up.pt) and Ricardo Yang (up202208465@fe.up.pt) for LDTS 2023⁄24.
+
+## FEATURES
 
 ### IMPLEMENTED FEATURES
 
@@ -34,12 +37,12 @@ This project was developed by Bruno Huang (up202207517@fe.up.pt) and Ricardo Yan
 
 - **NONE** - All features implemented.
 
-### DESIGN
+## DESIGN
 
-**UML**
+### UML
 ![UML](images/UMLs/UML.png)
 
-#### CODE ORGANIZATION
+### CODE ORGANIZATION
 
 **Problem in Context**
 
@@ -54,12 +57,9 @@ We have applied the **MVC** pattern. To enhance readability and improve programm
 ![](images/UMLs/MVC.png)
 
 We organized the code into three distinct sections:
-
-Model: Manages data related to image properties and movements.
-
-View: Handles the drawing of images on the screen.
-
-Controller: Manages user input and orchestrates the interaction between the Model and View for smooth image rendering and movement.
+- Model: Manages data related to image properties and movements.
+- View: Handles the drawing of images on the screen.
+- Controller: Manages user input and orchestrates the interaction between the Model and View for smooth image rendering and movement.
 
 These directories can be found below:
 
@@ -75,7 +75,7 @@ The use of the MVC architectural pattern in the current design allows the follow
 - increased code reusability. Models and views can be reused across different parts of the application, reducing redundancy.
 - the separation of concerns makes it easier to test individual components.
 
-#### Key inputs
+### KEY INPUTS
 
 **Problem in Context**
 
@@ -111,7 +111,7 @@ These classes can be found below:
 
 This implementation provided distributed event handling and reduced coupling between components.
 
-#### DIFFERENT GAME STATES
+### DIFFERENT GAME STATES
 
 **Problem in Context**
 
@@ -146,12 +146,12 @@ These classes can be found below:
 The implementation of this pattern promotes cleaner code by encapsulating the state-specific behavior in separate classes.
 It showed particularly useful because game's behavior depends on its state and transitions between states.
 
-#### IMAGE FONT DEFINITION
+### IMAGE FONT DEFINITION
 
 **Problem in Context**
 
 We realised that we had the need to make it easier to distinguish the number images from letter images, 
-because the whole font was drawn by ourselves so the code wouldn't be able know when to get 
+because the whole font was drawn by ourselves so the code wouldn't be able to know when to get 
 number images nor when to get letter images.
 
 **The Pattern**
@@ -176,7 +176,7 @@ These classes can be found below:
 With this pattern the code only needs to deal with the input of the user, and is shielded from the details of object creation, 
 allowing for flexibility and loose coupling between the client and the created objects.
 
-#### COLOR MATCH
+### COLOR MATCH
 
 **Problem in Context**
 
@@ -204,7 +204,8 @@ These classes can be found below:
 
 With this pattern, we made the code more maintainable and readable without the need to create an instance of color every single time we used it in a different class.
 
-#### SOUND PROBLEMS
+
+### SOUND PROBLEMS
 
 **Problem in Context**
 
@@ -240,13 +241,13 @@ These classes can be found below:
 This pattern made the code able to manage the same instance every time and not create a copy of it. 
 This helped us to stop/pause some sounds from different classes from the one it was instantiated.
 
-##### KNOWN CODE SMELLS
+## KNOWN CODE SMELLS
 
 > 1. In 'Menu Viewer' classes we have repeated blocks of code to draw a certain repeated image for each class that uses it.
 > 2. Some classes are too tightly coupled, maybe we could reduce dependencies and use proper encapsulation to make classes more independent.
 > 3. In viewer classes we use magic numbers without explanation to position the images on screen.
 
-#### ERROR-PRONE WARNINGS
+## ERROR-PRONE WARNINGS
 
 > src\main\java\com\CrossingGuardJoe\Game.java:22:
 [JdkObsolete] Stack is a nonstandard class that predates the Java Collections Framework; prefer ArrayDeque. Note that the Stack methods push/pop/peek correspond to the Deque methods addFirst/removeFirst/peekFirst.
@@ -255,7 +256,7 @@ stateStack = new Stack<>();
 > For [JdkObsolete] warnings, we didn't change to ArrayDequeue because after putting states in ArrayDequeue we faced the problem of nullpointer when exiting the game, and since we didn't learn about this data structure we didn't know how to fix it,
 and we were afraid of further problems given by it.
 
-### TESTING
+## TESTING
 
 > We didn't test 2 lanterna methods that would open a terminal and methods related to Game class because they would need an instance of Game.
 
