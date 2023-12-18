@@ -266,7 +266,7 @@ and we were afraid of further problems given by it.
 
 > Also in the 28% of mutation coverage, some were the sound instances that were inserted through the code that we couldn't make it to
 > not mutate, some were codes related to the positioning of the images and the movement of the characters (e.g. 'Kids' only walk to left
-> so the update of position would be 'position - x' from a call to a method 'MoveKid()', but the mutation would turn '-' to '+', also the 
+> so the update of position would be 'position - x' from a call to a method 'MoveKid()', but the mutation would turn **-** to **+**, also the 
 > positioning of images, because our game uses large images, we had the need to draw in a specified position and the pit test would mutate
 > the value of that position), other mutations were related with methods and lines of code that would update with the running of the game
 > and so we couldn't write tests to kill the mutations in those parts.
@@ -276,7 +276,7 @@ and we were afraid of further problems given by it.
 ### Link to mutation testing report
 - [Pit Test Coverage Report](pitest/index.html)
 
-### SELF-EVALUATION
+## SELF-EVALUATION
 
 - Bruno Huang: 50%
 - Ricardo Yang: 50%
