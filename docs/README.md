@@ -21,14 +21,14 @@ This project was developed by Bruno Huang (up202207517@fe.up.pt) and Ricardo Yan
 - **Exit** - Exit game.
 - **Sound** - Plenty of SFX and BGM implemented in game.
 - **Pause** - User can press 'ESC' mid-game to pause the game, then it's possible to resume, see game stats, or exit.
-- **Stats** - User/player can see the current level, score and highest level, score.
+- **Stats** - User/player can see the current level/score and highest level/score.
 - **Player movement** - The game character (Joe) is able to move left or right when corresponding arrow key is pressed.
-- **Player control** - A kid will start to move when Joe is near it (an arrow will appear pointing to the kid) and presses 'arrowDown' key, or the kid will stop when 'arrowUp' key is pressed.
+- **Player control** - A kid will start to move when Joe is near it (an arrow will appear pointing to the kid) and presses 'arrowDown' key, and will stop when 'arrowUp' key is pressed. Extra: if Joe is raising stop sign further ahead from kids, they will also stop when getting near Joe.
 - **Player collision** - When Joe gets hit by a car, he is projected to either left or right side of the car.
-- **Kid** - Kids are instantiated in a queue at the right sidewalk of the street, and they walk at a constant defined speed when Joe lets them walk.
+- **Kid** - Kids are instantiated in a queue at the right sidewalk of the street, and they walk at a constant defined speed when Joe lets them walk. A kid can never surpass the one in front of it.
 - **Kid collision** - When a kid is hit, it goes with the car.
 - **Car** - Cars are instantiated in a random road lane at the top side of the street, and they traverse the road in a unidirectional downward trajectory, the speed of a car is constant.
-- **Score** - For every kid passing to the left sidewalk of the street player gets 100 points. If Joe gets hit by a car points are taken (quantity defined by hit spot);
+- **Score** - For every kid passing to the left sidewalk of the street player gets 100 points. If Joe gets hit by a car points are taken (quantity defined by hit position: 8 if near center of car, 6, 4, 2 as Joe is hit further from car center);
 - **Lives** - When a kid is hit by a car, player loses one hp. The amount of hp starts as 10.
 - **Game over (Lose)** - When hp reaches 0 game ends.
 - **Game over (Win)** - When level 9 is completed user wins the game.
